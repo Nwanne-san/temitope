@@ -1,0 +1,17 @@
+import React from "react";
+
+function Impact() {
+  return (
+    <div className="bg-pink-300">
+      <section className="mx-auto py-12 px-10 container flex justify-between gap-4 font-semibold text-secondary text-2xl">
+        <h3 className="text-nowrap min-w-[300px]">Social Impact</h3>
+        <p className="p-2">
+          Founders Institute | Founderland | Fintech NGR | Women in Practice |
+          Nigerian Economic Summit Group | EvrydayfabWoman
+        </p>
+      </section>
+    </div>
+  );
+}
+
+export default Impact;
