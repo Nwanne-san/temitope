@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/pfp.jpg", 
+        url: "https://www.temitoperuthjacob.com/pfp.jpg", 
         width: 1200, // Recommended width
         height: 630, // Recommended height
         alt: "Temitope Ruth Jacob - Branding & Marketing Strategist",
