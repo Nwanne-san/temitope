@@ -26,9 +26,15 @@ const testimonials = [
   },
   {
     quote:
-      "Tolulope brings a unique combination of legal expertise and business acumen to the table. Her strategic insights have helped us navigate challenging regulatory environments across multiple African markets. I highly recommend her services to any fintech looking to scale.",
-    author: "Amara Okafor",
-    title: "COO, PAYPRO AFRICA",
+      "Ruth Temitope has proven she is a mastro when it comes to the branding game. Her eye for details, speed of precision and doggedness has really enabled her to carve a niche for herself in the creative space. As one who has spent over a decade in this line of business, I highly recommend her for any job that is creative related and I enjoy working with her.",
+    author: "Enyinnaya Iroadumba",
+    title: "Brand Connoisseur, Beacon Media Limited",
+  },
+  {
+    quote:
+      "Temitope's unique skills and cognate expertise in Branding and marketing is very exceptional and clearly shine through all our works. She is very detailed in understanding customer's requirements and  very creative in the execution towards achieving set goals. Really collaborative person to work with",
+    author: "Olu Kosovo",
+    title: "CEO, Alphagravida",
   },
 ];
 
