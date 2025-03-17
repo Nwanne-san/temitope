@@ -17,14 +17,26 @@ const baiJamjuree = Bai_Jamjuree({
 
 export const metadata: Metadata = {
   title: "Temitope Ruth Jacob",
-  icons: '/trj icon.png',
   description: "Personal Branding & Marketing Strategist",
-  openGraph:{
+  icons: {
+    icon: "/trj icon.png", // Favicon for browser tab
+  },
+  openGraph: {
     title: "Temitope Ruth Jacob",
-    images: '/pfp.jpg',
-    description: "Personal Branding & Marketing Strategist", 
-  }
+    description: "Personal Branding & Marketing Strategist",
+    url: "https://www.temitoperuthjacob.com", 
+    type: "website",
+    images: [
+      {
+        url: "/pfp.jpg", 
+        width: 1200, // Recommended width
+        height: 630, // Recommended height
+        alt: "Temitope Ruth Jacob - Branding & Marketing Strategist",
+      },
+    ],
+  },
 };
+
 
 export default function RootLayout({
   children,
