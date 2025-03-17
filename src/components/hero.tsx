@@ -8,7 +8,7 @@ import { FaFacebookF, FaTiktok, FaXTwitter } from "react-icons/fa6";
 
 function Hero() {
   return (
-    <section className="container mx-auto px-4 sm:py-12 flex pb-16 sm:pb-20 xl:pb-24 xl:px-10 flex-col xl:flex-row xl:grid grid-cols-2 items-center gap-12">
+    <section className="container mx-auto px-4 sm:py-12 flex pb-16 sm:pb-20 xl:pb-24 xl:px-10 flex-col-reverse lg:flex-row xl:grid grid-cols-2 items-center gap-12">
       <div className="flex-1 flex flex-col items-center xl:items-start text-center xl:text-start space-y-6">
         <motion.div
           initial={{ x: 100, opacity: 0 }}
