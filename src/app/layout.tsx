@@ -16,9 +16,8 @@ const baiJamjuree = Bai_Jamjuree({
 });
 
 export const metadata: Metadata = {
-  title: "Temitope Ruth",
-  description: "A comprehensive BI tool for data visualization and analysis",
-  generator: "v0.dev",
+  title: "Temitope Ruth Jacob",
+  description: "Branding & Marketing Strategist",
 };
 
 export default function RootLayout({

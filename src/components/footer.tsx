@@ -29,7 +29,7 @@ const Footer = () => {
         <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-8 py-12 border-t border-white/10">
           <div>
             <Image
-              src="/trj logo.png"
+              src="/TRJ logo white.png"
               alt="Tols Logo"
               width={120}
               height={40}
