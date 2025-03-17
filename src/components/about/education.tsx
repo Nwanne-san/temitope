@@ -13,7 +13,7 @@ function Education() {
       <div className="container mx-auto relative !text-black z-10 font-bai-jamjuree">
         <div className="flex  justify-between items-center mb-12">
           <h2 className="font-bai-jamjuree text-3xl md:text-4xl capitalize text-white font-semibold">
-            Education and recent Certifications timeline
+            Education and recent Certifications
           </h2>
         </div>
         <section className="grid sm:grid-cols-2 gap-3">
@@ -45,9 +45,9 @@ function Education() {
             <h4 className="font-semibold text-3xl text-white">Education</h4>
             <hr className="bg-white w-1/3" />
             <div className="flex flex-col">
-              <span className="text-lightGray/80">2023-2024</span>
+              <span className="text-lightGray/80">2024-2025</span>
               <p className="mb-2 text-xl text-white font-semibold">
-                MSc. Marketing And Sales | Rome Business School
+              Rome Business School | MSc. Marketing And Sales 
               </p>
               <span className="text-lightGray/80">-Rome, Italy</span>
             </div>

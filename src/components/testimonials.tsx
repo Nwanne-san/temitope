@@ -119,9 +119,9 @@ function Testimonials() {
     <section className="py-12 md:py-24 px-4 lg:px-10 bg-primary relative">
       {/* Background pattern with opacity */}
       <div
-        className="absolute inset-0 bg-contain z-0"
+        className="absolute inset-0 bg-cover z-0 bg-no-repeat bg-center"
         style={{
-          backgroundImage: "url(/pattern.png)",
+          backgroundImage: "url(/trj-pattern.png)",
           opacity: 0.1,
         }}
       />
@@ -169,7 +169,7 @@ function Testimonials() {
                 <div className="flex items-start">
                   <Quote size={60} className="text-primary-dark opacity-20" />
                 </div>
-                <p className="text-white/90 relative z-10 text-base font-poppins leading-relaxed">
+                <p className="text-white relative z-10 text-base font-poppins leading-relaxed">
                   {testimonials[firstIndex].quote}
                 </p>
                 <div className="text-white">
@@ -195,7 +195,7 @@ function Testimonials() {
                 <div className="flex items-start">
                   <Quote size={60} className="text-primary-dark opacity-20" />
                 </div>
-                <p className="text-white/90 relative z-10 text-base font-poppins leading-relaxed">
+                <p className="text-white relative z-10 text-base font-poppins leading-relaxed">
                   {testimonials[secondIndex].quote}
                 </p>
                 <div className="text-white">

@@ -17,7 +17,13 @@ const baiJamjuree = Bai_Jamjuree({
 
 export const metadata: Metadata = {
   title: "Temitope Ruth Jacob",
-  description: "Branding & Marketing Strategist",
+  icons: '/trj icon.png',
+  description: "Personal Branding & Marketing Strategist",
+  openGraph:{
+    title: "Temitope Ruth Jacob",
+    images: '/pfp.jpg',
+    description: "Personal Branding & Marketing Strategist", 
+  }
 };
 
 export default function RootLayout({
