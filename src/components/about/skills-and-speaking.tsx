@@ -46,7 +46,7 @@ function SkillBar({ name, percentage }: { name: string; percentage: number }) {
 
 export default function SkillsAndSpeaking() {
   return (
-    <div className="grid xl:grid-cols-2 mx-auto container px-10">
+    <div className="grid xl:grid-cols-2 mx-auto container xl:px-10">
       {/* Skills Section */}
       <motion.div
         className="bg-primary p-8 md:p-12"

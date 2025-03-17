@@ -8,8 +8,8 @@ import Resources from "@/components/resources";
 
 export default function Home() {
   return (
-    <main>
-      <section className="bg-gray-200  px-10">
+    <main className="m">
+      <section className="bg-gray-200 ">
         <Navbar />
         <Hero />
       </section>

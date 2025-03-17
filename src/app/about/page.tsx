@@ -10,11 +10,12 @@ import React from 'react'
 
 function AboutUs() {
   return (
-    <div className='flex flex-col gap-12'>
+    <div className='flex flex-col xl:gap-12'>
         <Navbar/>
         <HeroSection/>
         <Education/>
         <RecentProjects/>
+        <Impact/>
         <SkillsAndSpeaking/>
         <Footer/>
     </div>

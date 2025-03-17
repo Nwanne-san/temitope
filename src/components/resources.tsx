@@ -7,7 +7,7 @@ interface ResourcesProps {
 
 const Resources = forwardRef<HTMLElement, ResourcesProps>(({ id = "resources" }, ref) => {
   return (
-    <section id={id} ref={ref} className="container mx-auto px-4 py-12 md:py-24 scroll-mt-20">
+    <section id={id} ref={ref} className="container mx-auto px-4 lg:px-10 py-12 md:py-24 scroll-mt-20">
       <div className="space-y-2 mb-12">
         <p className="text-primary uppercase tracking-wider flex items-center gap-2">
           <span className="text-2xl">✱</span> ARTICLES, GUIDES, TEMPLATES

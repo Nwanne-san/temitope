@@ -6,17 +6,17 @@ import React from "react";
 
 function HeroSection() {
   return (
-    <section className="container mx-auto px-10 py-12 flex flex-col md:flex-ow md:grid grid-cols-2 items-center gap-12">
-      <div className="flex flex-col items-center gap-5 xl:items-start">
+    <section className="container mx-auto  xl:px-10 xl:py-12 flex flex-col xl:flex-row xl:grid grid-cols-2 items-center gap-12">
+      <div className="flex flex-col items-center px-4 sm:px-10 pt-10 xl:pt-0 xl:px-0 gap-5 xl:items-start">
         <div className="flex gap-4">
-          <Image src="/icon-2.png" alt="icon" width={20} height={10} />
+          <Image src="/iconn.jpg" alt="icon" width={20} height={20} />
           <span className="font-poppins text-base text-secondary uppercase">
             About me
           </span>
         </div>
         <div className="text-center xl:text-start space-y-7 text-sm">
           <h3 className="text-4xl text-secondary font-bold font-bai-jamjuree">
-            Meet Tolupe
+            Meet Temitope
           </h3>
           <p className="text-secondary-2 font-normal text-center xl:text-start mb-3">
             Temitope Ruth Jacob is a branding and marketing strategist with a
@@ -37,13 +37,13 @@ function HeroSection() {
             for her strategic approach to brand development. She understands
             that every business is unique and believes that a successful brand
             is more than just a logo and color scheme. Rather, it is an
-            expression of a company's values, vision, and mission.
+            expression of a company &apos; s values, vision, and mission.
           </p>
           <p className="text-secondary-2 font-normal text-center xl:text-start mb-3">
             Possessing a deep understanding of consumer behavior and market
             trends, she is driven to make a difference in the way brands engage
             with their target audience. She has a keen eye for identifying a
-            company's unique value proposition and developing creative
+            company &apos; s unique value proposition and developing creative
             strategies to communicate that message to the target audience. Armed
             with an insatiable curiosity and a hunger for knowledge, she has
             consistently sought for opportunities to expand my skills and
@@ -70,9 +70,9 @@ function HeroSection() {
           </p>
         </div>
       </div>
-      <div className="relative bg-lightGray/70 mt-9 h-full pt-20 flex items-end">
+      <div className="relative bg-lightGray/70 mt-9 h-[60vh] sm:h-screen w-full xl:pt-20 flex justify-center items-end">
         <motion.div
-          className="absolute lg:right-[15%] xl:right-[27%] bottom-[20%] xl:bottom-[27%]  z-[2]"
+          className="absolute lg:right-[35%] xl:right-[27%] max-sm:top-[25%] max-lg:top-[10%] xl:bottom-[32%]   z-[2]"
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 1, ease: "easeOut" }}
@@ -90,14 +90,14 @@ function HeroSection() {
           alt="Professional headshot"
           width={500}
           height={600}
-          className="grayscale-hover rounded-lg h- w-auto relative z-20"
+          className="grayscale-hover rounded-lg h-auto lg:h-full xl:h-auto w-auto relative z-20"
         />
         <Image
-          src="/pattern.png"
+          src="/trj-pattern.png"
           alt="Professional headshot"
           width={500}
-          height={100}
-          className="grayscale-hover w-full  bgpr absolute -bottom-[0%] left-0 rounded-lg  z-10"
+          height={200}
+          className="grayscale-hover w-full xl:h-auto h- absolute -bottom-[30%] xl:-bottom-[0%] left-0 rounded-lg  z-10"
         />
       </div>
     </section>
