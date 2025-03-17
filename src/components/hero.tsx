@@ -6,7 +6,10 @@ import { Instagram, Linkedin } from "lucide-react";
 import { motion } from "framer-motion";
 import { FaFacebookF, FaTiktok, FaXTwitter } from "react-icons/fa6";
 
-function Hero() {
+interface HeroProps {
+  setActivePage: (page: string) => void
+}
+function Hero({ setActivePage }: HeroProps) {
   return (
     <section className="container mx-auto px-4 sm:py-12 flex pb-16 sm:pb-20 xl:pb-24 xl:px-10 flex-col-reverse lg:flex-row xl:grid grid-cols-2 items-center gap-12">
       <div className="flex-1 flex flex-col items-center xl:items-start text-center xl:text-start space-y-6">
@@ -61,7 +64,7 @@ function Hero() {
           {/* Not animated as requested */}
           <Button
             variant="primary"
-            href="/about"
+            // href="/about"
             className="bg-primary text-white text-nowrap tracking-widest py-3 px-5 rounded-tl-3xl text-xs sm:text-sm duration-300 hover:bg-primary/10 hover:text-primary border "
           >
             MEET TEMITOPE
@@ -74,8 +77,9 @@ function Hero() {
           >
             <Button
               variant="outline"
-              href="/about"
+              // href="/about"
               className="border-0 text-secondary text-nowrap text-xs sm:text-sm tracking-widest  duration-300 bg-lightGray rounded-br-3xl"
+              onClick={() => setActivePage("about")}
             >
               LEARN MORE
             </Button>

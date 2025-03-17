@@ -11,7 +11,7 @@ import React from 'react'
 function AboutUs() {
   return (
     <div className='flex flex-col xl:gap-12'>
-        <Navbar/>
+        {/* <Navbar/> */}
         <HeroSection/>
         <Education/>
         <RecentProjects/>
