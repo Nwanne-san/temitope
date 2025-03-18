@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import { FaFacebookF, FaTiktok, FaXTwitter } from "react-icons/fa6";
 
 interface HeroProps {
-  setActivePage: (page: string) => void
+  setActivePage: (page: string) => void;
 }
 function Hero({ setActivePage }: HeroProps) {
   return (
@@ -79,7 +79,10 @@ function Hero({ setActivePage }: HeroProps) {
               variant="outline"
               // href="/about"
               className="border-0 text-secondary text-nowrap text-xs sm:text-sm tracking-widest  duration-300 bg-lightGray rounded-br-3xl"
-              onClick={() => setActivePage("about")}
+              onClick={() => {
+                // setActivePage("about");
+                window.location.href = "/about";
+              }}
             >
               LEARN MORE
             </Button>

@@ -6,7 +6,7 @@ import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
 
 interface NavbarProps {
-  activePage: string;
+  activePage?: string;
   setActivePage: (page: string) => void;
 }
 
@@ -120,7 +120,12 @@ export default function Navbar({ activePage, setActivePage }: NavbarProps) {
         </div>
 
         <div className="flex items-center gap-3">
-          <Button className="duration-300 px-3 text-xs py-1 sm:text-base hover:bg-white rounded-br-2xl hover:text-primary border border-primary">
+          <Button
+            onClick={(e) => {
+              window.location.href = "";
+            }}
+            className="duration-300 px-3 text-xs py-1 sm:text-base hover:bg-white rounded-br-2xl hover:text-primary border border-primary"
+          >
             Connect With Me
           </Button>
           {/* Mobile Menu Button */}
@@ -183,7 +188,9 @@ export default function Navbar({ activePage, setActivePage }: NavbarProps) {
               }`}
               onClick={(e) => {
                 e.preventDefault();
-                setActivePage("about");
+                // setActivePage("about");
+                window.location.href = "/about";
+
                 setIsOpen(false);
               }}
             >

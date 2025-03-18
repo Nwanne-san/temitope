@@ -33,7 +33,13 @@ function Achievements({ setActivePage }: AchievementsProps) {
         <h2 className="font-bai-jamjuree font-semibold text-3xl md:text-4xl">
           Some Of My Projects
         </h2>
-        <Button variant="outline" onClick={() => setActivePage("about")}>
+        <Button
+          variant="outline"
+          onClick={() => {
+            // setActivePage("about");
+            window.location.href = "";
+          }}
+        >
           VIEW ALL
         </Button>
       </div>
