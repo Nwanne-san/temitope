@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Instagram, Linkedin } from "lucide-react";
 import { motion } from "framer-motion";
-import { FaFacebookF, FaTiktok, FaXTwitter } from "react-icons/fa6";
+import { FaFacebookF, FaTiktok, FaXTwitter, FaYoutube } from "react-icons/fa6";
 
 interface HeroProps {
   setActivePage: (page: string) => void;
@@ -129,6 +129,13 @@ function Hero({ setActivePage }: HeroProps) {
               target="_blank"
             >
               <FaXTwitter size={18} />
+            </Link>
+            <Link
+              href="https://youtube.com/@thebranding_queen?si=huxVKdlZKb6NDpFY"
+              className="text-white/70 p-2.5 hover:scale-90 duration-300 bg-black/80 rounded-full hover:text-white/80"
+              target="_blank"
+            >
+              <FaYoutube size={18} />
             </Link>
             <Link
               href="https://www.facebook.com/temitope.jacob.731?mibextid=LQQJ4d"
