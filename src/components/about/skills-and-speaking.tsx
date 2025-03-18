@@ -77,7 +77,7 @@ export default function SkillsAndSpeaking() {
         <div>
           <Button
             variant="primary"
-            href="/connect"
+            // href="/connect"
             className="inline-flex items-center bg-primary"
           >
             CONNECT WITH ME
