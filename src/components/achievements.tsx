@@ -37,7 +37,7 @@ function Achievements({ setActivePage }: AchievementsProps) {
           variant="outline"
           onClick={() => {
             // setActivePage("about");
-            window.location.href = "";
+            window.location.href = "/about";
           }}
         >
           VIEW ALL

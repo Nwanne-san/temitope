@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
+import { useRouter, usePathname } from "next/navigation";
 
 interface NavbarProps {
   activePage?: string;
@@ -12,7 +13,7 @@ interface NavbarProps {
 
 export default function Navbar({ activePage, setActivePage }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
-
+  const pathname = usePathname();
   const scrollToSection = (sectionId: string) => {
     setIsOpen(false);
 
@@ -33,6 +34,14 @@ export default function Navbar({ activePage, setActivePage }: NavbarProps) {
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
     }
+  };
+
+  // Helper function to determine if a path is active
+  const isActivePath = (path: string) => {
+    if (path === "/") {
+      return pathname === "/";
+    }
+    return pathname.startsWith(path);
   };
 
   // Handle hash in URL when page loads
@@ -69,7 +78,7 @@ export default function Navbar({ activePage, setActivePage }: NavbarProps) {
           onClick={(e) => {
             e.preventDefault();
             setActivePage("home");
-            window.location.href = "";
+            window.location.href = "/";
           }}
           className="z-10"
         >
@@ -82,15 +91,17 @@ export default function Navbar({ activePage, setActivePage }: NavbarProps) {
             onClick={(e) => {
               e.preventDefault();
               setActivePage("home");
+              window.location.href = "/";
             }}
             className={`transition-colors relative ${
-              activePage === "home"
+              isActivePath("/")
                 ? "text-primary font-medium"
                 : "hover:text-primary"
-            }`}
+            }
+            `}
           >
             HOME
-            {activePage === "home" && (
+            {isActivePath("/") && (
               <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-primary"></span>
             )}
           </button>
@@ -101,7 +112,7 @@ export default function Navbar({ activePage, setActivePage }: NavbarProps) {
               window.location.href = "/about";
             }}
             className={`transition-colors relative ${
-              activePage === "about"
+              isActivePath("/about")
                 ? "text-primary font-medium"
                 : "hover:text-primary"
             }`}
@@ -110,9 +121,19 @@ export default function Navbar({ activePage, setActivePage }: NavbarProps) {
             {activePage === "about" && (
               <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-primary"></span>
             )}
+            {isActivePath("/about") && (
+              <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-primary"></span>
+            )}
           </button>
           <button
-            onClick={() => scrollToSection("resources")}
+            onClick={() => {
+              if (isActivePath("/about")) {
+                window.location.href = "/#resources"; // Navigate first
+                setTimeout(() => scrollToSection("resources"), 500); // Delay scroll to allow navigation
+              } else {
+                scrollToSection("resources");
+              }
+            }}
             className="hover:text-primary transition-colors cursor-pointer"
           >
             RESOURCES
@@ -167,23 +188,30 @@ export default function Navbar({ activePage, setActivePage }: NavbarProps) {
 
           <div className="flex flex-col gap-6 mt-6">
             <button
-              className={`transition-colors relative pl-2 ${
-                activePage === "home"
-                  ? "text-primary font-medium border-l-2 border-primary"
+              className={`transition-colors text-start relative pl-2 ${
+                isActivePath("/")
+                  ? "text-primary font-medium  border-primary"
                   : "hover:text-primary"
               }`}
               onClick={(e) => {
                 e.preventDefault();
-                setActivePage("home");
+                window.location.href = "/";
                 setIsOpen(false);
               }}
             >
               HOME
+              {isActivePath("/") && (
+                <span className="absolute -bottom-2 left-0 w-fit h-0.5 bg-primary"></span>
+              )}
             </button>
             <button
-              className={`transition-colors relative pl-2 ${
+              className={`transition-colors text-start relative pl-2 ${
                 activePage === "about"
-                  ? "text-primary font-medium border-l-2 border-primary"
+                  ? "text-primary font-medium  border-primary"
+                  : "hover:text-primary"
+              } ${
+                isActivePath("/about")
+                  ? "text-primary font-medium"
                   : "hover:text-primary"
               }`}
               onClick={(e) => {
@@ -195,9 +223,19 @@ export default function Navbar({ activePage, setActivePage }: NavbarProps) {
               }}
             >
               ABOUT TEMITOPE
+              {isActivePath("/about") && (
+                <span className="absolute -bottom-2 left-0 w-fit h-0.5 bg-primary"></span>
+              )}
             </button>
             <button
-              onClick={() => scrollToSection("resources")}
+              onClick={() => {
+                if (isActivePath("/about")) {
+                  window.location.href = "/#resources"; // Navigate first
+                  setTimeout(() => scrollToSection("resources"), 500); // Delay scroll to allow navigation
+                } else {
+                  scrollToSection("resources");
+                }
+              }}
               className="hover:text-primary transition-colors text-left cursor-pointer pl-2"
             >
               RESOURCES
