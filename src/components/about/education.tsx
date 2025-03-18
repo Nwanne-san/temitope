@@ -36,7 +36,7 @@ function Education() {
             </div>
             <div className="flex flex-col">
               <p className="mb-2 text-xl text-white font-semibold">
-                Agillant Group: Agile Project Management
+                Agillant Group: Agile/Scrum Project Management
               </p>
               <span className="text-lightGray/80">-North Carolina, USA</span>
             </div>
@@ -54,7 +54,7 @@ function Education() {
             <div className="flex flex-col">
               <span className="text-lightGray/80">2016-2020</span>
               <p className="mb-2 text-xl text-white font-semibold">
-                Ahmadu Bello University | Bachelor of Science (BSc)
+                Ahmadu Bello University | BSc. Human Anatomy
               </p>
               <span className="text-lightGray/80">-Zaria, Nigeria</span>
             </div>

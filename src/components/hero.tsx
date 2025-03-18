@@ -57,7 +57,7 @@ function Hero({ setActivePage }: HeroProps) {
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
         >
-          Personal Branding | Marketing | Communication | Advertising | Strategy
+          Branding | Marketing | Communication | Advertising | Strategy
         </motion.p>
 
         <div className="flex  gap-6 lg:justify-between xl:justify-normal lg:gap-40 xl:gap-4 font-bai-jamjuree">
