@@ -150,7 +150,7 @@ const Resources = forwardRef<HTMLElement, ResourcesProps>(
       {
         title: "Personal Branding Consultation",
         subtitle: "",
-        image: "/Consulation.jpg",
+        image: "/brand-consultation.jpg",
         description:
           "Personal brand is essential for career advancement, networking, and establishing credibility, Schedule a consultation so we discuss how to shape your public perception.",
         cta: "Schedule Consultation",
