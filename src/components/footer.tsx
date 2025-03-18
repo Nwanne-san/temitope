@@ -50,48 +50,48 @@ const Footer = () => {
           </div>
           <div>
             <h3 className="font-bai-jamjuree text-lg mb-4">Follow Me</h3>
-            <div className="flex gap-6">
+            <div className="flex gap-4 sm:gap-6">
               <Link
                 href="https://www.linkedin.com/in/temitoperuthjacob?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
-                className="hover:text- p-3 rounded-full bg-gray-100 text-black/70 hover:scale-90 duration-200 ransition-colors"
+                className="hover:text- flex items-center justify-center px-2 py-1.5 sm:p-3 rounded-full bg-gray-100 text-black/70 hover:scale-90 duration-200 ransition-colors"
                 target="_blank"
               >
-                <Linkedin size={20} />
+                <Linkedin size={20} className="w-3.5 h-3.5 sm:w-5 sm:h-5 "  />
               </Link>
               <Link
                 href="https://www.instagram.com/thebranding.queen?igsh=b3BpcGdiejJmcG1y&utm_source=qr"
-                className="hover:text- p-3 rounded-full bg-gray-100 text-black/70 hover:scale-90 duration-200 ransition-colors"
+                className="hover:text- flex items-center justify-center px-2 py-1.5 sm:p-3 rounded-full bg-gray-100 text-black/70 hover:scale-90 duration-200 ransition-colors"
                 target="_blank"
               >
-                <Instagram size={20} />
+                <Instagram size={20} className="w-3.5 h-3.5 sm:w-5 sm:h-5 " />
               </Link>
               <Link
                 href="https://x.com/thebrand_queen?s=11&t=s_pVVBco_gTAYdv-a-BSew"
-                className="hover:text- p-3 rounded-full bg-gray-100 text-black/70 hover:scale-90 duration-200 ransition-colors"
+                className="hover:text- flex items-center justify-center px-2 py-1.5 sm:p-3 rounded-full bg-gray-100 text-black/70 hover:scale-90 duration-200 ransition-colors"
                 target="_blank"
               >
                 <FaXTwitter size={18} />
               </Link>
               <Link
                 href="https://youtube.com/@thebranding_queen?si=huxVKdlZKb6NDpFY"
-                className="hover:text- p-3 rounded-full bg-gray-100 text-black/70 hover:scale-90 duration-200 ransition-colors"
+                className="hover:text- flex items-center justify-center px-2 py-1.5 sm:p-3 rounded-full bg-gray-100 text-black/70 hover:scale-90 duration-200 ransition-colors"
                 target="_blank"
               >
                 <FaYoutube size={18} />
               </Link>
               <Link
                 href="https://www.tiktok.com/@thebranding.queen?_t=ZM-8uhkYvLIXYb&_r=1"
-                className="hover:text- p-3 rounded-full bg-gray-100 text-black/70 hover:scale-90 duration-200 ransition-colors"
+                className="hover:text- flex items-center justify-center px-2 py-1.5 sm:p-3 rounded-full bg-gray-100 text-black/70 hover:scale-90 duration-200 ransition-colors"
                 target="_blank"
               >
-                <FaTiktok size={20} />
+                <FaTiktok size={20} className="w-3.5 h-3.5 sm:w-5 sm:h-5 " />
               </Link>
               <Link
                 href="https://www.facebook.com/temitope.jacob.731?mibextid=LQQJ4d"
-                className="hover:text- p-3 rounded-full bg-gray-100 text-black/70 hover:scale-90 duration-200 ransition-colors"
+                className="hover:text- flex items-center justify-center px-2 py-1.5 sm:p-3 rounded-full bg-gray-100 text-black/70 hover:scale-90 duration-200 ransition-colors"
                 target="_blank"
               >
-                <FaFacebookF size={20} />
+                <FaFacebookF size={20} className="w-3.5 h-3.5 sm:w-5 sm:h-5 " />
               </Link>
             </div>
           </div>
@@ -113,7 +113,7 @@ const Footer = () => {
                   src="/Message.svg"
                   alt="message button"
                   width={30}
-                  height={20}
+                  height={20} className="w-3.5 h-3.5 sm:w-5 sm:h-5 "
                 />
               </button>
             </div>

@@ -148,6 +148,15 @@ const Resources = forwardRef<HTMLElement, ResourcesProps>(
         link: "#",
       },
       {
+        title: "Personal Branding Consultation",
+        subtitle: "",
+        image: "/Consulation.jpg",
+        description:
+          "Personal brand is essential for career advancement, networking, and establishing credibility, Schedule a consultation so we discuss how to shape your public perception.",
+        cta: "Schedule Consultation",
+        link: "https://chat.whatsapp.com/Ezs3MhInzZiHv6MRp8hYRo",
+      },
+      {
         title: "Subscribe to my YouTube Channel",
         subtitle: "",
         image: "/YOUTUBE.jpg",
@@ -174,15 +183,7 @@ const Resources = forwardRef<HTMLElement, ResourcesProps>(
         cta: "Connect With Me",
         link: "https://chat.whatsapp.com/Ezs3MhInzZiHv6MRp8hYRo",
       },
-      {
-        title: "Personal Branding Consultation",
-        subtitle: "",
-        image: "/Consulation.jpg",
-        description:
-          "Personal brand is essential for career advancement, networking, and establishing credibility, Schedule a consultation so we discuss how to shape your public perception.",
-        cta: "Schedule Consultation",
-        link: "https://chat.whatsapp.com/Ezs3MhInzZiHv6MRp8hYRo",
-      },
+
       {
         title: "My Articles",
         subtitle: "",
@@ -262,7 +263,7 @@ const Resources = forwardRef<HTMLElement, ResourcesProps>(
                   className="group flex-shrink-0 w-full flex sm:w-[calc(50%-16px)] items-center justify-center lg:w-[calc(33.333%-21.333px)] xl:w-[calc(25%-24px)] snap-start"
                 >
                   <div className="flex flex-col justify- gap-2 sm:gap-2.5 h-full">
-                    <h2 className="font-bai-jamjuree text-[22px] px-4 sm:px-0 h-16 font-semibold text-start">
+                    <h2 className="font-bai-jamjuree text-[22px] px-1 sm:px-0 h-16 font-semibold text-start">
                       {resource.title}
                       {resource.subtitle && (
                         <div className="text-lg font-medium">
@@ -288,7 +289,7 @@ const Resources = forwardRef<HTMLElement, ResourcesProps>(
                       </motion.div>
                     </Link>
                     {resource.description && (
-                      <p className="font-poppins px-4 sm:px-0 text-sm text-start mb-2 transition-colors sm:flex-grow">
+                      <p className="font-poppins px-1 sm:px-0 text-sm text-start mb-2 transition-colors sm:flex-grow">
                         {resource.description}
                       </p>
                     )}
@@ -307,13 +308,13 @@ const Resources = forwardRef<HTMLElement, ResourcesProps>(
               ))}
             </div>
             {isMobile && (
-              <div className="flex justify-center gap-2 mt-6">
+              <div className="flex justify-center gap-4 mt-6">
                 {Array.from({ length: totalSlides }).map((_, index) => (
                   <button
                     key={index}
                     onClick={() => goToSlide(index)}
                     className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                      currentIndex === index ? "bg-primary w-5" : "bg-gray-300"
+                      currentIndex === index ? "bg-primary w-8" : "bg-primary/40"
                     }`}
                     aria-label={`Go to slide ${index + 1}`}
                   />
