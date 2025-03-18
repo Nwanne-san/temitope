@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Button } from "./ui/button";
 import { Quote } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, useAnimation, type PanInfo } from "framer-motion";
 
 const testimonials = [
   {
@@ -26,94 +26,135 @@ const testimonials = [
   },
   {
     quote:
-      "Ruth Temitope has proven she is a mastro when it comes to the branding game. Her eye for details, speed of precision and doggedness has really enabled her to carve a niche for herself in the creative space. As one who has spent over a decade in this line of business, I highly recommend her for any job that is creative related and I enjoy working with her.",
+      "Ruth Temitope has proven she is a mastro when it comes to the branding game. Her eye for details, speed of precision and doggedness has really enabled her to carve a niche for herself in the creative space. As one who has spent over a decade in this line of business, I highly recommend her for any job that is creative related and I enjoy working with her.",
     author: "Enyinnaya Iroadumba",
     title: "Brand Connoisseur, Beacon Media Limited",
   },
   {
     quote:
-      "Temitope's unique skills and cognate expertise in Branding and marketing is very exceptional and clearly shine through all our works. She is very detailed in understanding customer's requirements and  very creative in the execution towards achieving set goals. Really collaborative person to work with",
+      "Temitope's unique skills and cognate expertise in Branding and marketing is very exceptional and clearly shine through all our works. She is very detailed in understanding customer's requirements and very creative in the execution towards achieving set goals. Really collaborative person to work with",
     author: "Olu Kosovo",
     title: "CEO, Alphagravida",
   },
 ];
 
 function Testimonials() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState(1);
-  const [isDragging, setIsDragging] = useState(false);
-  const autoPlayRef = useRef<NodeJS.Timeout | null>(null);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const controls = useAnimation();
   const INTERVAL_DELAY = 4000;
 
-  // Calculate the indices for the two visible testimonials
-  const firstIndex = currentIndex % testimonials.length;
-  const secondIndex = (currentIndex + 1) % testimonials.length;
-
-  const slideVariants = {
-    enter: (direction: number) => ({
-      x: direction > 0 ? "100%" : "-100%",
-      opacity: 0,
-    }),
-    center: {
-      x: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.4,
-        ease: "easeOut",
-      },
-    },
-    exit: (direction: number) => ({
-      x: direction > 0 ? "-100%" : "100%",
-      opacity: 0,
-      transition: {
-        duration: 0.4,
-        ease: "easeIn",
-      },
-    }),
-  };
-
-  const nextSlide = () => {
-    setDirection(1);
-    setCurrentIndex((prevIndex) => (prevIndex + 2) % testimonials.length);
-  };
-  // Function to go to the previous slide
-  const prevSlide = () => {
-    setDirection(-1);
-    setCurrentIndex(
-      (prevIndex) => (prevIndex - 2 + testimonials.length) % testimonials.length
-    );
-  };
-
-  // Auto-play functionality
+  // Check if we're on mobile
   useEffect(() => {
-    if (!isDragging) {
-      autoPlayRef.current = setTimeout(() => {
-        nextSlide();
-      }, INTERVAL_DELAY);
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    // Initial check
+    checkMobile();
+
+    // Add event listener for window resize
+    window.addEventListener("resize", checkMobile);
+
+    // Cleanup
+    return () => {
+      window.removeEventListener("resize", checkMobile);
+    };
+  }, []);
+
+  // Calculate total pages based on screen size
+  const itemsPerPage = isMobile ? 1 : 2;
+  const totalPages = Math.ceil(testimonials.length / itemsPerPage);
+
+  // Function to advance to the next page
+  const nextPage = async () => {
+    await controls.start({
+      x: "-100%",
+      transition: { duration: 0.5, ease: "easeInOut" },
+    });
+    setCurrentPage((prev) => (prev + 1) % totalPages);
+    controls.set({ x: "100%" });
+    await controls.start({
+      x: "0%",
+      transition: { duration: 0.5, ease: "easeOut" },
+    });
+  };
+
+  // Function to go to the previous page
+  const prevPage = async () => {
+    await controls.start({
+      x: "100%",
+      transition: { duration: 0.5, ease: "easeInOut" },
+    });
+    setCurrentPage((prev) => (prev - 1 + totalPages) % totalPages);
+    controls.set({ x: "-100%" });
+    await controls.start({
+      x: "0%",
+      transition: { duration: 0.5, ease: "easeOut" },
+    });
+  };
+
+  // Function to go to a specific page
+  const goToPage = async (page: number) => {
+    if (page === currentPage) return;
+
+    const direction = page > currentPage ? -1 : 1;
+    await controls.start({
+      x: `${direction * 100}%`,
+      transition: { duration: 0.5, ease: "easeInOut" },
+    });
+    setCurrentPage(page);
+    controls.set({ x: `${-direction * 100}%` });
+    await controls.start({
+      x: "0%",
+      transition: { duration: 0.5, ease: "easeOut" },
+    });
+  };
+
+  // Handle drag end
+  const handleDragEnd = (
+    event: MouseEvent | TouchEvent | PointerEvent,
+    info: PanInfo
+  ) => {
+    const threshold = 100;
+    if (info.offset.x < -threshold) {
+      nextPage();
+    } else if (info.offset.x > threshold) {
+      prevPage();
+    } else {
+      controls.start({ x: 0 });
+    }
+  };
+
+  // Set up the interval for auto-advancing testimonials
+  useEffect(() => {
+    if (!isPaused) {
+      intervalRef.current = setInterval(nextPage, INTERVAL_DELAY);
     }
 
     return () => {
-      if (autoPlayRef.current) {
-        clearTimeout(autoPlayRef.current);
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
       }
     };
-  }, [currentIndex, isDragging]);
+  }, [isPaused, currentPage]);
 
-  const handleDragEnd = (
-    _: any,
-    info: { offset: { x: number }; velocity: { x: number } }
-  ) => {
-    setIsDragging(false);
+  // Calculate which testimonials to show based on current page and screen size
+  const getVisibleTestimonials = () => {
+    const startIndex = currentPage * itemsPerPage;
+    const visibleItems = [];
 
-    // If dragged left with enough velocity or distance, go to next slide
-    if (info.offset.x < -100 || info.velocity.x < -500) {
-      nextSlide();
+    for (let i = 0; i < itemsPerPage; i++) {
+      const index = (startIndex + i) % testimonials.length;
+      visibleItems.push(testimonials[index]);
     }
-    // If dragged right with enough velocity or distance, go to previous slide
-    else if (info.offset.x > 100 || info.velocity.x > 500) {
-      prevSlide();
-    }
+
+    return visibleItems;
   };
+
+  const visibleTestimonials = getVisibleTestimonials();
 
   return (
     <section className="py-12 md:py-24 px-4 lg:px-10 bg-primary relative">
@@ -127,88 +168,78 @@ function Testimonials() {
       />
 
       {/* Content with full opacity */}
-      <div className="container mx-auto relative  !text-black z-10">
+      <div className="container mx-auto relative !text-black z-10">
         <div className="flex flex-col sm:flex-row gap-7 sm:gap-0 justify-between items-center mb-12">
           <h2 className="font-bai-jamjuree text-3xl md:text-4xl text-white font-semibold">
             Testimonials
           </h2>
-          <Button
-            className="bg-white/60 hover:bg-white hover:text-primary text-black px-6 py-2 rounded transition-colors"
-            // href="/meet"
-          >
+          <Button className="bg-white/60 hover:bg-white hover:text-primary text-black px-6 py-2 rounded transition-colors">
             MEET TEMITOPE
           </Button>
         </div>
 
         {/* Testimonial slider with fixed height */}
-        <div className="relative overflow-hidden min-h-96">
+        <div
+          className="relative overflow-hidden h-[50vh] sm:min-h-96 "
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
           <motion.div
-            className="grid md:grid-cols-2 gap-8 h-full"
+            className={`grid ${
+              isMobile ? "grid-cols-1" : "md:grid-cols-2"
+            } gap-8 h-full`}
+            animate={controls}
+            initial={{ x: 0 }}
             drag="x"
             dragConstraints={{ left: 0, right: 0 }}
             dragElastic={0.1}
-            onDragStart={() => {
-              setIsDragging(true);
-              if (autoPlayRef.current) {
-                clearTimeout(autoPlayRef.current);
-              }
-            }}
             onDragEnd={handleDragEnd}
           >
-            <AnimatePresence initial={false} custom={direction} mode="wait">
-              {/* First visible testimonial */}
-              <motion.div
-                key={`testimonial-${firstIndex}`}
-                className="relative space-y-4 overflow-y-auto h-full"
-                custom={direction}
-                variants={slideVariants}
-                initial="enter"
-                animate="center"
-                exit="exit"
+            {visibleTestimonials.map((testimonial, index) => (
+              <div
+                key={`testimonial-${currentPage}-${index}`}
+                className="relative space-y-4 h-full"
               >
                 <div className="flex items-start">
                   <Quote size={60} className="text-primary-dark opacity-20" />
                 </div>
                 <p className="text-white relative z-10 text-base font-poppins leading-relaxed">
-                  {testimonials[firstIndex].quote}
+                  {testimonial.quote}
                 </p>
                 <div className="text-white">
                   <h3 className="font-bai-jamjuree text-xl">
-                    {testimonials[firstIndex].author}
+                    {testimonial.author}
                   </h3>
                   <p className="text-white/70 uppercase text-sm">
-                    {testimonials[firstIndex].title}
+                    {testimonial.title}
                   </p>
                 </div>
-              </motion.div>
-
-              {/* Second visible testimonial */}
-              <motion.div
-                key={`testimonial-${secondIndex}`}
-                className="relative space-y-4 overflow-y-auto h-full"
-                custom={direction}
-                variants={slideVariants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-              >
-                <div className="flex items-start">
-                  <Quote size={60} className="text-primary-dark opacity-20" />
-                </div>
-                <p className="text-white relative z-10 text-base font-poppins leading-relaxed">
-                  {testimonials[secondIndex].quote}
-                </p>
-                <div className="text-white">
-                  <h3 className="font-bai-jamjuree text-xl">
-                    {testimonials[secondIndex].author}
-                  </h3>
-                  <p className="text-white/70 uppercase text-sm">
-                    {testimonials[secondIndex].title}
-                  </p>
-                </div>
-              </motion.div>
-            </AnimatePresence>
+              </div>
+            ))}
           </motion.div>
+        </div>
+
+        {/* Pagination indicators */}
+        <div className="flex sm:hidden justify-center mt-8 gap-2">
+          {Array.from({ length: totalPages }).map((_, index) => (
+            <button
+              key={`dot-${index}`}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                currentPage === index ? "w-6 bg-white" : "bg-white/40"
+              }`}
+              onClick={() => {
+                goToPage(index);
+                // Reset the timer when manually changing
+                if (intervalRef.current) {
+                  clearInterval(intervalRef.current);
+                  if (!isPaused) {
+                    intervalRef.current = setInterval(nextPage, INTERVAL_DELAY);
+                  }
+                }
+              }}
+              aria-label={`Go to testimonial page ${index + 1}`}
+            />
+          ))}
         </div>
       </div>
     </section>
