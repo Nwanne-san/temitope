@@ -17,7 +17,7 @@ const baiJamjuree = Bai_Jamjuree({
 
 export const metadata: Metadata = {
   title: "Temitope Ruth Jacob",
-  description: "Personal Branding & Marketing Strategist",
+  description: "Branding & Marketing Strategist",
   icons: {
     icon: "/trj icon.png", // Favicon for browser tab
   },

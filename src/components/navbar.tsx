@@ -1,109 +1,116 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Image from "next/image"
-import { Menu, X } from "lucide-react"
-import { Button } from "./ui/button"
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import { Menu, X } from "lucide-react";
+import { Button } from "./ui/button";
 
 interface NavbarProps {
-  activePage: string
-  setActivePage: (page: string) => void
+  activePage: string;
+  setActivePage: (page: string) => void;
 }
 
 export default function Navbar({ activePage, setActivePage }: NavbarProps) {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   const scrollToSection = (sectionId: string) => {
-    setIsOpen(false)
+    setIsOpen(false);
 
     if (activePage !== "home") {
-      setActivePage("home")
+      setActivePage("home");
       // Add a small delay to allow the home page to render before scrolling
       setTimeout(() => {
-        const section = document.getElementById(sectionId)
+        const section = document.getElementById(sectionId);
         if (section) {
-          section.scrollIntoView({ behavior: "smooth" })
+          section.scrollIntoView({ behavior: "smooth" });
         }
-      }, 100)
-      return
+      }, 100);
+      return;
     }
 
     // If we're already on the homepage, just scroll to the section
-    const section = document.getElementById(sectionId)
+    const section = document.getElementById(sectionId);
     if (section) {
-      section.scrollIntoView({ behavior: "smooth" })
+      section.scrollIntoView({ behavior: "smooth" });
     }
-  }
+  };
 
   // Handle hash in URL when page loads
   useEffect(() => {
     if (activePage === "home" && window.location.hash) {
-      const sectionId = window.location.hash.substring(1)
-      const section = document.getElementById(sectionId)
+      const sectionId = window.location.hash.substring(1);
+      const section = document.getElementById(sectionId);
       if (section) {
         // Small delay to ensure the page is fully loaded
         setTimeout(() => {
-          section.scrollIntoView({ behavior: "smooth" })
-        }, 500)
+          section.scrollIntoView({ behavior: "smooth" });
+        }, 500);
       }
     }
-  }, [activePage])
+  }, [activePage]);
 
   // Prevent body scrolling when menu is open
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = "hidden"
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = ""
+      document.body.style.overflow = "";
     }
 
     return () => {
-      document.body.style.overflow = ""
-    }
-  }, [isOpen])
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
 
   return (
     <div className="bg-gray-200">
       <nav className="mx-auto container relative px-4 py-6 sm:px-10 flex justify-between items-center">
-        <a
-          href="#"
+        <button
           onClick={(e) => {
-            e.preventDefault()
-            setActivePage("home")
+            e.preventDefault();
+            setActivePage("home");
+            window.location.href = "";
           }}
           className="z-10"
         >
           <Image src="/trj logo.png" alt="Tols Logo" width={120} height={40} />
-        </a>
+        </button>
 
         {/* Desktop Menu */}
         <div className="hidden text-sm xl:flex items-center gap-8">
-          <a
-            href="#"
+          <button
             onClick={(e) => {
-              e.preventDefault()
-              setActivePage("home")
+              e.preventDefault();
+              setActivePage("home");
             }}
             className={`transition-colors relative ${
-              activePage === "home" ? "text-primary font-medium" : "hover:text-primary"
+              activePage === "home"
+                ? "text-primary font-medium"
+                : "hover:text-primary"
             }`}
           >
             HOME
-            {activePage === "home" && <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-primary"></span>}
-          </a>
-          <a
-            href="#"
+            {activePage === "home" && (
+              <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-primary"></span>
+            )}
+          </button>
+          <button
             onClick={(e) => {
-              e.preventDefault()
-              setActivePage("about")
+              // e.preventDefault();
+              // setActivePage("about");
+              window.location.href = "/about";
             }}
             className={`transition-colors relative ${
-              activePage === "about" ? "text-primary font-medium" : "hover:text-primary"
+              activePage === "about"
+                ? "text-primary font-medium"
+                : "hover:text-primary"
             }`}
           >
             ABOUT TEMITOPE
-            {activePage === "about" && <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-primary"></span>}
-          </a>
+            {activePage === "about" && (
+              <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-primary"></span>
+            )}
+          </button>
           <button
             onClick={() => scrollToSection("resources")}
             className="hover:text-primary transition-colors cursor-pointer"
@@ -130,49 +137,58 @@ export default function Navbar({ activePage, setActivePage }: NavbarProps) {
           style={{ display: "block" }} /* Ensure it's always in the DOM */
         >
           <div className="flex justify-between items-center">
-            <a
-              href="#"
+            <button
               onClick={(e) => {
-                e.preventDefault()
-                setActivePage("home")
-                setIsOpen(false)
+                e.preventDefault();
+                setActivePage("home");
+                setIsOpen(false);
               }}
               className="z-10"
             >
-              <Image src="/trj logo.png" alt="Tols Logo" width={120} height={40} />
-            </a>
+              <Image
+                src="/trj logo.png"
+                alt="Tols Logo"
+                width={120}
+                height={40}
+              />
+            </button>
             <button onClick={() => setIsOpen(false)} className="p-1">
-              <X size={24} className="text-primary hover:text-gray-800 transition-colors" />
+              <X
+                size={24}
+                className="text-primary hover:text-gray-800 transition-colors"
+              />
             </button>
           </div>
 
           <div className="flex flex-col gap-6 mt-6">
-            <a
-              href="#"
+            <button
               className={`transition-colors relative pl-2 ${
-                activePage === "home" ? "text-primary font-medium border-l-2 border-primary" : "hover:text-primary"
+                activePage === "home"
+                  ? "text-primary font-medium border-l-2 border-primary"
+                  : "hover:text-primary"
               }`}
               onClick={(e) => {
-                e.preventDefault()
-                setActivePage("home")
-                setIsOpen(false)
+                e.preventDefault();
+                setActivePage("home");
+                setIsOpen(false);
               }}
             >
               HOME
-            </a>
-            <a
-              href="#"
+            </button>
+            <button
               className={`transition-colors relative pl-2 ${
-                activePage === "about" ? "text-primary font-medium border-l-2 border-primary" : "hover:text-primary"
+                activePage === "about"
+                  ? "text-primary font-medium border-l-2 border-primary"
+                  : "hover:text-primary"
               }`}
               onClick={(e) => {
-                e.preventDefault()
-                setActivePage("about")
-                setIsOpen(false)
+                e.preventDefault();
+                setActivePage("about");
+                setIsOpen(false);
               }}
             >
               ABOUT TEMITOPE
-            </a>
+            </button>
             <button
               onClick={() => scrollToSection("resources")}
               className="hover:text-primary transition-colors text-left cursor-pointer pl-2"
@@ -184,10 +200,12 @@ export default function Navbar({ activePage, setActivePage }: NavbarProps) {
 
         {/* Overlay with blur effect */}
         {isOpen && (
-          <div className="fixed inset-0 bg-black/20 backdrop-blur-[2px] z-40" onClick={() => setIsOpen(false)} />
+          <div
+            className="fixed inset-0 bg-black/20 backdrop-blur-[2px] z-40"
+            onClick={() => setIsOpen(false)}
+          />
         )}
       </nav>
     </div>
-  )
+  );
 }
-

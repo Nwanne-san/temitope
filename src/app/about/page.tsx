@@ -1,25 +1,9 @@
-
-import Education from '@/components/about/education'
-import HeroSection from '@/components/about/hero'
-import Impact from '@/components/about/impact'
-import RecentProjects from '@/components/about/projects'
-import SkillsAndSpeaking from '@/components/about/skills-and-speaking'
-import Footer from '@/components/footer'
-import Navbar from '@/components/navbar'
 import React from 'react'
 
-function AboutUs() {
+function page() {
   return (
-    <div className='flex flex-col xl:gap-12'>
-        {/* <Navbar/> */}
-        <HeroSection/>
-        <Education/>
-        <RecentProjects/>
-        <Impact/>
-        <SkillsAndSpeaking/>
-        <Footer/>
-    </div>
+    <div>page</div>
   )
 }
 
-export default AboutUs
+export default page

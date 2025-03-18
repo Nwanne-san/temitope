@@ -22,7 +22,7 @@ const Resources = forwardRef<HTMLElement, ResourcesProps>(
           </h2>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <Link href="/article" className="group">
+          <button className="group">
             <div className="relative h-48 mb-4 overflow-hidden rounded-lg">
               <div className="absolute inset-0 bg-gradient-to-br from-purple-100 via-pink-100 to-blue-200 group-hover:scale-105 transition-transform duration-300" />
             </div>
@@ -33,7 +33,7 @@ const Resources = forwardRef<HTMLElement, ResourcesProps>(
             <p className="text-primary uppercase flex items-center gap-2 text-sm">
               READ MORE <span className="text-lg">→</span>
             </p>
-          </Link>
+          </button>
         </div>
       </section>
     );
