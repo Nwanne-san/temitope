@@ -2,7 +2,7 @@ import { Instagram, Twitter, Linkedin } from "lucide-react";
 import { Button } from "./ui/button";
 import Image from "next/image";
 import Link from "next/link";
-import { FaFacebookF, FaTiktok, FaXTwitter } from "react-icons/fa6";
+import { FaFacebookF, FaTiktok, FaXTwitter, FaYoutube } from "react-icons/fa6";
 
 const date = new Date().getFullYear();
 const Footer = () => {
@@ -73,6 +73,13 @@ const Footer = () => {
                 <FaXTwitter size={18} />
               </Link>
               <Link
+                href="https://youtube.com/@thebranding_queen?si=huxVKdlZKb6NDpFY"
+                className="hover:text- p-3 rounded-full bg-gray-100 text-black/70 hover:scale-90 duration-200 ransition-colors"
+                target="_blank"
+              >
+                <FaYoutube size={18} />
+              </Link>
+              <Link
                 href="https://www.tiktok.com/@thebranding.queen?_t=ZM-8uhkYvLIXYb&_r=1"
                 className="hover:text- p-3 rounded-full bg-gray-100 text-black/70 hover:scale-90 duration-200 ransition-colors"
                 target="_blank"
@@ -115,8 +122,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-6 sm:pt-12 border-t border-white/10 text-sm text-white/40">
           <p className="sm:w-1/2 text-center sm:text-start">
             Copyright © {date} Temitope Ruth-Jacob. All rights reserved.
-            Designed By{" "}
-            <br className="hidden xl:block"/>
+            Designed By <br className="hidden xl:block" />
             <Link href="#" className="text-primary hover:text-primary/80">
               Nwanne Nnamani.
             </Link>

@@ -150,7 +150,7 @@ const Resources = forwardRef<HTMLElement, ResourcesProps>(
       {
         title: "Subscribe to my YouTube Channel",
         subtitle: "",
-        image: "/youtube.jpg",
+        image: "/YOUTUBE.jpg",
         description:
           "This handbook will guide you through a journey of Listen to Branding Strategist; Temitope Ruth Jacob @thebranding.queen discuss brand building strategies and gain insights on how craft an impactful brand experience.",
         cta: "Connect With Me",
@@ -175,9 +175,9 @@ const Resources = forwardRef<HTMLElement, ResourcesProps>(
         link: "https://chat.whatsapp.com/Ezs3MhInzZiHv6MRp8hYRo",
       },
       {
-        title: "Schedule A Personalised Consultation",
+        title: "Personal Branding Consultation",
         subtitle: "",
-        image: "/consulation.jpg",
+        image: "/Consulation.jpg",
         description:
           "Personal brand is essential for career advancement, networking, and establishing credibility, Schedule a consultation so we discuss how to shape your public perception.",
         cta: "Schedule Consultation",
@@ -261,8 +261,8 @@ const Resources = forwardRef<HTMLElement, ResourcesProps>(
                   transition={{ delay: index * 0.1 }}
                   className="group flex-shrink-0 w-full flex sm:w-[calc(50%-16px)] items-center justify-center lg:w-[calc(33.333%-21.333px)] xl:w-[calc(25%-24px)] snap-start"
                 >
-                  <div className="flex flex-col justify-between sm:gap-2.5 h-full">
-                    <h2 className="font-bai-jamjuree text-[22px] font-semibold text-start">
+                  <div className="flex flex-col justify- gap-2 sm:gap-2.5 h-full">
+                    <h2 className="font-bai-jamjuree text-[22px] px-4 sm:px-0 h-16 font-semibold text-start">
                       {resource.title}
                       {resource.subtitle && (
                         <div className="text-lg font-medium">
@@ -270,7 +270,10 @@ const Resources = forwardRef<HTMLElement, ResourcesProps>(
                         </div>
                       )}
                     </h2>
-                    <div className="flex justify-center items-center overflow-hidden rounded-md">
+                    <Link
+                      href={resource.link}
+                      className="flex justify-center items-center overflow-hidden rounded-md"
+                    >
                       <motion.div
                         whileHover={{ scale: 1.05 }}
                         transition={{ duration: 0.3 }}
@@ -283,14 +286,16 @@ const Resources = forwardRef<HTMLElement, ResourcesProps>(
                           className="rounded-md"
                         />
                       </motion.div>
-                    </div>
-                    <p className="font-poppins text-sm text-start mb-2 transition-colors sm:flex-grow">
-                      {resource.description}
-                    </p>
+                    </Link>
+                    {resource.description && (
+                      <p className="font-poppins px-4 sm:px-0 text-sm text-start mb-2 transition-colors sm:flex-grow">
+                        {resource.description}
+                      </p>
+                    )}
                     <Link
                       href={resource.link}
                       target="_blank"
-                      className="text-primary capitalize flex items-center gap-2 text-base sm:mtauto"
+                      className="text-primary hover:underline hover:text-secondary duration-300 px-4 sm:px-0 capitalize flex items-center gap-2 text-base sm:mtauto"
                     >
                       {resource.cta}{" "}
                       {resource.cta.includes("Download") && (
