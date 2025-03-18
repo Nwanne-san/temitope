@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Temitope Ruth Jacob",
-    description: "Personal Branding & Marketing Strategist",
+    description: "Branding & Marketing Strategist",
     url: "https://www.temitoperuthjacob.com", 
     type: "website",
     images: [

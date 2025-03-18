@@ -136,7 +136,7 @@ function Testimonials() {
             className="bg-white/60 hover:bg-white hover:text-primary text-black px-6 py-2 rounded transition-colors"
             // href="/meet"
           >
-            MEET TOLULOPE
+            MEET TEMITOPE
           </Button>
         </div>
 
