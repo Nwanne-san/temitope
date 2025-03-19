@@ -5,7 +5,7 @@ function RecentProjects() {
   const projects = [
     {
       title: "Branding & Communications Strategist",
-      role: `Creating and implementing Creative branding & communication Strategy for the UPGRADE MARKETING CONFERNCE 2025 themed; Marketing is of a Department. `,
+      role: `Creating and implementing Creative branding & communication Strategy for the UPGRADE MARKETING CONFERNCE 2025 themed; Marketing is not a Department. `,
       organization: "Yantic Business Academy",
       year: "2025",
       location: "lagos, nigeria",

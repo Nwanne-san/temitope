@@ -9,6 +9,7 @@ const skills = [
   { name: "Marketing Campaign Execution", percentage: 91 },
   { name: "Corporate Communications", percentage: 90 },
   { name: "Design Thinking", percentage: 95 },
+  { name: "Marketing Plan Development", percentage: 90 },
   { name: "Strategic Advertising", percentage: 93 },
   { name: "Leadership", percentage: 90 },
 ];
