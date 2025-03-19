@@ -187,8 +187,8 @@ const Resources = forwardRef<HTMLElement, ResourcesProps>(
       {
         title: "My Articles",
         subtitle: "",
-        image: "/articles.jpg",
-        description: "",
+        image: "/articles-2.jpg",
+        description: "Gain impactful insights on branding and marketing strategies.",
         cta: "Read my Articles",
         link: "https://temitoperuthjacob.medium.com",
       },
@@ -273,6 +273,7 @@ const Resources = forwardRef<HTMLElement, ResourcesProps>(
                     </h2>
                     <Link
                       href={resource.link}
+                      target="_blank"
                       className="flex justify-center items-center overflow-hidden rounded-md"
                     >
                       <motion.div
