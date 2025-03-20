@@ -102,7 +102,7 @@ export function BookModal({ onClose }: BookModalProps) {
             }`}
           >
             <h2 className="text-xl md:text-3xl font-bold mb-3">
-              Authentic Branding Handbook
+              Authentic Self Handbook
             </h2>
             <p className="text-gray-600 text-sm sm:text-base mb-6">
               Get your free copy of our exclusive e-book with practical guides
@@ -137,7 +137,7 @@ export function BookPromo({ onOpen }: BookPromoProps) {
 
   return (
     <div
-      className={`fixed bottom-4 left-4 z-[90] bg-secondary-2 rounded-lg shadow-lg p-3 flex items-center gap-3 cursor-pointer hover:shadow-xl transition-all duration-300 ease-out ${
+      className={`fixed bottom-4 right-4 z-[90] bg-secondary-2 rounded-lg shadow-lg p-3 flex flex-row items-center gap-3 cursor-pointer hover:shadow-xl transition-all duration-300 ease-out ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
       onClick={onOpen}
@@ -151,11 +151,11 @@ export function BookPromo({ onOpen }: BookPromoProps) {
           className="object-cover rounded-sm h-full w-full"
         />
       </div>
-      <div className="pr-2">
-        <h3 className="text-xs xl:text-sm font-semibold text-white">
+      <div className="sm:pr-2">
+        <h3 className="text-[10px] xl:text-sm font-semibold text-white">
           Personal branding handbook
         </h3>
-        <p className="text-xs text-white/80">Click to download now</p>
+        <p className="text-[10px] sm:text-xs text-white/80">Click to download now</p>
       </div>
     </div>
   );
