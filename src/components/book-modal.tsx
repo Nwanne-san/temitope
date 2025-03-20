@@ -62,7 +62,7 @@ export function BookModal({ onClose }: BookModalProps) {
     >
       <div
         ref={modalRef}
-        className={`relative w-[90%] md:w-[60%] max-sm:h-[70vh] bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-out ${
+        className={`relative w-[90%] md:w-[80%] max-sm:h-[70vh] bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-out ${
           isVisible
             ? "opacity-100 scale-100 translate-y-0"
             : "opacity-0 scale-95 translate-y-8"
@@ -70,7 +70,7 @@ export function BookModal({ onClose }: BookModalProps) {
       >
         <button
           onClick={handleClose}
-          className="absolute top-4 right-4 p-2 rounded-full bg-white/90 hover:bg-white text-gray-800 z-10 transition-transform duration-200 hover:scale-110"
+          className="absolute top-4 right-4 p-2 rounded-full bg-white/90 hover:bg-gray-700 hover:text-white/90 text-gray-800 z-10 transition-transform duration-200 hover:scale-110"
         >
           <X className="h-5 w-5" />
         </button>
