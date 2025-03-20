@@ -154,7 +154,7 @@ const Resources = forwardRef<HTMLElement, ResourcesProps>(
         description:
           "Personal brand is essential for career advancement, networking, and establishing credibility, Schedule a consultation so we discuss how to shape your public perception.",
         cta: "Schedule Consultation",
-        link: "https://chat.whatsapp.com/Ezs3MhInzZiHv6MRp8hYRo",
+        link: "https://selar.com/412292",
       },
       {
         title: "Subscribe to my YouTube Channel",
@@ -181,7 +181,7 @@ const Resources = forwardRef<HTMLElement, ResourcesProps>(
         description:
           "Join to learn building strategies and gain insights on how craft an impactful brand experience.",
         cta: "Connect With Me",
-        link: "https://chat.whatsapp.com/Ezs3MhInzZiHv6MRp8hYRo",
+        link: "https://www.instagram.com/channel/Aba-aF1wiK2wbTcn/",
       },
 
       {
