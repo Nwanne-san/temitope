@@ -172,10 +172,12 @@ function Testimonials() {
         <div className="flex flex-col sm:flex-row gap-7 sm:gap-0 justify-between items-center mb-12">
           <h2 className="font-bai-jamjuree text-3xl md:text-4xl text-white font-semibold">
             Testimonials
-          </h2>
-          <Button className="bg-white/60 hover:bg-white hover:text-primary text-black px-6 py-2 rounded transition-colors">
-            MEET TEMITOPE
-          </Button>
+          </h2>{" "}
+          <a href="https://wa.link/dtys70" target="_blank">
+            <Button className="bg-white/60 hover:bg-white hover:text-primary text-black px-6 py-2 rounded transition-colors">
+              MEET TEMITOPE
+            </Button>{" "}
+          </a>
         </div>
 
         {/* Testimonial slider with fixed height */}

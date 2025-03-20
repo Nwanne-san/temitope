@@ -141,14 +141,11 @@ export default function Navbar({ activePage, setActivePage }: NavbarProps) {
         </div>
 
         <div className="flex items-center gap-3">
-          <Button
-            onClick={(e) => {
-              window.location.href = "";
-            }}
-            className="duration-300 px-3 text-xs py-1 sm:text-base hover:bg-white rounded-br-2xl hover:text-primary border border-primary"
-          >
-            Connect With Me
-          </Button>
+          <a href="https://wa.link/dtys70" target="_blank">
+            <Button className="duration-300 px-3 text-xs py-1 sm:text-base hover:bg-white rounded-br-2xl hover:text-primary border border-primary">
+              Connect With Me
+            </Button>
+          </a>
           {/* Mobile Menu Button */}
           <button className="xl:hidden z-10" onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <X size={24} /> : <Menu size={24} />}

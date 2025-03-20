@@ -62,13 +62,14 @@ function Hero({ setActivePage }: HeroProps) {
 
         <div className="flex  gap-6 lg:justify-between xl:justify-normal lg:gap-40 xl:gap-4 font-bai-jamjuree">
           {/* Not animated as requested */}
-          <Button
-            variant="primary"
-            // href="/about"
-            className="bg-primary text-white text-nowrap tracking-widest py-3 px-5 rounded-tl-3xl text-xs sm:text-sm duration-300 hover:bg-primary/10 hover:text-primary border "
-          >
-            MEET TEMITOPE
-          </Button>
+          <a href="https://selar.com/412292" target="_blank">
+            <Button
+              variant="primary"
+              className="bg-primary text-white text-nowrap tracking-widest py-3 px-5 rounded-tl-3xl text-xs sm:text-sm duration-300 hover:bg-primary/10 hover:text-primary border "
+            >
+              MEET TEMITOPE
+            </Button>
+          </a>
 
           <motion.div
             initial={{ x: 100, opacity: 0 }}
@@ -77,10 +78,8 @@ function Hero({ setActivePage }: HeroProps) {
           >
             <Button
               variant="outline"
-              // href="/about"
               className="border-0 text-secondary text-nowrap text-xs sm:text-sm tracking-widest  duration-300 bg-lightGray rounded-br-3xl"
               onClick={() => {
-                // setActivePage("about");
                 window.location.href = "/about";
               }}
             >

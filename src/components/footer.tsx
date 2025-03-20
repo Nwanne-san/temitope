@@ -17,13 +17,14 @@ const Footer = () => {
             <h2 className="font-bai-jamjuree text-xl sm:text-3xl font-semibold md:text-4xl text-white">
               hi@temitoperuthjacob.com
             </h2>
-            <Button
-              variant="primary"
-              className="bg-primary duration-300 hover:bg-white hover:text-primary border border-primary text-white px-6 py-2  transition-colors"
-              // href="/meet"
-            >
-              MEET TEMITOPE
-            </Button>
+            <a href="https://selar.com/412292" target="_blank">
+              <Button
+                variant="primary"
+                className="bg-primary duration-300 hover:bg-white hover:text-primary border border-primary text-white px-6 py-2  transition-colors"
+              >
+                MEET TEMITOPE
+              </Button>
+            </a>
           </div>
         </div>
         <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-8 py-12 border-t border-white/10">
@@ -56,7 +57,7 @@ const Footer = () => {
                 className="hover:text- flex items-center justify-center px-2 py-1.5 sm:p-3 rounded-full bg-gray-100 text-black/70 hover:scale-90 duration-200 ransition-colors"
                 target="_blank"
               >
-                <Linkedin size={20} className="w-3.5 h-3.5 sm:w-5 sm:h-5 "  />
+                <Linkedin size={20} className="w-3.5 h-3.5 sm:w-5 sm:h-5 " />
               </Link>
               <Link
                 href="https://www.instagram.com/thebranding.queen?igsh=b3BpcGdiejJmcG1y&utm_source=qr"
@@ -113,7 +114,8 @@ const Footer = () => {
                   src="/Message.svg"
                   alt="message button"
                   width={30}
-                  height={20} className="w-3.5 h-3.5 sm:w-5 sm:h-5 "
+                  height={20}
+                  className="w-3.5 h-3.5 sm:w-5 sm:h-5 "
                 />
               </button>
             </div>

@@ -19,9 +19,9 @@ export const metadata: Metadata = {
   title: "Temitope Ruth Jacob | Branding & Marketing Expert",
   description:
     "Temitope Ruth Jacob is a branding & marketing strategist helping businesses build strong brand identities and maximize visibility.",
-
+  keywords: ["Temitope Ruth Jacob", "Temitope", "Branding", "Marketing"],
   icons: {
-    icon: "/trj-icon.png", // Ensure correct naming for consistency
+    icon: "/trj icon.png",
   },
 
   openGraph: {
