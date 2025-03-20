@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "default" | "primary" | "outline" | "ghost";
   size?: "default" | "sm" | "lg";
-  // href?: string
+  href?: string
   className?: string;
 }
 

@@ -3,9 +3,14 @@ import { Button } from "./ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import { FaFacebookF, FaTiktok, FaXTwitter, FaYoutube } from "react-icons/fa6";
+import { useState } from "react";
+import { toast } from "sonner";
 
 const date = new Date().getFullYear();
 const Footer = () => {
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+
   return (
     <footer className="bg-zinc-800 text-white/80 py-12 xl:py-24 px-4 lg:px-10">
       <div className="container mx-auto">
@@ -96,30 +101,30 @@ const Footer = () => {
               </Link>
             </div>
           </div>
-          <div className="flex flex-col gap-5 sm:gap-4 flex-grow basis-full lg:basis-1/4">
+          <section className="flex flex-col gap-5 sm:gap-4 flex-grow basis-full lg:basis-1/4">
             <div>
               <span className="font-semibold text-lg">Newsletter</span>
               <p>Subscribe to my Newsletter</p>
             </div>
-            <div className="bg-accent rounded-lg flex gap-2 py-1.5 px-2.5">
+            <div className="bg-accent rounded-lg flex items-center gap-2 py-1.5 px-2.5">
               <input
                 type="email"
-                name="Email"
-                id=""
-                className="bg-accent rounded-lg placeholder:text-secondary/50 text-secondary w-full focus:outline-none"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="bg-accent rounded-lg placeholder:text-secondary/50 text-secondary w-full focus:outline-none px-2"
                 placeholder="Enter your email address"
               />
-              <button>
-                <Image
-                  src="/Message.svg"
-                  alt="message button"
-                  width={30}
-                  height={20}
-                  className="w-3.5 h-3.5 sm:w-5 sm:h-5 "
-                />
-              </button>
+              <Link
+                target="_blank"
+                href="https://docs.google.com/forms/d/14Xtm-_rwqXan2aBXJhIlVfkwNhsUjB2bc_iZHQPnoEE/preview"
+                className={`flex items-center gap-2  justify-center uppercase font-bai-jamjuree font-medium transition-colors focus-visible:outline-none bg-primary text-white px-4 py-1.5 rounded-lg font-medium transition-all duration-300 hover:bg-red-600 ${
+                  loading ? "opacity-50 cursor-not-allowed" : ""
+                }`}
+              >
+                Subscribe
+              </Link>
             </div>
-          </div>
+          </section>
         </div>
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-6 sm:pt-12 border-t border-white/10 text-sm text-white/40">
           <p className="sm:w-1/2 text-center sm:text-start">
