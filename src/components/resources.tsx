@@ -188,7 +188,8 @@ const Resources = forwardRef<HTMLElement, ResourcesProps>(
         title: "My Articles",
         subtitle: "",
         image: "/articles-2.jpg",
-        description: "Gain impactful insights on branding and marketing strategies.",
+        description:
+          "Gain impactful insights on branding and marketing strategies.",
         cta: "Read my Articles",
         link: "https://temitoperuthjacob.medium.com",
       },
@@ -202,9 +203,6 @@ const Resources = forwardRef<HTMLElement, ResourcesProps>(
           className="container mx-auto px-4 lg:px-10 py-12 md:py-24 scroll-mt-20 relative"
         >
           <div className="space-y-2 mb-6">
-            <p className="text-primary uppercase tracking-wider flex items-center gap-2">
-              <span className="text-2xl">✱</span> ARTICLES, GUIDES, TEMPLATES
-            </p>
             <h2 className="font-bai-jamjuree text-3xl md:text-4xl">
               Resource Hub
             </h2>
@@ -299,10 +297,7 @@ const Resources = forwardRef<HTMLElement, ResourcesProps>(
                       target="_blank"
                       className="text-primary hover:underline hover:text-secondary duration-300 px-4 sm:px-0 capitalize flex items-center gap-2 text-base sm:mtauto"
                     >
-                      {resource.cta}{" "}
-                      {resource.cta.includes("Download") && (
-                        <span className="text-lg">→</span>
-                      )}
+                      {resource.cta} <ChevronRight />
                     </Link>
                   </div>
                 </motion.section>
@@ -315,7 +310,9 @@ const Resources = forwardRef<HTMLElement, ResourcesProps>(
                     key={index}
                     onClick={() => goToSlide(index)}
                     className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                      currentIndex === index ? "bg-primary w-8" : "bg-primary/40"
+                      currentIndex === index
+                        ? "bg-primary w-8"
+                        : "bg-primary/40"
                     }`}
                     aria-label={`Go to slide ${index + 1}`}
                   />
