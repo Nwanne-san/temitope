@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Button } from "./ui/button";
 
 interface ResourcesProps {
   id?: string;
@@ -196,142 +197,160 @@ const Resources = forwardRef<HTMLElement, ResourcesProps>(
     ];
 
     return (
-      <main className="bg-gray-300">
-        <section
-          id={id}
-          ref={ref}
-          className="container mx-auto px-4 lg:px-10 py-12 md:py-24 scroll-mt-20 relative"
-        >
-          <div className="space-y-2 mb-6">
-            <h2 className="font-bai-jamjuree text-3xl md:text-4xl">
-              Resource Hub
-            </h2>
-          </div>
-          <div className="relative">
-            <AnimatePresence>
-              <>
-                <motion.button
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  onClick={handlePrev}
-                  className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-20 bg-white/80 hover:bg-white rounded-full p-2 shadow-md transition-all duration-300"
-                  aria-label="Previous resources"
-                  disabled={currentIndex === 0}
-                >
-                  <ChevronLeft />
-                </motion.button>
-                <motion.button
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  onClick={handleNext}
-                  className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-20 bg-white/80 hover:bg-white rounded-full p-2 shadow-md transition-all duration-300"
-                  aria-label="Next resources"
-                  disabled={currentIndex === totalSlides - 1}
-                >
-                  <ChevronRight />
-                </motion.button>
-              </>
-            </AnimatePresence>
-            {/* Slider Container */}
-            <div
-              ref={sliderRef}
-              className={`flex overflow-x-auto gap-8 pb-4 snap-x snap-mandatory hide-scrollbar `}
-              style={{
-                scrollBehavior: "smooth",
-                scrollbarWidth: "none",
-                msOverflowStyle: "none",
-              }}
-              onMouseDown={handleMouseDown}
-              onMouseUp={handleMouseUp}
-              onMouseLeave={handleMouseLeave}
-              onMouseMove={handleMouseMove}
-              onTouchStart={handleTouchStart}
-              onTouchEnd={handleTouchEnd}
-              onTouchMove={handleTouchMove}
-            >
-              {/* Resource Items */}
-              {resources.map((resource, index) => (
-                <motion.section
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="group flex-shrink-0 w-full flex sm:w-[calc(50%-16px)] items-center justify-center lg:w-[calc(33.333%-21.333px)] xl:w-[calc(25%-24px)] snap-start"
-                >
-                  <div className="flex flex-col justify- gap-2 sm:gap-2.5 h-full">
-                    <h2 className="font-bai-jamjuree text-[22px] px-1 sm:px-0 h-16 font-semibold text-start">
-                      {resource.title}
-                      {resource.subtitle && (
-                        <div className="text-lg font-medium">
-                          {resource.subtitle}
-                        </div>
-                      )}
-                    </h2>
-                    <Link
-                      href={resource.link}
-                      target="_blank"
-                      className="flex justify-center items-center overflow-hidden rounded-md"
-                    >
-                      <motion.div
-                        whileHover={{ scale: 1.05 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <Image
-                          src={resource.image || "/placeholder.svg"}
-                          alt={resource.title}
-                          width={360}
-                          height={240}
-                          className="rounded-md"
-                        />
-                      </motion.div>
-                    </Link>
-                    {resource.description && (
-                      <p className="font-poppins px-1 sm:px-0 text-sm text-start mb-2 transition-colors sm:flex-grow">
-                        {resource.description}
-                      </p>
-                    )}
-                    <Link
-                      href={resource.link}
-                      target="_blank"
-                      className="text-primary hover:underline hover:text-secondary duration-300 px-4 sm:px-0 capitalize flex items-center gap-2 text-base sm:mtauto"
-                    >
-                      {resource.cta} <ChevronRight />
-                    </Link>
-                  </div>
-                </motion.section>
-              ))}
+      <>
+        <main className="bg-gray-300">
+          <section
+            id={id}
+            ref={ref}
+            className="container mx-auto px-4 lg:px-10 py-12 md:py-24 scroll-mt-20 relative"
+          >
+            <div className="space-y-2 mb-6">
+              <h2 className="font-bai-jamjuree text-3xl md:text-4xl">
+                Resource Hub
+              </h2>
             </div>
-            {isMobile && (
-              <div className="flex justify-center gap-4 mt-6">
-                {Array.from({ length: totalSlides }).map((_, index) => (
-                  <button
+            <div className="relative">
+              <AnimatePresence>
+                <>
+                  <motion.button
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    onClick={handlePrev}
+                    className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-20 bg-white/80 hover:bg-white rounded-full p-2 shadow-md transition-all duration-300"
+                    aria-label="Previous resources"
+                    disabled={currentIndex === 0}
+                  >
+                    <ChevronLeft />
+                  </motion.button>
+                  <motion.button
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    onClick={handleNext}
+                    className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-20 bg-white/80 hover:bg-white rounded-full p-2 shadow-md transition-all duration-300"
+                    aria-label="Next resources"
+                    disabled={currentIndex === totalSlides - 1}
+                  >
+                    <ChevronRight />
+                  </motion.button>
+                </>
+              </AnimatePresence>
+              {/* Slider Container */}
+              <div
+                ref={sliderRef}
+                className={`flex overflow-x-auto gap-8 pb-4 snap-x snap-mandatory hide-scrollbar `}
+                style={{
+                  scrollBehavior: "smooth",
+                  scrollbarWidth: "none",
+                  msOverflowStyle: "none",
+                }}
+                onMouseDown={handleMouseDown}
+                onMouseUp={handleMouseUp}
+                onMouseLeave={handleMouseLeave}
+                onMouseMove={handleMouseMove}
+                onTouchStart={handleTouchStart}
+                onTouchEnd={handleTouchEnd}
+                onTouchMove={handleTouchMove}
+              >
+                {/* Resource Items */}
+                {resources.map((resource, index) => (
+                  <motion.section
                     key={index}
-                    onClick={() => goToSlide(index)}
-                    className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                      currentIndex === index
-                        ? "bg-primary w-8"
-                        : "bg-primary/40"
-                    }`}
-                    aria-label={`Go to slide ${index + 1}`}
-                  />
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    className="group flex-shrink-0 w-full flex sm:w-[calc(50%-16px)] items-center justify-center lg:w-[calc(33.333%-21.333px)] xl:w-[calc(25%-24px)] snap-start"
+                  >
+                    <div className="flex flex-col justify- gap-2 sm:gap-2.5 h-full">
+                      <h2 className="font-bai-jamjuree text-[22px] px-1 sm:px-0 h-16 font-semibold text-start">
+                        {resource.title}
+                        {resource.subtitle && (
+                          <div className="text-lg font-medium">
+                            {resource.subtitle}
+                          </div>
+                        )}
+                      </h2>
+                      <Link
+                        href={resource.link}
+                        target="_blank"
+                        className="flex justify-center items-center overflow-hidden rounded-md"
+                      >
+                        <motion.div
+                          whileHover={{ scale: 1.05 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          <Image
+                            src={resource.image || "/placeholder.svg"}
+                            alt={resource.title}
+                            width={360}
+                            height={240}
+                            className="rounded-md"
+                          />
+                        </motion.div>
+                      </Link>
+                      {resource.description && (
+                        <p className="font-poppins px-1 sm:px-0 text-sm text-start mb-2 transition-colors sm:flex-grow">
+                          {resource.description}
+                        </p>
+                      )}
+                      <Link
+                        href={resource.link}
+                        target="_blank"
+                        className="text-primary hover:underline hover:text-secondary duration-300 px-4 sm:px-0 capitalize flex items-center gap-2 text-base sm:mtauto"
+                      >
+                        {resource.cta} <ChevronRight />
+                      </Link>
+                    </div>
+                  </motion.section>
                 ))}
               </div>
-            )}
+              {isMobile && (
+                <div className="flex justify-center gap-4 mt-6">
+                  {Array.from({ length: totalSlides }).map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => goToSlide(index)}
+                      className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                        currentIndex === index
+                          ? "bg-primary w-8"
+                          : "bg-primary/40"
+                      }`}
+                      aria-label={`Go to slide ${index + 1}`}
+                    />
+                  ))}
+                </div>
+              )}
+            </div>
+            {/* Add a style tag to hide scrollbar */}
+            <style jsx>{`
+              .hide-scrollbar::-webkit-scrollbar {
+                display: none;
+              }
+              .hide-scrollbar {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+              }
+            `}</style>
+          </section>
+        </main>
+        <section className="bg-white">
+          <div className=" mx-auto container  p-8 md:p-12 flex flex-col justify-center">
+            <h2 className="font-bai-jamjuree text-2xl md:text-4xl text-black mb-8 leading-tight">
+              For Speaking, Mentoring & Other Relevant Opportunities
+            </h2>
+            <a href="https://wa.link/dtys70" target="_blank">
+              <Button
+                variant="primary"
+                // href="/connect"
+                className="inline-flex items-center bg-primary hover:bg-secondary hover:text-white"
+              >
+                CONNECT WITH ME
+              </Button>
+            </a>
           </div>
-          {/* Add a style tag to hide scrollbar */}
-          <style jsx>{`
-            .hide-scrollbar::-webkit-scrollbar {
-              display: none;
-            }
-            .hide-scrollbar {
-              -ms-overflow-style: none;
-              scrollbar-width: none;
-            }
-          `}</style>
         </section>
-      </main>
+      </>
     );
   }
 );
