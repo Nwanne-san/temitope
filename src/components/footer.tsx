@@ -18,14 +18,14 @@ const Footer = () => {
           <p className="text-white/70 uppercase tracking-widest flex items-center justify-center xl:justify-start gap-2 mb-4">
             Have a Project ? Get in Touch
           </p>
-          <div className="flex flex-col xl:flex-row justify-between items-start md:items-center gap-4">
+          <div className="flex flex-col xl:flex-row justify-between items-end md:items-center gap-4">
             <h2 className="font-bai-jamjuree text-xl sm:text-3xl font-semibold md:text-4xl text-white">
               hi@temitoperuthjacob.com
             </h2>
             <a href="https://selar.com/412292" target="_blank">
               <Button
                 variant="primary"
-                className="bg-primary duration-300 hover:bg-white hover:text-primary border border-primary text-white px-6 py-2  transition-colors"
+                className="bg-primary rounded-br-2xl duration-300 hover:bg-white hover:text-primary border border-primary text-white px-6 py-2  transition-colors"
               >
                 MEET TEMITOPE
               </Button>
@@ -111,13 +111,13 @@ const Footer = () => {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="bg-accent rounded-lg placeholder:text-secondary/50 text-secondary w-full focus:outline-none px-2"
+                className="bg-accent rounded-lg placeholder:text-secondary/50 py-1 text-secondary w-full focus:outline-none px-2"
                 placeholder="Enter your email address"
               />
               <Link
                 target="_blank"
                 href="https://docs.google.com/forms/d/14Xtm-_rwqXan2aBXJhIlVfkwNhsUjB2bc_iZHQPnoEE/preview"
-                className={`flex items-center gap-2  justify-center uppercase font-bai-jamjuree font-medium transition-colors focus-visible:outline-none bg-primary text-white px-4 py-1.5 rounded-lg font-medium transition-all duration-300 hover:bg-red-600 ${
+                className={`flex items-center gap-2  justify-center uppercase font-bai-jamjuree font-medium focus-visible:outline-none bg-primary text-white px-4 py-1.5 rounded-lg transition-all duration-300 hover:bg-red-600 ${
                   loading ? "opacity-50 cursor-not-allowed" : ""
                 }`}
               >

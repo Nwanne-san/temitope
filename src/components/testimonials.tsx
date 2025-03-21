@@ -174,7 +174,7 @@ function Testimonials() {
             Testimonials
           </h2>{" "}
           <a href="https://wa.link/dtys70" target="_blank">
-            <Button className="bg-white/60 hover:bg-white hover:text-primary text-black px-6 py-2 rounded transition-colors">
+            <Button className="bg-white/60 hover:bg-white rounded-br-2xl hover:text-primary text-black px-6 py-2  transition-colors">
               MEET TEMITOPE
             </Button>{" "}
           </a>

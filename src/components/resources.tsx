@@ -343,7 +343,7 @@ const Resources = forwardRef<HTMLElement, ResourcesProps>(
               <Button
                 variant="primary"
                 // href="/connect"
-                className="inline-flex items-center bg-primary hover:bg-secondary hover:text-white"
+                className="inline-flex items-center rounded-bl-xl bg-primary hover:bg-secondary hover:text-white"
               >
                 CONNECT WITH ME
               </Button>
