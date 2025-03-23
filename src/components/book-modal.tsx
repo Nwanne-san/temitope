@@ -62,7 +62,7 @@ export function BookModal({ onClose }: BookModalProps) {
     >
       <div
         ref={modalRef}
-        className={`relative w-[90%] md:w-[80%] max-sm:h-[70vh] bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-out ${
+        className={`relative w-[90%] md:w-[80%] max-sm:h-[80vh] bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-out ${
           isVisible
             ? "opacity-100 scale-100 translate-y-0"
             : "opacity-0 scale-95 translate-y-8"
@@ -85,11 +85,18 @@ export function BookModal({ onClose }: BookModalProps) {
               }`}
             >
               <Image
-                src="/YAS BOOK .jpg"
+                src="/out now.jpg"
+                alt="Book Cover"
+                width={460}
+                height={400}
+                className="object-cover hidden sm:flex rounded-md max-sm:h- transform rotate-[-3deg] hover:rotate-0 transition-transform duration-300"
+              />
+              <Image
+                src="/out now website.jpg"
                 alt="Book Cover"
                 width={360}
-                height={400}
-                className="object-cover rounded-md max-sm:h- transform rotate-[-3deg] hover:rotate-0 transition-transform duration-300"
+                height={300}
+                className="object-cover block sm:hidden rounded-md max-sm:h- transform rotate-[-3deg] hover:rotate-0 transition-transform duration-300"
               />
             </div>
           </div>
@@ -144,11 +151,11 @@ export function BookPromo({ onOpen }: BookPromoProps) {
     >
       <div className="relative h-14 w-10 flex-shrink-0">
         <Image
-          src="/YAS BOOK .jpg"
+          src="/out now.jpg"
           alt="Book Cover"
           width={100}
           height={140}
-          className="object-cover rounded-sm h-full w-full"
+          className=" object-contain rounded-sm h-full w-full"
         />
       </div>
       <div className="sm:pr-2">

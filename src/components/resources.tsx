@@ -142,7 +142,7 @@ const Resources = forwardRef<HTMLElement, ResourcesProps>(
       {
         title: "Your Authentic Signature",
         subtitle: "A Personal Branding Handbook",
-        image: "/YAS BOOK .jpg",
+        image: "/out now website.jpg",
         description:
           "This handbook will guide you through a journey of self-discovery, strategic planning, and consistent execution. It's a practical guide designed to help you discover, define, and communicate your unique personal brand.",
         cta: "Download for free",
@@ -285,7 +285,7 @@ const Resources = forwardRef<HTMLElement, ResourcesProps>(
                             alt={resource.title}
                             width={360}
                             height={240}
-                            className="rounded-md"
+                            className="rounded-md "
                           />
                         </motion.div>
                       </Link>
