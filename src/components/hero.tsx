@@ -116,7 +116,7 @@ function Hero({ setActivePage }: HeroProps) {
               <Linkedin size={18} />
             </Link>
             <Link
-              href="https://www.instagram.com/thebranding.queen?igsh=b3BpcGdiejJmcG1y&utm_source=qr"
+              href="https://www.instagram.com/brand_queen_backup?igsh=MnBlaWRwbGVzc3o3&utm_source=qr"
               className="text-white/70 p-2.5 hover:scale-90 duration-300 bg-black/80 rounded-full hover:text-white/80"
               target="_blank"
             >
@@ -137,7 +137,7 @@ function Hero({ setActivePage }: HeroProps) {
               <FaYoutube size={18} />
             </Link>
             <Link
-              href="https://www.facebook.com/temitope.jacob.731?mibextid=LQQJ4d"
+              href="https://www.facebook.com/profile.php?id=61574652656986&mibextid=kFxxJD"
               className="text-white/70 p-2.5 hover:scale-90 duration-300 bg-black/80 rounded-full hover:text-white/80"
               target="_blank"
             >

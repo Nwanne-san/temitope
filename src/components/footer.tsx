@@ -65,7 +65,7 @@ const Footer = () => {
                 <Linkedin size={20} className="w-3.5 h-3.5 sm:w-5 sm:h-5 " />
               </Link>
               <Link
-                href="https://www.instagram.com/thebranding.queen?igsh=b3BpcGdiejJmcG1y&utm_source=qr"
+                href="https://www.instagram.com/brand_queen_backup?igsh=MnBlaWRwbGVzc3o3&utm_source=qr"
                 className="hover:text- flex items-center justify-center px-2 py-1.5 sm:p-3 rounded-full bg-gray-100 text-black/70 hover:scale-90 duration-200 ransition-colors"
                 target="_blank"
               >
@@ -93,7 +93,7 @@ const Footer = () => {
                 <FaTiktok size={20} className="w-3.5 h-3.5 sm:w-5 sm:h-5 " />
               </Link>
               <Link
-                href="https://www.facebook.com/temitope.jacob.731?mibextid=LQQJ4d"
+                href="https://www.facebook.com/profile.php?id=61574652656986&mibextid=kFxxJD"
                 className="hover:text- flex items-center justify-center px-2 py-1.5 sm:p-3 rounded-full bg-gray-100 text-black/70 hover:scale-90 duration-200 ransition-colors"
                 target="_blank"
               >
