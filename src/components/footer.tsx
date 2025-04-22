@@ -65,7 +65,7 @@ const Footer = () => {
                 <Linkedin size={20} className="w-3.5 h-3.5 sm:w-5 sm:h-5 " />
               </Link>
               <Link
-                href="https://www.instagram.com/brand_queen_backup?igsh=MnBlaWRwbGVzc3o3&utm_source=qr"
+                href="https://www.instagram.com/brandingqueen2?igsh=Z2pia3F4eXZ4ZnRj"
                 className="hover:text- flex items-center justify-center px-2 py-1.5 sm:p-3 rounded-full bg-gray-100 text-black/70 hover:scale-90 duration-200 ransition-colors"
                 target="_blank"
               >
@@ -103,8 +103,7 @@ const Footer = () => {
           </div>
           <section className="flex flex-col gap-5 sm:gap-4 flex-grow basis-full lg:basis-1/4">
             <div>
-              <span className="font-semibold text-lg">Newsletter</span>
-              <p>Subscribe to my Newsletter</p>
+              <p className="text-lg font-semibold">Work With Me</p>
             </div>
             <div className="bg-accent rounded-lg flex items-center gap-2 py-1.5 px-2.5">
               <input
@@ -115,8 +114,7 @@ const Footer = () => {
                 placeholder="Enter your email address"
               />
               <Link
-                target="_blank"
-                href="https://docs.google.com/forms/d/14Xtm-_rwqXan2aBXJhIlVfkwNhsUjB2bc_iZHQPnoEE/preview"
+                href="mailto:hi@temitoperuthjacob.com"
                 className={`flex items-center gap-2  justify-center uppercase font-bai-jamjuree font-medium focus-visible:outline-none bg-primary text-white px-4 py-1.5 rounded-lg transition-all duration-300 hover:bg-red-600 ${
                   loading ? "opacity-50 cursor-not-allowed" : ""
                 }`}

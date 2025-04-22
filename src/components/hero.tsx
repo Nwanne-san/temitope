@@ -116,7 +116,7 @@ function Hero({ setActivePage }: HeroProps) {
               <Linkedin size={18} />
             </Link>
             <Link
-              href="https://www.instagram.com/brand_queen_backup?igsh=MnBlaWRwbGVzc3o3&utm_source=qr"
+              href="https://www.instagram.com/brandingqueen2?igsh=Z2pia3F4eXZ4ZnRj"
               className="text-white/70 p-2.5 hover:scale-90 duration-300 bg-black/80 rounded-full hover:text-white/80"
               target="_blank"
             >
