@@ -51,8 +51,15 @@ function HeroSection() {
             branding and marketing.
           </p>
           <p className="text-secondary-2 font-normal text-center xl:text-start mb-3">
-            She is the founder and CEO of Elegance Inspired Limited; A corporate
-            Branding & Marketing company. <br className="mt-2" />
+            She is the founder and CEO of{" "}
+            <a
+              href="https://eleganceinspired.org"
+              target="_blank"
+              className="text-primary hover:text-secondary-2 underline transition-colors"
+            >
+              Elegance Inspired Limited
+            </a>
+            ; A corporate Branding & Marketing company. <br className="mt-2" />
             Branding is not just a business for her, she has a passion to see
             brands thrive in the marketplace. At the core of her ambitions lies
             a desire to create meaningful connections between brands and
