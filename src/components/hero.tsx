@@ -19,35 +19,11 @@ function Hero({ setActivePage }: HeroProps) {
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
           <p className="text-sm sm:text-base xl:text-justify leading-relaxed text-secondary-2">
-            Temitope Ruth Jacob is a branding and marketing strategist with a
-            clear vision and an unwavering commitment to unleashing the true
-            potential of brands [personal/corporate] through strategic
-            positioning and impactful marketing campaigns.
-          </p>
-        </motion.div>
-        <motion.div
-          initial={{ x: 100, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-        >
-          <p className="text-sm sm:text-base xl:text-justify leading-relaxed text-secondary-2">
-            She is skilled in developing branding strategies that incorporate
-            multiple touchpoints, including digital media, social media, and
-            experiential marketing and advertising.
-          </p>
-        </motion.div>
-
-        <motion.div
-          initial={{ x: 100, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-        >
-          <p className="text-sm sm:text-base xl:text-justify leading-relaxed text-secondary-2">
-            Her expertise lies in understanding consumer behavior and developing
-            strategies that resonate with the audience. she has worked with a
-            diverse range of clients, from startups to Fortune companies, across
-            various industries such as technology, fashion, real estate,
-            healthcare, and consumer goods.
+            Temitope Ruth Jacob is a brand strategist shaping how African brands
+            grow, show up & succeed. <br />
+            Through clear messaging, strategic thinking, and a passion for
+            impact, she helps businesses rise above the noise and reveal their
+            full potential.
           </p>
         </motion.div>
 
