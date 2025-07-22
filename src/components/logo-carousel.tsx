@@ -13,7 +13,7 @@ const logos = [
   { src: "/americann.png", alt: "America" },
   { src: "/DREAM.png", alt: "Dream" },
   { src: "/GOTNI.png", alt: "IFC" },
-  { src: "/MAIME.png", alt: "Lendable" },
+
   { src: "/market.png", alt: "Microsoft" },
   { src: "/neccipr.png", alt: "Meta" },
 ];

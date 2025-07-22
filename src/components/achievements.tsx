@@ -8,6 +8,14 @@ interface AchievementsProps {
 function Achievements({ setActivePage }: AchievementsProps) {
   const achievements = [
     {
+      title: "Instructor",
+      role: "Teaching Branding & Marketing in Abuja's most influential Brand communications & Advertising academy.",
+      organization: "02 Academy",
+      year: "2025",
+      location: "Abuja, Nigeria",
+      className: "sm:border-b border-black",
+    },
+    {
       title: "Community Director",
       role: `Mentoring about 700 young people across 3 universities [Babcok 
             University, University of Ibadan and Obafemi Awolowo University, Ife] in Nigeria on Leadership, Faith, 
@@ -16,14 +24,6 @@ function Achievements({ setActivePage }: AchievementsProps) {
       year: "2025",
       location: "nigeria",
       className: "sm:border-b border-black",
-    },
-    {
-      title: "Training Facilitator",
-      role: `Trained over 2,000 people in 22 states across Nigeria in 6 weeks on 
-            Digital Marketing and advertising.`,
-      organization: "American Spaces Nigeria",
-      year: "2023",
-      location: "nigeria",
     },
   ];
 
