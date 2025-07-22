@@ -4,6 +4,22 @@ import { Button } from "../ui/button";
 function RecentProjects() {
   const projects = [
     {
+      title: "Instructor",
+      role: "Teaching Branding & Marketing in Abuja's most influential Brand communications & Advertising academy.",
+      organization: "02 Academy",
+      year: "2025",
+      location: "Abuja, Nigeria",
+      className: "sm:border-b border-black",
+    },
+    {
+      title: "Branding & Communications Strategist",
+      role: "Created and executed creative branding and communications strategy for the PerformX Nexus and Summit for the Akin Akinpelu Conference with the Theme: Building Bold, Executing Smart, Performing Smart.",
+      organization: "PerformX Nexus",
+      year: "2025",
+      location: "Lagos, Nigeria",
+      className: "sm:border-b border-black",
+    },
+    {
       title: "Branding & Communications Strategist",
       role: `Creating and implementing Creative branding & communication Strategy for the UPGRADE MARKETING CONFERNCE 2025 themed; Marketing is not a Department. `,
       organization: "Yantic Business Academy",
@@ -22,41 +38,21 @@ function RecentProjects() {
       className: "sm:border-b border-black",
     },
     {
-      title: "Training Facilitator",
-      role: `Trained over 2,000 people in 22 states across Nigeria in 6 weeks on 
-            Digital Marketing and advertising.    `,
-      organization: "American Spaces Nigeria",
-      year: "2023",
-      location: "nigeria",
-      className: "sm:border-b border-black",
-    },
-    {
-      title: "Community Director",
-      role: ` Mentoring about 1,000 young people across the world on Leadership, 
-                Branding, Entrepreneurship.   `,
-      organization: "Maime University",
-      year: "2023",
-      location: "abuja, nigeria",
-      className: "sm:border-b border-black",
-    },
-    {
-      title: "Branding & Communications Strategist",
-      role: `Created and executed creative branding and communications 
-            strategy for the Maiden Edition of the Marketplace Stakeholders 
-            Africa Conference, with the Theme ; Making Africa Work Through Production Intelligence. 
-            `,
-      organization: "Marketplace Stakeholders Conference Africa",
-      year: "2024",
-      location: "abuja, nigeria",
-      className: "sm:border-b border-black",
-    },
-    {
       title: "Branding & Communications Strategist",
       role: `Created and executed creative branding and communications strategy for the 24th edition of the
        NECCI PR ROUNDTABLE with the Theme: Women In Technology; Breaking Barriers. `,
       organization: "Necci PR Roundtable",
       year: "2024",
       location: "lagos, nigeria",
+      className: "sm:border-b border-black",
+    },
+    {
+      title: "Training Facilitator",
+      role: `Trained over 2,000 people in 22 states across Nigeria in 6 weeks on 
+            Digital Marketing and advertising.    `,
+      organization: "American Spaces Nigeria",
+      year: "2023",
+      location: "nigeria",
       className: "sm:border-b border-black",
     },
   ];
