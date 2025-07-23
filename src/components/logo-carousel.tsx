@@ -100,11 +100,11 @@ export default function LogoCarousel() {
   };
 
   return (
-    <main className="bg-primary flex flex-col md:flex-row gap-4 sm:gap-12 items-center py-6 sm:py-12 px-4 lg:px-10 -mt-16 sm:-mt-20 sm:z-20 relative">
+    <main className="bg-primary flex flex-col md:flex-row gap-4 sm:gap-12 items-center py-6 sm:py-12 px4 lg:px-10 -mt-16 sm:-mt-20 sm:z-20 relative">
       <h2 className="font-bai-jamjuree text-2xl text-white mb-8 md:mb-0 px-4">
         Organisations Impacted
       </h2>
-      <div className="px-7 overflow-hidden w-full">
+      <div className="sm:px-7 overflow-hidden w-full">
         <motion.div
           ref={carouselRef}
           className="flex items-center gap-12 cursor-grab active:cursor-grabbing"

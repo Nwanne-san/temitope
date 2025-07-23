@@ -62,7 +62,7 @@ export function BookModal({ onClose }: BookModalProps) {
     >
       <div
         ref={modalRef}
-        className={`relative w-[90%] md:w-[80%] max-sm:h-[80vh] bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-out ${
+        className={`relative w-[90%] md:w-[80%] max-sm:h-[60vh] bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-out ${
           isVisible
             ? "opacity-100 scale-100 translate-y-0"
             : "opacity-0 scale-95 translate-y-8"
@@ -144,7 +144,7 @@ export function BookPromo({ onOpen }: BookPromoProps) {
 
   return (
     <div
-      className={`fixed bottom-4 right-4 z-[90] bg-secondary-2 rounded-lg shadow-lg p-3 flex flex-row items-center gap-3 cursor-pointer hover:shadow-xl transition-all duration-300 ease-out ${
+      className={`fixed bottom-4 left-4 z-[90] bg-secondary-2 rounded-lg shadow-lg p-3 max-w-[40%] flex flex-row items-center gap-3 cursor-pointer hover:shadow-xl transition-all duration-300 ease-out ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
       onClick={onOpen}
@@ -159,10 +159,10 @@ export function BookPromo({ onOpen }: BookPromoProps) {
         />
       </div>
       <div className="sm:pr-2">
-        <h3 className="text-[10px] xl:text-sm font-semibold text-white">
+        <h3 className="text-[9px] xl:text-sm font-semibold text-white">
           Personal branding handbook
         </h3>
-        <p className="text-[10px] sm:text-xs text-white/80">Click to download now</p>
+        <p className="text-[8px] sm:text-xs text-white/80">Click to download now</p>
       </div>
     </div>
   );

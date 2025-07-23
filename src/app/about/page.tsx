@@ -17,7 +17,7 @@ function AboutUs() {
       <HeroSection />
       <Education />
       <RecentProjects />
-      <Impact />
+      {/* <Impact /> */}
       <SkillsAndSpeaking />
       <Footer />
     </div>

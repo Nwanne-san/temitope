@@ -128,7 +128,10 @@ const Footer = () => {
           <p className="sm:w-1/2 text-center sm:text-start">
             Copyright © {date} Temitope Ruth-Jacob. All rights reserved.
             Designed By <br className="hidden xl:block" />
-            <Link href="https://nwanne-san.vercel.app" className="text-primary hover:text-primary/80">
+            <Link
+              href="https://nwanne-san.vercel.app"
+              className="text-primary hover:text-primary/80"
+            >
               Nwanne Nnamani.
             </Link>
             <span className="text-white px-2">|</span>
