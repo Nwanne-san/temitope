@@ -101,7 +101,7 @@ export default function LogoCarousel() {
 
   return (
     <main className="bg-primary flex flex-col md:flex-row gap-4 sm:gap-12 items-center py-6 sm:py-12 px4 lg:px-10 -mt-16 sm:-mt-20 sm:z-20 relative">
-      <h2 className="font-bai-jamjuree text-2xl text-white mb-8 md:mb-0 px-4">
+      <h2 className="font-bai-jamjuree text-2xl text-white mb-2 md:mb-0 px-4">
         Organisations Impacted
       </h2>
       <div className="sm:px-7 overflow-hidden w-full">
@@ -120,7 +120,7 @@ export default function LogoCarousel() {
           {logos.map((logo, index) => (
             <div
               key={`original-${index}`}
-              className="flex-shrink-0 w-32 h-16 relative grayscale hover:grayscale-0 transition-all duration-300"
+              className="flex-shrink-0 w-24 h-12 sm:w-32 sm:h-16 relative grayscale hover:grayscale-0 transition-all duration-300"
               style={{ pointerEvents: isDragging ? "none" : "auto" }}
             >
               <Image

@@ -18,12 +18,12 @@ function Hero({ setActivePage }: HeroProps) {
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
-          <p className="text-sm sm:text-base xl:text-justify leading-relaxed text-secondary-2">
-            Temitope Ruth Jacob is a brand strategist shaping how African brands
-            grow, show up & succeed. <br />
-            Through clear messaging, strategic thinking, and a passion for
-            impact, she helps businesses rise above the noise and reveal their
-            full potential.
+          <p className="text-sm mb-2 sm:text-base xl:text-justify leading-relaxed text-secondary-2">
+            Temitope Ruth Jacob is a brand strategist{" "}
+            <span className="text-base sm:text-lg font-semibold text-primary">
+              shaping how African brands grow, show up & succeed
+            </span>
+            . <br />
           </p>
         </motion.div>
 
