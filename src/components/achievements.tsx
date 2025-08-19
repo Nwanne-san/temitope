@@ -17,7 +17,7 @@ function Achievements({ setActivePage }: AchievementsProps) {
     },
     {
       title: "Community Director",
-      role: `Mentoring about 700 young people across 3 universities [Babcok 
+      role: `Mentoring about 700 young people across 3 universities [Babcock 
             University, University of Ibadan and Obafemi Awolowo University, Ife] in Nigeria on Leadership, Faith, 
             entrepreneurship.`,
       organization: "Dream Center Trybe",
