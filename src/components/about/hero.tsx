@@ -19,7 +19,7 @@ function HeroSection() {
             Meet Temitope
           </h3>
           <p className="text-secondary-2 font-normal text-center xl:text-start mb-3">
-            Temitope Ruth Jacob is a branding and marketing strategist with a
+            Temitope Ruth-Jacob is a branding and marketing strategist with a
             clear vision and an unwavering commitment to unleashing the true
             potential of brands [personal/corporate] through strategic
             positioning and impactful marketing campaigns. She is skilled in

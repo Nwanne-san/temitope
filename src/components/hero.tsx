@@ -19,7 +19,7 @@ function Hero({ setActivePage }: HeroProps) {
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
           <p className="text-sm mb-2 sm:text-base xl:text-justify leading-relaxed text-secondary-2">
-            Temitope Ruth Jacob is a brand strategist{" "}
+            Temitope Ruth-Jacob is a brand strategist{" "}
             <span className="text-base sm:text-lg font-semibold text-primary">
               shaping how African brands grow, show up & succeed
             </span>
