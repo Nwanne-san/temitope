@@ -18,8 +18,8 @@ function Hero({ setActivePage }: HeroProps) {
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
-          <p className="text-sm mb-2 sm:text-base xl:text-justify leading-relaxed text-secondary-2">
-            Temitope Ruth-Jacob is a brand strategist{" "}
+          <p className="text-sm hidden sm:block mb-2 sm:text-base xl:text-justify leading-relaxed text-secondary-2">
+            Temitope Ruth Jacob is a brand strategist{" "}
             <span className="text-base sm:text-lg font-semibold text-primary">
               shaping how African brands grow, show up & succeed
             </span>
@@ -131,8 +131,14 @@ function Hero({ setActivePage }: HeroProps) {
       </div>
 
       <div className="relative">
+        <p className="text-lg text-center sm:hidden mb-2 sm:text-base xl:text-justify my-5 leading-relaxed text-secondary-2">
+          {/* Temitope Ruth Jacob is a brand strategist{" "} */}
+          <span className="text-xl capitalize text-center sm:text-lg font-bold text-primary">
+            I am shaping how African brands grow, show up & succeed.
+          </span>
+        </p>
         <motion.div
-          className="absolute right-[15%] md:right-[19%] lg:right-[21%] xl:right-[28%] max-[1400]:right-[39%] top-[2%]  z-[2]"
+          className="absolute right-[15%] md:right-[19%] lg:right-[21%] xl:right-[28%] max-[1400]:right-[39%] top-[10] sm:top-[2%]  z-[2]"
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 1, ease: "easeOut" }}
