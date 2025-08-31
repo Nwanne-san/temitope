@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { BookModal, BookPromo } from "@/components/book-modal";
@@ -11,32 +12,31 @@ import Testimonials from "@/components/testimonials";
 import Achievements from "@/components/achievements";
 import Resources from "@/components/resources";
 
-import Education from "@/components/about/education";
-import HeroSection from "@/components/about/hero";
-import Impact from "@/components/about/impact";
-import RecentProjects from "@/components/about/projects";
-import SkillsAndSpeaking from "@/components/about/skills-and-speaking";
+const pageVariants = {
+  initial: { opacity: 0, y: 20 },
+  in: { opacity: 1, y: 0 },
+  out: { opacity: 0, y: -20 },
+};
 
-export default function MergedPage() {
-  const [activePage, setActivePage] = useState("home");
+const pageTransition = {
+  type: "tween",
+  ease: "anticipate",
+  duration: 0.6,
+};
+
+export default function HomePage() {
   const [showModal, setShowModal] = useState(false);
   const [showPromo, setShowPromo] = useState(false);
 
   useEffect(() => {
-    console.log("Setting up modal timer");
     const timer = setTimeout(() => {
-      console.log("Timer completed, showing modal");
       setShowModal(true);
     }, 3000);
 
-    return () => {
-      console.log("Cleaning up timer");
-      clearTimeout(timer);
-    };
+    return () => clearTimeout(timer);
   }, []);
 
   const handleCloseModal = () => {
-    console.log("Modal closed");
     setShowModal(false);
     setShowPromo(true);
   };
@@ -46,42 +46,74 @@ export default function MergedPage() {
     setShowPromo(false);
   };
 
-  useEffect(() => {
-    console.log("Current state:", { showModal, showPromo });
-  }, [showModal, showPromo]);
-
   return (
     <div className="relative">
-      {showModal && <BookModal onClose={handleCloseModal} />}
+      {showModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center">
+          <BookModal onClose={handleCloseModal} />
+        </div>
+      )}
       {showPromo && <BookPromo onOpen={handleOpenModal} />}
 
-      <main className={activePage === "home" ? "m" : "flex flex-col xl:gap-12"}>
-        {activePage === "home" ? (
-          <>
-            <section className="bg-gray-200">
-              <Navbar activePage={activePage} setActivePage={setActivePage} />
-              <Hero setActivePage={setActivePage} />
-            </section>
-            <section className="mx-auto container px-10">
-              <LogoCarousel />
-            </section>
-            <Achievements setActivePage={setActivePage} />
+      <motion.div
+        className="relative font-sans"
+        initial="initial"
+        animate="in"
+        exit="out"
+        variants={pageVariants}
+        transition={pageTransition}
+      >
+        <main className="overflow-hidden">
+          <motion.section
+            className="bg-gray-200"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+          >
+            <Navbar />
+            <Hero />
+          </motion.section>
+
+          <motion.section
+            className="mx-auto container px-10"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <LogoCarousel />
+          </motion.section>
+
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            <Achievements />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
             <Testimonials />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+          >
             <Resources id="resources" />
-            <Footer />
-          </>
-        ) : (
-          <>
-            <Navbar activePage={activePage} setActivePage={setActivePage} />
-            <HeroSection />
-            <Education />
-            <RecentProjects />
-            <Impact />
-            <SkillsAndSpeaking />
-            <Footer />
-          </>
-        )}
-      </main>
+          </motion.div>
+
+          <Footer />
+        </main>
+      </motion.div>
     </div>
   );
 }

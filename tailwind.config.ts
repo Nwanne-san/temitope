@@ -23,10 +23,10 @@ const config: Config = {
         primary: "#f06",
         "hot-pink": "rgb(var(--hot-pink) / <alpha-value>)",
         secondary: "#4c4c4c",
-        'secondary-2': "#797979",
-        lightGray: '#FFD1F7',
-        background: "rgb(var(--background) / <alpha-value>)",
-        foreground: "rgb(var(--foreground) / <alpha-value>)",
+        "secondary-2": "#797979",
+        lightGray: "#FFD1F7",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
@@ -35,7 +35,6 @@ const config: Config = {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
         },
-
         muted: {
           DEFAULT: "hsl(var(--muted))",
           foreground: "hsl(var(--muted-foreground))",
@@ -70,6 +69,8 @@ const config: Config = {
         },
       },
       fontFamily: {
+        sans: ["var(--font-avenir)", "sans-serif"],
+        serif: ["var(--font-averia)", "serif"],
         poppins: ["var(--font-poppins)", "sans-serif"],
         "bai-jamjuree": ["var(--font-bai-jamjuree)", "sans-serif"],
       },

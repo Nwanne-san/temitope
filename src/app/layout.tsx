@@ -1,7 +1,8 @@
 import type React from "react";
 import { Poppins, Bai_Jamjuree } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -13,6 +14,45 @@ const baiJamjuree = Bai_Jamjuree({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-bai-jamjuree",
+});
+
+const avenir = localFont({
+  src: [
+    {
+      path: "../../public/fonts/avenir/Avenir-Light.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/avenir/Avenir-Medium.ttf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/avenir/Avenir-Heavy.ttf",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-avenir",
+  fallback: ["system-ui", "sans-serif"],
+});
+
+const averia = localFont({
+  src: [
+    {
+      path: "../../public/fonts/averia/AveriaSerifLibre-Light.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/averia/AveriaSerifLibre-Bold.ttf",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-averia",
+  fallback: ["serif"],
 });
 
 export const metadata: Metadata = {
@@ -43,7 +83,7 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    site: "@temitoperuthjacob", // Replace with your Twitter username
+    site: "@temitoperuthjacob",
     creator: "@temitoperuthjacob",
     title: "Temitope Ruth Jacob | Branding & Marketing Expert",
     description:
@@ -64,7 +104,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${poppins.variable} ${baiJamjuree.variable} font-poppins`}
+        className={`${poppins.variable} ${baiJamjuree.variable} ${avenir.variable} ${averia.variable} font-sans`}
       >
         {children}
       </body>

@@ -23,16 +23,22 @@ function SkillBar({ name, percentage }: { name: string; percentage: number }) {
     if (isInView) {
       controls.start({
         width: `${percentage}%`,
-        transition: { duration: 2, ease: "easeOut" },
+        transition: { duration: 1.5, ease: "easeOut" },
       });
     }
   }, [controls, isInView, percentage]);
 
   return (
-    <div className="mb-4">
+    <motion.div
+      className="mb-4"
+      initial={{ opacity: 0, x: -30 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+    >
       <div className="flex justify-between mb-1">
-        <span className="text-white text-sm">{name}</span>
-        <span className="text-white/80 text-sm">{percentage}%</span>
+        <span className="text-white text-sm font-sans">{name}</span>
+        <span className="text-white/80 text-sm font-sans">{percentage}%</span>
       </div>
       <div className="h-2 bg-white/20 rounded overflow-hidden" ref={barRef}>
         <motion.div
@@ -41,7 +47,7 @@ function SkillBar({ name, percentage }: { name: string; percentage: number }) {
           animate={controls}
         />
       </div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -51,40 +57,66 @@ export default function SkillsAndSpeaking() {
       {/* Skills Section */}
       <motion.div
         className="bg-primary p-8 md:p-12"
-        initial={{ x: 200, opacity: 0 }}
+        initial={{ x: -100, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <h2 className="font-bai-jamjuree text-2xl md:text-3xl text-white mb-8">
+        <h2 className="font-serif text-2xl md:text-3xl text-white mb-8">
           My Top Skills
         </h2>
-        <div className="space-y-6">
-          {skills.map((skill) => (
-            <SkillBar
+        <motion.div
+          className="space-y-6"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.3, staggerChildren: 0.1 }}
+        >
+          {skills.map((skill, index) => (
+            <motion.div
               key={skill.name}
-              name={skill.name}
-              percentage={skill.percentage}
-            />
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <SkillBar name={skill.name} percentage={skill.percentage} />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </motion.div>
 
       {/* Speaking Section */}
-      <div className="bg-[#FFD1F7] p-8 md:p-12 flex flex-col justify-center">
-        <h2 className="font-bai-jamjuree text-3xl md:text-4xl text-primary mb-8 leading-tight">
+      <motion.div
+        className="bg-[#FFD1F7] p-8 md:p-12 flex flex-col justify-center"
+        initial={{ x: 100, opacity: 0 }}
+        whileInView={{ x: 0, opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
+        <motion.h2
+          className="font-serif text-3xl md:text-4xl text-primary mb-8 leading-tight"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
           For Speaking, Mentoring & Other Relevant Opportunities
-        </h2>
-        <div>
+        </motion.h2>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
           <Button
             variant="primary"
-            // href="/connect"
-            className="inline-flex items-center bg-primary"
+            className="inline-flex items-center bg-primary hover:bg-primary/90 transition-all duration-300 hover:scale-105 font-sans"
           >
             CONNECT WITH ME
           </Button>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
   );
 }

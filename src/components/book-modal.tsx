@@ -53,7 +53,7 @@ export function BookModal({ onClose }: BookModalProps) {
   return (
     <div
       onClick={handleOverlayClick}
-      className={`fixed inset-0 z-[100] flex items-center justify-center transition-all duration-300 ease-in-out ${
+      className={`fixed inset-0 z-[100] flex items-center justify-center p-4 transition-all duration-300 ease-in-out ${
         isVisible
           ? "bg-black/60 backdrop-blur-sm"
           : "bg-black/0 backdrop-blur-none"
@@ -62,7 +62,7 @@ export function BookModal({ onClose }: BookModalProps) {
     >
       <div
         ref={modalRef}
-        className={`relative w-[90%] md:w-[80%] max-sm:h-[60vh] bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-out ${
+        className={`relative w-[90%] md:w-[80%] max-w-4xl max-h-[90vh] bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-out ${
           isVisible
             ? "opacity-100 scale-100 translate-y-0"
             : "opacity-0 scale-95 translate-y-8"
@@ -102,20 +102,20 @@ export function BookModal({ onClose }: BookModalProps) {
           </div>
 
           <div
-            className={`w-full md:w-1/2 p-6 md:p-8 flex flex-col justify-center transition-all duration-500 delay-200 ${
+            className={`w-full md:w-1/2 font-sans p-6 md:p-8 flex flex-col justify-center transition-all duration-500 delay-200 ${
               isVisible
                 ? "opacity-100 translate-x-0"
                 : "opacity-0 translate-x-8"
             }`}
           >
-            <h2 className="text-xl md:text-3xl font-bold mb-3">
+            <h2 className="text-xl md:text-3xl font-bold font-serif mb-3">
               Authentic Self Handbook
             </h2>
-            <p className="text-gray-600 text-sm sm:text-base mb-6">
+            <p className="text-gray-600 text-sm font-medium sm:text-base mb-6 font-sans">
               Get your free copy of our exclusive e-book with practical guides
               to help you discover, define and communicate your brand.
             </p>
-            <a href="https://selar.com/1v4g42" target="_blank">
+            <a href="https://selar.com/1v4g42" target="_blank" rel="noreferrer">
               <Button className="!w-fit md:w-auto rounded-bl-3xl transition-transform duration-200 hover:scale-105">
                 Download For Free
               </Button>
@@ -162,7 +162,9 @@ export function BookPromo({ onOpen }: BookPromoProps) {
         <h3 className="text-[9px] xl:text-sm font-semibold text-white">
           Personal branding handbook
         </h3>
-        <p className="text-[8px] sm:text-xs text-white/80">Click to download now</p>
+        <p className="text-[8px] sm:text-xs text-white/80">
+          Click to download now
+        </p>
       </div>
     </div>
   );

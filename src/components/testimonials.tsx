@@ -44,7 +44,7 @@ function Testimonials() {
   const [isMobile, setIsMobile] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const controls = useAnimation();
-  const INTERVAL_DELAY = 4000;
+  const INTERVAL_DELAY = 6000;
 
   // Check if we're on mobile
   useEffect(() => {
@@ -52,83 +52,73 @@ function Testimonials() {
       setIsMobile(window.innerWidth < 768);
     };
 
-    // Initial check
     checkMobile();
-
-    // Add event listener for window resize
     window.addEventListener("resize", checkMobile);
-
-    // Cleanup
-    return () => {
-      window.removeEventListener("resize", checkMobile);
-    };
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  // Calculate total pages based on screen size
   const itemsPerPage = isMobile ? 1 : 2;
   const totalPages = Math.ceil(testimonials.length / itemsPerPage);
 
-  // Function to advance to the next page
   const nextPage = async () => {
     await controls.start({
       x: "-100%",
-      transition: { duration: 0.5, ease: "easeInOut" },
+      transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] },
     });
     setCurrentPage((prev) => (prev + 1) % totalPages);
     controls.set({ x: "100%" });
     await controls.start({
       x: "0%",
-      transition: { duration: 0.5, ease: "easeOut" },
+      transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] },
     });
   };
 
-  // Function to go to the previous page
   const prevPage = async () => {
     await controls.start({
       x: "100%",
-      transition: { duration: 0.5, ease: "easeInOut" },
+      transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] },
     });
     setCurrentPage((prev) => (prev - 1 + totalPages) % totalPages);
     controls.set({ x: "-100%" });
     await controls.start({
       x: "0%",
-      transition: { duration: 0.5, ease: "easeOut" },
+      transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] },
     });
   };
 
-  // Function to go to a specific page
   const goToPage = async (page: number) => {
     if (page === currentPage) return;
 
     const direction = page > currentPage ? -1 : 1;
     await controls.start({
       x: `${direction * 100}%`,
-      transition: { duration: 0.5, ease: "easeInOut" },
+      transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] },
     });
     setCurrentPage(page);
     controls.set({ x: `${-direction * 100}%` });
     await controls.start({
       x: "0%",
-      transition: { duration: 0.5, ease: "easeOut" },
+      transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] },
     });
   };
 
-  // Handle drag end
   const handleDragEnd = (
     event: MouseEvent | TouchEvent | PointerEvent,
     info: PanInfo
   ) => {
-    const threshold = 100;
+    const threshold = 80;
     if (info.offset.x < -threshold) {
       nextPage();
     } else if (info.offset.x > threshold) {
       prevPage();
     } else {
-      controls.start({ x: 0 });
+      controls.start({
+        x: 0,
+        transition: { duration: 0.3, ease: "easeOut" },
+      });
     }
   };
 
-  // Set up the interval for auto-advancing testimonials
   useEffect(() => {
     if (!isPaused) {
       intervalRef.current = setInterval(nextPage, INTERVAL_DELAY);
@@ -141,7 +131,6 @@ function Testimonials() {
     };
   }, [isPaused, currentPage]);
 
-  // Calculate which testimonials to show based on current page and screen size
   const getVisibleTestimonials = () => {
     const startIndex = currentPage * itemsPerPage;
     const visibleItems = [];
@@ -167,22 +156,20 @@ function Testimonials() {
         }}
       />
 
-      {/* Content with full opacity */}
       <div className="container mx-auto relative !text-black z-10">
         <div className="flex flex-col sm:flex-row gap-7 sm:gap-0 justify-between items-center mb-12">
-          <h2 className="font-bai-jamjuree text-3xl md:text-4xl text-white font-semibold">
+          <h2 className="font-averia text-3xl md:text-4xl text-white font-semibold">
             Testimonials
-          </h2>{" "}
-          <a href="https://wa.link/dtys70" target="_blank">
-            <Button className="bg-white/60 hover:bg-white rounded-br-2xl hover:text-primary text-black px-6 py-2  transition-colors">
+          </h2>
+          <a href="https://wa.link/dtys70" target="_blank" rel="noreferrer">
+            <Button className="bg-white/60 hover:bg-white rounded-br-2xl hover:text-primary text-black px-6 py-2 font-avenir transition-colors">
               MEET TEMITOPE
-            </Button>{" "}
+            </Button>
           </a>
         </div>
 
-        {/* Testimonial slider with fixed height */}
         <div
-          className="relative overflow-hidden h-[50vh] sm:min-h-96 "
+          className="relative overflow-hidden min-h-[400px] md:min-h-[350px]"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
@@ -194,44 +181,46 @@ function Testimonials() {
             initial={{ x: 0 }}
             drag="x"
             dragConstraints={{ left: 0, right: 0 }}
-            dragElastic={0.1}
+            dragElastic={0.2}
             onDragEnd={handleDragEnd}
+            whileDrag={{ cursor: "grabbing" }}
           >
             {visibleTestimonials.map((testimonial, index) => (
-              <div
+              <motion.div
                 key={`testimonial-${currentPage}-${index}`}
                 className="relative space-y-4 h-full"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <div className="flex items-start">
                   <Quote size={60} className="text-primary-dark opacity-20" />
                 </div>
-                <p className="text-white relative z-10 text-base font-poppins leading-relaxed">
+                <p className="text-white relative z-10 text-base font-avenir leading-relaxed">
                   {testimonial.quote}
                 </p>
                 <div className="text-white">
-                  <h3 className="font-bai-jamjuree text-xl">
+                  <h3 className="font-averia text-xl font-semibold">
                     {testimonial.author}
                   </h3>
-                  <p className="text-white/70 uppercase text-sm">
+                  <p className="text-white/70 uppercase text-sm font-avenir">
                     {testimonial.title}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </motion.div>
         </div>
 
-        {/* Pagination indicators */}
         <div className="flex sm:hidden justify-center mt-8 gap-2">
           {Array.from({ length: totalPages }).map((_, index) => (
-            <button
+            <motion.button
               key={`dot-${index}`}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                currentPage === index ? "w-6 bg-white" : "bg-white/40"
+              className={`h-2 rounded-full transition-all duration-300 ${
+                currentPage === index ? "w-6 bg-white" : "w-2 bg-white/40"
               }`}
               onClick={() => {
                 goToPage(index);
-                // Reset the timer when manually changing
                 if (intervalRef.current) {
                   clearInterval(intervalRef.current);
                   if (!isPaused) {
@@ -239,6 +228,8 @@ function Testimonials() {
                   }
                 }
               }}
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}
               aria-label={`Go to testimonial page ${index + 1}`}
             />
           ))}

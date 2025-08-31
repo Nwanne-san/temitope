@@ -1,4 +1,7 @@
-import React, { forwardRef, useRef, useState, useEffect } from "react";
+"use client";
+
+import type React from "react";
+import { forwardRef, useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
@@ -204,18 +207,24 @@ const Resources = forwardRef<HTMLElement, ResourcesProps>(
             ref={ref}
             className="container mx-auto px-4 lg:px-10 py-12 md:py-24 scroll-mt-20 relative"
           >
-            <div className="space-y-2 mb-6">
-              <h2 className="font-bai-jamjuree text-3xl md:text-4xl">
-                Resource Hub
-              </h2>
-            </div>
+            <motion.div
+              className="space-y-2 mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="font-serif text-3xl md:text-4xl">Resource Hub</h2>
+            </motion.div>
             <div className="relative">
               <AnimatePresence>
                 <>
                   <motion.button
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.8 }}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
                     onClick={handlePrev}
                     className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-20 bg-white/80 hover:bg-white rounded-full p-2 shadow-md transition-all duration-300"
                     aria-label="Previous resources"
@@ -224,9 +233,11 @@ const Resources = forwardRef<HTMLElement, ResourcesProps>(
                     <ChevronLeft />
                   </motion.button>
                   <motion.button
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.8 }}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
                     onClick={handleNext}
                     className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-20 bg-white/80 hover:bg-white rounded-full p-2 shadow-md transition-all duration-300"
                     aria-label="Next resources"
@@ -237,14 +248,18 @@ const Resources = forwardRef<HTMLElement, ResourcesProps>(
                 </>
               </AnimatePresence>
               {/* Slider Container */}
-              <div
+              <motion.div
                 ref={sliderRef}
-                className={`flex overflow-x-auto gap-8 pb-4 snap-x snap-mandatory hide-scrollbar `}
+                className={`flex overflow-x-auto gap-8 pb-4 snap-x snap-mandatory hide-scrollbar`}
                 style={{
                   scrollBehavior: "smooth",
                   scrollbarWidth: "none",
                   msOverflowStyle: "none",
                 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
                 onMouseDown={handleMouseDown}
                 onMouseUp={handleMouseUp}
                 onMouseLeave={handleMouseLeave}
@@ -257,13 +272,19 @@ const Resources = forwardRef<HTMLElement, ResourcesProps>(
                 {resources.map((resource, index) => (
                   <motion.section
                     key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      duration: 0.6,
+                      delay: index * 0.1,
+                      ease: "easeOut",
+                    }}
+                    whileHover={{ y: -5 }}
                     className="group flex-shrink-0 w-full flex sm:w-[calc(50%-16px)] items-center justify-center lg:w-[calc(33.333%-21.333px)] xl:w-[calc(25%-24px)] snap-start"
                   >
                     <div className="flex flex-col justify- gap-2 sm:gap-2.5 h-full">
-                      <h2 className="font-bai-jamjuree text-[22px] px-1 sm:px-0 h-16 font-semibold text-start">
+                      <h2 className="font-serif text-[22px] px-1 sm:px-0 h-16 font-semibold text-start">
                         {resource.title}
                         {resource.subtitle && (
                           <div className="text-lg font-medium">
@@ -278,39 +299,47 @@ const Resources = forwardRef<HTMLElement, ResourcesProps>(
                       >
                         <motion.div
                           whileHover={{ scale: 1.05 }}
-                          transition={{ duration: 0.3 }}
+                          transition={{ duration: 0.3, ease: "easeOut" }}
                         >
                           <Image
                             src={resource.image || "/placeholder.svg"}
                             alt={resource.title}
                             width={360}
                             height={240}
-                            className="rounded-md "
+                            className="rounded-md"
                           />
                         </motion.div>
                       </Link>
                       {resource.description && (
-                        <p className="font-poppins px-1 sm:px-0 text-sm text-start mb-2 transition-colors sm:flex-grow">
+                        <p className="font-sans px-1 sm:px-0 text-sm text-start mb-2 transition-colors sm:flex-grow">
                           {resource.description}
                         </p>
                       )}
                       <Link
                         href={resource.link}
                         target="_blank"
-                        className="text-primary hover:underline hover:text-secondary duration-300 px-4 sm:px-0 capitalize flex items-center gap-2 text-base sm:mtauto"
+                        className="text-primary hover:underline hover:text-secondary duration-300 px-4 sm:px-0 capitalize flex items-center gap-2 text-base sm:mtauto font-sans"
                       >
                         {resource.cta} <ChevronRight />
                       </Link>
                     </div>
                   </motion.section>
                 ))}
-              </div>
+              </motion.div>
               {isMobile && (
-                <div className="flex justify-center gap-4 mt-6">
+                <motion.div
+                  className="flex justify-center gap-4 mt-6"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                >
                   {Array.from({ length: totalSlides }).map((_, index) => (
-                    <button
+                    <motion.button
                       key={index}
                       onClick={() => goToSlide(index)}
+                      whileHover={{ scale: 1.2 }}
+                      whileTap={{ scale: 0.9 }}
                       className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
                         currentIndex === index
                           ? "bg-primary w-8"
@@ -319,7 +348,7 @@ const Resources = forwardRef<HTMLElement, ResourcesProps>(
                       aria-label={`Go to slide ${index + 1}`}
                     />
                   ))}
-                </div>
+                </motion.div>
               )}
             </div>
             {/* Add a style tag to hide scrollbar */}
@@ -334,22 +363,33 @@ const Resources = forwardRef<HTMLElement, ResourcesProps>(
             `}</style>
           </section>
         </main>
-        <section className="bg-white">
-          <div className=" mx-auto container  p-8 md:p-12 flex flex-col justify-center">
-            <h2 className="font-bai-jamjuree text-2xl md:text-4xl text-black mb-8 leading-tight">
+        <motion.section
+          className="bg-white"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="mx-auto container p-8 md:p-12 flex flex-col justify-center">
+            <h2 className="font-serif text-2xl md:text-4xl text-black mb-8 leading-tight">
               For Speaking, Mentoring & Other Relevant Opportunities
             </h2>
-            <a href="https://wa.link/dtys70" target="_blank">
+            <motion.a
+              href="https://wa.link/dtys70"
+              target="_blank"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              rel="noreferrer"
+            >
               <Button
                 variant="primary"
-                // href="/connect"
-                className="inline-flex items-center rounded-bl-xl bg-primary hover:bg-secondary hover:text-white"
+                className="inline-flex items-center rounded-bl-xl bg-primary hover:bg-secondary hover:text-white font-sans"
               >
                 CONNECT WITH ME
               </Button>
-            </a>
+            </motion.a>
           </div>
-        </section>
+        </motion.section>
       </>
     );
   }
