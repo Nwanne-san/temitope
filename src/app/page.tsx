@@ -70,7 +70,7 @@ export default function HomePage() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
           >
-            {/* <Navbar /> */}
+            <Navbar />
             <Hero />
           </motion.section>
 

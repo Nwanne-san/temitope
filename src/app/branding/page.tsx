@@ -18,6 +18,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
+import Navbar from "@/components/branding/navbar";
 
 export default function BrandingInitiative() {
   const [isVisible, setIsVisible] = useState(false);
@@ -112,6 +113,7 @@ export default function BrandingInitiative() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-pink-50 font-sk-modernist">
+      <Navbar/>
       {/* Hero Section */}
       <section className="relative overflow-hidden py-6 sm:py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
@@ -168,18 +170,18 @@ export default function BrandingInitiative() {
             </h2>
             <div className="text-lg text-gray-700 leading-relaxed space-y-4">
               <p>
-                In today&apos;s highly competitive market, it takes more than a great
-                product or service to stand out. The Brand Experience Initiative
-                is a program designed to help entrepreneurs create powerful and
-                memorable experiences for both personal and corporate brands
-                that connect with consumers on an emotional level, fostering
-                lasting loyalty and advocacy.
+                In today&apos;s highly competitive market, it takes more than a
+                great product or service to stand out. The Brand Experience
+                Initiative is a program designed to help entrepreneurs create
+                powerful and memorable experiences for both personal and
+                corporate brands that connect with consumers on an emotional
+                level, fostering lasting loyalty and advocacy.
               </p>
               <p>
                 This initiative focuses on helping businesses move beyond simple
                 features and functions to build a clear, compelling, and
-                emotionally resonant brand that aligns with their customers&apos;
-                values, aspirations, and lifestyles.
+                emotionally resonant brand that aligns with their
+                customers&apos; values, aspirations, and lifestyles.
               </p>
               <p className="font-medium text-transparent bg-gradient-to-r from-[#9a33cc] to-[#ff0066] bg-clip-text">
                 In essence, the Brand Experience Initiative helps businesses
@@ -349,14 +351,14 @@ export default function BrandingInitiative() {
                   <p className="text-gray-700 leading-relaxed">
                     The initiative is led by Temitope Ruth Jacob, a seasoned
                     branding and marketing strategist and the Founder/CEO of
-                    Elegance Inspired Limited. Temitope&apos;s expertise in digital
-                    media, brand architecture, and storytelling helps businesses
-                    rise above the noise and achieve their full potential. She
-                    holds an MSc in Marketing and Sales from Rome Business
-                    School and a Brand Management certification from the London
-                    School of Business Administration. Temitope also mentors
-                    young leaders at Dream Centre Trybe and is a sought-after
-                    speaker and trainer.
+                    Elegance Inspired Limited. Temitope&apos;s expertise in
+                    digital media, brand architecture, and storytelling helps
+                    businesses rise above the noise and achieve their full
+                    potential. She holds an MSc in Marketing and Sales from Rome
+                    Business School and a Brand Management certification from
+                    the London School of Business Administration. Temitope also
+                    mentors young leaders at Dream Centre Trybe and is a
+                    sought-after speaker and trainer.
                   </p>
                 </div>
               </div>

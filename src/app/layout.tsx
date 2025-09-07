@@ -124,7 +124,7 @@ export default function RootLayout({
       <body
         className={`${poppins.variable} ${baiJamjuree.variable} ${avenir.variable} ${averia.variable} ${skModernist.variable}  font-sans`}
       >
-        <Navbar />
+        {/* <Navbar /> */}
         <Analytics />
         {children}
       </body>

@@ -1,16 +1,28 @@
 {
-    "redirects": [
-      {
-        "source": "/",
-        "has": [
-          {
-            "type": "host",
-            "value": "brandx.temitoperuthjacob.com"
-          }
-        ],
-        "destination": "/branding",
-        "permanent": false
-      }
-    ]
-  }
+  "rewrites": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "brandx.temitoperuthjacob.com"
+        }
+      ],
+      "destination": "/branding"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/branding",
+      "has": [
+        {
+          "type": "host",
+          "value": "temitoperuthjacob.com"
+        }
+      ],
+      "destination": "https://brandx.temitoperuthjacob.com",
+      "permanent": false
+    }
+  ]
+}
   
