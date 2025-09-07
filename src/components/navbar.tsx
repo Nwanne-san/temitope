@@ -147,7 +147,7 @@ export default function Navbar({ activePage, setActivePage }: NavbarProps) {
             transition={{ duration: 0.2 }}
           >
             <Image
-              src="/trj logo.png"
+              src="/TRJ Logo MAIN.png"
               alt="Tols Logo"
               width={120}
               height={40}
@@ -191,6 +191,14 @@ export default function Navbar({ activePage, setActivePage }: NavbarProps) {
               />
             )}
           </Link>
+          <a
+            href="https://brandx.temitoperuthjacob.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-all duration-300 relative hover:scale-105 hover:text-primary"
+          >
+            BRANDX
+          </a>
           <motion.button
             onClick={() => {
               if (pathname !== "/") {
@@ -326,6 +334,18 @@ export default function Navbar({ activePage, setActivePage }: NavbarProps) {
                       <span className="absolute -bottom-2 left-0 w-fit h-0.5 bg-primary"></span>
                     )}
                   </Link>
+                </motion.div>
+
+                <motion.div variants={menuItemVariants}>
+                  <a
+                    href="https://brandx.temitoperuthjacob.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-primary transition-colors text-left cursor-pointer pl-2 block"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    BRANDX
+                  </a>
                 </motion.div>
 
                 <motion.div variants={menuItemVariants}>

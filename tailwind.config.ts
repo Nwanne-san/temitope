@@ -73,6 +73,7 @@ const config: Config = {
         serif: ["var(--font-averia)", "serif"],
         poppins: ["var(--font-poppins)", "sans-serif"],
         "bai-jamjuree": ["var(--font-bai-jamjuree)", "sans-serif"],
+        "sk-modernist": ["var(--font-sk-modernist)", "sans-serif"],
       },
     },
   },

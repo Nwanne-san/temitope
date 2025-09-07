@@ -49,7 +49,7 @@ const Footer = () => {
             viewport={{ once: true }}
           >
             <Image
-              src="/TRJ logo white.png"
+              src="/TRJ 2 Logo New.png"
               alt="Tols Logo"
               width={120}
               height={40}
