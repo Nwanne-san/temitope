@@ -1,57 +1,15 @@
 {
-  "rewrites": [
-    {
-      "source": "/_next/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "brandx.temitoperuthjacob.com"
-        }
-      ],
-      "destination": "/_next/:path*"
-    },
-    {
-      "source": "/favicon.ico",
-      "has": [
-        {
-          "type": "host",
-          "value": "brandx.temitoperuthjacob.com"
-        }
-      ],
-      "destination": "/favicon.ico"
-    },
-    {
-      "source": "/:file(.*\\..*)",
-      "has": [
-        {
-          "type": "host",
-          "value": "brandx.temitoperuthjacob.com"
-        }
-      ],
-      "destination": "/:file"
-    },
-    {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "brandx.temitoperuthjacob.com"
-        }
-      ],
-      "destination": "/branding"
-    }
-  ],
-  "redirects": [
-    {
-      "source": "/branding",
-      "has": [
-        {
-          "type": "host",
-          "value": "temitoperuthjacob.com"
-        }
-      ],
-      "destination": "https://brandx.temitoperuthjacob.com",
-      "permanent": false
-    }
-  ]
-}
+    "redirects": [
+      {
+        "source": "/",
+        "has": [
+          {
+            "type": "host",
+            "value": "brandx.temitoperuthjacob.com"
+          }
+        ],
+        "destination": "/branding",
+        "permanent": false
+      }
+    ]
+  }
