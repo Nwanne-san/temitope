@@ -1,35 +1,16 @@
 {
-  "rewrites": [
-    {
-      "source": "/_next/:path*",
-      "has": [{ "type": "host", "value": "brandx.temitoperuthjacob.com" }],
-      "destination": "/_next/:path*"
-    },
-    {
-      "source": "/favicon.ico",
-      "has": [{ "type": "host", "value": "brandx.temitoperuthjacob.com" }],
-      "destination": "/favicon.ico"
-    },
-    {
-      "source": "/:file(.*\\..*)",
-      "has": [{ "type": "host", "value": "brandx.temitoperuthjacob.com" }],
-      "destination": "/:file"
-    },
-    {
-      "source": "/branding",
-      "has": [{ "type": "host", "value": "brandx.temitoperuthjacob.com" }],
-      "destination": "/branding"
-    },
-    {
-      "source": "/branding/:path*",
-      "has": [{ "type": "host", "value": "brandx.temitoperuthjacob.com" }],
-      "destination": "/branding/:path*"
-    },
-    {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "brandx.temitoperuthjacob.com" }],
-      "destination": "/branding"
-    }
-  ]
-}
+    "redirects": [
+      {
+        "source": "/",
+        "has": [
+          {
+            "type": "host",
+            "value": "brandx.temitoperuthjacob.com"
+          }
+        ],
+        "destination": "/branding",
+        "permanent": false
+      }
+    ]
+  }
   
