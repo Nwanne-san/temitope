@@ -1,7 +1,37 @@
 {
   "rewrites": [
     {
-      "source": "/",
+      "source": "/_next/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "brandx.temitoperuthjacob.com"
+        }
+      ],
+      "destination": "/_next/:path*"
+    },
+    {
+      "source": "/favicon.ico",
+      "has": [
+        {
+          "type": "host",
+          "value": "brandx.temitoperuthjacob.com"
+        }
+      ],
+      "destination": "/favicon.ico"
+    },
+    {
+      "source": "/:file(.*\\..*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "brandx.temitoperuthjacob.com"
+        }
+      ],
+      "destination": "/:file"
+    },
+    {
+      "source": "/:path*",
       "has": [
         {
           "type": "host",
@@ -25,4 +55,3 @@
     }
   ]
 }
-  
