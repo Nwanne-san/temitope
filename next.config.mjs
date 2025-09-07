@@ -5,14 +5,14 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: '/:path*',
+        source: '/',
         has: [
           {
             type: 'host',
             value: 'brandx.temitoperuthjacob.com', // match subdomain
           },
         ],
-        destination: '/branding/:path*', // route all subdomain requests to /branding
+        destination: '/branding', // route only subdomain root to /branding
       },
     ]
   },
