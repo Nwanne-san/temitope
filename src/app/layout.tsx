@@ -3,7 +3,8 @@ import { Poppins, Bai_Jamjuree } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import type { Metadata } from "next";
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/next";
+import Navbar from "@/components/navbar";
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -70,7 +71,7 @@ const skModernist = localFont({
   ],
   variable: "--font-sk-modernist",
   fallback: ["system-ui", "sans-serif"],
-})
+});
 
 export const metadata: Metadata = {
   title: "Temitope Ruth Jacob | Branding & Marketing Expert",
@@ -123,7 +124,8 @@ export default function RootLayout({
       <body
         className={`${poppins.variable} ${baiJamjuree.variable} ${avenir.variable} ${averia.variable} ${skModernist.variable}  font-sans`}
       >
-        <Analytics/>
+        <Navbar />
+        <Analytics />
         {children}
       </body>
     </html>

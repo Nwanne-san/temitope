@@ -13,7 +13,7 @@ function AboutUs() {
 
   return (
     <div className="flex flex-col xl:gap-12">
-      <Navbar activePage={activePage} setActivePage={setActivePage} />
+      {/* <Navbar activePage={activePage} setActivePage={setActivePage} /> */}
       <HeroSection />
       <Education />
       <RecentProjects />
