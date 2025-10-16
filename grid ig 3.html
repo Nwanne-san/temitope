@@ -1,0 +1,457 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>GridIQ — Colorful Dashboard Prototype</title>
+
+<!-- Chart.js CDN -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
+
+<style>
+  :root{
+    --bg: linear-gradient(180deg,#e9f2fb 0%, #f7f7fb 100%);
+    --card:#ffffff;
+    --muted:#6b7280;
+    --shadow: 0 8px 28px rgba(15,23,42,0.08);
+    --accent-1: linear-gradient(180deg,#34d399,#06b6d4);
+    --accent-2: linear-gradient(180deg,#f97316,#f59e0b);
+    --accent-3: linear-gradient(180deg,#60a5fa,#7c3aed);
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  }
+
+  html,body{ height:100%; margin:0; background:var(--bg); color:#0f172a; -webkit-font-smoothing:antialiased; }
+  .wrap{ max-width:1280px; margin:28px auto; padding:20px; }
+
+  header{ display:flex; justify-content:space-between; align-items:center; gap:16px; margin-bottom:18px; }
+  .brand{ display:flex; align-items:center; gap:12px; }
+  .brand-mark{ width:46px; height:46px; border-radius:10px; display:grid; place-items:center; background:linear-gradient(135deg,#06b6d4,#34d399); color:#fff; font-weight:700;}
+  .brand h1{ margin:0; font-size:20px; letter-spacing:0.2px;}
+  nav{ display:flex; gap:10px; align-items:center; }
+  .nav-btn{ padding:8px 12px; border-radius:10px; border:1px solid rgba(15,23,42,0.06); background:rgba(255,255,255,0.6); cursor:pointer; font-weight:600; }
+  .nav-btn.active{ background:#0f172a; color:#fff; border:0; }
+
+  .layout{ display:grid; grid-template-columns: 1fr 360px; gap:20px; }
+  .main{ background:var(--card); border-radius:16px; padding:18px; box-shadow:var(--shadow); }
+  .sidebar{ display:flex; flex-direction:column; gap:14px; }
+
+  .row{ display:flex; gap:14px; }
+  .card-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap:14px; margin-top:14px; }
+
+  .card{ background:var(--card); border-radius:12px; padding:12px; box-shadow:0 6px 18px rgba(15,23,42,0.04); transition: transform .14s ease, box-shadow .14s ease; }
+  .card:hover{ transform:translateY(-4px); box-shadow:0 12px 34px rgba(15,23,42,0.08); }
+
+  .title-sm{ font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:0.06em; font-weight:700; margin-bottom:6px; }
+  .metric{ font-size:26px; font-weight:800; }
+
+  /* badges */
+  .badge{ display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px; font-weight:700; font-size:12px; }
+  .badge.live{ background: linear-gradient(90deg,#d1fae5,#bbf7d0); color:#065f46; }
+  .badge.freq{ background: linear-gradient(90deg,#dbeafe,#bfdbfe); color:#1e3a8a; }
+  .badge.warn{ background: linear-gradient(90deg,#fff7ed,#ffedd5); color:#92400e; }
+
+  /* heatmap & table */
+  .heatmap-wrap{ display:flex; gap:12px; align-items:center; padding:8px; }
+  #heatmap{ border-radius:8px; background:#fff; box-shadow: inset 0 1px 0 rgba(0,0,0,0.02); }
+
+  table{ width:100%; border-collapse:collapse; font-size:13px; margin-top:8px; }
+  table th, table td{ padding:8px 6px; text-align:left; border-bottom:1px solid #f1f5f9; }
+  table th{ font-size:12px; color:var(--muted); text-transform:uppercase; font-weight:700; }
+
+  .loss-badge{ padding:6px 8px; border-radius:8px; font-weight:800; font-size:12px; color:#fff; display:inline-block; min-width:56px; text-align:center; }
+  .loss-low{ background: linear-gradient(90deg,#bbf7d0,#86efac); color:#064e3b; }
+  .loss-med{ background: linear-gradient(90deg,#fef3c7,#fde68a); color:#713f12; }
+  .loss-high{ background: linear-gradient(90deg,#fecaca,#fca5a5); color:#7f1d1d; }
+
+  /* sidebar interactive cards */
+  .sidebar .card{ cursor:pointer; overflow:hidden; }
+  .collapse-title{ display:flex; justify-content:space-between; align-items:center; gap:8px; }
+  .collapse-body{ margin-top:10px; max-height:0; overflow:hidden; transition:max-height .28s cubic-bezier(.2,.9,.2,1); opacity:0; }
+  .collapse-open .collapse-body{ max-height:400px; opacity:1; }
+
+  /* small UI */
+  .small-row{ display:flex; gap:10px; align-items:center; margin-top:8px; }
+  .spark{ height:28px; width:80px; border-radius:6px; display:inline-block; background:linear-gradient(90deg,#e6f6ff,#fff); box-shadow:inset 0 1px 0 rgba(255,255,255,0.6); }
+
+  footer{ margin-top:20px; font-size:12px; color:var(--muted); text-align:center; }
+
+  @media(max-width:1000px){
+    .layout{ grid-template-columns: 1fr; }
+    .card-grid{ grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="brand-mark">GQ</div>
+        <div>
+          <h1>GridIQ <small style="color:var(--muted);font-weight:600">Dashboard</small></h1>
+        </div>
+      </div>
+
+      <nav>
+        <button class="nav-btn active">Overview</button>
+        <button class="nav-btn">Metrics</button>
+        <button class="nav-btn">Alerts</button>
+        <button class="nav-btn">Reports</button>
+        <button class="nav-btn" style="background:#0f172a;color:#fff;">Log out</button>
+      </nav>
+    </header>
+
+    <div class="layout">
+      <!-- MAIN COLUMN -->
+      <div class="main">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <div>
+            <div class="title-sm">Real-Time Grid Performance</div>
+            <div style="color:var(--muted); font-size:13px;">Generation mix, demand and frequency - last 8 hours</div>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <div class="badge live">● Live</div>
+            <div class="badge freq">49.9 Hz</div>
+          </div>
+        </div>
+
+        <!-- Area Chart -->
+        <canvas id="mainChart" style="margin-top:12px; height:180px; width:100%;"></canvas>
+
+        <!-- KPIs row -->
+        <div class="card-grid">
+          <div class="card" style="border-left:6px solid #3b82f6;">
+            <div class="title-sm">Total Energy Sent-Out</div>
+            <div class="metric">4,800 GWh</div>
+            <div class="small-row muted">Sent-out vs Offtake: 4,500 GWh</div>
+          </div>
+
+          <div class="card" style="border-left:6px solid #34d399;">
+            <div class="title-sm">Frequency Stability</div>
+            <div class="metric">92%</div>
+            <div class="small-row muted">Avg Deviation: 0.15 Hz</div>
+          </div>
+
+          <div class="card" style="border-left:6px solid #f97316;">
+            <div class="title-sm">Grid Events (YTD)</div>
+            <div class="metric">3</div>
+            <div class="small-row muted">System collapses & major incidents</div>
+          </div>
+        </div>
+
+        <!-- Top 5 / Sent-Out row -->
+        <div class="card-grid" style="margin-top:14px;">
+          <div class="card">
+            <div class="title-sm">Top 5 Generators (MW)</div>
+            <div style="display:flex;gap:10px;margin-top:8px;">
+              <div style="flex:1"><strong>Plant A</strong><div class="muted">820 MW</div></div>
+              <div style="flex:1"><strong>Plant B</strong><div class="muted">640 MW</div></div>
+              <div style="flex:1"><strong>Plant C</strong><div class="muted">420 MW</div></div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="title-sm">Sent-Out vs DisCo Intake</div>
+            <div class="metric">Losses: 12%</div>
+            <div class="muted">ATC&C gap: +5%</div>
+          </div>
+
+          <div class="card">
+            <div class="title-sm">Plant Availability</div>
+            <div class="metric">87%</div>
+            <div class="muted">FOR: 8% · Planned: 5%</div>
+          </div>
+        </div>
+
+        <!-- Bottom summary: energy/demand/feeder -->
+        <div style="margin-top:16px; display:grid; grid-template-columns: repeat(3,1fr); gap:14px;">
+          <div class="card">
+            <div class="title-sm">Total Energy Delivered</div>
+            <div class="metric">7,219 GWh</div>
+          </div>
+          <div class="card">
+            <div class="title-sm">Peak Demand</div>
+            <div class="metric">5,320 MW</div>
+          </div>
+          <div class="card">
+            <div class="title-sm">Feeder Loss Heatmap (mini)</div>
+            <div class="heatmap-wrap">
+              <canvas id="heatmap" width="220" height="80"></canvas>
+              <div style="flex:1">
+                <div class="muted" style="font-size:13px;">Top loss feeders</div>
+                <div style="margin-top:8px;">
+                  <div style="display:flex;gap:8px;align-items:center"><span class="loss-badge loss-high">>15%</span><span class="muted">Critical</span></div>
+                  <div style="display:flex;gap:8px;align-items:center;margin-top:6px"><span class="loss-badge loss-med">8-15%</span><span class="muted">High</span></div>
+                  <div style="display:flex;gap:8px;align-items:center;margin-top:6px"><span class="loss-badge loss-low">≤8%</span><span class="muted">Acceptable</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Top-10 feeder table -->
+        <div style="margin-top:18px" class="card">
+          <div class="title-sm">Top-10 Feeder Losses</div>
+          <div class="muted" style="font-size:13px;">Feeder losses ranked by % loss (sample values)</div>
+
+          <table id="feederTable" aria-label="Top ten feeders" style="margin-top:10px">
+            <thead>
+              <tr><th>#</th><th>Feeder</th><th>Region</th><th>Loss %</th><th>Trend</th></tr>
+            </thead>
+            <tbody>
+              <!-- rows injected by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <!-- Market card (collapsible) -->
+        <div class="card collapse-card" id="cardMarket">
+          <div class="collapse-title">
+            <div>
+              <div class="title-sm">Market & Commercial</div>
+              <div style="font-weight:800;font-size:18px;">ATC&C Loss: <span style="color:#ef4444">34%</span></div>
+            </div>
+            <div style="display:flex;gap:8px;align-items:center">
+              <svg height="22" width="22" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#374151" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+
+          <div class="collapse-body">
+            <div class="small-row" style="margin-top:10px;">
+              <div style="flex:1">
+                <div class="muted">Revenue Recovery</div>
+                <div style="font-weight:800">₦132B</div>
+              </div>
+
+              <div style="flex:1">
+                <div class="muted">ARPU</div>
+                <div style="font-weight:800">₦38/unit</div>
+              </div>
+            </div>
+
+            <div style="margin-top:12px;">
+              <div class="muted">DisCo Ranking</div>
+              <ol style="padding-left:18px;margin-top:6px">
+                <li style="margin-bottom:4px">DisCo A (+12% gap)</li>
+                <li style="margin-bottom:4px">DisCo B (+8% gap)</li>
+                <li style="margin-bottom:4px">DisCo C (+4% gap)</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+
+        <!-- Generation performance -->
+        <div class="card collapse-card" id="cardGen">
+          <div class="collapse-title">
+            <div>
+              <div class="title-sm">Generation Performance</div>
+              <div style="font-weight:800;font-size:16px;">Availability 87% <span style="color:#6b7280;font-weight:600">• FOR 8%</span></div>
+            </div>
+            <div><svg height="22" width="22" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#374151" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          </div>
+          <div class="collapse-body">
+            <div style="margin-top:8px;">
+              <div class="muted">Top outage contributors</div>
+              <ul style="padding-left:18px;margin-top:6px">
+                <li>Plant B — Forced outage events</li>
+                <li>Plant D — Planned maintenance</li>
+              </ul>
+            </div>
+            <div style="margin-top:10px;"><button onclick="alert('Open detailed generation panel')" style="padding:8px 10px;border-radius:8px;border:0;background:#3b82f6;color:#fff;font-weight:700;cursor:pointer">View generation report</button></div>
+          </div>
+        </div>
+
+        <!-- Incidents -->
+        <div class="card collapse-card" id="cardInc">
+          <div class="collapse-title">
+            <div>
+              <div class="title-sm">Incidents & Alerts</div>
+              <div style="font-weight:800;font-size:16px;">5 active alerts</div>
+            </div>
+            <div><svg height="22" width="22" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#374151" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          </div>
+          <div class="collapse-body">
+            <div style="margin-top:8px;">
+              <div class="muted">MTBF</div>
+              <div style="font-weight:800">120 days</div>
+            </div>
+            <ul style="margin-top:8px;padding-left:18px;">
+              <li>Recurring outage — Feeder F7 (6 occurrences)</li>
+              <li>Voltage excursion — Region North (3 occurrences)</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Quick filters card -->
+        <div class="card" id="filtersCard">
+          <div class="title-sm">Quick Filters</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;">
+            <button class="nav-btn" onclick="applyRange(24)">24h</button>
+            <button class="nav-btn" onclick="applyRange(168)">7d</button>
+            <button class="nav-btn" onclick="applyRange(720)">30d</button>
+            <button class="nav-btn" onclick="applyRegion()">By region</button>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      GridIQ • Prototype • Data sample derived from GRIDIQ metrics framework
+    </footer>
+  </div>
+
+<script>
+/* ---------- Sample data ---------- */
+const labels = ['09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00'];
+const generation = [220,300,260,310,270,320,290,310];
+const demand =     [180,240,230,280,250,290,260,285];
+const frequency =  [49.9,49.85,49.95,50.02,49.98,49.9,49.88,49.97];
+
+/* ---------- Main chart (area + freq on secondary axis) ---------- */
+const ctx = document.getElementById('mainChart').getContext('2d');
+
+const mainChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: labels,
+    datasets: [
+      { label:'Generation (MW)', data:generation, fill:true, tension:0.36, borderWidth:2, backgroundColor:createGradient(ctx, '#34d399', 0.12), borderColor:'#059669', pointRadius:2, yAxisID:'y' },
+      { label:'Demand (MW)', data:demand, fill:true, tension:0.36, borderWidth:2, backgroundColor:createGradient(ctx, '#60a5fa', 0.12), borderColor:'#2563eb', pointRadius:2, yAxisID:'y' },
+      { label:'Frequency (Hz)', data:frequency, type:'line', fill:false, tension:0.2, borderColor:'#374151', pointRadius:3, borderDash:[4,4], yAxisID:'yFreq' }
+    ]
+  },
+  options: {
+    responsive:true,
+    maintainAspectRatio:false,
+    interaction:{mode:'index',intersect:false},
+    plugins:{ legend:{ position:'top' } },
+    scales:{
+      y: { type:'linear', position:'left', title:{display:true,text:'MW'} },
+      yFreq: { type:'linear', position:'right', min:49.5, max:50.5, grid:{drawOnChartArea:false}, title:{display:true,text:'Hz'} }
+    }
+  }
+});
+
+function createGradient(ctx, color, alpha){
+  const g = ctx.createLinearGradient(0,0,0,300);
+  if(color.includes('#34d399')){
+    g.addColorStop(0, 'rgba(16,185,129,'+alpha+')'); g.addColorStop(1, 'rgba(6,182,212,0)');
+  } else {
+    g.addColorStop(0, 'rgba(96,165,250,'+alpha+')'); g.addColorStop(1,'rgba(124,58,237,0)');
+  }
+  return g;
+}
+
+/* ---------- Heatmap rendering (mini) ---------- */
+/* We'll render a small grid (3 rows x 10 cols representing feeders grouped) */
+const heatmapCanvas = document.getElementById('heatmap');
+const hmCtx = heatmapCanvas.getContext('2d');
+
+/* sample feeder loss values (10 feeders) */
+const feeders = [
+  {id:'FDR-01', region:'North', loss:18.2},
+  {id:'FDR-02', region:'East', loss:14.5},
+  {id:'FDR-03', region:'South', loss:10.1},
+  {id:'FDR-04', region:'West', loss:7.9},
+  {id:'FDR-05', region:'North', loss:6.2},
+  {id:'FDR-06', region:'East', loss:12.8},
+  {id:'FDR-07', region:'South', loss:20.4},
+  {id:'FDR-08', region:'West', loss:4.5},
+  {id:'FDR-09', region:'Central', loss:9.5},
+  {id:'FDR-10', region:'Central', loss:11.3}
+];
+
+function drawHeatmap() {
+  const w = heatmapCanvas.width, h = heatmapCanvas.height;
+  const cols = 10, rows = 1; // a compact 1x10 mini "strip"
+  const cellW = Math.floor(w/cols), cellH = h;
+  hmCtx.clearRect(0,0,w,h);
+  feeders.forEach((f,i)=>{
+    const x = i*cellW, y=0;
+    const color = lossColor(f.loss);
+    hmCtx.fillStyle = color;
+    hmCtx.fillRect(x+4,6,cellW-8,cellH-12);
+    // label (small)
+    hmCtx.fillStyle = 'rgba(255,255,255,0.95)';
+    hmCtx.font = '10px Inter, Arial';
+    hmCtx.textAlign = 'center';
+    hmCtx.fillText(f.id, x + cellW/2, h - 6);
+  });
+}
+function lossColor(loss){
+  // >15% red, 8-15% orange, <=8% green
+  if(loss>15) return '#ef4444';
+  if(loss>8) return '#f59e0b';
+  return '#10b981';
+}
+drawHeatmap();
+
+/* ---------- Top-10 feeder table fill ---------- */
+const tbody = document.querySelector('#feederTable tbody');
+feeders.sort((a,b)=>b.loss - a.loss).forEach((f,idx)=>{
+  const tr = document.createElement('tr');
+  const badgeClass = f.loss>15 ? 'loss-high' : (f.loss>8 ? 'loss-med' : 'loss-low');
+  tr.innerHTML = `
+    <td style="width:28px">${idx+1}</td>
+    <td><strong>${f.id}</strong></td>
+    <td class="muted">${f.region}</td>
+    <td><span class="loss-badge ${badgeClass}">${f.loss.toFixed(1)}%</span></td>
+    <td><div class="spark" data-values="${randomSparkData()}"></div></td>
+  `;
+  tbody.appendChild(tr);
+});
+/* simple sparkbars (drawn using background linear gradient) */
+document.querySelectorAll('.spark').forEach(el=>{
+  const vals = el.dataset.values.split(',').map(Number);
+  const max = Math.max(...vals);
+  const parts = vals.map(v=> Math.round((v/max)*100) );
+  // make a CSS linear-gradient with segments
+  const colors = parts.map((p,i)=> {
+    const c = p>70 ? '#ef4444' : (p>40 ? '#f59e0b' : '#10b981');
+    return `${c} ${ (i*(100/parts.length)).toFixed(2)}% ${( (i+1)*(100/parts.length) ).toFixed(2) }%`;
+  }).join(', ');
+  el.style.background = `linear-gradient(90deg, ${colors})`;
+});
+function randomSparkData(){ return Array.from({length:6},()=>Math.round(Math.random()*100)).join(',') }
+
+/* ---------- Sidebar collapse interactivity ---------- */
+document.querySelectorAll('.collapse-card').forEach(card=>{
+  const title = card.querySelector('.collapse-title');
+  title.addEventListener('click', ()=>{
+    const open = card.classList.contains('collapse-open');
+    document.querySelectorAll('.collapse-card').forEach(c=>c.classList.remove('collapse-open'));
+    if(!open) card.classList.add('collapse-open');
+  });
+});
+
+/* ---------- Quick filter placeholders ---------- */
+function applyRange(h){
+  // placeholder: in a real app, fetch data filtered by hours
+  alert('Filter applied: last ' + h + ' hours (demo)');
+}
+function applyRegion(){
+  alert('Filter by region (demo)');
+}
+
+/* ---------- Accessibility: keyboard toggles ---------- */
+document.addEventListener('keydown', (e)=>{
+  if(e.key === 'Escape'){
+    document.querySelectorAll('.collapse-card').forEach(c=>c.classList.remove('collapse-open'));
+  }
+});
+
+/* ---------- Utility: Replace sample numbers with CSV/JSON ---------- */
+/*
+  To plug in real data:
+  - Replace the arrays at the top (labels, generation, demand, frequency) with your dataset,
+    or fetch a CSV/JSON using fetch('/path/to/data.json').then(res=>res.json()).then(populateChart)
+  - Replace feeders[] with actual feeder loss list
+  - Call mainChart.update() after assigning new data
+*/
+
+</script>
+</body>
+</html>

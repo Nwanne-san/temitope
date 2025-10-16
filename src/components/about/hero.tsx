@@ -81,7 +81,7 @@ function HeroSection() {
               developing creative strategies to communicate that message to the
               target audience. Armed with an insatiable curiosity and a hunger
               for knowledge, she has consistently sought for opportunities to
-              expand my skills and expertise, carving a path towards becoming an
+              expand her skills and expertise, carving a path towards becoming an
               industry leader in branding and marketing.
             </motion.p>
             <motion.p
