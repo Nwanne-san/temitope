@@ -192,7 +192,7 @@ export default function Navbar({ activePage, setActivePage }: NavbarProps) {
             )}
           </Link>
           <a
-            href="https://brandx.temitoperuthjacob.com"
+            href="https://brandxperience.org"
             target="_blank"
             rel="noopener noreferrer"
             className="transition-all duration-300 relative hover:scale-105 hover:text-primary"
