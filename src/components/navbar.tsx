@@ -338,7 +338,7 @@ export default function Navbar({ activePage, setActivePage }: NavbarProps) {
 
                 <motion.div variants={menuItemVariants}>
                   <a
-                    href="https://brandx.temitoperuthjacob.com"
+                    href="https://brandxperience.org"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:text-primary transition-colors text-left cursor-pointer pl-2 block"
