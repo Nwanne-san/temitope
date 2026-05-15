@@ -145,9 +145,9 @@ const Resources = forwardRef<HTMLElement, ResourcesProps>(
       {
         title: "Your Authentic Signature",
         subtitle: "A Personal Branding Handbook",
-        image: "/out now website.jpg",
+        image: "/handbook.jpg",
         description:
-          "This handbook will guide you through a journey of self-discovery, strategic planning, and consistent execution. It's a practical guide designed to help you discover, define, and communicate your unique personal brand.",
+          "Your Authentic Signature Handbook is a guide designed to help you discover, define, and communicate your unique personal brand. Your personal brand is about authentically showcasing who you are and what you stand for. This handbook will guide you through a journey of self-discovery, strategic planning, and consistent execution. By the end, you'll have a clear understanding of your brand and the tools to effectively share it with the world.",
         cta: "Download for free",
         link: "https://selar.com/1v4g42",
       },
