@@ -85,14 +85,14 @@ export function BookModal({ onClose }: BookModalProps) {
               }`}
             >
               <Image
-                src="/out now.jpg"
+                src="/handbook.jpg"
                 alt="Book Cover"
                 width={460}
                 height={400}
                 className="object-cover hidden sm:flex rounded-md max-sm:h- transform rotate-[-3deg] hover:rotate-0 transition-transform duration-300"
               />
               <Image
-                src="/out now website.jpg"
+                src="/handbook.jpg"
                 alt="Book Cover"
                 width={360}
                 height={300}
@@ -151,7 +151,7 @@ export function BookPromo({ onOpen }: BookPromoProps) {
     >
       <div className="relative h-14 w-10 flex-shrink-0">
         <Image
-          src="/out now.jpg"
+          src="/handbook.jpg"
           alt="Book Cover"
           width={100}
           height={140}
