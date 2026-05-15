@@ -306,7 +306,7 @@ const Resources = forwardRef<HTMLElement, ResourcesProps>(
                             alt={resource.title}
                             width={360}
                             height={240}
-                            className="rounded-md"
+                            className="rounded-md w-[360px] h-[240px] object-cover object-center group-hover:brightness-95 transition-all duration-300"
                           />
                         </motion.div>
                       </Link>
