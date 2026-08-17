@@ -38,16 +38,16 @@ function Achievements({ setActivePage }: AchievementsProps) {
         viewport={{ once: true }}
       >
         <h2 className="font-averia font-semibold text-3xl md:text-4xl">
-          Some Of My Projects
+          Featured Work
         </h2>
         <Button
           variant="outline"
           onClick={() => {
-            window.location.href = "/about";
+            window.location.href = "/about#projects";
           }}
           className="font-avenir"
         >
-          VIEW ALL
+          SEE ALL PROJECTS
         </Button>
       </motion.div>
       <div className="flex flex-col container">

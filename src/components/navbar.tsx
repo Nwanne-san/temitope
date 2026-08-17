@@ -148,7 +148,7 @@ export default function Navbar({ activePage, setActivePage }: NavbarProps) {
           >
             <Image
               src="/TRJ Logo MAIN.png"
-              alt="Tols Logo"
+              alt="Temitope Ruth Jacob"
               width={120}
               height={40}
             />
@@ -274,7 +274,7 @@ export default function Navbar({ activePage, setActivePage }: NavbarProps) {
                 >
                   <Image
                     src="/trj logo.png"
-                    alt="Tols Logo"
+                    alt="Temitope Ruth Jacob"
                     width={120}
                     height={40}
                   />

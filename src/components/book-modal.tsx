@@ -109,10 +109,13 @@ export function BookModal({ onClose }: BookModalProps) {
             }`}
           >
             <h2 className="text-xl md:text-3xl font-bold font-serif mb-3">
-              Authentic Self Handbook
+              Your Authentic Signature
             </h2>
+            <p className="text-sm font-medium text-primary sm:text-base mb-3 font-sans">
+              A Personal Branding Handbook
+            </p>
             <p className="text-gray-600 text-sm font-medium sm:text-base mb-6 font-sans">
-              Get your free copy of our exclusive e-book with practical guides
+              Get your free copy of the exclusive e-book with practical guides
               to help you discover, define and communicate your brand.
             </p>
             <a href="https://selar.com/1v4g42" target="_blank" rel="noreferrer">
@@ -160,7 +163,7 @@ export function BookPromo({ onOpen }: BookPromoProps) {
       </div>
       <div className="sm:pr-2">
         <h3 className="text-[9px] xl:text-sm font-semibold text-white">
-          Personal branding handbook
+          Your Authentic Signature
         </h3>
         <p className="text-[8px] sm:text-xs text-white/80">
           Click to download now

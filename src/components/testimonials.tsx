@@ -20,13 +20,13 @@ const testimonials = [
   },
   {
     quote:
-      "Temitope truly portraits a deep understanding of branding strategy, management intelligence and cutting edge solutions to the challenges and endless possibilities that abounds. Her ability to decipher and distill complex ideas into a creative strategy and coherent narrative translates across all spectrum.",
+      "Temitope truly portrays a deep understanding of branding strategy, management intelligence and cutting-edge solutions to the challenges and endless possibilities that abound. Her ability to decipher and distill complex ideas into a creative strategy and coherent narrative translates across all spectrums.",
     author: "James Ameh",
     title: "CEO, JPA Enterprise LLC",
   },
   {
     quote:
-      "Ruth Temitope has proven she is a mastro when it comes to the branding game. Her eye for details, speed of precision and doggedness has really enabled her to carve a niche for herself in the creative space. As one who has spent over a decade in this line of business, I highly recommend her for any job that is creative related and I enjoy working with her.",
+      "Ruth Temitope has proven she is a maestro when it comes to the branding game. Her eye for detail, speed of precision and doggedness have really enabled her to carve a niche for herself in the creative space. As one who has spent over a decade in this line of business, I highly recommend her for any job that is creative related, and I enjoy working with her.",
     author: "Enyinnaya Iroadumba",
     title: "Brand Connoisseur, Beacon Media Limited",
   },

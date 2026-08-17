@@ -21,7 +21,7 @@ function RecentProjects() {
     },
     {
       title: "Branding & Communications Strategist",
-      role: `Creating and implementing Creative branding & communication Strategy for the UPGRADE MARKETING CONFERNCE 2025 themed; Marketing is not a Department. `,
+      role: `Created and implemented the creative branding and communications strategy for the Upgrade Marketing Conference 2025, themed "Marketing is not a Department."`,
       organization: "Yantic Business Academy",
       year: "2025",
       location: "lagos, nigeria",
@@ -81,7 +81,10 @@ function RecentProjects() {
   };
 
   return (
-    <section className="mx-auto container px-4 lg:px-10 py-12 md:py-20 flex flex-col sm:flex-row gap-10 items-start justify-center">
+    <section
+      id="projects"
+      className="mx-auto container px-4 lg:px-10 py-12 md:py-20 flex flex-col sm:flex-row gap-10 items-start justify-center scroll-mt-24"
+    >
       <motion.div
         className="flex flex-col justify-between gap-8 items-center sm:items-start py-6 container sm:w-1/3"
         initial={{ opacity: 0, x: -50 }}
@@ -90,7 +93,7 @@ function RecentProjects() {
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <h2 className="font-serif text-3xl text-center sm:text-start md:text-4xl">
-          Some Of My projects
+          Some Of My Projects
         </h2>
       </motion.div>
       <motion.div
