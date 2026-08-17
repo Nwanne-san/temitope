@@ -4,14 +4,43 @@ import { Button } from "./ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import { FaFacebookF, FaTiktok, FaXTwitter, FaYoutube } from "react-icons/fa6";
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 import { motion } from "framer-motion";
 
 const date = new Date().getFullYear();
 
+type SubscribeStatus = "idle" | "loading" | "success" | "error";
+
 const Footer = () => {
   const [email, setEmail] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState<SubscribeStatus>("idle");
+  const [message, setMessage] = useState<string>("");
+
+  const handleSubscribe = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!email) return;
+    setStatus("loading");
+    setMessage("");
+    try {
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setStatus("success");
+        setMessage(data?.message || "You're on the list.");
+        setEmail("");
+      } else {
+        setStatus("error");
+        setMessage(data?.error || "Something went wrong. Please try again.");
+      }
+    } catch {
+      setStatus("error");
+      setMessage("Network error. Please try again.");
+    }
+  };
 
   return (
     <footer className="bg-zinc-800 text-white/80 py-12 xl:py-24 px-4 lg:px-10">
@@ -139,23 +168,43 @@ const Footer = () => {
             <div>
               <p className="text-lg font-semibold font-serif">Work With Me</p>
             </div>
-            <div className="bg-accent rounded-lg flex items-center gap-2 py-1.5 px-2.5">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="bg-accent rounded-lg placeholder:text-secondary/50 py-1 text-secondary w-full focus:outline-none px-2 font-sans"
-                placeholder="Enter your email address"
-              />
-              <Link
-                href="mailto:hi@temitoperuthjacob.com"
-                className={`flex items-center gap-2 justify-center uppercase font-sans font-medium focus-visible:outline-none bg-primary text-white px-4 py-1.5 rounded-lg transition-all duration-300 hover:bg-red-600 ${
-                  loading ? "opacity-50 cursor-not-allowed" : ""
-                }`}
-              >
-                Subscribe
-              </Link>
-            </div>
+            <form
+              onSubmit={handleSubscribe}
+              noValidate
+              className="flex flex-col gap-2"
+            >
+              <div className="bg-accent rounded-lg flex items-center gap-2 py-1.5 px-2.5">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  disabled={status === "loading"}
+                  className="bg-accent rounded-lg placeholder:text-secondary/50 py-1 text-secondary w-full focus:outline-none px-2 font-sans disabled:opacity-60"
+                  placeholder="Enter your email address"
+                  aria-label="Email address"
+                />
+                <button
+                  type="submit"
+                  disabled={status === "loading" || !email}
+                  className="flex items-center gap-2 justify-center uppercase font-sans font-medium focus-visible:outline-none bg-primary text-white px-4 py-1.5 rounded-lg transition-all duration-300 hover:bg-red-600 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {status === "loading" ? "Sending..." : "Subscribe"}
+                </button>
+              </div>
+              {message && (
+                <p
+                  role={status === "error" ? "alert" : "status"}
+                  className={`text-xs font-sans ${
+                    status === "error"
+                      ? "text-red-300"
+                      : "text-white/80"
+                  }`}
+                >
+                  {message}
+                </p>
+              )}
+            </form>
           </motion.section>
         </div>
 
@@ -185,7 +234,7 @@ const Footer = () => {
             </Link>
           </p>
           <Link
-            href=""
+            href="/privacy"
             className="hover:text-white/60 sm:block hidden font-sans"
           >
             Privacy Policy

@@ -61,18 +61,32 @@ const skModernist = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Temitope Ruth Jacob | Branding & Marketing Expert",
+  metadataBase: new URL("https://www.temitoperuthjacob.com"),
+  title: "Temitope Ruth Jacob | Brand Strategist, Speaker, Author",
   description:
-    "Temitope Ruth Jacob is a branding & marketing strategist helping businesses build strong brand identities and maximize visibility.",
-  keywords: ["Temitope Ruth Jacob", "Temitope", "Branding", "Marketing"],
+    "Temitope Ruth Jacob is a brand strategist, speaker and author. Founder of Elegance Inspired Limited and convener of Brand Xperience — shaping how African brands show up, grow and succeed.",
+  keywords: [
+    "Temitope Ruth Jacob",
+    "Temitope Ruth-Jacob",
+    "brand strategist",
+    "personal branding",
+    "African brands",
+    "brand strategy Nigeria",
+    "keynote speaker",
+    "Elegance Inspired",
+    "Brand Xperience",
+    "Your Authentic Signature",
+    "TEDx speaker",
+    "Rome Business School",
+  ],
   icons: {
     icon: "/trj icon.png",
   },
 
   openGraph: {
-    title: "Temitope Ruth Jacob | Branding & Marketing Expert",
+    title: "Temitope Ruth Jacob | Brand Strategist, Speaker, Author",
     description:
-      "Learn branding strategies and marketing techniques to grow your business. Get expert insights and services from Temitope Ruth Jacob.",
+      "Shaping how African brands show up, grow and succeed. Brand strategy, storytelling and speaking for founders and executives.",
     url: "https://www.temitoperuthjacob.com",
     type: "website",
     siteName: "Temitope Ruth Jacob",
@@ -81,7 +95,7 @@ export const metadata: Metadata = {
         url: "https://www.temitoperuthjacob.com/pfp.jpg",
         width: 1200,
         height: 630,
-        alt: "Temitope Ruth Jacob - Branding & Marketing Expert",
+        alt: "Temitope Ruth Jacob — Brand Strategist, Speaker, Author",
       },
     ],
   },
@@ -90,9 +104,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@temitoperuthjacob",
     creator: "@temitoperuthjacob",
-    title: "Temitope Ruth Jacob | Branding & Marketing Expert",
+    title: "Temitope Ruth Jacob | Brand Strategist, Speaker, Author",
     description:
-      "Expert in branding & marketing. Helping businesses grow with strategic insights.",
+      "Shaping how African brands show up, grow and succeed.",
     images: ["https://www.temitoperuthjacob.com/pfp.jpg"],
   },
 
