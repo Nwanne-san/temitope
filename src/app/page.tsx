@@ -24,16 +24,41 @@ const pageTransition = {
   duration: 0.6,
 };
 
+const MODAL_SEEN_KEY = "bookModalSeenAt";
+const MODAL_MIN_SCROLL = 400;
+const MODAL_DELAY_MS = 4000;
+
 export default function HomePage() {
   const [showModal, setShowModal] = useState(false);
   const [showPromo, setShowPromo] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowModal(true);
-    }, 3000);
+    if (typeof window === "undefined") return;
+    if (sessionStorage.getItem(MODAL_SEEN_KEY)) return;
 
-    return () => clearTimeout(timer);
+    let timer: ReturnType<typeof setTimeout> | null = null;
+
+    const tryOpen = () => {
+      if (window.scrollY < MODAL_MIN_SCROLL) return;
+      window.removeEventListener("scroll", tryOpen);
+      if (timer) clearTimeout(timer);
+      setShowModal(true);
+      sessionStorage.setItem(MODAL_SEEN_KEY, String(Date.now()));
+    };
+
+    timer = setTimeout(() => {
+      window.removeEventListener("scroll", tryOpen);
+      if (sessionStorage.getItem(MODAL_SEEN_KEY)) return;
+      setShowModal(true);
+      sessionStorage.setItem(MODAL_SEEN_KEY, String(Date.now()));
+    }, MODAL_DELAY_MS);
+
+    window.addEventListener("scroll", tryOpen, { passive: true });
+
+    return () => {
+      if (timer) clearTimeout(timer);
+      window.removeEventListener("scroll", tryOpen);
+    };
   }, []);
 
   const handleCloseModal = () => {

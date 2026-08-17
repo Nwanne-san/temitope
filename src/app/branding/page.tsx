@@ -147,7 +147,14 @@ export default function BrandingInitiative() {
               animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <Button className="bg-gradient-to-r from-[#9a33cc] to-[#ff0066] hover:from-[#8b2db8] hover:to-[#e6005c] text-white px-8 py-3 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300">
+              <Button
+                onClick={() => {
+                  document
+                    .getElementById("what-we-offer")
+                    ?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="bg-gradient-to-r from-[#9a33cc] to-[#ff0066] hover:from-[#8b2db8] hover:to-[#e6005c] text-white px-8 py-3 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+              >
                 Get Started <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </motion.div>
@@ -365,7 +372,10 @@ export default function BrandingInitiative() {
       </section>
 
       {/* What We Offer Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+      <section
+        id="what-we-offer"
+        className="py-16 px-4 sm:px-6 lg:px-8 bg-white scroll-mt-24"
+      >
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
