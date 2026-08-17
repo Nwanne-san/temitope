@@ -52,20 +52,25 @@ function Hero() {
         animate="visible"
       >
         <motion.div variants={itemVariants}>
-          <p className="text-sm hidden sm:block mb-2 sm:text-base xl:text-justify leading-relaxed text-secondary-2 font-sans">
-            Temitope Ruth Jacob is a brand strategist{" "}
-            <span className="text-base sm:text-lg font-semibold text-primary font-serif">
-              shaping how African brands grow, show up & succeed
-            </span>
-            . <br />
+          <p className="hidden sm:block text-xs sm:text-sm font-medium tracking-[0.2em] uppercase text-primary font-sans">
+            Brand Strategist &middot; Speaker &middot; Author
           </p>
         </motion.div>
 
-        <motion.p
-          className="text-lg sm:text-2xl font-semibold font-serif text-secondary"
+        <motion.h1
+          className="text-3xl sm:text-4xl xl:text-5xl leading-tight font-semibold font-serif text-secondary"
           variants={itemVariants}
         >
-          Branding | Marketing | Communication | Advertising | Strategy
+          I shape how African brands{" "}
+          <span className="text-primary">show up, grow and succeed.</span>
+        </motion.h1>
+
+        <motion.p
+          className="text-base sm:text-lg text-secondary-2 font-sans max-w-xl"
+          variants={itemVariants}
+        >
+          Brand strategy, storytelling and speaking for founders, executives
+          and purpose-led organisations across Africa.
         </motion.p>
 
         <motion.div
@@ -156,9 +161,9 @@ function Hero() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1, ease: "easeOut" }}
       >
-        <p className="text-lg text-center sm:hidden mb-2 sm:text-base xl:text-justify my-5 leading-relaxed text-secondary-2 font-sans">
-          <span className="text-xl capitalize text-center sm:text-lg font-bold text-primary font-serif">
-            I am shaping how African brands grow, show up & succeed.
+        <p className="text-center sm:hidden mb-2 my-5 leading-relaxed font-sans">
+          <span className="block text-xs font-medium tracking-[0.2em] uppercase text-primary mb-2">
+            Brand Strategist &middot; Speaker &middot; Author
           </span>
         </p>
 

@@ -50,7 +50,7 @@ const Footer = () => {
           >
             <Image
               src="/TRJ 2 Logo New.png"
-              alt="Tols Logo"
+              alt="Temitope Ruth Jacob"
               width={120}
               height={40}
               className="mb-4"
