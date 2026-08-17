@@ -18,7 +18,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
-import Navbar from "@/components/branding/navbar";
+import Navbar from "@/components/navbar";
 
 export default function BrandingInitiative() {
   const [isVisible, setIsVisible] = useState(false);
@@ -170,23 +170,20 @@ export default function BrandingInitiative() {
             </h2>
             <div className="text-lg text-gray-700 leading-relaxed space-y-4">
               <p>
-                In today&apos;s highly competitive market, it takes more than a
-                great product or service to stand out. The Brand Experience
-                Initiative is a program designed to help entrepreneurs create
-                powerful and memorable experiences for both personal and
-                corporate brands that connect with consumers on an emotional
-                level, fostering lasting loyalty and advocacy.
+                Brand Experience is a program from Brand Xperience for founders
+                and executives who want their brand to be remembered, trusted
+                and defended. It teaches how to move beyond products and
+                features to build a brand people choose on purpose.
               </p>
               <p>
-                This initiative focuses on helping businesses move beyond simple
-                features and functions to build a clear, compelling, and
-                emotionally resonant brand that aligns with their
-                customers&apos; values, aspirations, and lifestyles.
+                We work with leaders on the fundamentals that make a brand
+                stick: a clear identity, a story worth repeating, consistent
+                delivery across every touchpoint, and a base of customers who
+                become advocates.
               </p>
               <p className="font-medium text-transparent bg-gradient-to-r from-[#9a33cc] to-[#ff0066] bg-clip-text">
-                In essence, the Brand Experience Initiative helps businesses
-                stop selling just products and start selling a vision, a
-                lifestyle, and a genuine relationship.
+                Products get shared. Brands get remembered. Brand Experience is
+                the difference.
               </p>
             </div>
           </motion.div>

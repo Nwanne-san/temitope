@@ -1,21 +1,8 @@
 import type React from "react";
-import { Poppins, Bai_Jamjuree } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
-import Navbar from "@/components/navbar";
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-poppins",
-});
-
-const baiJamjuree = Bai_Jamjuree({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-bai-jamjuree",
-});
 
 const avenir = localFont({
   src: [
@@ -122,9 +109,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${poppins.variable} ${baiJamjuree.variable} ${avenir.variable} ${averia.variable} ${skModernist.variable}  font-sans`}
+        className={`${avenir.variable} ${averia.variable} ${skModernist.variable} font-sans`}
       >
-        {/* <Navbar /> */}
         <Analytics />
         {children}
       </body>

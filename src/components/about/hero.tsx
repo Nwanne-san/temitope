@@ -43,54 +43,8 @@ function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
             >
-              Temitope Ruth-Jacob is a branding and marketing strategist with a
-              clear vision and an unwavering commitment to unleashing the true
-              potential of brands [personal/corporate] through strategic
-              positioning and impactful marketing campaigns. She is skilled in
-              developing branding strategies that incorporate multiple
-              touchpoints, including digital media, social media, and
-              experiential marketing and advertising.
-            </motion.p>
-            <motion.p
-              className="text-secondary-2 font-medium text-center xl:text-start mb-3 font-sans"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.0 }}
-            >
-              Her expertise lies in understanding consumer behavior and
-              developing strategies that resonate with the audience. she has
-              worked with a diverse range of clients, from startups to Fortune
-              companies, across various industries such as technology, fashion,
-              real estate, healthcare, and consumer goods. Temitope has
-              developed a reputation for her strategic approach to brand
-              development. She understands that every business is unique and
-              believes that a successful brand is more than just a logo and
-              color scheme. Rather, it is an expression of a company &apos; s
-              values, vision, and mission.
-            </motion.p>
-            <motion.p
-              className="text-secondary-2 font-medium text-center xl:text-start mb-3 font-sans"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.2 }}
-            >
-              Possessing a deep understanding of consumer behavior and market
-              trends, she is driven to make a difference in the way brands
-              engage with their target audience. She has a keen eye for
-              identifying a company &apos; s unique value proposition and
-              developing creative strategies to communicate that message to the
-              target audience. Armed with an insatiable curiosity and a hunger
-              for knowledge, she has consistently sought for opportunities to
-              expand her skills and expertise, carving a path towards becoming an
-              industry leader in branding and marketing.
-            </motion.p>
-            <motion.p
-              className="text-secondary-2 font-medium text-center xl:text-start mb-3 font-sans"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.4 }}
-            >
-              She is the founder and CEO of{" "}
+              Temitope Ruth Jacob is a brand strategist and the founder and CEO
+              of{" "}
               <a
                 href="https://eleganceinspired.org"
                 target="_blank"
@@ -99,27 +53,34 @@ function HeroSection() {
               >
                 Elegance Inspired Limited
               </a>
-              ; A corporate Branding & Marketing company.{" "}
-              <br className="mt-2" />
-              Branding is not just a business for her, she has a passion to see
-              brands thrive in the marketplace. At the core of her ambitions
-              lies a desire to create meaningful connections between brands and
-              consumers.
+              , an Abuja-based branding and marketing agency. She leads Brand
+              Xperience, the firm&apos;s learning arm, and mentors around 700
+              university students across Babcock University, the University of
+              Ibadan, and Obafemi Awolowo University through Dream Center Trybe.
             </motion.p>
             <motion.p
               className="text-secondary-2 font-medium text-center xl:text-start mb-3 font-sans"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.6 }}
+              transition={{ duration: 0.6, delay: 1.0 }}
             >
-              Moreover, she aspires to be a thought leader and contribute to the
-              branding and marketing community through speaking engagements,
-              writing, and mentorship. she believes in the power of
-              knowledge-sharing and collaboration, aiming to inspire and empower
-              entrepreneurs to push boundaries, think creatively, and strive for
-              excellence.
-              <br /> She is a trusted advisor to her clients and has a track
-              record of delivering results that exceed expectations.
+              She holds an MSc in Marketing and Sales from Rome Business School,
+              brand management and digital marketing certifications from the
+              London School of Business Administration, and a BSc in Human
+              Anatomy from Ahmadu Bello University. Her clients span technology,
+              fashion, real estate, healthcare and consumer goods &mdash; from
+              early-stage startups to Fortune-class companies.
+            </motion.p>
+            <motion.p
+              className="text-secondary-2 font-medium text-center xl:text-start mb-3 font-sans"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.2 }}
+            >
+              She teaches a three-part framework &mdash; define your values,
+              communicate with clarity, and consistently deliver on your
+              promises &mdash; and speaks on personal branding, African brand
+              identity, and the shift from execution to influence.
             </motion.p>
           </motion.div>
         </div>
