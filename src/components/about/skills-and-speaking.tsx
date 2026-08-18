@@ -56,13 +56,13 @@ export default function SkillsAndSpeaking() {
     <div className="grid xl:grid-cols-2 mx-auto container xl:px-10">
       {/* Skills Section */}
       <motion.div
-        className="bg-primary p-8 md:p-12"
+        className="bg-aubergine p-8 md:p-12"
         initial={{ x: -100, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <h2 className="font-serif text-2xl md:text-3xl text-white mb-8">
+        <h2 className="font-serif text-2xl md:text-3xl text-cream mb-8">
           My Top Skills
         </h2>
         <motion.div
@@ -88,14 +88,14 @@ export default function SkillsAndSpeaking() {
 
       {/* Speaking Section */}
       <motion.div
-        className="bg-[#FFD1F7] p-8 md:p-12 flex flex-col justify-center"
+        className="bg-blush p-8 md:p-12 flex flex-col justify-center"
         initial={{ x: 100, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <motion.h2
-          className="font-serif text-3xl md:text-4xl text-primary mb-8 leading-tight"
+          className="font-serif text-3xl md:text-4xl text-aubergine mb-8 leading-tight"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -109,12 +109,14 @@ export default function SkillsAndSpeaking() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <Button
-            variant="primary"
-            className="inline-flex items-center bg-primary hover:bg-primary/90 transition-all duration-300 hover:scale-105 font-sans"
-          >
-            CONNECT WITH ME
-          </Button>
+          <a href="/speaking">
+            <Button
+              variant="primary"
+              className="inline-flex items-center bg-rose hover:bg-aubergine transition-all duration-300 hover:scale-105 font-sans"
+            >
+              BOOK TEMITOPE
+            </Button>
+          </a>
         </motion.div>
       </motion.div>
     </div>

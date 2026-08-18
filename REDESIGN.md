@@ -73,14 +73,16 @@ All text/background combinations must pass WCAG AA. White on `#FFD1F7` (the curr
 
 ## Typography
 
-From 3 families down to 2:
+From 3 families down to 2. **Fonts stay as they are today** — the "texture" of the site is part of what's being kept:
 
-- **Display serif:** Fraunces (variable, warm, character-rich) or Cormorant Garamond.
-- **Body sans:** Inter, or keep Avenir if the local font license is confirmed.
+- **Display serif:** Averia Serif Libre (kept).
+- **Body sans:** Avenir (kept).
 
-Drop: Averia, SK Modernist.
+Drop: SK Modernist (only used on `/branding`, which is being refactored to `/programs`).
 
 Type scale defined in `tailwind.config.ts` fontSize extension. Use `font-serif` for display + eyebrow labels only; `font-sans` for everything else.
+
+An earlier draft of this doc proposed swapping to Fraunces — that was rejected in review. Do not reintroduce a font change without an explicit ask.
 
 ---
 
