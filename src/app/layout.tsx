@@ -43,23 +43,6 @@ const averia = localFont({
   fallback: ["serif"],
 });
 
-const skModernist = localFont({
-  src: [
-    {
-      path: "../../public/fonts/sk/Sk-Modernist-Regular.otf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../../public/fonts/sk/Sk-Modernist-Bold.otf",
-      weight: "700",
-      style: "normal",
-    },
-  ],
-  variable: "--font-sk-modernist",
-  fallback: ["system-ui", "sans-serif"],
-});
-
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.temitoperuthjacob.com"),
   title: "Temitope Ruth Jacob | Brand Strategist, Speaker, Author",
@@ -123,7 +106,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${avenir.variable} ${averia.variable} ${skModernist.variable} font-sans`}
+        className={`${avenir.variable} ${averia.variable} font-sans bg-cream text-ink`}
       >
         <Analytics />
         {children}

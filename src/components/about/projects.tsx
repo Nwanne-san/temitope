@@ -111,7 +111,7 @@ function RecentProjects() {
             whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
           >
             <motion.span
-              className="flex-shrink-0 w-10 h-12 flex items-center justify-center bg-primary text-white rounded font-sans"
+              className="flex-shrink-0 w-10 h-12 flex items-center justify-center bg-rose text-white rounded font-sans"
               whileHover={{ scale: 1.1 }}
               transition={{ duration: 0.2 }}
             >

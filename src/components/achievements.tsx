@@ -37,7 +37,7 @@ function Achievements({ setActivePage }: AchievementsProps) {
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
-        <h2 className="font-averia font-semibold text-3xl md:text-4xl">
+        <h2 className="font-serif font-semibold text-3xl md:text-4xl">
           Featured Work
         </h2>
         <Button
@@ -45,7 +45,7 @@ function Achievements({ setActivePage }: AchievementsProps) {
           onClick={() => {
             window.location.href = "/about#projects";
           }}
-          className="font-avenir"
+          className="font-sans"
         >
           SEE ALL PROJECTS
         </Button>
@@ -62,29 +62,29 @@ function Achievements({ setActivePage }: AchievementsProps) {
             whileHover={{ scale: 1.02 }}
           >
             <motion.span
-              className="flex-shrink-0 w-10 h-12 flex items-center justify-center bg-primary text-white rounded font-avenir font-bold"
+              className="flex-shrink-0 w-10 h-12 flex items-center justify-center bg-rose text-white rounded font-sans font-bold"
               whileHover={{ scale: 1.1 }}
             >
               {index + 1}
             </motion.span>
             <div className="flex flex-col sm:flex-row gap-6 sm:gap-10">
               <div className="lg:max-w-[340px] text-center sm:text-start max-sm:border-b max-sm:pb-3">
-                <h3 className="font-averia font-semibold text-secondary text-xl mb-2">
+                <h3 className="font-serif font-semibold text-secondary text-xl mb-2">
                   {achievement.title}
                 </h3>
-                <p className="text-secondary-2 mb-2 text-sm font-semibold font-avenir">
+                <p className="text-secondary-2 mb-2 text-sm font-semibold font-sans">
                   {achievement.organization}
                 </p>
-                <p className="text-secondary-2 mb-2 text-sm font-avenir">
+                <p className="text-secondary-2 mb-2 text-sm font-sans">
                   {achievement.role}
                 </p>
               </div>
 
               <div className="flex flex-col items-center sm:items-start gap-3 sm:border-l-[1.5px] sm:pl-8 border-secondary-2">
-                <span className="uppercase tracking-wider font-avenir text-sm">
+                <span className="uppercase tracking-wider font-sans text-sm">
                   {achievement.location}
                 </span>
-                <span className="text-gray-500 pb-4 max-sm:border-b-[1.5px] max-sm:w-fit max-sm:px-10 font-avenir">
+                <span className="text-gray-500 pb-4 max-sm:border-b-[1.5px] max-sm:w-fit max-sm:px-10 font-sans">
                   {achievement.year}
                 </span>
               </div>
