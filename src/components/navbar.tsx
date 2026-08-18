@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -61,10 +61,9 @@ const menuItemVariants = {
   },
 };
 
-export default function Navbar({ activePage, setActivePage }: NavbarProps) {
+export default function Navbar({}: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
-  const router = useRouter();
 
   const [isBrandXDomain, setIsBrandXDomain] = useState(false);
 
@@ -78,44 +77,12 @@ export default function Navbar({ activePage, setActivePage }: NavbarProps) {
     }
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    setIsOpen(false);
-
-    if (pathname !== "/") {
-      router.push("/");
-      setTimeout(() => {
-        const section = document.getElementById(sectionId);
-        if (section) {
-          section.scrollIntoView({ behavior: "smooth" });
-        }
-      }, 100);
-      return;
-    }
-
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   const isActivePath = (path: string) => {
     if (path === "/") {
       return pathname === "/";
     }
     return pathname.startsWith(path);
   };
-
-  useEffect(() => {
-    if (pathname === "/" && window.location.hash) {
-      const sectionId = window.location.hash.substring(1);
-      const section = document.getElementById(sectionId);
-      if (section) {
-        setTimeout(() => {
-          section.scrollIntoView({ behavior: "smooth" });
-        }, 500);
-      }
-    }
-  }, [pathname]);
 
   useEffect(() => {
     if (isOpen) {
@@ -133,8 +100,16 @@ export default function Navbar({ activePage, setActivePage }: NavbarProps) {
     return null;
   }
 
+  const navItems = [
+    { label: "About", href: "/about" },
+    { label: "Speaking", href: "/speaking" },
+    { label: "Books", href: "/books" },
+    { label: "Programs", href: "/programs" },
+    { label: "Resources", href: "/resources" },
+  ];
+
   return (
-    <div className="bg-gray-200">
+    <div className="bg-cream">
       <motion.nav
         className="mx-auto container relative px-4 py-6 sm:px-10 flex justify-between items-center font-sans"
         initial={{ opacity: 0, y: -20 }}
@@ -156,73 +131,37 @@ export default function Navbar({ activePage, setActivePage }: NavbarProps) {
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden text-sm xl:flex items-center gap-8 font-serif">
-          <Link
-            href="/"
-            className={`transition-all duration-300 relative hover:scale-105 ${
-              isActivePath("/")
-                ? "text-primary font-medium"
-                : "hover:text-primary"
-            }`}
-          >
-            HOME
-            {isActivePath("/") && (
-              <motion.span
-                className="absolute -bottom-2 left-0 w-full h-0.5 bg-primary"
-                layoutId="activeTab"
-                transition={{ type: "spring", stiffness: 380, damping: 30 }}
-              />
-            )}
-          </Link>
-          <Link
-            href="/about"
-            className={`transition-all duration-300 relative hover:scale-105 ${
-              isActivePath("/about")
-                ? "text-primary font-medium"
-                : "hover:text-primary"
-            }`}
-          >
-            ABOUT TEMITOPE
-            {isActivePath("/about") && (
-              <motion.span
-                className="absolute -bottom-2 left-0 w-full h-0.5 bg-primary"
-                layoutId="activeTab"
-                transition={{ type: "spring", stiffness: 380, damping: 30 }}
-              />
-            )}
-          </Link>
-          <a
-            href="https://brandxperience.org"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="transition-all duration-300 relative hover:scale-105 hover:text-primary"
-          >
-            BRANDX
-          </a>
-          <motion.button
-            onClick={() => {
-              if (pathname !== "/") {
-                router.push("/#resources");
-              } else {
-                scrollToSection("resources");
-              }
-            }}
-            className="hover:text-primary transition-all duration-300 cursor-pointer hover:scale-105"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            RESOURCES
-          </motion.button>
+        <div className="hidden text-sm xl:flex items-center gap-8 font-serif uppercase tracking-wide">
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`transition-all duration-300 relative hover:scale-105 ${
+                isActivePath(item.href)
+                  ? "text-rose font-medium"
+                  : "text-ink hover:text-rose"
+              }`}
+            >
+              {item.label}
+              {isActivePath(item.href) && (
+                <motion.span
+                  className="absolute -bottom-2 left-0 w-full h-0.5 bg-rose"
+                  layoutId="activeTab"
+                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                />
+              )}
+            </Link>
+          ))}
         </div>
 
         <div className="flex items-center gap-3">
-          <a href="https://wa.link/dtys70" target="_blank" rel="noreferrer">
+          <Link href="/contact">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button className="duration-300 px-3 text-xs py-1 sm:text-base hover:bg-white rounded-br-2xl hover:text-primary border border-primary font-sans">
-                Connect With Me
+              <Button className="duration-300 px-3 text-xs py-1 sm:text-base bg-rose text-white hover:bg-aubergine rounded-br-2xl border-0 font-sans">
+                Contact
               </Button>
             </motion.div>
-          </a>
+          </Link>
 
           <motion.button
             className="xl:hidden z-10"
@@ -293,7 +232,7 @@ export default function Navbar({ activePage, setActivePage }: NavbarProps) {
               </div>
 
               <motion.div
-                className="flex flex-col gap-6 mt-6 font-serif"
+                className="flex flex-col gap-6 mt-6 font-serif uppercase tracking-wide"
                 initial="closed"
                 animate="open"
                 variants={{
@@ -302,66 +241,36 @@ export default function Navbar({ activePage, setActivePage }: NavbarProps) {
                   },
                 }}
               >
+                {navItems.map((item) => (
+                  <motion.div key={item.href} variants={menuItemVariants}>
+                    <Link
+                      href={item.href}
+                      className={`transition-colors text-start relative pl-2 block ${
+                        isActivePath(item.href)
+                          ? "text-rose font-medium"
+                          : "text-ink hover:text-rose"
+                      }`}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {item.label}
+                      {isActivePath(item.href) && (
+                        <span className="absolute -bottom-2 left-0 w-fit h-0.5 bg-rose"></span>
+                      )}
+                    </Link>
+                  </motion.div>
+                ))}
                 <motion.div variants={menuItemVariants}>
                   <Link
-                    href="/"
+                    href="/contact"
+                    onClick={() => setIsOpen(false)}
                     className={`transition-colors text-start relative pl-2 block ${
-                      isActivePath("/")
-                        ? "text-primary font-medium"
-                        : "hover:text-primary"
+                      isActivePath("/contact")
+                        ? "text-rose font-medium"
+                        : "text-ink hover:text-rose"
                     }`}
-                    onClick={() => setIsOpen(false)}
                   >
-                    HOME
-                    {isActivePath("/") && (
-                      <span className="absolute -bottom-2 left-0 w-fit h-0.5 bg-primary"></span>
-                    )}
+                    Contact
                   </Link>
-                </motion.div>
-
-                <motion.div variants={menuItemVariants}>
-                  <Link
-                    href="/about"
-                    className={`transition-colors text-start relative pl-2 block ${
-                      isActivePath("/about")
-                        ? "text-primary font-medium"
-                        : "hover:text-primary"
-                    }`}
-                    onClick={() => setIsOpen(false)}
-                  >
-                    ABOUT TEMITOPE
-                    {isActivePath("/about") && (
-                      <span className="absolute -bottom-2 left-0 w-fit h-0.5 bg-primary"></span>
-                    )}
-                  </Link>
-                </motion.div>
-
-                <motion.div variants={menuItemVariants}>
-                  <a
-                    href="https://brandxperience.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-primary transition-colors text-left cursor-pointer pl-2 block"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    BRANDX
-                  </a>
-                </motion.div>
-
-                <motion.div variants={menuItemVariants}>
-                  <button
-                    onClick={() => {
-                      if (pathname !== "/") {
-                        router.push("/#resources");
-                      } else {
-                        scrollToSection("resources");
-                      }
-                      setIsOpen(false);
-                    }}
-                    className="hover:text-primary transition-colors text-left cursor-pointer pl-2 block"
-                  >
-                    RESOURCES
-                  </button>
                 </motion.div>
               </motion.div>
             </motion.div>
