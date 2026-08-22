@@ -106,9 +106,9 @@ Fonts (loaded in `layout.tsx`):
 | ------------------- | ----------- | --------------------------------- |
 | Avenir              | Local sans  | Default `font-sans` — most body   |
 | Averia Serif Libre  | Local serif | `font-serif` — display headlines  |
-| SK Modernist        | Local sans  | (dropped in Branch B — no longer loaded) |
+| SK Modernist        | Local sans  | `font-sk-modernist` — /branding page only |
 
-Poppins and Bai Jamjuree were removed in PR #33. SK Modernist was removed in the Branch B foundations PR. Averia is intentionally kept — we tried swapping it for Fraunces and reverted. Do not re-add fonts or swap the existing ones without an explicit ask.
+Poppins and Bai Jamjuree were removed in PR #33. Do not re-add fonts without justification.
 
 Redesign palette (Branch B — see `REDESIGN.md`):
 

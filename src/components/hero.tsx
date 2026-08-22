@@ -52,17 +52,17 @@ function Hero() {
         animate="visible"
       >
         <motion.div variants={itemVariants}>
-          <p className="hidden sm:block text-xs sm:text-sm font-medium tracking-[0.2em] uppercase text-rose font-sans">
+          <p className="hidden sm:block text-xs sm:text-sm font-medium tracking-[0.2em] uppercase text-primary font-sans">
             Brand Strategist &middot; Speaker &middot; Author
           </p>
         </motion.div>
 
         <motion.h1
-          className="text-3xl sm:text-4xl xl:text-5xl leading-tight font-semibold font-serif text-ink"
+          className="text-3xl sm:text-4xl xl:text-5xl leading-tight font-semibold font-serif text-secondary"
           variants={itemVariants}
         >
           I shape how African brands{" "}
-          <span className="text-brand-pink">show up, grow and succeed.</span>
+          <span className="text-primary">show up, grow and succeed.</span>
         </motion.h1>
 
         <motion.p
@@ -77,37 +77,37 @@ function Hero() {
           className="flex gap-6 lg:justify-between xl:justify-normal lg:gap-40 xl:gap-4 font-serif"
           variants={itemVariants}
         >
-          <Link href="/speaking">
+          <a href="https://selar.com/412292" target="_blank" rel="noreferrer">
             <Button
               variant="primary"
-              className="bg-rose text-white text-nowrap tracking-widest py-3 px-5 rounded-tl-3xl text-xs sm:text-sm duration-300 hover:bg-aubergine hover:text-white border-0 hover:scale-105 transition-all"
+              className="bg-primary text-white text-nowrap tracking-widest py-3 px-5 rounded-tl-3xl text-xs sm:text-sm duration-300 hover:bg-primary/10 hover:text-primary border hover:scale-105 transition-all"
             >
-              BOOK TEMITOPE TO SPEAK
+              MEET TEMITOPE
             </Button>
-          </Link>
+          </a>
 
           <Button
             variant="outline"
-            className="border-0 text-ink text-nowrap text-xs sm:text-sm tracking-widest duration-300 bg-blush rounded-br-3xl hover:scale-105 hover:bg-rose hover:text-white transition-all"
+            className="border-0 text-secondary text-nowrap text-xs sm:text-sm tracking-widest duration-300 bg-lightGray rounded-br-3xl hover:scale-105 transition-all"
             onClick={() => {
-              window.location.href = "/books";
+              window.location.href = "/about";
             }}
           >
-            READ THE HANDBOOK
+            LEARN MORE
           </Button>
         </motion.div>
 
         <motion.div
-          className="flex flex-col sm:flex-row gap-2 pb-4 items-center text-ink"
+          className="flex flex-col sm:flex-row gap-2 pb-4 items-center text-black"
           variants={itemVariants}
         >
           <div className="flex gap-4 pt-4">
-            <p className="text-ink font-medium capitalize font-sans">
+            <p className="text-secondary font-medium capitalize font-sans">
               Connect with me
             </p>
           </div>
           <span className="flex items-center">
-            <hr className="text-ink bg-ink/60 h-0.5 w-20 mt-3" />
+            <hr className="text-secondary bg-secondary h-0.5 w-20 mt-3" />
           </span>
           <motion.div
             className="flex gap-3 pt-4 items-center"
@@ -144,7 +144,7 @@ function Hero() {
               <motion.div key={index} variants={socialVariants}>
                 <Link
                   href={social.href}
-                  className="text-ink px-1 hover:scale-110 duration-300 rounded-full hover:text-rose transition-all"
+                  className="text-secondary px-1 hover:scale-110 duration-300 bg-blck/0 rounded-full hover:text-primary transition-all hover:bg-rimary"
                   target="_blank"
                 >
                   <social.icon size={18} />
@@ -162,7 +162,7 @@ function Hero() {
         transition={{ duration: 1, ease: "easeOut" }}
       >
         <p className="text-center sm:hidden mb-2 my-5 leading-relaxed font-sans">
-          <span className="block text-xs font-medium tracking-[0.2em] uppercase text-rose mb-2">
+          <span className="block text-xs font-medium tracking-[0.2em] uppercase text-primary mb-2">
             Brand Strategist &middot; Speaker &middot; Author
           </span>
         </p>

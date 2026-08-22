@@ -90,7 +90,7 @@ export default function HomePage() {
       >
         <main className="overflow-hidden">
           <motion.section
-            className="bg-cream"
+            className="bg-gray-200"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
