@@ -45,8 +45,8 @@ export default function LogoCarousel() {
   }, [isMounted]);
 
   return (
-    <section className="bg-primary flex flex-col md:flex-row gap-4 sm:gap-12 items-center py-6 sm:py-12 px-4 lg:px-10 -mt-16 sm:-mt-20 sm:z-20 relative">
-      <h2 className="font-serif text-2xl text-white mb-2 md:mb-0 px-4 font-semibold">
+    <section className="bg-aubergine flex flex-col md:flex-row gap-4 sm:gap-12 items-center py-6 sm:py-12 px-4 lg:px-10 -mt-16 sm:-mt-20 sm:z-20 relative">
+      <h2 className="font-serif text-2xl text-cream mb-2 md:mb-0 px-4 font-semibold">
         Organisations Impacted
       </h2>
       <div className="sm:px-7 overflow-hidden w-full">

@@ -5,6 +5,14 @@
 :root {
   --primary: 102, 37, 103;
   --secondary: 156, 39, 176;
+
+  /* Redesign palette — see REDESIGN.md */
+  --brand-pink: 255, 0, 102;   /* #F06 — logo + one hero highlight only */
+  --cream: 250, 246, 241;      /* #FAF6F1 — page background */
+  --ink: 26, 22, 20;           /* #1A1614 — body text */
+  --rose: 212, 117, 107;       /* #D4756B — interactive accent */
+  --blush: 244, 221, 213;      /* #F4DDD5 — surface tint */
+  --aubergine: 61, 31, 46;     /* #3D1F2E — footer + dark panels */
 }
 
 .text-primary-dark {

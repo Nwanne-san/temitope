@@ -112,7 +112,7 @@ export default function BrandingInitiative() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-pink-50 font-sk-modernist">
+    <div className="min-h-screen bg-cream font-sans">
       <Navbar/>
       {/* Hero Section */}
       <section className="relative overflow-hidden py-6 sm:py-16 px-4 sm:px-6 lg:px-8">
