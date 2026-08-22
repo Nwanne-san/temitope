@@ -25,14 +25,6 @@ const config: Config = {
         secondary: "#4c4c4c",
         "secondary-2": "#797979",
         lightGray: "#FFD1F7",
-
-        // Redesign palette — see REDESIGN.md
-        "brand-pink": "#FF0066",
-        cream: "#FAF6F1",
-        ink: "#1A1614",
-        rose: "#D4756B",
-        blush: "#F4DDD5",
-        aubergine: "#3D1F2E",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
@@ -77,8 +69,9 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-avenir)", "system-ui", "sans-serif"],
-        serif: ["var(--font-averia)", "Georgia", "serif"],
+        sans: ["var(--font-avenir)", "sans-serif"],
+        serif: ["var(--font-averia)", "serif"],
+        "sk-modernist": ["var(--font-sk-modernist)", "sans-serif"],
       },
     },
   },
