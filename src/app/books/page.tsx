@@ -32,18 +32,18 @@ export default function BooksPage() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 w-full sm:w-auto">
-              <a
+              <Link
                 href="#waitlist"
                 className="w-full sm:w-auto inline-flex items-center justify-center uppercase tracking-widest text-xs sm:text-sm bg-primary text-white font-sans font-medium px-6 py-3 rounded-tl-3xl hover:bg-primary/90 transition-colors text-center"
               >
                 Join the waitlist
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#about"
                 className="w-full sm:w-auto inline-flex items-center justify-center uppercase tracking-widest text-xs sm:text-sm bg-lightGray text-secondary font-sans font-medium px-6 py-3 rounded-br-3xl hover:bg-primary hover:text-white transition-colors text-center"
               >
                 Read the details
-              </a>
+              </Link>
             </div>
 
             <p className="text-sm text-secondary/50 font-sans pt-2">
@@ -61,7 +61,7 @@ export default function BooksPage() {
       </section>
 
       {/* About the book ──────────────────────────────────────────────── */}
-      <section id="about" className="border-b border-secondary/10">
+      <section id="about" className="border-b border-secondary/10 scroll-mt-20">
         <div className="container mx-auto px-4 sm:px-10 py-16 xl:py-24 grid lg:grid-cols-5 gap-12">
           <div className="lg:col-span-2 space-y-3">
             <p className="text-xs font-medium tracking-[0.2em] uppercase text-primary font-sans">
@@ -170,7 +170,7 @@ export default function BooksPage() {
       </section>
 
       {/* Review submission ───────────────────────────────────────────── */}
-      <section id="review" className="border-b border-secondary/10">
+      <section id="review" className="border-b border-secondary/10 scroll-mt-20">
         <div className="container mx-auto px-4 sm:px-10 py-16 xl:py-24 grid lg:grid-cols-5 gap-12">
           <div className="lg:col-span-2 space-y-3">
             <p className="text-xs font-medium tracking-[0.2em] uppercase text-primary font-sans">
@@ -191,7 +191,7 @@ export default function BooksPage() {
       </section>
 
       {/* Waitlist ────────────────────────────────────────────────────── */}
-      <section id="waitlist" className="bg-lightGray">
+      <section id="waitlist" className="bg-lightGray scroll-mt-20">
         <div className="container mx-auto px-4 sm:px-10 py-16 xl:py-24">
           <WaitlistSection
             formUrl={evolve.waitlistFormUrl}
@@ -204,13 +204,13 @@ export default function BooksPage() {
       {/* Also by Temitope ─────────────────────────────────────────────── */}
       <section className="bg-primary text-white">
         <div className="container mx-auto px-4 sm:px-10 py-14 xl:py-20 flex flex-col lg:flex-row items-center gap-10">
-          <div className="relative w-32 sm:w-40 aspect-[3/4] flex-shrink-0">
+          <div className="relative w-36 sm:w-44 aspect-[1808/2560] flex-shrink-0 drop-shadow-2xl">
             <Image
-              src="/handbook.jpg"
+              src="/yas-handbook.jpg"
               alt="Your Authentic Signature book cover"
               fill
-              sizes="160px"
-              className="object-cover rounded-sm shadow-lg"
+              sizes="(max-width: 640px) 144px, 176px"
+              className="object-cover rounded-sm shadow-xl"
             />
           </div>
           <div className="flex-1 space-y-3 text-center lg:text-left">

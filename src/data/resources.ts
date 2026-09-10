@@ -50,7 +50,7 @@ export const resources: ResourceCard[] = [
     external: true,
     meta: "PDF · Free",
     featured: true,
-    image: "/handbook.jpg",
+    image: "/yas-handbook.jpg",
     imageAlt: "Your Authentic Signature handbook cover",
   },
   {

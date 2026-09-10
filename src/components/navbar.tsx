@@ -8,10 +8,6 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
-interface NavbarProps {
-  activePage?: string;
-  setActivePage?: (page: string) => void;
-}
 
 const mobileMenuVariants = {
   closed: {
@@ -61,21 +57,9 @@ const menuItemVariants = {
   },
 };
 
-export default function Navbar({}: NavbarProps) {
+export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
-
-  const [isBrandXDomain, setIsBrandXDomain] = useState(false);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const hostname = window.location.hostname;
-      setIsBrandXDomain(
-        hostname.includes("brandx.temitope.com") ||
-          hostname.includes("brandx.localhost")
-      );
-    }
-  }, []);
 
   const isActivePath = (path: string) => {
     if (path === "/") {
@@ -95,10 +79,6 @@ export default function Navbar({}: NavbarProps) {
       document.body.style.overflow = "";
     };
   }, [isOpen]);
-
-  if (isBrandXDomain) {
-    return null;
-  }
 
   const navItems: { label: string; href: string; external?: boolean }[] = [
     { label: "About", href: "/about" },

@@ -86,15 +86,14 @@ function Hero() {
             </Button>
           </Link>
 
-          <Button
-            variant="outline"
-            className="w-full sm:w-auto border-0 text-secondary text-nowrap text-xs sm:text-sm tracking-widest duration-300 bg-lightGray rounded-br-3xl hover:scale-105 hover:bg-primary hover:text-white transition-all justify-center"
-            onClick={() => {
-              window.location.href = "/books";
-            }}
-          >
-            READ THE HANDBOOK
-          </Button>
+          <Link href="/books" className="w-full sm:w-auto">
+            <Button
+              variant="outline"
+              className="w-full sm:w-auto border-0 text-secondary text-nowrap text-xs sm:text-sm tracking-widest duration-300 bg-lightGray rounded-br-3xl hover:scale-105 hover:bg-primary hover:text-white transition-all justify-center"
+            >
+              READ THE HANDBOOK
+            </Button>
+          </Link>
         </motion.div>
 
         <motion.div

@@ -1,12 +1,9 @@
 "use client";
+import Link from "next/link";
 import { Button } from "./ui/button";
 import { motion } from "framer-motion";
 
-interface AchievementsProps {
-  setActivePage?: (page: string) => void;
-}
-
-function Achievements({ setActivePage }: AchievementsProps) {
+function Achievements() {
   const achievements = [
     {
       title: "Instructor",
@@ -40,15 +37,14 @@ function Achievements({ setActivePage }: AchievementsProps) {
         <h2 className="font-serif font-semibold text-3xl md:text-4xl break-words">
           Featured Work
         </h2>
-        <Button
-          variant="outline"
-          onClick={() => {
-            window.location.href = "/about#projects";
-          }}
-          className="font-sans w-full sm:w-auto"
-        >
-          SEE ALL PROJECTS
-        </Button>
+        <Link href="/about#projects" className="w-full sm:w-auto">
+          <Button
+            variant="outline"
+            className="font-sans w-full sm:w-auto"
+          >
+            SEE ALL PROJECTS
+          </Button>
+        </Link>
       </motion.div>
       <div className="flex flex-col container">
         {achievements.map((achievement, index) => (
