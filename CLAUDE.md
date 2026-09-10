@@ -50,35 +50,49 @@ npx tsc --noEmit  # type-check without emitting
 src/
   app/
     layout.tsx                # Root metadata + fonts + Analytics
-    page.tsx                  # Home (hero, logo carousel, achievements, testimonials, resources)
+    page.tsx                  # Home (hero, logo carousel, achievements, testimonials, resources strip)
     about/
       layout.tsx              # About page metadata (added because the page is a client component)
       page.tsx                # Long-form bio (currently 3 paragraphs — see RULES.md)
+    books/
+      layout.tsx              # Metadata
+      page.tsx                # Evolve book landing (hero, about, TOC, praise, reviews form, waitlist)
+    resources/
+      layout.tsx              # Metadata
+      page.tsx                # Filterable hub (course, videos, articles, talks, podcast, downloads)
+    speaking/programs/contact/
+                              # Stub pages using ComingSoon (Branch B — not yet built out)
     branding/
       layout.tsx              # /branding metadata
-      page.tsx                # Brand Experience Initiative (will be renamed → /programs in Branch B)
+      page.tsx                # Brand Experience Initiative (will fold into /programs)
     privacy/
       page.tsx                # Privacy policy
     api/
-      subscribe/route.ts      # Mailchimp POST endpoint (App Router)
+      subscribe/route.ts      # Mailchimp POST endpoint
+      reviews/route.ts        # Reviews POST → Formspree (moderated inbox)
     sitemap.ts                # Dynamic sitemap
     robots.ts                 # Robots policy
     not-found.tsx             # Custom 404
     globals.css               # CSS vars + custom hover states
   components/
     navbar.tsx                # Only navbar; a second /branding navbar was deleted
-    hero.tsx                  # Home hero (kicker + H1 + CTAs)
+    hero.tsx                  # Home hero
     logo-carousel.tsx         # "Organisations Impacted" strip
     achievements.tsx          # Home "Featured Work" (2 items)
     testimonials.tsx          # Rotating testimonial pairs, 6s interval
-    resources.tsx             # Horizontal resource carousel — will become /resources in Branch B
-    book-modal.tsx            # Session-gated modal + BookPromo sticky
+    resources.tsx             # Home resources carousel (separate from /resources hub)
+    coming-soon.tsx           # Shared stub for not-yet-built pages
     footer.tsx                # Dark footer with working newsletter form
+    books/                    # Cover mockup, review form, waitlist embed
+    resources/                # Resources hub + resource card
     about/                    # Sub-components for /about
     ui/                       # Small shadcn primitives
+  data/
+    evolve.ts                 # Evolve book content (synopsis, TOC, endorsements — many [NEEDS CONFIRMATION])
+    resources.ts              # Typed cards for /resources (course, videos, articles, talks, podcast)
   lib/utils.ts                # cn() helper
 public/
-  fonts/                      # Local font files (Avenir, Averia, SK Modernist)
+  fonts/                      # Local font files (Avenir, Averia)
   *.png/*.jpg                 # Images (all orphans cleaned in hygiene PR #33)
 tailwind.config.ts            # Tokens + fontFamily
 vercel.json
@@ -132,6 +146,12 @@ Required in production for the newsletter to succeed:
 - `MAILCHIMP_SERVER_PREFIX` (e.g. `us21`)
 
 If any are missing, `/api/subscribe` returns `{"error":"Newsletter is not configured"}` with status 500, and the footer form shows an inline error.
+
+Required for the reader-review form on `/books` to succeed:
+
+- `REVIEWS_FORMSPREE_ENDPOINT` — a Formspree JSON endpoint URL (e.g. `https://formspree.io/f/xxxxxxxx`).
+
+If missing, `/api/reviews` returns `{"error":"Reviews are not configured yet..."}` with status 500 and the form displays an inline message. Approved reviews are pasted by hand into a data file after moderation — there is no live public feed.
 
 ---
 

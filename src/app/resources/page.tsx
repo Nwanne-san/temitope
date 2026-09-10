@@ -1,38 +1,31 @@
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-import ComingSoon from "@/components/coming-soon";
+import ResourcesHub from "@/components/resources/resources-hub";
 
 export default function ResourcesPage() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
-      <ComingSoon
-        kicker="Resources"
-        title="Free tools to build your personal brand."
-        intro={
-          <>
-            <p>
-              A filterable library &mdash; free downloads, articles, podcast
-              episodes, videos, and community links &mdash; is being built. In
-              the meantime, the current selection is featured on the home page,
-              and the personal branding handbook is available to download.
-            </p>
-          </>
-        }
-        ctas={[
-          {
-            href: "https://selar.com/1v4g42",
-            label: "Download the handbook",
-            external: true,
-          },
-          {
-            href: "https://temitoperuthjacob.medium.com",
-            label: "Read the articles",
-            external: true,
-            variant: "outline",
-          },
-        ]}
-      />
+
+      {/* Hero ─────────────────────────────────────────────────────────── */}
+      <section className="border-b border-secondary/10">
+        <div className="container mx-auto px-4 sm:px-10 py-16 xl:py-24 max-w-4xl">
+          <p className="text-xs font-medium tracking-[0.2em] uppercase text-primary font-sans mb-4">
+            Resources
+          </p>
+          <h1 className="font-serif text-4xl sm:text-5xl xl:text-6xl text-secondary font-semibold leading-tight mb-6">
+            Free tools to build your personal brand.
+          </h1>
+          <p className="text-base sm:text-lg text-secondary/70 font-sans leading-relaxed max-w-3xl">
+            The BrandUp Accelerator, videos from Temitope&rsquo;s YouTube, her
+            published essays, past talks, and the upcoming podcast. All in one
+            place.
+          </p>
+        </div>
+      </section>
+
+      <ResourcesHub />
+
       <Footer />
     </div>
   );

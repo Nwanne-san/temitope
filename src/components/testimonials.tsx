@@ -1,242 +1,194 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-import { Button } from "./ui/button";
-import { Quote } from "lucide-react";
-import { motion, useAnimation, type PanInfo } from "framer-motion";
+import * as React from "react";
+import Link from "next/link";
+import { Quote, Star } from "lucide-react";
+import Autoplay from "embla-carousel-autoplay";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+  CarouselDots,
+} from "@/components/ui/carousel";
+import { Button } from "@/components/ui/button";
 
-const testimonials = [
+interface Testimonial {
+  id: string;
+  quote: string;
+  author: string;
+  title: string;
+  initials: string;
+  organization: string;
+}
+
+const testimonials: Testimonial[] = [
   {
+    id: "uby-jasper",
     quote:
       "Temitope Ruth Jacob is a branding and marketing strategist who crafts compelling brand identities and results-driven campaigns. Her innovative approach and strategic execution help businesses stand out and achieve growth.",
     author: "Ubongobong Akpan",
-    title: "C.E.O. Uby Jasper MediaLabs.",
+    title: "CEO",
+    organization: "Uby Jasper MediaLabs",
+    initials: "UA",
   },
   {
+    id: "vnk-resources",
     quote:
       "Temitope Ruth Jacob is a visionary in branding and marketing. Her strategic genius transformed our brand identity and amplified our reach exponentially. She crafts data-driven campaigns that deliver measurable growth, coupled with an intuitive understanding of audience engagement. Professional, innovative, and results-focused—Temitope is simply exceptional.",
     author: "Vivian Efajemue",
-    title: "CEO, VNK Resources",
+    title: "CEO",
+    organization: "VNK Resources",
+    initials: "VE",
   },
   {
+    id: "jpa-enterprise",
     quote:
       "Temitope truly portrays a deep understanding of branding strategy, management intelligence and cutting-edge solutions to the challenges and endless possibilities that abound. Her ability to decipher and distill complex ideas into a creative strategy and coherent narrative translates across all spectrums.",
     author: "James Ameh",
-    title: "CEO, JPA Enterprise LLC",
+    title: "CEO",
+    organization: "JPA Enterprise LLC",
+    initials: "JA",
   },
   {
+    id: "beacon-media",
     quote:
       "Ruth Temitope has proven she is a maestro when it comes to the branding game. Her eye for detail, speed of precision and doggedness have really enabled her to carve a niche for herself in the creative space. As one who has spent over a decade in this line of business, I highly recommend her for any job that is creative related, and I enjoy working with her.",
     author: "Enyinnaya Iroadumba",
-    title: "Brand Connoisseur, Beacon Media Limited",
+    title: "Brand Connoisseur",
+    organization: "Beacon Media Limited",
+    initials: "EI",
   },
   {
+    id: "alphagravida",
     quote:
-      "Temitope's unique skills and cognate expertise in Branding and marketing is very exceptional and clearly shine through all our works. She is very detailed in understanding customer's requirements and very creative in the execution towards achieving set goals. Really collaborative person to work with",
+      "Temitope's unique skills and cognate expertise in Branding and marketing is very exceptional and clearly shine through all our works. She is very detailed in understanding customer's requirements and very creative in the execution towards achieving set goals. Really collaborative person to work with.",
     author: "Olu Kosovo",
-    title: "CEO, Alphagravida",
+    title: "CEO",
+    organization: "Alphagravida",
+    initials: "OK",
   },
 ];
 
-function Testimonials() {
-  const [currentPage, setCurrentPage] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
-  const controls = useAnimation();
-  const INTERVAL_DELAY = 6000;
-
-  // Check if we're on mobile
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
-
-  const itemsPerPage = isMobile ? 1 : 2;
-  const totalPages = Math.ceil(testimonials.length / itemsPerPage);
-
-  const nextPage = async () => {
-    await controls.start({
-      x: "-100%",
-      transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] },
-    });
-    setCurrentPage((prev) => (prev + 1) % totalPages);
-    controls.set({ x: "100%" });
-    await controls.start({
-      x: "0%",
-      transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] },
-    });
-  };
-
-  const prevPage = async () => {
-    await controls.start({
-      x: "100%",
-      transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] },
-    });
-    setCurrentPage((prev) => (prev - 1 + totalPages) % totalPages);
-    controls.set({ x: "-100%" });
-    await controls.start({
-      x: "0%",
-      transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] },
-    });
-  };
-
-  const goToPage = async (page: number) => {
-    if (page === currentPage) return;
-
-    const direction = page > currentPage ? -1 : 1;
-    await controls.start({
-      x: `${direction * 100}%`,
-      transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] },
-    });
-    setCurrentPage(page);
-    controls.set({ x: `${-direction * 100}%` });
-    await controls.start({
-      x: "0%",
-      transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] },
-    });
-  };
-
-  const handleDragEnd = (
-    event: MouseEvent | TouchEvent | PointerEvent,
-    info: PanInfo
-  ) => {
-    const threshold = 80;
-    if (info.offset.x < -threshold) {
-      nextPage();
-    } else if (info.offset.x > threshold) {
-      prevPage();
-    } else {
-      controls.start({
-        x: 0,
-        transition: { duration: 0.3, ease: "easeOut" },
-      });
-    }
-  };
-
-  useEffect(() => {
-    if (!isPaused) {
-      intervalRef.current = setInterval(nextPage, INTERVAL_DELAY);
-    }
-
-    return () => {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-      }
-    };
-  }, [isPaused, currentPage]);
-
-  const getVisibleTestimonials = () => {
-    const startIndex = currentPage * itemsPerPage;
-    const visibleItems = [];
-
-    for (let i = 0; i < itemsPerPage; i++) {
-      const index = (startIndex + i) % testimonials.length;
-      visibleItems.push(testimonials[index]);
-    }
-
-    return visibleItems;
-  };
-
-  const visibleTestimonials = getVisibleTestimonials();
+export default function Testimonials() {
+  const plugin = React.useRef(
+    Autoplay({
+      delay: 5500,
+      stopOnInteraction: false,
+      stopOnMouseEnter: true,
+    })
+  );
 
   return (
-    <section className="py-12 md:py-24 px-4 lg:px-10 bg-primary relative">
-      {/* Background pattern with opacity */}
+    <section className="py-16 sm:py-24 px-4 sm:px-10 bg-blush relative overflow-hidden">
+      {/* Background texture watermark */}
       <div
-        className="absolute inset-0 bg-cover z-0 bg-no-repeat bg-center"
+        className="absolute inset-0 bg-cover z-0 bg-no-repeat bg-center pointer-events-none opacity-[0.06]"
         style={{
           backgroundImage: "url(/trj-pattern.png)",
-          opacity: 0.1,
         }}
       />
 
-      <div className="container mx-auto relative !text-black z-10">
-        <div className="flex flex-col sm:flex-row gap-7 sm:gap-0 justify-between items-center mb-12">
-          <h2 className="font-averia text-3xl md:text-4xl text-white font-semibold">
-            Testimonials
-          </h2>
-          <a href="https://wa.link/dtys70" target="_blank" rel="noreferrer">
-            <Button className="bg-white/60 hover:bg-white rounded-br-2xl hover:text-primary text-black px-6 py-2 font-avenir transition-colors">
-              MEET TEMITOPE
-            </Button>
-          </a>
-        </div>
-
-        <div
-          className="relative overflow-hidden min-h-[400px] md:min-h-[350px]"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
+      <div className="container mx-auto relative z-10">
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          plugins={[plugin.current]}
+          className="w-full"
         >
-          <motion.div
-            className={`grid ${
-              isMobile ? "grid-cols-1" : "md:grid-cols-2"
-            } gap-8 h-full`}
-            animate={controls}
-            initial={{ x: 0 }}
-            drag="x"
-            dragConstraints={{ left: 0, right: 0 }}
-            dragElastic={0.2}
-            onDragEnd={handleDragEnd}
-            whileDrag={{ cursor: "grabbing" }}
-          >
-            {visibleTestimonials.map((testimonial, index) => (
-              <motion.div
-                key={`testimonial-${currentPage}-${index}`}
-                className="relative space-y-4 h-full"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <div className="flex items-start">
-                  <Quote size={60} className="text-primary-dark opacity-20" />
-                </div>
-                <p className="text-white relative z-10 text-base font-avenir leading-relaxed">
-                  {testimonial.quote}
-                </p>
-                <div className="text-white">
-                  <h3 className="font-averia text-xl font-semibold">
-                    {testimonial.author}
-                  </h3>
-                  <p className="text-white/70 uppercase text-sm font-avenir">
-                    {testimonial.title}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
+          {/* Header row with title & navigation buttons */}
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
+            <div className="space-y-3">
+              <p className="text-xs font-semibold tracking-[0.25em] uppercase text-rose font-sans">
+                Social Proof &amp; Endorsements
+              </p>
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-ink font-semibold tracking-tight">
+                Trusted by Founders &amp; Leaders
+              </h2>
+              <p className="text-ink/70 font-sans text-sm sm:text-base max-w-xl">
+                What clients and executive partners say about collaborating with
+                Temitope on brand architecture and market positioning.
+              </p>
+            </div>
 
-        <div className="flex sm:hidden justify-center mt-8 gap-2">
-          {Array.from({ length: totalPages }).map((_, index) => (
-            <motion.button
-              key={`dot-${index}`}
-              className={`h-2 rounded-full transition-all duration-300 ${
-                currentPage === index ? "w-6 bg-white" : "w-2 bg-white/40"
-              }`}
-              onClick={() => {
-                goToPage(index);
-                if (intervalRef.current) {
-                  clearInterval(intervalRef.current);
-                  if (!isPaused) {
-                    intervalRef.current = setInterval(nextPage, INTERVAL_DELAY);
-                  }
-                }
-              }}
-              whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 0.9 }}
-              aria-label={`Go to testimonial page ${index + 1}`}
+            <div className="flex items-center gap-3 self-start sm:self-end">
+              <Link href="/contact">
+                <Button className="bg-rose text-white hover:bg-aubergine rounded-br-2xl text-xs sm:text-sm font-sans font-medium px-5 py-2.5 transition-colors shadow-sm">
+                  Work with Temitope
+                </Button>
+              </Link>
+              <div className="hidden sm:flex items-center gap-2 pl-2">
+                <CarouselPrevious className="relative static translate-x-0 translate-y-0 h-10 w-10 border border-rose/30 bg-white/80 text-ink hover:bg-rose hover:text-white shadow-sm" />
+                <CarouselNext className="relative static translate-x-0 translate-y-0 h-10 w-10 border border-rose/30 bg-white/80 text-ink hover:bg-rose hover:text-white shadow-sm" />
+              </div>
+            </div>
+          </div>
+
+          {/* Testimonials Carousel Track */}
+          <CarouselContent className="-ml-6">
+            {testimonials.map((item) => (
+              <CarouselItem
+                key={item.id}
+                className="pl-6 md:basis-1/2 flex"
+              >
+                <div className="w-full bg-white/90 backdrop-blur-sm rounded-2xl border border-rose/20 p-7 sm:p-9 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col justify-between">
+                  <div>
+                    {/* Stars and Quote Glyph */}
+                    <div className="flex items-center justify-between mb-6">
+                      <div className="flex items-center gap-1 text-rose">
+                        {[...Array(5)].map((_, i) => (
+                          <Star
+                            key={i}
+                            className="h-4 w-4 fill-current text-rose"
+                          />
+                        ))}
+                      </div>
+                      <Quote className="h-8 w-8 text-rose/30" />
+                    </div>
+
+                    {/* Quote text */}
+                    <blockquote className="font-sans text-ink/85 text-base sm:text-lg leading-relaxed mb-8">
+                      &ldquo;{item.quote}&rdquo;
+                    </blockquote>
+                  </div>
+
+                  {/* Author information */}
+                  <div className="flex items-center gap-4 pt-6 border-t border-rose/15">
+                    <div className="h-12 w-12 rounded-full bg-rose/15 text-rose flex items-center justify-center font-serif font-bold text-sm sm:text-base shrink-0 border border-rose/25">
+                      {item.initials}
+                    </div>
+                    <div>
+                      <h3 className="font-serif text-lg font-bold text-ink leading-snug">
+                        {item.author}
+                      </h3>
+                      <p className="text-xs uppercase tracking-wider font-sans font-medium text-rose">
+                        {item.title} &middot; {item.organization}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+
+          {/* Bottom Controls: Dots and Mobile Arrows */}
+          <div className="flex items-center justify-between sm:justify-center mt-10">
+            <div className="flex sm:hidden items-center gap-2">
+              <CarouselPrevious className="relative static translate-x-0 translate-y-0 h-9 w-9 border border-rose/30 bg-white text-ink hover:bg-rose hover:text-white" />
+              <CarouselNext className="relative static translate-x-0 translate-y-0 h-9 w-9 border border-rose/30 bg-white text-ink hover:bg-rose hover:text-white" />
+            </div>
+
+            <CarouselDots
+              className="py-2"
+              dotClassName="bg-rose/30 hover:bg-rose/60"
+              activeDotClassName="bg-rose w-7"
             />
-          ))}
-        </div>
+          </div>
+        </Carousel>
       </div>
     </section>
   );
 }
-
-export default Testimonials;

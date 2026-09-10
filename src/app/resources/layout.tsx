@@ -3,12 +3,12 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Resources | Temitope Ruth Jacob",
   description:
-    "Free tools, articles, videos and downloads to help you build your personal brand.",
+    "The BrandUp Accelerator, YouTube library, essays, talks and podcast — free tools and paid programmes to build your personal brand.",
   alternates: { canonical: "https://www.temitoperuthjacob.com/resources" },
   openGraph: {
     title: "Resources | Temitope Ruth Jacob",
     description:
-      "Free tools, articles, videos and downloads to help you build your personal brand.",
+      "Free tools, articles, videos, talks and courses to build your personal brand.",
     url: "https://www.temitoperuthjacob.com/resources",
     type: "website",
     siteName: "Temitope Ruth Jacob",

@@ -1,80 +1,103 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import * as React from "react";
 import Image from "next/image";
-import { motion, useAnimation } from "framer-motion";
+import useEmblaCarousel from "embla-carousel-react";
+import AutoScroll from "embla-carousel-auto-scroll";
 
-const logos = [
-  { src: "/americann.png", alt: "America" },
-  { src: "/DREAM.png", alt: "Dream" },
-  { src: "/GOTNI.png", alt: "IFC" },
-  { src: "/performx.png", alt: "PerformX" },
-  { src: "/neccipr.png", alt: "Meta" },
+interface PartnerLogo {
+  src: string;
+  alt: string;
+  name: string;
+}
+
+const logos: PartnerLogo[] = [
+  {
+    src: "/americann.png",
+    alt: "American Spaces Nigeria",
+    name: "American Spaces",
+  },
+  {
+    src: "/DREAM.png",
+    alt: "Dream Center Trybe",
+    name: "Dream Center Trybe",
+  },
+  {
+    src: "/GOTNI.png",
+    alt: "GOTNI Leadership Centre",
+    name: "GOTNI Leadership",
+  },
+  {
+    src: "/performx.png",
+    alt: "PerformX Nexus & Summit",
+    name: "PerformX Summit",
+  },
+  {
+    src: "/neccipr.png",
+    alt: "NECCI PR Roundtable",
+    name: "NECCI PR Roundtable",
+  },
 ];
 
 export default function LogoCarousel() {
-  const [isMounted, setIsMounted] = useState(false);
-  const controls = useAnimation();
+  const [emblaRef] = useEmblaCarousel(
+    {
+      loop: true,
+      dragFree: true,
+      align: "start",
+    },
+    [
+      AutoScroll({
+        speed: 1.2,
+        stopOnInteraction: false,
+        stopOnMouseEnter: true,
+      }),
+    ]
+  );
 
-  const logoWidth = 160;
-  const gapWidth = 64;
-  const totalWidth = logos.length * (logoWidth + gapWidth);
-
-  useEffect(() => {
-    setIsMounted(true);
-    return () => setIsMounted(false);
-  }, []);
-
-  const startInfiniteAnimation = () => {
-    if (!isMounted) return;
-
-    controls.start({
-      x: [-totalWidth, 0],
-      transition: {
-        duration: 20, // Smooth continuous speed
-        ease: "linear",
-        repeat: Number.POSITIVE_INFINITY,
-      },
-    });
-  };
-
-  useEffect(() => {
-    if (!isMounted) return;
-    startInfiniteAnimation();
-    return () => controls.stop();
-  }, [isMounted]);
+  // Repeat logos so the continuous ticker track has plenty of items for any viewport width
+  const tickerLogos = [...logos, ...logos, ...logos];
 
   return (
-    <section className="bg-aubergine flex flex-col md:flex-row gap-4 sm:gap-12 items-center py-6 sm:py-12 px-4 lg:px-10 -mt-16 sm:-mt-20 sm:z-20 relative">
-      <h2 className="font-serif text-2xl text-cream mb-2 md:mb-0 px-4 font-semibold">
-        Organisations Impacted
-      </h2>
-      <div className="sm:px-7 overflow-hidden w-full">
-        <motion.div className="flex items-center gap-16" animate={controls}>
-          {[...Array(4)].map((_, setIndex) =>
-            logos.map((logo, index) => (
-              <motion.div
-                key={`logo-${setIndex}-${index}`}
-                className="flex-shrink-0 w-32 h-16 sm:w-40 sm:h-20 relative"
-                whileHover={{
-                  scale: 1.05,
-                  filter: "grayscale(0%)",
-                  transition: { duration: 0.3 },
-                }}
-                style={{
-                  filter: "grayscale(100%)",
-                }}
+    <section
+      aria-label="Organisations Impacted"
+      className="bg-aubergine flex flex-col md:flex-row gap-6 sm:gap-10 items-center py-7 sm:py-10 px-4 sm:px-10 -mt-16 sm:-mt-20 sm:z-20 relative rounded-xl shadow-xl border border-rose/15 overflow-hidden"
+    >
+      {/* Title block */}
+      <div className="shrink-0 text-center md:text-left px-2">
+        <p className="text-[0.65rem] font-semibold tracking-[0.25em] uppercase text-rose font-sans mb-1">
+          Partner Network
+        </p>
+        <h2 className="font-serif text-xl sm:text-2xl text-cream font-semibold tracking-tight whitespace-nowrap">
+          Organisations Impacted
+        </h2>
+      </div>
+
+      {/* Ticker scroller with edge fade masks */}
+      <div className="relative w-full overflow-hidden">
+        {/* Left & right fade gradients */}
+        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-12 sm:w-20 bg-gradient-to-r from-aubergine to-transparent z-10" />
+        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-12 sm:w-20 bg-gradient-to-l from-aubergine to-transparent z-10" />
+
+        <div ref={emblaRef} className="overflow-hidden cursor-grab active:cursor-grabbing">
+          <div className="flex items-center gap-10 sm:gap-14">
+            {tickerLogos.map((logo, index) => (
+              <div
+                key={`${logo.src}-${index}`}
+                className="shrink-0 flex items-center justify-center w-32 sm:w-40 h-14 sm:h-16 relative grayscale hover:grayscale-0 opacity-80 hover:opacity-100 transition-all duration-300 transform hover:scale-105"
+                title={logo.name}
               >
                 <Image
-                  src={logo.src || "/placeholder.svg"}
+                  src={logo.src}
                   alt={logo.alt}
                   fill
-                  className="object-contain transition-all duration-300"
+                  sizes="(max-width: 640px) 128px, 160px"
+                  className="object-contain"
                 />
-              </motion.div>
-            ))
-          )}
-        </motion.div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

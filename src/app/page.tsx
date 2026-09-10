@@ -1,10 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-import { BookModal, BookPromo } from "@/components/book-modal";
 
 import LogoCarousel from "@/components/logo-carousel";
 import Hero from "@/components/hero";
@@ -24,62 +22,9 @@ const pageTransition = {
   duration: 0.6,
 };
 
-const MODAL_SEEN_KEY = "bookModalSeenAt";
-const MODAL_MIN_SCROLL = 400;
-const MODAL_DELAY_MS = 4000;
-
 export default function HomePage() {
-  const [showModal, setShowModal] = useState(false);
-  const [showPromo, setShowPromo] = useState(false);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    if (sessionStorage.getItem(MODAL_SEEN_KEY)) return;
-
-    let timer: ReturnType<typeof setTimeout> | null = null;
-
-    const tryOpen = () => {
-      if (window.scrollY < MODAL_MIN_SCROLL) return;
-      window.removeEventListener("scroll", tryOpen);
-      if (timer) clearTimeout(timer);
-      setShowModal(true);
-      sessionStorage.setItem(MODAL_SEEN_KEY, String(Date.now()));
-    };
-
-    timer = setTimeout(() => {
-      window.removeEventListener("scroll", tryOpen);
-      if (sessionStorage.getItem(MODAL_SEEN_KEY)) return;
-      setShowModal(true);
-      sessionStorage.setItem(MODAL_SEEN_KEY, String(Date.now()));
-    }, MODAL_DELAY_MS);
-
-    window.addEventListener("scroll", tryOpen, { passive: true });
-
-    return () => {
-      if (timer) clearTimeout(timer);
-      window.removeEventListener("scroll", tryOpen);
-    };
-  }, []);
-
-  const handleCloseModal = () => {
-    setShowModal(false);
-    setShowPromo(true);
-  };
-
-  const handleOpenModal = () => {
-    setShowModal(true);
-    setShowPromo(false);
-  };
-
   return (
     <div className="relative">
-      {showModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center">
-          <BookModal onClose={handleCloseModal} />
-        </div>
-      )}
-      {showPromo && <BookPromo onOpen={handleOpenModal} />}
-
       <motion.div
         className="relative font-sans"
         initial="initial"
