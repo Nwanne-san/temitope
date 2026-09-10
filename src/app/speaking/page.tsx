@@ -17,7 +17,7 @@ export default function SpeakingPage() {
               TEDxSamaru, NECCI PR Roundtable, PerformX Summit, the Upgrade
               Marketing Conference, and MYFICON.
             </p>
-            <p className="text-sm text-ink/50">
+            <p className="text-sm text-secondary/50">
               The full page &mdash; signature topics, reel, downloadable
               one-sheet, and a booking form &mdash; is coming shortly. In the
               meantime, reach out directly.

@@ -81,10 +81,10 @@ export default function Testimonials() {
   );
 
   return (
-    <section className="py-16 sm:py-24 px-4 sm:px-10 bg-blush relative overflow-hidden">
+    <section className="py-16 sm:py-24 px-4 sm:px-10 bg-primary relative overflow-hidden text-white">
       {/* Background texture watermark */}
       <div
-        className="absolute inset-0 bg-cover z-0 bg-no-repeat bg-center pointer-events-none opacity-[0.06]"
+        className="absolute inset-0 bg-cover z-0 bg-no-repeat bg-center pointer-events-none opacity-10"
         style={{
           backgroundImage: "url(/trj-pattern.png)",
         }}
@@ -102,13 +102,13 @@ export default function Testimonials() {
           {/* Header row with title & navigation buttons */}
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
             <div className="space-y-3">
-              <p className="text-xs font-semibold tracking-[0.25em] uppercase text-rose font-sans">
+              <p className="text-xs font-semibold tracking-[0.25em] uppercase text-white/80 font-sans">
                 Social Proof &amp; Endorsements
               </p>
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-ink font-semibold tracking-tight">
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-white font-semibold tracking-tight">
                 Trusted by Founders &amp; Leaders
               </h2>
-              <p className="text-ink/70 font-sans text-sm sm:text-base max-w-xl">
+              <p className="text-white/85 font-sans text-sm sm:text-base max-w-xl">
                 What clients and executive partners say about collaborating with
                 Temitope on brand architecture and market positioning.
               </p>
@@ -116,13 +116,13 @@ export default function Testimonials() {
 
             <div className="flex items-center gap-3 self-start sm:self-end">
               <Link href="/contact">
-                <Button className="bg-rose text-white hover:bg-aubergine rounded-br-2xl text-xs sm:text-sm font-sans font-medium px-5 py-2.5 transition-colors shadow-sm">
+                <Button className="bg-white hover:bg-white/90 text-primary rounded-br-2xl text-xs sm:text-sm font-sans font-medium px-5 py-2.5 transition-colors shadow-sm">
                   Work with Temitope
                 </Button>
               </Link>
               <div className="hidden sm:flex items-center gap-2 pl-2">
-                <CarouselPrevious className="relative static translate-x-0 translate-y-0 h-10 w-10 border border-rose/30 bg-white/80 text-ink hover:bg-rose hover:text-white shadow-sm" />
-                <CarouselNext className="relative static translate-x-0 translate-y-0 h-10 w-10 border border-rose/30 bg-white/80 text-ink hover:bg-rose hover:text-white shadow-sm" />
+                <CarouselPrevious className="relative static translate-x-0 translate-y-0 h-10 w-10 border border-white/40 bg-white/20 text-white hover:bg-white hover:text-primary shadow-sm" />
+                <CarouselNext className="relative static translate-x-0 translate-y-0 h-10 w-10 border border-white/40 bg-white/20 text-white hover:bg-white hover:text-primary shadow-sm" />
               </div>
             </div>
           </div>
@@ -134,37 +134,37 @@ export default function Testimonials() {
                 key={item.id}
                 className="pl-6 md:basis-1/2 flex"
               >
-                <div className="w-full bg-white/90 backdrop-blur-sm rounded-2xl border border-rose/20 p-7 sm:p-9 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col justify-between">
+                <div className="w-full bg-white text-secondary rounded-2xl p-7 sm:p-9 shadow-lg flex flex-col justify-between border border-white/20">
                   <div>
                     {/* Stars and Quote Glyph */}
                     <div className="flex items-center justify-between mb-6">
-                      <div className="flex items-center gap-1 text-rose">
+                      <div className="flex items-center gap-1 text-primary">
                         {[...Array(5)].map((_, i) => (
                           <Star
                             key={i}
-                            className="h-4 w-4 fill-current text-rose"
+                            className="h-4 w-4 fill-current text-primary"
                           />
                         ))}
                       </div>
-                      <Quote className="h-8 w-8 text-rose/30" />
+                      <Quote className="h-8 w-8 text-primary/20" />
                     </div>
 
                     {/* Quote text */}
-                    <blockquote className="font-sans text-ink/85 text-base sm:text-lg leading-relaxed mb-8">
+                    <blockquote className="font-sans text-secondary text-base sm:text-lg leading-relaxed mb-8">
                       &ldquo;{item.quote}&rdquo;
                     </blockquote>
                   </div>
 
                   {/* Author information */}
-                  <div className="flex items-center gap-4 pt-6 border-t border-rose/15">
-                    <div className="h-12 w-12 rounded-full bg-rose/15 text-rose flex items-center justify-center font-serif font-bold text-sm sm:text-base shrink-0 border border-rose/25">
+                  <div className="flex items-center gap-4 pt-6 border-t border-secondary/10">
+                    <div className="h-12 w-12 rounded-full bg-primary/10 text-primary flex items-center justify-center font-serif font-bold text-sm sm:text-base shrink-0 border border-primary/20">
                       {item.initials}
                     </div>
                     <div>
-                      <h3 className="font-serif text-lg font-bold text-ink leading-snug">
+                      <h3 className="font-serif text-lg font-bold text-secondary leading-snug">
                         {item.author}
                       </h3>
-                      <p className="text-xs uppercase tracking-wider font-sans font-medium text-rose">
+                      <p className="text-xs uppercase tracking-wider font-sans font-semibold text-primary">
                         {item.title} &middot; {item.organization}
                       </p>
                     </div>
@@ -177,14 +177,14 @@ export default function Testimonials() {
           {/* Bottom Controls: Dots and Mobile Arrows */}
           <div className="flex items-center justify-between sm:justify-center mt-10">
             <div className="flex sm:hidden items-center gap-2">
-              <CarouselPrevious className="relative static translate-x-0 translate-y-0 h-9 w-9 border border-rose/30 bg-white text-ink hover:bg-rose hover:text-white" />
-              <CarouselNext className="relative static translate-x-0 translate-y-0 h-9 w-9 border border-rose/30 bg-white text-ink hover:bg-rose hover:text-white" />
+              <CarouselPrevious className="relative static translate-x-0 translate-y-0 h-9 w-9 border border-white/40 bg-white/20 text-white hover:bg-white hover:text-primary" />
+              <CarouselNext className="relative static translate-x-0 translate-y-0 h-9 w-9 border border-white/40 bg-white/20 text-white hover:bg-white hover:text-primary" />
             </div>
 
             <CarouselDots
               className="py-2"
-              dotClassName="bg-rose/30 hover:bg-rose/60"
-              activeDotClassName="bg-rose w-7"
+              dotClassName="bg-white/40 hover:bg-white/70"
+              activeDotClassName="bg-white w-7"
             />
           </div>
         </Carousel>

@@ -106,7 +106,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${avenir.variable} ${averia.variable} font-sans bg-cream text-ink`}
+        className={`${avenir.variable} ${averia.variable} font-sans`}
       >
         <Analytics />
         {children}

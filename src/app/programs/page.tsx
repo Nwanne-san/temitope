@@ -18,7 +18,7 @@ export default function ProgramsPage() {
               strategy masterclass), <strong>Own Your Name</strong> (a university
               tour), and <strong>The Influence Code</strong> (a conference).
             </p>
-            <p className="text-sm text-ink/50">
+            <p className="text-sm text-secondary/50">
               While the full hub is being built, the current Brand Experience
               Initiative page is still available.
             </p>

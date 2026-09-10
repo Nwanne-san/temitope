@@ -109,7 +109,7 @@ export default function Navbar({}: NavbarProps) {
   ];
 
   return (
-    <div className="bg-cream">
+    <div className="bg-gray-200">
       <motion.nav
         className="mx-auto container relative px-4 py-6 sm:px-10 flex justify-between items-center font-sans"
         initial={{ opacity: 0, y: -20 }}
@@ -138,14 +138,14 @@ export default function Navbar({}: NavbarProps) {
               href={item.href}
               className={`transition-all duration-300 relative hover:scale-105 ${
                 isActivePath(item.href)
-                  ? "text-rose font-medium"
-                  : "text-ink hover:text-rose"
+                  ? "text-primary font-medium"
+                  : "text-secondary hover:text-primary"
               }`}
             >
               {item.label}
               {isActivePath(item.href) && (
                 <motion.span
-                  className="absolute -bottom-2 left-0 w-full h-0.5 bg-rose"
+                  className="absolute -bottom-2 left-0 w-full h-0.5 bg-primary"
                   layoutId="activeTab"
                   transition={{ type: "spring", stiffness: 380, damping: 30 }}
                 />
@@ -157,14 +157,14 @@ export default function Navbar({}: NavbarProps) {
         <div className="flex items-center gap-3">
           <Link href="/contact">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button className="duration-300 px-3 text-xs py-1 sm:text-base bg-rose text-white hover:bg-aubergine rounded-br-2xl border-0 font-sans">
+              <Button className="duration-300 px-3 text-xs py-1 sm:text-base hover:bg-white text-primary rounded-br-2xl hover:text-primary border border-primary font-sans">
                 Contact
               </Button>
             </motion.div>
           </Link>
 
           <motion.button
-            className="xl:hidden z-10"
+            className="xl:hidden z-10 text-secondary"
             onClick={() => setIsOpen(!isOpen)}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
@@ -247,14 +247,14 @@ export default function Navbar({}: NavbarProps) {
                       href={item.href}
                       className={`transition-colors text-start relative pl-2 block ${
                         isActivePath(item.href)
-                          ? "text-rose font-medium"
-                          : "text-ink hover:text-rose"
+                          ? "text-primary font-medium"
+                          : "text-secondary hover:text-primary"
                       }`}
                       onClick={() => setIsOpen(false)}
                     >
                       {item.label}
                       {isActivePath(item.href) && (
-                        <span className="absolute -bottom-2 left-0 w-fit h-0.5 bg-rose"></span>
+                        <span className="absolute -bottom-2 left-0 w-fit h-0.5 bg-primary"></span>
                       )}
                     </Link>
                   </motion.div>
@@ -265,8 +265,8 @@ export default function Navbar({}: NavbarProps) {
                     onClick={() => setIsOpen(false)}
                     className={`transition-colors text-start relative pl-2 block ${
                       isActivePath("/contact")
-                        ? "text-rose font-medium"
-                        : "text-ink hover:text-rose"
+                        ? "text-primary font-medium"
+                        : "text-secondary hover:text-primary"
                     }`}
                   >
                     Contact

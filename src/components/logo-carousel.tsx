@@ -61,14 +61,14 @@ export default function LogoCarousel() {
   return (
     <section
       aria-label="Organisations Impacted"
-      className="bg-aubergine flex flex-col md:flex-row gap-6 sm:gap-10 items-center py-7 sm:py-10 px-4 sm:px-10 -mt-16 sm:-mt-20 sm:z-20 relative rounded-xl shadow-xl border border-rose/15 overflow-hidden"
+      className="bg-primary flex flex-col md:flex-row gap-6 sm:gap-10 items-center py-7 sm:py-10 px-4 sm:px-10 -mt-16 sm:-mt-20 sm:z-20 relative rounded-xl shadow-xl overflow-hidden"
     >
       {/* Title block */}
       <div className="shrink-0 text-center md:text-left px-2">
-        <p className="text-[0.65rem] font-semibold tracking-[0.25em] uppercase text-rose font-sans mb-1">
+        <p className="text-[0.65rem] font-semibold tracking-[0.25em] uppercase text-white/80 font-sans mb-1">
           Partner Network
         </p>
-        <h2 className="font-serif text-xl sm:text-2xl text-cream font-semibold tracking-tight whitespace-nowrap">
+        <h2 className="font-serif text-xl sm:text-2xl text-white font-semibold tracking-tight whitespace-nowrap">
           Organisations Impacted
         </h2>
       </div>
@@ -76,8 +76,8 @@ export default function LogoCarousel() {
       {/* Ticker scroller with edge fade masks */}
       <div className="relative w-full overflow-hidden">
         {/* Left & right fade gradients */}
-        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-12 sm:w-20 bg-gradient-to-r from-aubergine to-transparent z-10" />
-        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-12 sm:w-20 bg-gradient-to-l from-aubergine to-transparent z-10" />
+        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-12 sm:w-20 bg-gradient-to-r from-primary to-transparent z-10" />
+        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-12 sm:w-20 bg-gradient-to-l from-primary to-transparent z-10" />
 
         <div ref={emblaRef} className="overflow-hidden cursor-grab active:cursor-grabbing">
           <div className="flex items-center gap-10 sm:gap-14">

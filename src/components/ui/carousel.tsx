@@ -209,7 +209,7 @@ export const CarouselPrevious = React.forwardRef<
       ref={ref}
       type="button"
       className={cn(
-        "inline-flex items-center justify-center rounded-full transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose/50 disabled:pointer-events-none disabled:opacity-30",
+        "inline-flex items-center justify-center rounded-full transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 disabled:pointer-events-none disabled:opacity-30",
         orientation === "horizontal"
           ? "h-10 w-10"
           : "h-10 w-10 rotate-90",
@@ -238,7 +238,7 @@ export const CarouselNext = React.forwardRef<
       ref={ref}
       type="button"
       className={cn(
-        "inline-flex items-center justify-center rounded-full transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose/50 disabled:pointer-events-none disabled:opacity-30",
+        "inline-flex items-center justify-center rounded-full transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 disabled:pointer-events-none disabled:opacity-30",
         orientation === "horizontal"
           ? "h-10 w-10"
           : "h-10 w-10 rotate-90",
@@ -286,10 +286,10 @@ export const CarouselDots = React.forwardRef<
             aria-label={`Go to slide ${index + 1}`}
             onClick={() => scrollTo(index)}
             className={cn(
-              "h-2.5 rounded-full transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose/50",
+              "h-2.5 rounded-full transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50",
               isActive
-                ? cn("w-7 bg-rose", activeDotClassName)
-                : cn("w-2.5 bg-rose/25 hover:bg-rose/50", dotClassName)
+                ? cn("w-7 bg-primary", activeDotClassName)
+                : cn("w-2.5 bg-primary/25 hover:bg-primary/50", dotClassName)
             )}
           />
         );

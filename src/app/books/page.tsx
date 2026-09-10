@@ -120,7 +120,7 @@ export default function BooksPage() {
             {evolve.tableOfContents.map((part) => (
               <div key={part.part}>
                 <p className="font-serif text-lg text-primary mb-4">{part.part}</p>
-                <ul className="divide-y divide-ink/10">
+                <ul className="divide-y divide-secondary/10">
                   {part.chapters.map((chapter, i) => (
                     <li
                       key={chapter}
@@ -214,13 +214,13 @@ export default function BooksPage() {
             />
           </div>
           <div className="flex-1 space-y-3 text-center lg:text-left">
-            <p className="text-xs font-medium tracking-[0.2em] uppercase text-primary font-sans">
+            <p className="text-xs font-medium tracking-[0.2em] uppercase text-lightGray font-sans">
               Also by Temitope
             </p>
             <h3 className="font-serif text-2xl sm:text-3xl text-white leading-tight">
               Your Authentic Signature: the personal branding handbook.
             </h3>
-            <p className="text-white/70 font-sans max-w-xl">
+            <p className="text-white/80 font-sans max-w-xl">
               A practical guide to naming your personal brand and communicating
               it clearly. Free to download.
             </p>
@@ -230,7 +230,7 @@ export default function BooksPage() {
               href="https://selar.com/1v4g42"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 uppercase tracking-widest text-xs sm:text-sm bg-primary text-white font-sans font-medium px-6 py-3 rounded-tl-3xl hover:bg-lightGray hover:text-primary transition-colors"
+              className="inline-flex items-center gap-2 uppercase tracking-widest text-xs sm:text-sm bg-white text-primary font-sans font-medium px-6 py-3 rounded-tl-3xl hover:bg-lightGray transition-colors shadow-sm"
             >
               Download free
               <ArrowUpRight className="h-4 w-4" />

@@ -62,7 +62,7 @@ function Achievements({ setActivePage }: AchievementsProps) {
             whileHover={{ scale: 1.02 }}
           >
             <motion.span
-              className="flex-shrink-0 w-10 h-12 flex items-center justify-center bg-rose text-white rounded font-sans font-bold"
+              className="flex-shrink-0 w-10 h-12 flex items-center justify-center bg-primary text-white rounded font-sans font-bold"
               whileHover={{ scale: 1.1 }}
             >
               {index + 1}
