@@ -128,16 +128,16 @@ export default function Testimonials() {
           </div>
 
           {/* Testimonials Carousel Track */}
-          <CarouselContent className="-ml-6">
+          <CarouselContent className="-ml-4 sm:-ml-6">
             {testimonials.map((item) => (
               <CarouselItem
                 key={item.id}
-                className="pl-6 md:basis-1/2 flex"
+                className="pl-4 sm:pl-6 basis-full md:basis-1/2 flex"
               >
-                <div className="w-full bg-white text-secondary rounded-2xl p-7 sm:p-9 shadow-lg flex flex-col justify-between border border-white/20">
+                <div className="w-full bg-white text-secondary rounded-2xl p-6 sm:p-9 shadow-lg flex flex-col justify-between border border-white/20">
                   <div>
                     {/* Stars and Quote Glyph */}
-                    <div className="flex items-center justify-between mb-6">
+                    <div className="flex items-center justify-between mb-4 sm:mb-6">
                       <div className="flex items-center gap-1 text-primary">
                         {[...Array(5)].map((_, i) => (
                           <Star
@@ -146,25 +146,25 @@ export default function Testimonials() {
                           />
                         ))}
                       </div>
-                      <Quote className="h-8 w-8 text-primary/20" />
+                      <Quote className="h-7 w-7 sm:h-8 sm:w-8 text-primary/20" />
                     </div>
 
                     {/* Quote text */}
-                    <blockquote className="font-sans text-secondary text-base sm:text-lg leading-relaxed mb-8">
+                    <blockquote className="font-sans text-secondary text-sm sm:text-base md:text-lg leading-relaxed mb-6 sm:mb-8 break-words">
                       &ldquo;{item.quote}&rdquo;
                     </blockquote>
                   </div>
 
                   {/* Author information */}
-                  <div className="flex items-center gap-4 pt-6 border-t border-secondary/10">
-                    <div className="h-12 w-12 rounded-full bg-primary/10 text-primary flex items-center justify-center font-serif font-bold text-sm sm:text-base shrink-0 border border-primary/20">
+                  <div className="flex items-center gap-3 sm:gap-4 pt-5 sm:pt-6 border-t border-secondary/10">
+                    <div className="h-11 w-11 sm:h-12 sm:w-12 rounded-full bg-primary/10 text-primary flex items-center justify-center font-serif font-bold text-sm sm:text-base shrink-0 border border-primary/20">
                       {item.initials}
                     </div>
-                    <div>
-                      <h3 className="font-serif text-lg font-bold text-secondary leading-snug">
+                    <div className="min-w-0 flex-1">
+                      <h3 className="font-serif text-base sm:text-lg font-bold text-secondary leading-snug">
                         {item.author}
                       </h3>
-                      <p className="text-xs uppercase tracking-wider font-sans font-semibold text-primary">
+                      <p className="text-[0.7rem] sm:text-xs uppercase tracking-wider font-sans font-semibold text-primary break-words">
                         {item.title} &middot; {item.organization}
                       </p>
                     </div>
