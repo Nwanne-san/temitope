@@ -13,7 +13,7 @@ export default function ResourcesPage() {
           <p className="text-xs font-medium tracking-[0.2em] uppercase text-primary font-sans mb-4">
             Resources
           </p>
-          <h1 className="font-serif text-4xl sm:text-5xl xl:text-6xl text-secondary font-semibold leading-tight mb-6">
+          <h1 className="font-serif text-3xl sm:text-5xl xl:text-6xl text-secondary font-semibold leading-tight mb-6 break-words">
             Free tools to build your personal brand.
           </h1>
           <p className="text-base sm:text-lg text-secondary/70 font-sans leading-relaxed max-w-3xl">

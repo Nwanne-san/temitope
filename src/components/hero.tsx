@@ -58,7 +58,7 @@ function Hero() {
         </motion.div>
 
         <motion.h1
-          className="text-3xl sm:text-4xl xl:text-5xl leading-tight font-semibold font-serif text-secondary"
+          className="text-3xl sm:text-4xl xl:text-5xl leading-tight font-semibold font-serif text-secondary break-words"
           variants={itemVariants}
         >
           I shape how African brands{" "}
@@ -74,13 +74,13 @@ function Hero() {
         </motion.p>
 
         <motion.div
-          className="flex gap-6 lg:justify-between xl:justify-normal lg:gap-40 xl:gap-4 font-serif"
+          className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto lg:justify-between xl:justify-normal lg:gap-40 xl:gap-4 font-serif"
           variants={itemVariants}
         >
-          <Link href="/contact">
+          <Link href="/contact" className="w-full sm:w-auto">
             <Button
               variant="primary"
-              className="bg-primary text-white text-nowrap tracking-widest py-3 px-5 rounded-tl-3xl text-xs sm:text-sm duration-300 hover:bg-primary/90 hover:text-white border-0 hover:scale-105 transition-all"
+              className="w-full sm:w-auto bg-primary text-white text-nowrap tracking-widest py-3 px-5 rounded-tl-3xl text-xs sm:text-sm duration-300 hover:bg-primary/90 hover:text-white border-0 hover:scale-105 transition-all justify-center"
             >
               WORK WITH TEMITOPE
             </Button>
@@ -88,7 +88,7 @@ function Hero() {
 
           <Button
             variant="outline"
-            className="border-0 text-secondary text-nowrap text-xs sm:text-sm tracking-widest duration-300 bg-lightGray rounded-br-3xl hover:scale-105 hover:bg-primary hover:text-white transition-all"
+            className="w-full sm:w-auto border-0 text-secondary text-nowrap text-xs sm:text-sm tracking-widest duration-300 bg-lightGray rounded-br-3xl hover:scale-105 hover:bg-primary hover:text-white transition-all justify-center"
             onClick={() => {
               window.location.href = "/books";
             }}
@@ -168,7 +168,7 @@ function Hero() {
         </p>
 
         <motion.div
-          className="absolute right-[15%] md:right-[19%] lg:right-[21%] xl:right-[28%] max-[1400]:right-[39%] top-[10] sm:top-[2%] z-[2]"
+          className="absolute right-[10%] sm:right-[15%] md:right-[19%] lg:right-[21%] xl:right-[28%] max-[1400]:right-[39%] top-2 sm:top-[2%] z-[2] max-w-[130px] sm:max-w-[220px] lg:max-w-[300px]"
           initial={{ scale: 0, opacity: 0, rotate: -180 }}
           animate={{ scale: 1, opacity: 1, rotate: 0 }}
           transition={{ duration: 1.2, ease: "backOut", delay: 0.5 }}
@@ -178,7 +178,7 @@ function Hero() {
             alt=""
             width={300}
             height={300}
-            className="h-auto w-auto"
+            className="h-auto w-full object-contain"
           />
         </motion.div>
 

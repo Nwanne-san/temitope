@@ -45,7 +45,7 @@ export default function HomePage() {
           </motion.section>
 
           <motion.section
-            className="mx-auto container px-10"
+            className="mx-auto container px-4 sm:px-10"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

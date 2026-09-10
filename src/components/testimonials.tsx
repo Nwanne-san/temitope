@@ -105,7 +105,7 @@ export default function Testimonials() {
               <p className="text-xs font-semibold tracking-[0.25em] uppercase text-white/80 font-sans">
                 Social Proof &amp; Endorsements
               </p>
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-white font-semibold tracking-tight">
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-white font-semibold tracking-tight break-words">
                 Trusted by Founders &amp; Leaders
               </h2>
               <p className="text-white/85 font-sans text-sm sm:text-base max-w-xl">
@@ -114,9 +114,9 @@ export default function Testimonials() {
               </p>
             </div>
 
-            <div className="flex items-center gap-3 self-start sm:self-end">
-              <Link href="/contact">
-                <Button className="bg-white hover:bg-white/90 text-primary rounded-br-2xl text-xs sm:text-sm font-sans font-medium px-5 py-2.5 transition-colors shadow-sm">
+            <div className="flex items-center gap-3 self-start sm:self-end w-full sm:w-auto">
+              <Link href="/contact" className="w-full sm:w-auto">
+                <Button className="w-full sm:w-auto bg-white hover:bg-white/90 text-primary rounded-br-2xl text-xs sm:text-sm font-sans font-medium px-5 py-2.5 transition-colors shadow-sm">
                   Work with Temitope
                 </Button>
               </Link>
@@ -161,7 +161,7 @@ export default function Testimonials() {
                       {item.initials}
                     </div>
                     <div className="min-w-0 flex-1">
-                      <h3 className="font-serif text-base sm:text-lg font-bold text-secondary leading-snug">
+                      <h3 className="font-serif text-base sm:text-lg font-bold text-secondary leading-snug break-words">
                         {item.author}
                       </h3>
                       <p className="text-[0.7rem] sm:text-xs uppercase tracking-wider font-sans font-semibold text-primary break-words">

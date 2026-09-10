@@ -214,7 +214,7 @@ export default function Navbar({}: NavbarProps) {
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              className="fixed top-0 left-0 h-full w-[60%] bg-white shadow-lg p-6 z-50 font-sans"
+              className="fixed top-0 left-0 h-full w-[75%] sm:w-[60%] max-w-xs bg-white shadow-lg p-6 z-50 font-sans"
               variants={mobileMenuVariants}
               initial="closed"
               animate="open"
@@ -280,7 +280,7 @@ export default function Navbar({}: NavbarProps) {
                       >
                         {item.label}
                         {isActivePath(item.href) && (
-                          <span className="absolute -bottom-2 left-0 w-fit h-0.5 bg-primary"></span>
+                          <span className="absolute -bottom-1 left-2 w-8 h-0.5 bg-primary rounded-full"></span>
                         )}
                       </Link>
                     )}
@@ -297,6 +297,9 @@ export default function Navbar({}: NavbarProps) {
                     }`}
                   >
                     Contact
+                    {isActivePath("/contact") && (
+                      <span className="absolute -bottom-1 left-2 w-8 h-0.5 bg-primary rounded-full"></span>
+                    )}
                   </Link>
                 </motion.div>
               </motion.div>

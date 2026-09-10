@@ -52,17 +52,17 @@ const Footer = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <p className="text-white/70 uppercase tracking-widest flex items-center justify-center xl:justify-start gap-2 mb-4 font-sans">
+          <p className="text-white/70 uppercase tracking-widest flex items-center justify-center xl:justify-start gap-2 mb-4 font-sans text-xs sm:text-sm text-center xl:text-left">
             Have a project? Get in touch.
           </p>
-          <div className="flex flex-col xl:flex-row justify-between items-end md:items-center gap-4">
-            <h2 className="font-serif text-xl sm:text-3xl font-semibold md:text-4xl text-white">
+          <div className="flex flex-col xl:flex-row justify-between items-center xl:items-start text-center xl:text-left gap-4">
+            <h2 className="font-serif text-lg sm:text-2xl md:text-3xl xl:text-4xl font-semibold text-white break-all sm:break-normal">
               hi@temitoperuthjacob.com
             </h2>
-            <Link href="/contact">
+            <Link href="/contact" className="w-full sm:w-auto">
               <Button
                 variant="primary"
-                className="bg-primary rounded-br-2xl duration-300 hover:bg-white hover:text-primary border border-primary text-white px-6 py-2 font-sans transition-colors"
+                className="w-full sm:w-auto bg-primary rounded-br-2xl duration-300 hover:bg-white hover:text-primary border border-primary text-white px-6 py-2 font-sans transition-colors text-center justify-center"
               >
                 CONTACT TEMITOPE
               </Button>
@@ -175,21 +175,21 @@ const Footer = () => {
               noValidate
               className="flex flex-col gap-2"
             >
-              <div className="bg-white/10 rounded-lg flex items-center gap-2 py-1.5 px-2.5">
+              <div className="bg-white/10 rounded-lg flex flex-col sm:flex-row items-stretch sm:items-center gap-2 p-1.5 sm:py-1.5 sm:px-2.5">
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
                   disabled={status === "loading"}
-                  className="bg-transparent rounded-lg placeholder:text-white/40 py-1 text-white w-full focus:outline-none px-2 font-sans disabled:opacity-60"
+                  className="bg-transparent rounded-lg placeholder:text-white/40 py-1.5 text-white w-full focus:outline-none px-2 font-sans disabled:opacity-60 text-sm"
                   placeholder="Enter your email address"
                   aria-label="Email address"
                 />
                 <button
                   type="submit"
                   disabled={status === "loading" || !email}
-                  className="flex items-center gap-2 justify-center uppercase font-sans font-medium focus-visible:outline-none bg-primary text-white px-4 py-1.5 rounded-lg transition-all duration-300 hover:bg-white hover:text-primary disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="flex items-center justify-center uppercase font-sans font-medium focus-visible:outline-none bg-primary text-white px-4 py-2 sm:py-1.5 rounded-lg transition-all duration-300 hover:bg-white hover:text-primary disabled:opacity-50 disabled:cursor-not-allowed text-xs sm:text-sm shrink-0"
                 >
                   {status === "loading" ? "Sending..." : "Subscribe"}
                 </button>

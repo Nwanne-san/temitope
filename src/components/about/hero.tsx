@@ -25,7 +25,7 @@ function HeroSection() {
         </motion.div>
         <div className="text-center xl:text-start space-y-7 text-sm">
           <motion.h3
-            className="text-4xl text-secondary font-bold font-serif"
+            className="text-3xl sm:text-4xl text-secondary font-bold font-serif break-words"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -86,13 +86,13 @@ function HeroSection() {
         </div>
       </motion.div>
       <motion.div
-        className="relative bg-lightGray/70 mt-9 h-[60vh] sm:h-screen w-full xl:pt-20 flex justify-center items-end"
+        className="relative bg-lightGray/70 mt-9 h-[60vh] sm:h-screen w-full xl:pt-20 flex justify-center items-end overflow-hidden"
         initial={{ opacity: 0, x: 50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <motion.div
-          className="absolute lg:right-[35%] xl:right-[27%] max-sm:top-[25%] max-lg:top-[10%] xl:bottom-[32%] z-[2]"
+          className="absolute right-[10%] sm:right-[15%] lg:right-[35%] xl:right-[27%] max-sm:top-[25%] max-lg:top-[10%] xl:bottom-[32%] z-[2] max-w-[130px] sm:max-w-[220px] lg:max-w-[300px]"
           initial={{ scale: 0, opacity: 0, rotate: -180 }}
           animate={{ scale: 1, opacity: 1, rotate: 0 }}
           transition={{ duration: 1.2, ease: "easeOut", delay: 0.5 }}
@@ -102,7 +102,7 @@ function HeroSection() {
             alt=""
             width={300}
             height={300}
-            className="h-auto w-auto"
+            className="h-auto w-full object-contain"
           />
         </motion.div>
         <motion.div
@@ -128,7 +128,7 @@ function HeroSection() {
             alt="Professional headshot"
             width={500}
             height={200}
-            className="grayscale-hover w-full xl:h-auto h- absolute -bottom-[30%] xl:-bottom-[0%] left-0 rounded-lg z-10"
+            className="grayscale-hover w-full xl:h-auto absolute -bottom-[30%] xl:-bottom-[0%] left-0 rounded-lg z-10"
           />
         </motion.div>
       </motion.div>

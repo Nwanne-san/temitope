@@ -59,7 +59,7 @@ export default function Resources({ id = "resources" }: ResourcesProps) {
                 <p className="text-xs font-semibold tracking-[0.25em] uppercase text-primary font-sans">
                   Learning &amp; Free Guides
                 </p>
-                <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-secondary font-semibold tracking-tight">
+                <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-secondary font-semibold tracking-tight break-words">
                   Resource Hub
                 </h2>
                 <p className="text-secondary-2 font-sans text-sm sm:text-base leading-relaxed">
@@ -133,11 +133,11 @@ export default function Resources({ id = "resources" }: ResourcesProps) {
                           )}
                         </div>
 
-                        <h3 className="font-serif text-xl text-secondary font-semibold leading-snug group-hover:text-primary transition-colors line-clamp-2">
+                        <h3 className="font-serif text-xl text-secondary font-semibold leading-snug group-hover:text-primary transition-colors line-clamp-2 break-words">
                           {item.title}
                         </h3>
 
-                        <p className="text-xs sm:text-sm text-secondary-2 font-sans leading-relaxed line-clamp-3">
+                        <p className="text-xs sm:text-sm text-secondary-2 font-sans leading-relaxed line-clamp-3 break-words">
                           {item.description}
                         </p>
                       </div>

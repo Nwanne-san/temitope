@@ -72,11 +72,11 @@ export default function ResourceCard({ resource }: Props) {
             )}
           </div>
 
-          <h3 className="font-serif text-xl xl:text-2xl text-secondary leading-snug">
+          <h3 className="font-serif text-xl xl:text-2xl text-secondary leading-snug break-words">
             {title}
           </h3>
 
-          <p className="text-sm sm:text-base text-secondary/65 font-sans leading-relaxed">
+          <p className="text-sm sm:text-base text-secondary/65 font-sans leading-relaxed break-words">
             {description}
           </p>
 

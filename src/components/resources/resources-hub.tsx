@@ -54,7 +54,7 @@ export default function ResourcesHub() {
                 <p className="text-xs font-medium tracking-[0.2em] uppercase text-primary font-sans mb-3">
                   Start here
                 </p>
-                <h2 className="font-serif text-2xl sm:text-3xl xl:text-4xl text-secondary leading-tight">
+                <h2 className="font-serif text-2xl sm:text-3xl xl:text-4xl text-secondary leading-tight break-words">
                   New to Temitope&rsquo;s work?
                 </h2>
               </div>
@@ -76,7 +76,7 @@ export default function ResourcesHub() {
               <p className="text-xs font-medium tracking-[0.2em] uppercase text-primary font-sans mb-3">
                 The full library
               </p>
-              <h2 className="font-serif text-2xl sm:text-3xl xl:text-4xl text-secondary leading-tight">
+              <h2 className="font-serif text-2xl sm:text-3xl xl:text-4xl text-secondary leading-tight break-words">
                 Filter by what you need.
               </h2>
             </div>
@@ -96,7 +96,7 @@ export default function ResourcesHub() {
                     role="tab"
                     aria-selected={active}
                     onClick={() => setFilter(key)}
-                    className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs sm:text-sm font-sans font-medium tracking-wide transition-colors ${
+                    className={`inline-flex shrink-0 items-center gap-2 rounded-full px-4 py-2 text-xs sm:text-sm font-sans font-medium tracking-wide transition-colors ${
                       active
                         ? "bg-secondary text-white"
                         : "bg-lightGray text-secondary hover:bg-primary hover:text-white"

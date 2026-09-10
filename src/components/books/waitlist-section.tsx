@@ -27,10 +27,10 @@ export default function WaitlistSection({
         <p className="text-xs font-medium tracking-[0.2em] uppercase text-primary font-sans">
           Join the waitlist
         </p>
-        <h2 className="font-serif text-3xl sm:text-4xl xl:text-5xl text-secondary leading-tight">
+        <h2 className="font-serif text-2xl sm:text-4xl xl:text-5xl text-secondary leading-tight break-words">
           Get first access and a launch discount.
         </h2>
-        <p className="text-base text-secondary/70 font-sans leading-relaxed">
+        <p className="text-sm sm:text-base text-secondary/70 font-sans leading-relaxed break-words">
           The paperback is <span className="text-secondary font-medium">{price}</span>.{" "}
           {discountNote} Everyone on the waitlist hears about the release before
           the general audience.
@@ -53,7 +53,7 @@ export default function WaitlistSection({
           href={formUrl}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-2 uppercase tracking-widest text-xs font-sans font-medium text-primary hover:text-primary transition-colors"
+          className="inline-flex items-center gap-2 uppercase tracking-widest text-xs font-sans font-medium text-primary hover:text-primary transition-colors break-words"
         >
           Open the form in a new tab
           <ArrowUpRight className="h-3.5 w-3.5" />

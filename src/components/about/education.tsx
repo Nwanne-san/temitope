@@ -42,12 +42,12 @@ function Education() {
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <h2 className="font-serif text-3xl md:text-4xl capitalize text-white font-semibold">
+          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl capitalize text-white font-semibold break-words">
             Education and recent Certifications
           </h2>
         </motion.div>
         <motion.section
-          className="grid sm:grid-cols-2 gap-3"
+          className="grid sm:grid-cols-2 gap-8 sm:gap-6"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -57,7 +57,7 @@ function Education() {
             className="flex flex-col gap-6 lg:max-w-lg"
             variants={itemVariants}
           >
-            <h4 className="font-semibold text-3xl text-white font-serif">
+            <h4 className="font-semibold text-2xl sm:text-3xl text-white font-serif break-words">
               Recent Certifications
             </h4>
             <motion.hr
@@ -68,19 +68,19 @@ function Education() {
               transition={{ duration: 0.8, delay: 0.5 }}
             />
             <motion.div className="flex flex-col" variants={itemVariants}>
-              <p className="mb-2 text-xl text-white font-semibold font-serif">
+              <p className="mb-2 text-lg sm:text-xl text-white font-semibold font-serif break-words">
                 London School of Business Administration: Brand Management
               </p>
               <span className="text-lightGray/80 font-sans">-London, UK</span>
             </motion.div>
             <motion.div className="flex flex-col" variants={itemVariants}>
-              <p className="mb-2 text-xl text-white font-semibold font-serif">
+              <p className="mb-2 text-lg sm:text-xl text-white font-semibold font-serif break-words">
                 London School of Business Administration: Digital Marketing
               </p>
               <span className="text-lightGray/80 font-sans">-London, UK</span>
             </motion.div>
             <motion.div className="flex flex-col" variants={itemVariants}>
-              <p className="mb-2 text-xl text-white font-semibold font-serif">
+              <p className="mb-2 text-lg sm:text-xl text-white font-semibold font-serif break-words">
                 Agillant Group: Agile/Scrum Project Management
               </p>
               <span className="text-lightGray/80 font-sans">
@@ -92,7 +92,7 @@ function Education() {
             className="flex flex-col gap-6 lg:max-w-lg"
             variants={itemVariants}
           >
-            <h4 className="font-semibold text-3xl text-white font-serif">
+            <h4 className="font-semibold text-2xl sm:text-3xl text-white font-serif break-words">
               Education
             </h4>
             <motion.hr
@@ -103,14 +103,14 @@ function Education() {
               transition={{ duration: 0.8, delay: 0.7 }}
             />
             <motion.div className="flex flex-col" variants={itemVariants}>
-              <p className="mb-2 text-xl text-white font-semibold font-serif">
+              <p className="mb-2 text-lg sm:text-xl text-white font-semibold font-serif break-words">
                 Rome Business School | MSc. Marketing And Sales
               </p>
               <span className="text-lightGray/80 font-sans">-Rome, Italy</span>
             </motion.div>
             <motion.div className="flex flex-col" variants={itemVariants}>
               <span className="text-lightGray/80"></span>
-              <p className="mb-2 text-xl text-white font-semibold font-serif">
+              <p className="mb-2 text-lg sm:text-xl text-white font-semibold font-serif break-words">
                 Ahmadu Bello University | BSc. Human Anatomy
               </p>
               <span className="text-lightGray/80 font-sans">

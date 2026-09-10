@@ -124,7 +124,7 @@ export default function BrandingInitiative() {
             className="text-center"
           >
             <motion.h1
-              className="font-bold text-4xl md:text-6xl  text-gray-900 mb-6"
+              className="font-bold text-3xl sm:text-4xl md:text-6xl text-gray-900 mb-6 break-words"
               {...fadeInUp}
             >
               BRAND EXPERIENCE
@@ -434,7 +434,7 @@ export default function BrandingInitiative() {
             <div className="grid md:grid-cols-3 gap-8 mb-8">
               <div className="flex flex-col items-center">
                 <Mail className="h-8 w-8 text-[#9a33cc] mb-4" />
-                <p className="text-gray-700">hi@temitoperuthjacob.com</p>
+                <p className="text-gray-700 break-all sm:break-normal">hi@temitoperuthjacob.com</p>
               </div>
               <div className="flex flex-col items-center">
                 <Phone className="h-8 w-8 text-[#ff0066] mb-4" />

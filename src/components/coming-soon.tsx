@@ -28,19 +28,19 @@ export default function ComingSoon({
       <p className="text-xs font-medium tracking-[0.2em] uppercase text-primary font-sans mb-4">
         {kicker}
       </p>
-      <h1 className="font-serif text-4xl md:text-5xl xl:text-6xl text-secondary font-semibold leading-tight mb-6">
+      <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl xl:text-6xl text-secondary font-semibold leading-tight mb-6 break-words">
         {title}
       </h1>
       <div className="text-base sm:text-lg text-secondary/70 font-sans leading-relaxed mb-8 space-y-4">
         {typeof intro === "string" ? <p>{intro}</p> : intro}
       </div>
       {ctas && ctas.length > 0 && (
-        <div className="flex flex-wrap gap-4">
+        <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 w-full sm:w-auto">
           {ctas.map((cta) => {
             const isPrimary = cta.variant !== "outline";
             const className = isPrimary
-              ? "inline-flex items-center justify-center uppercase tracking-widest text-xs sm:text-sm bg-primary text-white font-sans font-medium px-5 py-3 rounded-tl-3xl hover:bg-primary/90 transition-colors"
-              : "inline-flex items-center justify-center uppercase tracking-widest text-xs sm:text-sm bg-lightGray text-secondary font-sans font-medium px-5 py-3 rounded-br-3xl hover:bg-primary hover:text-white transition-colors";
+              ? "w-full sm:w-auto text-center inline-flex items-center justify-center uppercase tracking-widest text-xs sm:text-sm bg-primary text-white font-sans font-medium px-5 py-3 rounded-tl-3xl hover:bg-primary/90 transition-colors"
+              : "w-full sm:w-auto text-center inline-flex items-center justify-center uppercase tracking-widest text-xs sm:text-sm bg-lightGray text-secondary font-sans font-medium px-5 py-3 rounded-br-3xl hover:bg-primary hover:text-white transition-colors";
             return cta.external ? (
               <a
                 key={cta.href}

@@ -21,7 +21,7 @@ export default function ContactPage() {
         ctas={[
           {
             href: "mailto:hi@temitoperuthjacob.com",
-            label: "Email hi@temitoperuthjacob.com",
+            label: "Email Temitope",
           },
           {
             href: "https://wa.link/dtys70",
@@ -36,7 +36,7 @@ export default function ContactPage() {
             <dt className="text-secondary/50 uppercase tracking-widest text-xs mb-2">
               Email
             </dt>
-            <dd className="text-secondary">hi@temitoperuthjacob.com</dd>
+            <dd className="text-secondary break-all sm:break-normal">hi@temitoperuthjacob.com</dd>
           </div>
           <div>
             <dt className="text-secondary/50 uppercase tracking-widest text-xs mb-2">

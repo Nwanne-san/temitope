@@ -31,13 +31,13 @@ function Achievements({ setActivePage }: AchievementsProps) {
   return (
     <section className="mx-auto container px-4 lg:px-10 lg:py-12 xl:py-20 flex lg:flex-row flex-col xl:gap-10 items-start justify-center">
       <motion.div
-        className="flex flex-col justify-between items-center sm:items-start sm:mb-12 py-6 gap-8 container lg:max-w-sm"
+        className="flex flex-col justify-between items-center sm:items-start sm:mb-12 py-6 gap-6 sm:gap-8 container lg:max-w-sm text-center sm:text-left"
         initial={{ opacity: 0, x: -50 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
-        <h2 className="font-serif font-semibold text-3xl md:text-4xl">
+        <h2 className="font-serif font-semibold text-3xl md:text-4xl break-words">
           Featured Work
         </h2>
         <Button
@@ -45,7 +45,7 @@ function Achievements({ setActivePage }: AchievementsProps) {
           onClick={() => {
             window.location.href = "/about#projects";
           }}
-          className="font-sans"
+          className="font-sans w-full sm:w-auto"
         >
           SEE ALL PROJECTS
         </Button>
@@ -67,15 +67,15 @@ function Achievements({ setActivePage }: AchievementsProps) {
             >
               {index + 1}
             </motion.span>
-            <div className="flex flex-col sm:flex-row gap-6 sm:gap-10">
-              <div className="lg:max-w-[340px] text-center sm:text-start max-sm:border-b max-sm:pb-3">
-                <h3 className="font-serif font-semibold text-secondary text-xl mb-2">
+            <div className="flex flex-col sm:flex-row gap-6 sm:gap-10 w-full">
+              <div className="lg:max-w-[340px] w-full text-center sm:text-start max-sm:border-b max-sm:pb-3">
+                <h3 className="font-serif font-semibold text-secondary text-xl mb-2 break-words">
                   {achievement.title}
                 </h3>
-                <p className="text-secondary-2 mb-2 text-sm font-semibold font-sans">
+                <p className="text-secondary-2 mb-2 text-sm font-semibold font-sans break-words">
                   {achievement.organization}
                 </p>
-                <p className="text-secondary-2 mb-2 text-sm font-sans">
+                <p className="text-secondary-2 mb-2 text-sm font-sans break-words">
                   {achievement.role}
                 </p>
               </div>

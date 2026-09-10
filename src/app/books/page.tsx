@@ -20,27 +20,27 @@ export default function BooksPage() {
             <p className="text-xs font-medium tracking-[0.2em] uppercase text-primary font-sans">
               The new book. Waitlist open.
             </p>
-            <h1 className="font-serif text-5xl sm:text-6xl xl:text-7xl text-secondary font-semibold leading-none">
+            <h1 className="font-serif text-4xl sm:text-6xl xl:text-7xl text-secondary font-semibold leading-tight break-words">
               {evolve.title}
               <span className="text-primary">.</span>
             </h1>
-            <p className="font-serif text-xl sm:text-2xl text-secondary/80 leading-snug max-w-xl">
+            <p className="font-serif text-lg sm:text-2xl text-secondary/80 leading-snug max-w-xl break-words">
               {evolve.subtitle}
             </p>
             <p className="text-base sm:text-lg text-secondary/70 font-sans max-w-xl leading-relaxed">
               {evolve.launchContext}
             </p>
 
-            <div className="flex flex-wrap gap-4 pt-2">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 w-full sm:w-auto">
               <a
                 href="#waitlist"
-                className="inline-flex items-center justify-center uppercase tracking-widest text-xs sm:text-sm bg-primary text-white font-sans font-medium px-6 py-3 rounded-tl-3xl hover:bg-primary/90 transition-colors"
+                className="w-full sm:w-auto inline-flex items-center justify-center uppercase tracking-widest text-xs sm:text-sm bg-primary text-white font-sans font-medium px-6 py-3 rounded-tl-3xl hover:bg-primary/90 transition-colors text-center"
               >
                 Join the waitlist
               </a>
               <a
                 href="#about"
-                className="inline-flex items-center justify-center uppercase tracking-widest text-xs sm:text-sm bg-lightGray text-secondary font-sans font-medium px-6 py-3 rounded-br-3xl hover:bg-primary hover:text-white transition-colors"
+                className="w-full sm:w-auto inline-flex items-center justify-center uppercase tracking-widest text-xs sm:text-sm bg-lightGray text-secondary font-sans font-medium px-6 py-3 rounded-br-3xl hover:bg-primary hover:text-white transition-colors text-center"
               >
                 Read the details
               </a>
@@ -67,7 +67,7 @@ export default function BooksPage() {
             <p className="text-xs font-medium tracking-[0.2em] uppercase text-primary font-sans">
               About the book
             </p>
-            <h2 className="font-serif text-3xl sm:text-4xl xl:text-5xl text-secondary leading-tight">
+            <h2 className="font-serif text-2xl sm:text-4xl xl:text-5xl text-secondary leading-tight break-words">
               Who this book is for.
             </h2>
           </div>
@@ -86,7 +86,7 @@ export default function BooksPage() {
             <p className="text-xs font-medium tracking-[0.2em] uppercase text-primary font-sans mb-4">
               What you will leave with
             </p>
-            <h2 className="font-serif text-3xl sm:text-4xl xl:text-5xl text-secondary leading-tight mb-10">
+            <h2 className="font-serif text-2xl sm:text-4xl xl:text-5xl text-secondary leading-tight mb-10 break-words">
               By the last page, you will be able to:
             </h2>
           </div>
@@ -112,7 +112,7 @@ export default function BooksPage() {
             <p className="text-xs font-medium tracking-[0.2em] uppercase text-primary font-sans">
               Inside the book
             </p>
-            <h2 className="font-serif text-3xl sm:text-4xl xl:text-5xl text-secondary leading-tight">
+            <h2 className="font-serif text-2xl sm:text-4xl xl:text-5xl text-secondary leading-tight break-words">
               Table of contents.
             </h2>
           </div>
@@ -145,7 +145,7 @@ export default function BooksPage() {
           <p className="text-xs font-medium tracking-[0.2em] uppercase text-primary font-sans mb-4">
             Praise
           </p>
-          <h2 className="font-serif text-3xl sm:text-4xl xl:text-5xl text-secondary leading-tight mb-12 max-w-3xl">
+          <h2 className="font-serif text-2xl sm:text-4xl xl:text-5xl text-secondary leading-tight mb-12 max-w-3xl break-words">
             What early readers said.
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -176,7 +176,7 @@ export default function BooksPage() {
             <p className="text-xs font-medium tracking-[0.2em] uppercase text-primary font-sans">
               Leave a review
             </p>
-            <h2 className="font-serif text-3xl sm:text-4xl xl:text-5xl text-secondary leading-tight">
+            <h2 className="font-serif text-2xl sm:text-4xl xl:text-5xl text-secondary leading-tight break-words">
               Read the book?
             </h2>
             <p className="text-secondary/70 font-sans max-w-md leading-relaxed pt-2">
@@ -217,7 +217,7 @@ export default function BooksPage() {
             <p className="text-xs font-medium tracking-[0.2em] uppercase text-lightGray font-sans">
               Also by Temitope
             </p>
-            <h3 className="font-serif text-2xl sm:text-3xl text-white leading-tight">
+            <h3 className="font-serif text-xl sm:text-3xl text-white leading-tight break-words">
               Your Authentic Signature: the personal branding handbook.
             </h3>
             <p className="text-white/80 font-sans max-w-xl">
@@ -225,12 +225,12 @@ export default function BooksPage() {
               it clearly. Free to download.
             </p>
           </div>
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 w-full sm:w-auto text-center">
             <a
               href="https://selar.com/1v4g42"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 uppercase tracking-widest text-xs sm:text-sm bg-white text-primary font-sans font-medium px-6 py-3 rounded-tl-3xl hover:bg-lightGray transition-colors shadow-sm"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 uppercase tracking-widest text-xs sm:text-sm bg-white text-primary font-sans font-medium px-6 py-3 rounded-tl-3xl hover:bg-lightGray transition-colors shadow-sm text-center"
             >
               Download free
               <ArrowUpRight className="h-4 w-4" />
@@ -246,13 +246,13 @@ export default function BooksPage() {
             <p className="text-xs font-medium tracking-[0.2em] uppercase text-primary font-sans mb-2">
               Have questions or want to collaborate?
             </p>
-            <h3 className="font-serif text-2xl sm:text-3xl text-secondary">
+            <h3 className="font-serif text-xl sm:text-3xl text-secondary break-words">
               Connect with Temitope.
             </h3>
           </div>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 uppercase tracking-widest text-xs sm:text-sm bg-primary text-white font-sans font-medium px-6 py-3 rounded-br-3xl hover:bg-primary/90 transition-colors"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 uppercase tracking-widest text-xs sm:text-sm bg-primary text-white font-sans font-medium px-6 py-3 rounded-br-3xl hover:bg-primary/90 transition-colors text-center"
           >
             Contact Temitope
             <ArrowUpRight className="h-4 w-4" />

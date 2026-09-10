@@ -36,9 +36,9 @@ function SkillBar({ name, percentage }: { name: string; percentage: number }) {
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
     >
-      <div className="flex justify-between mb-1">
-        <span className="text-white text-sm font-sans">{name}</span>
-        <span className="text-white/80 text-sm font-sans">{percentage}%</span>
+      <div className="flex justify-between items-center mb-1 gap-2">
+        <span className="text-white text-xs sm:text-sm font-sans truncate">{name}</span>
+        <span className="text-white/80 text-xs sm:text-sm font-sans shrink-0">{percentage}%</span>
       </div>
       <div className="h-2 bg-white/20 rounded overflow-hidden" ref={barRef}>
         <motion.div
@@ -56,13 +56,13 @@ export default function SkillsAndSpeaking() {
     <div className="grid xl:grid-cols-2 mx-auto container xl:px-10">
       {/* Skills Section */}
       <motion.div
-        className="bg-primary p-8 md:p-12"
+        className="bg-primary p-5 sm:p-8 md:p-12"
         initial={{ x: -100, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <h2 className="font-serif text-2xl md:text-3xl text-white mb-8">
+        <h2 className="font-serif text-2xl md:text-3xl text-white mb-6 sm:mb-8 break-words">
           My Top Skills
         </h2>
         <motion.div
@@ -88,14 +88,14 @@ export default function SkillsAndSpeaking() {
 
       {/* Speaking Section */}
       <motion.div
-        className="bg-[#FFD1F7] p-8 md:p-12 flex flex-col justify-center"
+        className="bg-[#FFD1F7] p-5 sm:p-8 md:p-12 flex flex-col justify-center"
         initial={{ x: 100, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <motion.h2
-          className="font-serif text-3xl md:text-4xl text-primary mb-8 leading-tight"
+          className="font-serif text-2xl sm:text-3xl md:text-4xl text-primary mb-6 sm:mb-8 leading-tight break-words"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -109,10 +109,10 @@ export default function SkillsAndSpeaking() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <a href="/contact">
+          <a href="/contact" className="w-full sm:w-auto inline-block">
             <Button
               variant="primary"
-              className="inline-flex items-center bg-primary hover:bg-secondary transition-all duration-300 hover:scale-105 font-sans"
+              className="inline-flex items-center justify-center w-full sm:w-auto bg-primary hover:bg-secondary transition-all duration-300 hover:scale-105 font-sans"
             >
               GET IN TOUCH
             </Button>

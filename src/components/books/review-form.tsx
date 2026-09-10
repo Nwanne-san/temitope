@@ -120,11 +120,11 @@ export default function ReviewForm() {
         </p>
       )}
 
-      <div className="flex flex-wrap items-center gap-4 pt-2">
+      <div className="flex flex-col sm:flex-row sm:items-center gap-4 pt-2">
         <button
           type="submit"
           disabled={status === "loading" || !name.trim() || !review.trim()}
-          className="inline-flex items-center justify-center uppercase tracking-widest text-xs sm:text-sm bg-primary text-white font-sans font-medium px-6 py-3 rounded-tl-3xl hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full sm:w-auto inline-flex items-center justify-center uppercase tracking-widest text-xs sm:text-sm bg-primary text-white font-sans font-medium px-6 py-3 rounded-tl-3xl hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {status === "loading" ? "Sending" : "Submit review"}
         </button>
