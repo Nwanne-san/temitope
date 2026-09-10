@@ -77,12 +77,12 @@ function Hero() {
           className="flex gap-6 lg:justify-between xl:justify-normal lg:gap-40 xl:gap-4 font-serif"
           variants={itemVariants}
         >
-          <Link href="/speaking">
+          <Link href="/contact">
             <Button
               variant="primary"
               className="bg-primary text-white text-nowrap tracking-widest py-3 px-5 rounded-tl-3xl text-xs sm:text-sm duration-300 hover:bg-primary/90 hover:text-white border-0 hover:scale-105 transition-all"
             >
-              BOOK TEMITOPE TO SPEAK
+              WORK WITH TEMITOPE
             </Button>
           </Link>
 

@@ -16,9 +16,10 @@ export default function WaitlistSection({
   price,
   discountNote,
 }: WaitlistSectionProps) {
-  const embedUrl = formUrl.includes("?")
-    ? `${formUrl}&embedded=true`
-    : `${formUrl}?embedded=true`;
+  // Use direct docs.google.com embed URL to bypass 302 redirect blocking in iframes
+  const embedUrl = formUrl.includes("docs.google.com/forms")
+    ? (formUrl.includes("embedded=true") ? formUrl : `${formUrl}?embedded=true`)
+    : "https://docs.google.com/forms/d/e/1FAIpQLSdQi0TKzY7wucm4RRcb2_EIGbUIr_S8A82GCIFX-nhih1a70g/viewform?embedded=true";
 
   return (
     <div className="grid lg:grid-cols-5 gap-10 items-start">

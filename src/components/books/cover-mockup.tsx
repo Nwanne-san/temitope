@@ -82,22 +82,18 @@ export default function CoverMockup({
           </div>
         </div>
 
-        {/* Category label above title */}
-        <div className="absolute top-[38%] left-8 right-8 text-center">
-          <p className="font-sans text-[0.55rem] tracking-[0.4em] uppercase text-neutral-900/60">
+        {/* Optically centred title block with category above and accent below */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center px-6 pointer-events-none">
+          <p className="font-sans text-[0.6rem] tracking-[0.35em] uppercase text-neutral-900/60 mb-3 text-center">
             A personal branding book
           </p>
-        </div>
-
-        {/* Big title, optically centred */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center pt-4 px-6">
-          <h2 className="font-serif text-6xl sm:text-7xl leading-[0.9] text-neutral-900 text-center">
+          <h2 className="font-serif text-5xl sm:text-6xl xl:text-7xl leading-[0.9] text-neutral-900 text-center">
             {title}
             <span className="text-primary">.</span>
           </h2>
           <div className="mt-4 flex items-center gap-2">
             <div className="w-4 h-px bg-primary" />
-            <div className="w-1 h-1 rounded-full bg-primary" />
+            <div className="w-1.5 h-1.5 rounded-full bg-primary" />
             <div className="w-4 h-px bg-primary" />
           </div>
         </div>

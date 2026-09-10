@@ -109,12 +109,12 @@ export default function SkillsAndSpeaking() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <a href="/speaking">
+          <a href="/contact">
             <Button
               variant="primary"
               className="inline-flex items-center bg-primary hover:bg-secondary transition-all duration-300 hover:scale-105 font-sans"
             >
-              BOOK TEMITOPE
+              GET IN TOUCH
             </Button>
           </a>
         </motion.div>

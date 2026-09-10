@@ -100,11 +100,14 @@ export default function Navbar({}: NavbarProps) {
     return null;
   }
 
-  const navItems = [
+  const navItems: { label: string; href: string; external?: boolean }[] = [
     { label: "About", href: "/about" },
-    { label: "Speaking", href: "/speaking" },
     { label: "Books", href: "/books" },
-    { label: "Programs", href: "/programs" },
+    {
+      label: "BrandX",
+      href: "https://www.brandxperience.org",
+      external: true,
+    },
     { label: "Resources", href: "/resources" },
   ];
 
@@ -132,32 +135,44 @@ export default function Navbar({}: NavbarProps) {
 
         {/* Desktop Menu */}
         <div className="hidden text-sm xl:flex items-center gap-8 font-serif uppercase tracking-wide">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={`transition-all duration-300 relative hover:scale-105 ${
-                isActivePath(item.href)
-                  ? "text-primary font-medium"
-                  : "text-secondary hover:text-primary"
-              }`}
-            >
-              {item.label}
-              {isActivePath(item.href) && (
-                <motion.span
-                  className="absolute -bottom-2 left-0 w-full h-0.5 bg-primary"
-                  layoutId="activeTab"
-                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                />
-              )}
-            </Link>
-          ))}
+          {navItems.map((item) =>
+            item.external ? (
+              <a
+                key={item.href}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-all duration-300 relative hover:scale-105 text-secondary hover:text-primary"
+              >
+                {item.label}
+              </a>
+            ) : (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`transition-all duration-300 relative hover:scale-105 ${
+                  isActivePath(item.href)
+                    ? "text-primary font-medium"
+                    : "text-secondary hover:text-primary"
+                }`}
+              >
+                {item.label}
+                {isActivePath(item.href) && (
+                  <motion.span
+                    className="absolute -bottom-2 left-0 w-full h-0.5 bg-primary"
+                    layoutId="activeTab"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
+              </Link>
+            )
+          )}
         </div>
 
         <div className="flex items-center gap-3">
           <Link href="/contact">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button className="duration-300 px-3 text-xs py-1 sm:text-base hover:bg-white text-primary rounded-br-2xl hover:text-primary border border-primary font-sans">
+              <Button className="duration-300 px-4 text-xs py-2 sm:text-sm bg-primary text-white hover:bg-white hover:text-primary rounded-br-2xl border border-primary font-sans shadow-sm">
                 Contact
               </Button>
             </motion.div>
@@ -243,20 +258,32 @@ export default function Navbar({}: NavbarProps) {
               >
                 {navItems.map((item) => (
                   <motion.div key={item.href} variants={menuItemVariants}>
-                    <Link
-                      href={item.href}
-                      className={`transition-colors text-start relative pl-2 block ${
-                        isActivePath(item.href)
-                          ? "text-primary font-medium"
-                          : "text-secondary hover:text-primary"
-                      }`}
-                      onClick={() => setIsOpen(false)}
-                    >
-                      {item.label}
-                      {isActivePath(item.href) && (
-                        <span className="absolute -bottom-2 left-0 w-fit h-0.5 bg-primary"></span>
-                      )}
-                    </Link>
+                    {item.external ? (
+                      <a
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="transition-colors text-start relative pl-2 block text-secondary hover:text-primary"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {item.label}
+                      </a>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        className={`transition-colors text-start relative pl-2 block ${
+                          isActivePath(item.href)
+                            ? "text-primary font-medium"
+                            : "text-secondary hover:text-primary"
+                        }`}
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {item.label}
+                        {isActivePath(item.href) && (
+                          <span className="absolute -bottom-2 left-0 w-fit h-0.5 bg-primary"></span>
+                        )}
+                      </Link>
+                    )}
                   </motion.div>
                 ))}
                 <motion.div variants={menuItemVariants}>

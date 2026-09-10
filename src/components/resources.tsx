@@ -217,14 +217,9 @@ export default function Resources({ id = "resources" }: ResourcesProps) {
           </div>
 
           <div className="flex flex-wrap gap-4 shrink-0">
-            <Link href="/speaking">
-              <Button className="bg-primary hover:bg-secondary text-white rounded-br-2xl font-sans px-6 py-3 text-xs sm:text-sm uppercase tracking-widest font-medium transition-colors shadow-sm">
-                Book to Speak
-              </Button>
-            </Link>
             <Link href="/contact">
-              <Button className="bg-transparent border border-secondary/30 text-secondary hover:bg-primary hover:text-white hover:border-primary rounded-br-2xl font-sans px-6 py-3 text-xs sm:text-sm uppercase tracking-widest font-medium transition-colors">
-                Contact Temitope
+              <Button className="bg-primary hover:bg-secondary text-white rounded-br-2xl font-sans px-6 py-3 text-xs sm:text-sm uppercase tracking-widest font-medium transition-colors shadow-sm">
+                Get In Touch
               </Button>
             </Link>
           </div>

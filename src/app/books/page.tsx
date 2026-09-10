@@ -14,9 +14,9 @@ export default function BooksPage() {
       <Navbar />
 
       {/* Hero ─────────────────────────────────────────────────────────── */}
-      <section className="border-b border-secondary/10">
+      <section className="bg-gray-200 border-b border-secondary/10">
         <div className="container mx-auto px-4 sm:px-10 py-16 xl:py-24 grid lg:grid-cols-5 gap-12 items-center">
-          <div className="lg:col-span-3 order-2 lg:order-1 space-y-6">
+          <div className="lg:col-span-3 space-y-6">
             <p className="text-xs font-medium tracking-[0.2em] uppercase text-primary font-sans">
               The new book. Waitlist open.
             </p>
@@ -54,7 +54,7 @@ export default function BooksPage() {
             </p>
           </div>
 
-          <div className="lg:col-span-2 order-1 lg:order-2">
+          <div className="lg:col-span-2">
             <CoverMockup src={evolve.coverImage} title={evolve.title} />
           </div>
         </div>
@@ -239,22 +239,22 @@ export default function BooksPage() {
         </div>
       </section>
 
-      {/* Speak with Temitope CTA ─────────────────────────────────────── */}
-      <section className="border-b border-secondary/10">
+      {/* Work with Temitope CTA ─────────────────────────────────────── */}
+      <section className="bg-gray-100 border-b border-secondary/10">
         <div className="container mx-auto px-4 sm:px-10 py-14 xl:py-20 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
           <div>
             <p className="text-xs font-medium tracking-[0.2em] uppercase text-primary font-sans mb-2">
-              Want Temitope to speak at your event?
+              Have questions or want to collaborate?
             </p>
             <h3 className="font-serif text-2xl sm:text-3xl text-secondary">
-              See her speaking topics.
+              Connect with Temitope.
             </h3>
           </div>
           <Link
-            href="/speaking"
-            className="inline-flex items-center gap-2 uppercase tracking-widest text-xs sm:text-sm bg-secondary text-white font-sans font-medium px-6 py-3 rounded-br-3xl hover:bg-primary transition-colors"
+            href="/contact"
+            className="inline-flex items-center gap-2 uppercase tracking-widest text-xs sm:text-sm bg-primary text-white font-sans font-medium px-6 py-3 rounded-br-3xl hover:bg-primary/90 transition-colors"
           >
-            Speaking topics
+            Contact Temitope
             <ArrowUpRight className="h-4 w-4" />
           </Link>
         </div>
