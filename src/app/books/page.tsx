@@ -64,7 +64,7 @@ export default function BooksPage() {
       {/* About the book ──────────────────────────────────────────────── */}
       <AboutBook preview={evolve.aboutPreview} rest={evolve.aboutRest} />
 
-      {/* What you'll take away ───────────────────────────────────────── */}
+      {/* What you'll take away — hidden until the outcomes list is finalised.
       <section className="bg-lightGray">
         <div className="container mx-auto px-4 sm:px-10 py-16 xl:py-24">
           <div className="max-w-4xl">
@@ -89,8 +89,9 @@ export default function BooksPage() {
           </ol>
         </div>
       </section>
+      */}
 
-      {/* Table of contents ───────────────────────────────────────────── */}
+      {/* Table of contents — hidden until real chapter titles are provided.
       <section className="relative bg-white border-b border-secondary/10">
         <div className="container mx-auto px-4 sm:px-10 py-16 xl:py-24 grid lg:grid-cols-5 gap-12 items-start">
           <div className="lg:col-span-2 lg:sticky lg:top-24 lg:self-start space-y-3">
@@ -126,6 +127,7 @@ export default function BooksPage() {
           </div>
         </div>
       </section>
+      */}
 
       {/* Review submission ───────────────────────────────────────────── */}
       <section id="review" className="border-b border-secondary/10 scroll-mt-20">
@@ -138,8 +140,8 @@ export default function BooksPage() {
               Read the book?
             </h2>
             <p className="text-secondary/70 font-sans max-w-md leading-relaxed pt-2">
-              If Temitope&rsquo;s writing has helped you, tell us how. Selected
-              reviews may appear on this page after moderation.
+              Share your thoughts on Evolve. Selected reviews may be featured
+              on this page after moderation.
             </p>
           </div>
           <div className="lg:col-span-3">
