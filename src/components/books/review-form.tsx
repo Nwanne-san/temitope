@@ -7,20 +7,22 @@ type Status = "idle" | "loading" | "success" | "error";
 export default function ReviewForm() {
   const [name, setName] = useState("");
   const [organization, setOrganization] = useState("");
+  const [role, setRole] = useState("");
   const [review, setReview] = useState("");
   const [status, setStatus] = useState<Status>("idle");
   const [message, setMessage] = useState("");
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (!name.trim() || !review.trim()) return;
+    if (!name.trim() || !role.trim() || !organization.trim() || !review.trim())
+      return;
     setStatus("loading");
     setMessage("");
     try {
       const res = await fetch("/api/reviews", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, organization, review }),
+        body: JSON.stringify({ name, organization, role, review }),
       });
       const data = await res.json();
       if (res.ok) {
@@ -28,6 +30,7 @@ export default function ReviewForm() {
         setMessage(data?.message || "Your review has been received.");
         setName("");
         setOrganization("");
+        setRole("");
         setReview("");
       } else {
         setStatus("error");
@@ -65,32 +68,48 @@ export default function ReviewForm() {
 
   return (
     <form onSubmit={handleSubmit} noValidate className="space-y-5">
+      <label className="block">
+        <span className="text-xs font-medium tracking-[0.15em] uppercase text-secondary/60 font-sans">
+          Your name <span className="text-primary">*</span>
+        </span>
+        <input
+          type="text"
+          required
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          disabled={status === "loading"}
+          className="mt-2 block w-full bg-transparent border-b border-secondary/20 focus:border-primary focus:outline-none py-2 font-sans text-secondary placeholder:text-secondary/30 transition-colors"
+          placeholder="First and last name"
+        />
+      </label>
+
       <div className="grid sm:grid-cols-2 gap-5">
         <label className="block">
           <span className="text-xs font-medium tracking-[0.15em] uppercase text-secondary/60 font-sans">
-            Your name <span className="text-primary">*</span>
+            Role <span className="text-primary">*</span>
           </span>
           <input
             type="text"
             required
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            value={role}
+            onChange={(e) => setRole(e.target.value)}
             disabled={status === "loading"}
             className="mt-2 block w-full bg-transparent border-b border-secondary/20 focus:border-primary focus:outline-none py-2 font-sans text-secondary placeholder:text-secondary/30 transition-colors"
-            placeholder="First and last name"
+            placeholder="e.g. Product Manager"
           />
         </label>
         <label className="block">
           <span className="text-xs font-medium tracking-[0.15em] uppercase text-secondary/60 font-sans">
-            Organization
+            Organization <span className="text-primary">*</span>
           </span>
           <input
             type="text"
+            required
             value={organization}
             onChange={(e) => setOrganization(e.target.value)}
             disabled={status === "loading"}
             className="mt-2 block w-full bg-transparent border-b border-secondary/20 focus:border-primary focus:outline-none py-2 font-sans text-secondary placeholder:text-secondary/30 transition-colors"
-            placeholder="Company or role"
+            placeholder="Company or institution"
           />
         </label>
       </div>
@@ -123,7 +142,13 @@ export default function ReviewForm() {
       <div className="flex flex-col sm:flex-row sm:items-center gap-4 pt-2">
         <button
           type="submit"
-          disabled={status === "loading" || !name.trim() || !review.trim()}
+          disabled={
+            status === "loading" ||
+            !name.trim() ||
+            !role.trim() ||
+            !organization.trim() ||
+            !review.trim()
+          }
           className="w-full sm:w-auto inline-flex items-center justify-center uppercase tracking-widest text-xs sm:text-sm bg-primary text-white font-sans font-medium px-6 py-3 rounded-tl-3xl hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {status === "loading" ? "Sending" : "Submit review"}

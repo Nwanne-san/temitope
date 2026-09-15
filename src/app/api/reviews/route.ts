@@ -15,7 +15,12 @@ function clean(value: unknown, cap = MAX_FIELD): string {
 }
 
 export async function POST(req: Request) {
-  let payload: { name?: unknown; organization?: unknown; review?: unknown };
+  let payload: {
+    name?: unknown;
+    organization?: unknown;
+    role?: unknown;
+    review?: unknown;
+  };
   try {
     payload = await req.json();
   } catch {
@@ -24,11 +29,12 @@ export async function POST(req: Request) {
 
   const name = clean(payload.name, 120);
   const organization = clean(payload.organization, 200);
+  const role = clean(payload.role, 200);
   const review = clean(payload.review);
 
-  if (!name || !review) {
+  if (!name || !role || !organization || !review) {
     return NextResponse.json(
-      { error: "Name and review are required." },
+      { error: "Name, role, organization and review are all required." },
       { status: 400 }
     );
   }
@@ -50,9 +56,10 @@ export async function POST(req: Request) {
       },
       body: JSON.stringify({
         name,
+        role,
         organization,
         review,
-        _subject: `New review from ${name}${organization ? " (" + organization + ")" : ""}`,
+        _subject: `New review from ${name}${role || organization ? " (" + [role, organization].filter(Boolean).join(", ") + ")" : ""}`,
       }),
     });
 
