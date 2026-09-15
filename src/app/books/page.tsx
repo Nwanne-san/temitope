@@ -6,6 +6,7 @@ import Footer from "@/components/footer";
 import CoverMockup from "@/components/books/cover-mockup";
 import ReviewForm from "@/components/books/review-form";
 import WaitlistSection from "@/components/books/waitlist-section";
+import AboutBook from "@/components/books/about-book";
 import { evolve } from "@/data/evolve";
 
 export default function BooksPage() {
@@ -15,10 +16,10 @@ export default function BooksPage() {
 
       {/* Hero ─────────────────────────────────────────────────────────── */}
       <section className="bg-gray-200 border-b border-secondary/10">
-        <div className="container mx-auto px-4 sm:px-10 py-16 xl:py-24 grid lg:grid-cols-5 gap-12 items-center">
-          <div className="lg:col-span-3 space-y-6">
+        <div className="container mx-auto px-4 sm:px-10 py-16 xl:py-24 grid lg:grid-cols-5 gap-10 lg:gap-12 items-center">
+          <div className="lg:col-span-3 space-y-6 order-2 lg:order-1">
             <p className="text-xs font-medium tracking-[0.2em] uppercase text-primary font-sans">
-              The new book. Waitlist open.
+              A new book · Launching {evolve.launchDateLabel}
             </p>
             <h1 className="font-serif text-4xl sm:text-6xl xl:text-7xl text-secondary font-semibold leading-tight break-words">
               {evolve.title}
@@ -54,30 +55,14 @@ export default function BooksPage() {
             </p>
           </div>
 
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-2 order-1 lg:order-2">
             <CoverMockup src={evolve.coverImage} title={evolve.title} />
           </div>
         </div>
       </section>
 
       {/* About the book ──────────────────────────────────────────────── */}
-      <section id="about" className="border-b border-secondary/10 scroll-mt-20">
-        <div className="container mx-auto px-4 sm:px-10 py-16 xl:py-24 grid lg:grid-cols-5 gap-12">
-          <div className="lg:col-span-2 space-y-3">
-            <p className="text-xs font-medium tracking-[0.2em] uppercase text-primary font-sans">
-              About the book
-            </p>
-            <h2 className="font-serif text-2xl sm:text-4xl xl:text-5xl text-secondary leading-tight break-words">
-              Who this book is for.
-            </h2>
-          </div>
-          <div className="lg:col-span-3 space-y-6 text-base sm:text-lg text-secondary/75 font-sans leading-relaxed">
-            {evolve.synopsis.map((paragraph, i) => (
-              <p key={i}>{paragraph}</p>
-            ))}
-          </div>
-        </div>
-      </section>
+      <AboutBook preview={evolve.aboutPreview} rest={evolve.aboutRest} />
 
       {/* What you'll take away ───────────────────────────────────────── */}
       <section className="bg-lightGray">
@@ -106,15 +91,18 @@ export default function BooksPage() {
       </section>
 
       {/* Table of contents ───────────────────────────────────────────── */}
-      <section className="border-b border-secondary/10">
-        <div className="container mx-auto px-4 sm:px-10 py-16 xl:py-24 grid lg:grid-cols-5 gap-12">
-          <div className="lg:col-span-2 space-y-3">
+      <section className="relative bg-white border-b border-secondary/10">
+        <div className="container mx-auto px-4 sm:px-10 py-16 xl:py-24 grid lg:grid-cols-5 gap-12 items-start">
+          <div className="lg:col-span-2 lg:sticky lg:top-24 lg:self-start space-y-3">
             <p className="text-xs font-medium tracking-[0.2em] uppercase text-primary font-sans">
               Inside the book
             </p>
             <h2 className="font-serif text-2xl sm:text-4xl xl:text-5xl text-secondary leading-tight break-words">
               Table of contents.
             </h2>
+            <p className="font-serif text-lg text-secondary/70 leading-snug max-w-xs">
+              Eight chapters, three movements.
+            </p>
           </div>
           <div className="lg:col-span-3 space-y-10">
             {evolve.tableOfContents.map((part) => (
@@ -135,6 +123,27 @@ export default function BooksPage() {
                 </ul>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Review submission ───────────────────────────────────────────── */}
+      <section id="review" className="border-b border-secondary/10 scroll-mt-20">
+        <div className="container mx-auto px-4 sm:px-10 py-16 xl:py-24 grid lg:grid-cols-5 gap-12">
+          <div className="lg:col-span-2 space-y-3">
+            <p className="text-xs font-medium tracking-[0.2em] uppercase text-primary font-sans">
+              Leave a review
+            </p>
+            <h2 className="font-serif text-2xl sm:text-4xl xl:text-5xl text-secondary leading-tight break-words">
+              Read the book?
+            </h2>
+            <p className="text-secondary/70 font-sans max-w-md leading-relaxed pt-2">
+              If Temitope&rsquo;s writing has helped you, tell us how. Selected
+              reviews may appear on this page after moderation.
+            </p>
+          </div>
+          <div className="lg:col-span-3">
+            <ReviewForm />
           </div>
         </div>
       </section>
@@ -169,27 +178,6 @@ export default function BooksPage() {
         </div>
       </section>
 
-      {/* Review submission ───────────────────────────────────────────── */}
-      <section id="review" className="border-b border-secondary/10 scroll-mt-20">
-        <div className="container mx-auto px-4 sm:px-10 py-16 xl:py-24 grid lg:grid-cols-5 gap-12">
-          <div className="lg:col-span-2 space-y-3">
-            <p className="text-xs font-medium tracking-[0.2em] uppercase text-primary font-sans">
-              Leave a review
-            </p>
-            <h2 className="font-serif text-2xl sm:text-4xl xl:text-5xl text-secondary leading-tight break-words">
-              Read the book?
-            </h2>
-            <p className="text-secondary/70 font-sans max-w-md leading-relaxed pt-2">
-              If Temitope&rsquo;s writing has helped you, tell us how. Selected
-              reviews may appear on this page after moderation.
-            </p>
-          </div>
-          <div className="lg:col-span-3">
-            <ReviewForm />
-          </div>
-        </div>
-      </section>
-
       {/* Waitlist ────────────────────────────────────────────────────── */}
       <section id="waitlist" className="bg-lightGray scroll-mt-20">
         <div className="container mx-auto px-4 sm:px-10 py-16 xl:py-24">
@@ -197,6 +185,8 @@ export default function BooksPage() {
             formUrl={evolve.waitlistFormUrl}
             price={evolve.price.paperback}
             discountNote={evolve.price.note}
+            image={evolve.waitlistImage}
+            launchDateLabel={evolve.launchDateLabel}
           />
         </div>
       </section>

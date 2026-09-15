@@ -16,13 +16,14 @@ export default function CoverMockup({
 }: CoverMockupProps) {
   if (src) {
     return (
-      <div className="relative aspect-[3/4] w-full max-w-sm mx-auto drop-shadow-2xl">
+      <div className="relative w-full aspect-[4/5] max-w-md sm:max-w-lg lg:max-w-none mx-auto overflow-hidden rounded-sm">
         <Image
           src={src}
-          alt={`${title} book cover`}
+          alt={`${title} — book cover`}
           fill
-          sizes="(max-width: 768px) 80vw, 400px"
-          className="object-cover rounded-sm"
+          priority
+          sizes="(max-width: 640px) 92vw, (max-width: 1024px) 70vw, 560px"
+          className="object-cover object-center"
         />
       </div>
     );

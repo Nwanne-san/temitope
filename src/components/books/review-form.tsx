@@ -7,6 +7,7 @@ type Status = "idle" | "loading" | "success" | "error";
 export default function ReviewForm() {
   const [name, setName] = useState("");
   const [organization, setOrganization] = useState("");
+  const [role, setRole] = useState("");
   const [review, setReview] = useState("");
   const [status, setStatus] = useState<Status>("idle");
   const [message, setMessage] = useState("");
@@ -20,7 +21,7 @@ export default function ReviewForm() {
       const res = await fetch("/api/reviews", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, organization, review }),
+        body: JSON.stringify({ name, organization, role, review }),
       });
       const data = await res.json();
       if (res.ok) {
@@ -28,6 +29,7 @@ export default function ReviewForm() {
         setMessage(data?.message || "Your review has been received.");
         setName("");
         setOrganization("");
+        setRole("");
         setReview("");
       } else {
         setStatus("error");
@@ -65,19 +67,33 @@ export default function ReviewForm() {
 
   return (
     <form onSubmit={handleSubmit} noValidate className="space-y-5">
+      <label className="block">
+        <span className="text-xs font-medium tracking-[0.15em] uppercase text-secondary/60 font-sans">
+          Your name <span className="text-primary">*</span>
+        </span>
+        <input
+          type="text"
+          required
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          disabled={status === "loading"}
+          className="mt-2 block w-full bg-transparent border-b border-secondary/20 focus:border-primary focus:outline-none py-2 font-sans text-secondary placeholder:text-secondary/30 transition-colors"
+          placeholder="First and last name"
+        />
+      </label>
+
       <div className="grid sm:grid-cols-2 gap-5">
         <label className="block">
           <span className="text-xs font-medium tracking-[0.15em] uppercase text-secondary/60 font-sans">
-            Your name <span className="text-primary">*</span>
+            Role
           </span>
           <input
             type="text"
-            required
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            value={role}
+            onChange={(e) => setRole(e.target.value)}
             disabled={status === "loading"}
             className="mt-2 block w-full bg-transparent border-b border-secondary/20 focus:border-primary focus:outline-none py-2 font-sans text-secondary placeholder:text-secondary/30 transition-colors"
-            placeholder="First and last name"
+            placeholder="e.g. Product Manager"
           />
         </label>
         <label className="block">
@@ -90,7 +106,7 @@ export default function ReviewForm() {
             onChange={(e) => setOrganization(e.target.value)}
             disabled={status === "loading"}
             className="mt-2 block w-full bg-transparent border-b border-secondary/20 focus:border-primary focus:outline-none py-2 font-sans text-secondary placeholder:text-secondary/30 transition-colors"
-            placeholder="Company or role"
+            placeholder="Company or institution"
           />
         </label>
       </div>

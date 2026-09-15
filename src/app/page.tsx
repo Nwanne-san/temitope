@@ -9,6 +9,7 @@ import Hero from "@/components/hero";
 import Testimonials from "@/components/testimonials";
 import Achievements from "@/components/achievements";
 import Resources from "@/components/resources";
+import BookLaunchModal from "@/components/book-launch-modal";
 
 const pageVariants = {
   initial: { opacity: 0, y: 20 },
@@ -84,6 +85,7 @@ export default function HomePage() {
           <Footer />
         </main>
       </motion.div>
+      <BookLaunchModal />
     </div>
   );
 }
