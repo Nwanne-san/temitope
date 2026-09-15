@@ -32,9 +32,9 @@ export async function POST(req: Request) {
   const role = clean(payload.role, 200);
   const review = clean(payload.review);
 
-  if (!name || !review) {
+  if (!name || !role || !organization || !review) {
     return NextResponse.json(
-      { error: "Name and review are required." },
+      { error: "Name, role, organization and review are all required." },
       { status: 400 }
     );
   }

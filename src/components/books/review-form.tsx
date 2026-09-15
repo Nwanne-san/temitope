@@ -14,7 +14,8 @@ export default function ReviewForm() {
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (!name.trim() || !review.trim()) return;
+    if (!name.trim() || !role.trim() || !organization.trim() || !review.trim())
+      return;
     setStatus("loading");
     setMessage("");
     try {
@@ -85,10 +86,11 @@ export default function ReviewForm() {
       <div className="grid sm:grid-cols-2 gap-5">
         <label className="block">
           <span className="text-xs font-medium tracking-[0.15em] uppercase text-secondary/60 font-sans">
-            Role
+            Role <span className="text-primary">*</span>
           </span>
           <input
             type="text"
+            required
             value={role}
             onChange={(e) => setRole(e.target.value)}
             disabled={status === "loading"}
@@ -98,10 +100,11 @@ export default function ReviewForm() {
         </label>
         <label className="block">
           <span className="text-xs font-medium tracking-[0.15em] uppercase text-secondary/60 font-sans">
-            Organization
+            Organization <span className="text-primary">*</span>
           </span>
           <input
             type="text"
+            required
             value={organization}
             onChange={(e) => setOrganization(e.target.value)}
             disabled={status === "loading"}
@@ -139,7 +142,13 @@ export default function ReviewForm() {
       <div className="flex flex-col sm:flex-row sm:items-center gap-4 pt-2">
         <button
           type="submit"
-          disabled={status === "loading" || !name.trim() || !review.trim()}
+          disabled={
+            status === "loading" ||
+            !name.trim() ||
+            !role.trim() ||
+            !organization.trim() ||
+            !review.trim()
+          }
           className="w-full sm:w-auto inline-flex items-center justify-center uppercase tracking-widest text-xs sm:text-sm bg-primary text-white font-sans font-medium px-6 py-3 rounded-tl-3xl hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {status === "loading" ? "Sending" : "Submit review"}
