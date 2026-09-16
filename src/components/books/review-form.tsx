@@ -70,7 +70,7 @@ export default function ReviewForm() {
     <form onSubmit={handleSubmit} noValidate className="space-y-5">
       <label className="block">
         <span className="text-xs font-medium tracking-[0.15em] uppercase text-secondary/60 font-sans">
-          Your name <span className="text-primary">*</span>
+          Your FULL NAME <span className="text-primary">*</span>
         </span>
         <input
           type="text"
@@ -95,7 +95,7 @@ export default function ReviewForm() {
             onChange={(e) => setRole(e.target.value)}
             disabled={status === "loading"}
             className="mt-2 block w-full bg-transparent border-b border-secondary/20 focus:border-primary focus:outline-none py-2 font-sans text-secondary placeholder:text-secondary/30 transition-colors"
-            placeholder="e.g. Product Manager"
+            placeholder="e.g. CEO/Founder"
           />
         </label>
         <label className="block">
@@ -116,7 +116,7 @@ export default function ReviewForm() {
 
       <label className="block">
         <span className="text-xs font-medium tracking-[0.15em] uppercase text-secondary/60 font-sans">
-          Your review <span className="text-primary">*</span>
+          Endorsement <span className="text-primary">*</span>
         </span>
         <textarea
           required
@@ -126,7 +126,7 @@ export default function ReviewForm() {
           rows={5}
           maxLength={2000}
           className="mt-2 block w-full bg-transparent border border-secondary/15 rounded-sm focus:border-primary focus:outline-none p-3 font-sans text-secondary placeholder:text-secondary/30 transition-colors resize-y"
-          placeholder="What has the book meant to you?"
+          placeholder="Kindly write an endorsement; 2-3 sentences on what you think about this book"
         />
         <span className="mt-1 block text-right text-xs text-secondary/40 font-sans">
           {review.length} / 2000
