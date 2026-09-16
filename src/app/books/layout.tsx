@@ -13,9 +13,9 @@ export const metadata: Metadata = {
     siteName: "Temitope Ruth Jacob",
     images: [
       {
-        url: "https://www.temitoperuthjacob.com/evolve-standing.jpg",
-        width: 2560,
-        height: 1920,
+        url: "https://www.temitoperuthjacob.com/evolve-og.jpg",
+        width: 1200,
+        height: 630,
         alt: "Evolve — a personal branding book by Temitope Ruth Jacob",
       },
     ],
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Evolve - Written by Temitope Ruth Jacob",
     description: "The person you become is the brand you build. A field guide to closing the gap between the person you perform and the person you actually are.",
-    images: ["https://www.temitoperuthjacob.com/evolve-standing.jpg"],
+    images: ["https://www.temitoperuthjacob.com/evolve-og.jpg"],
     creator: "@temitoperuthjacob",
   },
 };
