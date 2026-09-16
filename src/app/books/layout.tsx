@@ -3,11 +3,11 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Evolve - Written by Temitope Ruth Jacob",
   description:
-    "The person you become is the brand you build. A field guide to closing the gap between the person you perform and the person you actually are.",
+    "A book about growth, self-discovery, and becoming the person you are meant to be.",
   alternates: { canonical: "https://www.temitoperuthjacob.com/books" },
   openGraph: {
     title: "Evolve - Written by Temitope Ruth Jacob",
-    description: "The person you become is the brand you build. A field guide to closing the gap between the person you perform and the person you actually are.",
+    description: "A book about growth, self-discovery, and becoming the person you are meant to be.",
     url: "https://www.temitoperuthjacob.com/books",
     type: "website",
     siteName: "Temitope Ruth Jacob",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Evolve - Written by Temitope Ruth Jacob",
-    description: "The person you become is the brand you build. A field guide to closing the gap between the person you perform and the person you actually are.",
+    description: "A book about growth, self-discovery, and becoming the person you are meant to be.",
     images: ["https://www.temitoperuthjacob.com/evolve-og.jpg"],
     creator: "@temitoperuthjacob",
   },
