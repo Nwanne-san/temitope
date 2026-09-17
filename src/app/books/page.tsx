@@ -5,7 +5,8 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import CoverMockup from "@/components/books/cover-mockup";
 import ReviewForm from "@/components/books/review-form";
-import WaitlistSection from "@/components/books/waitlist-section";
+import PurchaseSection from "@/components/books/purchase-section";
+import { BuyButton } from "@/components/books/buy-buttons";
 import AboutBook from "@/components/books/about-book";
 import { evolve } from "@/data/evolve";
 
@@ -33,25 +34,22 @@ export default function BooksPage() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 w-full sm:w-auto">
-              <Link
-                href="#waitlist"
-                className="w-full sm:w-auto inline-flex items-center justify-center uppercase tracking-widest text-xs sm:text-sm bg-primary text-white font-sans font-medium px-6 py-3 rounded-tl-3xl hover:bg-primary/90 transition-colors text-center"
-              >
-                Join the waitlist
-              </Link>
-              <Link
-                href="#about"
-                className="w-full sm:w-auto inline-flex items-center justify-center uppercase tracking-widest text-xs sm:text-sm bg-lightGray text-secondary font-sans font-medium px-6 py-3 rounded-br-3xl hover:bg-primary hover:text-white transition-colors text-center"
-              >
-                Read the details
-              </Link>
+              <BuyButton url={evolve.purchase.paperback.url} variant="primary">
+                Pre-order paperback · {evolve.purchase.paperback.price}
+              </BuyButton>
+              <BuyButton url={evolve.purchase.ebook.url} variant="secondary">
+                Get the e-book · {evolve.purchase.ebook.price}
+              </BuyButton>
             </div>
 
-            <p className="text-sm text-secondary/50 font-sans pt-2">
-              Paperback ·{" "}
-              <span className="text-secondary/70">{evolve.price.paperback}</span>
-              &nbsp;·&nbsp;
-              <span>{evolve.price.note}</span>
+            <p className="text-sm text-secondary/60 font-sans pt-2">
+              Paperback ships from launch week · E-book emailed after payment ·{" "}
+              <Link
+                href="#purchase"
+                className="text-primary hover:underline underline-offset-4"
+              >
+                See all pre-order options
+              </Link>
             </p>
           </div>
 
@@ -180,13 +178,13 @@ export default function BooksPage() {
         </div>
       </section>
 
-      {/* Waitlist ────────────────────────────────────────────────────── */}
-      <section id="waitlist" className="bg-lightGray scroll-mt-20">
+      {/* Purchase ────────────────────────────────────────────────────── */}
+      <section id="purchase" className="bg-lightGray scroll-mt-20">
         <div className="container mx-auto px-4 sm:px-10 py-16 xl:py-24">
-          <WaitlistSection
-            formUrl={evolve.waitlistFormUrl}
-            price={evolve.price.paperback}
-            discountNote={evolve.price.note}
+          <PurchaseSection
+            paperback={evolve.purchase.paperback}
+            ebook={evolve.purchase.ebook}
+            waitlistFormUrl={evolve.waitlistFormUrl}
             image={evolve.waitlistImage}
             launchDateLabel={evolve.launchDateLabel}
           />
