@@ -10,6 +10,22 @@ export const evolve = {
     paperback: "₦25,000",
     note: "Waitlist members get a launch-week discount.",
   },
+  // Flutterwave checkout links. Paperback ships from launch week; the e-book
+  // is emailed after payment (not an instant download).
+  purchase: {
+    paperback: {
+      url: "https://flutterwave.com/pay/trj",
+      price: "₦25,000",
+      format: "Paperback",
+      fulfilment: "Ships from launch week",
+    },
+    ebook: {
+      url: "https://flutterwave.com/pay/evolvesoft",
+      price: "₦15,000",
+      format: "E-book",
+      fulfilment: "Emailed after payment",
+    },
+  },
   launchContext:
     "A new book by Temitope Ruth Jacob, arriving October 3, 2026.",
   // Short verbatim excerpt used in the homepage modal (first three sentences of
