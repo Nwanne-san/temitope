@@ -3,11 +3,11 @@
 export const evolve = {
   title: "Evolve",
   subtitle: "The person you become is the brand you build.",
-  // Book launches Friday, 3rd October 2026.
-  launchDate: "2026-10-03",
-  launchDateLabel: "October 3, 2026",
+  // Launch date TBD — pre-orders stay open.
+  launchDate: null as string | null,
+  launchDateLabel: "Coming soon",
   price: {
-    paperback: "₦25,000",
+    paperback: "₦15,000",
     note: "Waitlist members get a launch-week discount.",
   },
   // Flutterwave checkout links. Paperback ships from launch week; the e-book
@@ -15,19 +15,19 @@ export const evolve = {
   purchase: {
     paperback: {
       url: "https://flutterwave.com/pay/trj",
-      price: "₦25,000",
+      price: "₦15,000",
       format: "Paperback",
       fulfilment: "Ships from launch week",
     },
     ebook: {
       url: "https://flutterwave.com/pay/evolvesoft",
-      price: "₦15,000",
+      price: "₦10,000",
       format: "E-book",
       fulfilment: "Emailed after payment",
     },
   },
   launchContext:
-    "A new book by Temitope Ruth Jacob, arriving October 3, 2026.",
+    "A new book by Temitope Ruth Jacob. Pre-order now — launch date coming soon.",
   // Short verbatim excerpt used in the homepage modal (first three sentences of
   // the PDF).
   modalPitch:

@@ -37,7 +37,7 @@ export default function PurchaseSection({
       <div className="relative space-y-10">
         <div className="max-w-3xl space-y-4">
           <p className="text-xs font-medium tracking-[0.2em] uppercase text-primary font-sans">
-            Pre-order · Launching {launchDateLabel}
+            Pre-order · {launchDateLabel}
           </p>
           <h2 className="font-serif text-3xl sm:text-4xl xl:text-5xl text-secondary font-semibold leading-tight break-words">
             Get your copy of <span className="text-primary">Evolve</span>.

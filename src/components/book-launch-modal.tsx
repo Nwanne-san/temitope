@@ -107,7 +107,7 @@ export default function BookLaunchModal() {
             <div className="sm:col-span-3 p-6 sm:p-8 lg:p-10 overflow-y-auto">
               <p className="text-[11px] sm:text-xs font-medium tracking-[0.2em] uppercase text-primary font-sans inline-flex items-center gap-2">
                 <CalendarDays className="w-3.5 h-3.5" />
-                <span>Launching {evolve.launchDateLabel}</span>
+                <span>{evolve.launchDateLabel}</span>
               </p>
 
               <h2

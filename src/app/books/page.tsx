@@ -13,9 +13,9 @@ export default function BooksPage() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       {/* Hero — full-bleed video under transparent nav ───────────────── */}
-      <section className="relative min-h-[100svh] flex flex-col overflow-hidden">
+      <section className="relative min-h-[100svh] flex flex-col overflow-hidden bg-black">
         <video
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover origin-center max-sm:scale-[0.88] sm:scale-100"
           autoPlay
           muted
           loop
@@ -36,7 +36,7 @@ export default function BooksPage() {
         <div className="relative z-10 flex flex-1 flex-col justify-end container mx-auto px-4 sm:px-10 pb-16 pt-28 sm:pb-20 xl:pb-24">
           <div className="max-w-2xl space-y-6">
             <p className="text-xs font-medium tracking-[0.2em] uppercase text-primary font-sans">
-              A new book · Launching {evolve.launchDateLabel}
+              A new book · {evolve.launchDateLabel}
             </p>
             <h1 className="font-serif text-4xl sm:text-6xl xl:text-7xl text-white font-semibold leading-tight break-words">
               {evolve.title}
