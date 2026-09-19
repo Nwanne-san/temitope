@@ -167,7 +167,7 @@ function Hero() {
         </p>
 
         <motion.div
-          className="absolute right-[10%] sm:right-[15%] md:right-[19%] lg:right-[21%] xl:right-[28%] max-[1400]:right-[39%] top-2 sm:top-[2%] z-[2] max-w-[130px] sm:max-w-[220px] lg:max-w-[300px]"
+          className="absolute right-[8%] sm:right-[15%] md:right-[19%] lg:right-[21%] xl:right-[28%] max-[1400]:right-[39%] top-[12%] sm:top-[2%] z-0 max-w-[110px] sm:max-w-[220px] lg:max-w-[300px]"
           initial={{ scale: 0, opacity: 0, rotate: -180 }}
           animate={{ scale: 1, opacity: 1, rotate: 0 }}
           transition={{ duration: 1.2, ease: "backOut", delay: 0.5 }}
@@ -182,6 +182,7 @@ function Hero() {
         </motion.div>
 
         <motion.div
+          className="relative z-10"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
@@ -192,7 +193,7 @@ function Hero() {
             alt="Professional headshot"
             width={500}
             height={600}
-            className="grayscale-hover rounded-lg h-auto w-auto relative z-20"
+            className="grayscale-hover rounded-lg h-auto w-auto"
           />
         </motion.div>
       </motion.div>

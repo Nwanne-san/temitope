@@ -3,7 +3,6 @@ import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-import CoverMockup from "@/components/books/cover-mockup";
 import ReviewForm from "@/components/books/review-form";
 import PurchaseSection from "@/components/books/purchase-section";
 import { BuyButton } from "@/components/books/buy-buttons";
@@ -13,23 +12,40 @@ import { evolve } from "@/data/evolve";
 export default function BooksPage() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
-      <Navbar />
+      {/* Hero — full-bleed video under transparent nav ───────────────── */}
+      <section className="relative min-h-[100svh] flex flex-col overflow-hidden">
+        <video
+          className="absolute inset-0 h-full w-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster="/evolve-standing.jpg"
+          aria-hidden
+        >
+          <source src="/evolve-hero.mp4" type="video/mp4" />
+        </video>
+        <div
+          className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/40 to-black/70"
+          aria-hidden
+        />
 
-      {/* Hero ─────────────────────────────────────────────────────────── */}
-      <section className="bg-gray-200 border-b border-secondary/10">
-        <div className="container mx-auto px-4 sm:px-10 py-16 xl:py-24 grid lg:grid-cols-5 gap-10 lg:gap-12 items-center">
-          <div className="lg:col-span-3 space-y-6 order-2 lg:order-1">
+        <Navbar variant="overMedia" />
+
+        <div className="relative z-10 flex flex-1 flex-col justify-end container mx-auto px-4 sm:px-10 pb-16 pt-28 sm:pb-20 xl:pb-24">
+          <div className="max-w-2xl space-y-6">
             <p className="text-xs font-medium tracking-[0.2em] uppercase text-primary font-sans">
               A new book · Launching {evolve.launchDateLabel}
             </p>
-            <h1 className="font-serif text-4xl sm:text-6xl xl:text-7xl text-secondary font-semibold leading-tight break-words">
+            <h1 className="font-serif text-4xl sm:text-6xl xl:text-7xl text-white font-semibold leading-tight break-words">
               {evolve.title}
               <span className="text-primary">.</span>
             </h1>
-            <p className="font-serif text-lg sm:text-2xl text-secondary/80 leading-snug max-w-xl break-words">
+            <p className="font-serif text-lg sm:text-2xl text-white/90 leading-snug max-w-xl break-words">
               {evolve.subtitle}
             </p>
-            <p className="text-base sm:text-lg text-secondary/70 font-sans max-w-xl leading-relaxed">
+            <p className="text-base sm:text-lg text-white/75 font-sans max-w-xl leading-relaxed">
               {evolve.launchContext}
             </p>
 
@@ -37,24 +53,20 @@ export default function BooksPage() {
               <BuyButton url={evolve.purchase.paperback.url} variant="primary">
                 Pre-order paperback · {evolve.purchase.paperback.price}
               </BuyButton>
-              <BuyButton url={evolve.purchase.ebook.url} variant="secondary">
+              <BuyButton url={evolve.purchase.ebook.url} variant="onDark">
                 Get the e-book · {evolve.purchase.ebook.price}
               </BuyButton>
             </div>
 
-            <p className="text-sm text-secondary/60 font-sans pt-2">
+            <p className="text-sm text-white/60 font-sans pt-2">
               Paperback ships from launch week · E-book emailed after payment ·{" "}
               <Link
                 href="#purchase"
-                className="text-primary hover:underline underline-offset-4"
+                className="text-white underline underline-offset-4 hover:text-primary"
               >
                 See all pre-order options
               </Link>
             </p>
-          </div>
-
-          <div className="lg:col-span-2 order-1 lg:order-2">
-            <CoverMockup src={evolve.coverImage} title={evolve.title} />
           </div>
         </div>
       </section>

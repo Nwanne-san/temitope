@@ -7,7 +7,7 @@ import { Button } from "./ui/button";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-
+import { cn } from "@/lib/utils";
 
 const mobileMenuVariants = {
   closed: {
@@ -57,9 +57,15 @@ const menuItemVariants = {
   },
 };
 
-export default function Navbar() {
+type NavbarProps = {
+  /** Transparent nav for full-bleed media heroes (e.g. /books video). */
+  variant?: "default" | "overMedia";
+};
+
+export default function Navbar({ variant = "default" }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+  const overMedia = variant === "overMedia";
 
   const isActivePath = (path: string) => {
     if (path === "/") {
@@ -91,8 +97,19 @@ export default function Navbar() {
     { label: "Resources", href: "/resources" },
   ];
 
+  const linkIdle = overMedia
+    ? "text-white/90 hover:text-white"
+    : "text-secondary hover:text-primary";
+  const linkActive = overMedia
+    ? "text-white font-medium"
+    : "text-primary font-medium";
+
   return (
-    <div className="bg-gray-200">
+    <div
+      className={cn(
+        overMedia ? "bg-transparent absolute inset-x-0 top-0 z-30" : "bg-gray-200"
+      )}
+    >
       <motion.nav
         className="mx-auto container relative px-4 py-6 sm:px-10 flex justify-between items-center font-sans"
         initial={{ opacity: 0, y: -20 }}
@@ -105,7 +122,7 @@ export default function Navbar() {
             transition={{ duration: 0.2 }}
           >
             <Image
-              src="/TRJ Logo MAIN.png"
+              src={overMedia ? "/TRJ logo white.png" : "/TRJ Logo MAIN.png"}
               alt="Temitope Ruth Jacob"
               width={120}
               height={40}
@@ -122,7 +139,10 @@ export default function Navbar() {
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transition-all duration-300 relative hover:scale-105 text-secondary hover:text-primary"
+                className={cn(
+                  "transition-all duration-300 relative hover:scale-105",
+                  linkIdle
+                )}
               >
                 {item.label}
               </a>
@@ -130,16 +150,18 @@ export default function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`transition-all duration-300 relative hover:scale-105 ${
-                  isActivePath(item.href)
-                    ? "text-primary font-medium"
-                    : "text-secondary hover:text-primary"
-                }`}
+                className={cn(
+                  "transition-all duration-300 relative hover:scale-105",
+                  isActivePath(item.href) ? linkActive : linkIdle
+                )}
               >
                 {item.label}
                 {isActivePath(item.href) && (
                   <motion.span
-                    className="absolute -bottom-2 left-0 w-full h-0.5 bg-primary"
+                    className={cn(
+                      "absolute -bottom-2 left-0 w-full h-0.5",
+                      overMedia ? "bg-white" : "bg-primary"
+                    )}
                     layoutId="activeTab"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
@@ -152,14 +174,24 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           <Link href="/contact">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button className="duration-300 px-4 text-xs py-2 sm:text-sm bg-primary text-white hover:bg-white hover:text-primary rounded-br-2xl border border-primary font-sans shadow-sm">
+              <Button
+                className={cn(
+                  "duration-300 px-4 text-xs py-2 sm:text-sm rounded-br-2xl font-sans shadow-sm",
+                  overMedia
+                    ? "bg-white text-secondary hover:bg-primary hover:text-white border border-white"
+                    : "bg-primary text-white hover:bg-white hover:text-primary border border-primary"
+                )}
+              >
                 Contact
               </Button>
             </motion.div>
           </Link>
 
           <motion.button
-            className="xl:hidden z-10 text-secondary"
+            className={cn(
+              "xl:hidden z-10",
+              overMedia ? "text-white" : "text-secondary"
+            )}
             onClick={() => setIsOpen(!isOpen)}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}

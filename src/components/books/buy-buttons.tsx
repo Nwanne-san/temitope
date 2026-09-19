@@ -2,7 +2,7 @@ import { ArrowUpRight } from "lucide-react";
 
 interface BuyButtonProps {
   url: string;
-  variant: "primary" | "secondary";
+  variant: "primary" | "secondary" | "onDark";
   children: React.ReactNode;
 }
 
@@ -12,7 +12,9 @@ export function BuyButton({ url, variant, children }: BuyButtonProps) {
   const style =
     variant === "primary"
       ? "bg-primary text-white rounded-tl-3xl hover:bg-primary/90"
-      : "bg-lightGray text-secondary rounded-br-3xl hover:bg-primary hover:text-white";
+      : variant === "onDark"
+        ? "bg-white text-secondary rounded-br-3xl hover:bg-primary hover:text-white"
+        : "bg-lightGray text-secondary rounded-br-3xl hover:bg-primary hover:text-white";
 
   return (
     <a

@@ -65,7 +65,7 @@ export default function BookLaunchModal() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.25 }}
-          className="fixed inset-0 z-[100] flex items-end sm:items-center justify-center bg-black/55 backdrop-blur-sm p-0 sm:p-4"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/55 backdrop-blur-sm p-4"
           onClick={close}
           role="dialog"
           aria-modal="true"
@@ -73,12 +73,12 @@ export default function BookLaunchModal() {
         >
           <motion.div
             key="evolve-modal-panel"
-            initial={{ y: 40, opacity: 0, scale: 0.98 }}
+            initial={{ y: 24, opacity: 0, scale: 0.98 }}
             animate={{ y: 0, opacity: 1, scale: 1 }}
-            exit={{ y: 30, opacity: 0, scale: 0.98 }}
+            exit={{ y: 16, opacity: 0, scale: 0.98 }}
             transition={{ type: "spring", damping: 26, stiffness: 260 }}
             onClick={(e) => e.stopPropagation()}
-            className="relative w-full sm:max-w-3xl bg-white rounded-t-2xl sm:rounded-2xl shadow-2xl overflow-hidden max-h-[92vh] sm:max-h-[88vh] flex flex-col sm:grid sm:grid-cols-5"
+            className="relative w-full max-w-lg sm:max-w-3xl bg-white rounded-2xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col sm:grid sm:grid-cols-5 sm:items-stretch"
           >
             <button
               type="button"
@@ -89,15 +89,15 @@ export default function BookLaunchModal() {
               <X className="w-4 h-4" />
             </button>
 
-            {/* Image column ─── mobile: short banner; desktop: full-height. */}
-            <div className="relative w-full h-40 sm:h-auto sm:col-span-2 bg-[#E56B3A]">
+            {/* Image column ─── mobile: banner; desktop: full panel height. */}
+            <div className="relative w-full h-48 sm:h-full sm:min-h-[28rem] sm:col-span-2 bg-[#E56B3A] shrink-0">
               {evolve.coverImage && (
                 <Image
                   src={evolve.coverImage}
                   alt="Evolve — book cover"
                   fill
                   sizes="(max-width: 640px) 100vw, 40vw"
-                  className="object-cover sm:object-contain object-center"
+                  className="object-cover object-center"
                   priority
                 />
               )}

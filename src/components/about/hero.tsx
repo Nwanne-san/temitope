@@ -92,7 +92,7 @@ function HeroSection() {
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <motion.div
-          className="absolute right-[10%] sm:right-[15%] lg:right-[35%] xl:right-[27%] max-sm:top-[25%] max-lg:top-[10%] xl:bottom-[32%] z-[2] max-w-[130px] sm:max-w-[220px] lg:max-w-[300px]"
+          className="absolute right-[10%] sm:right-[15%] lg:right-[35%] xl:right-[27%] max-sm:top-[18%] max-lg:top-[10%] xl:bottom-[32%] z-0 max-w-[130px] sm:max-w-[220px] lg:max-w-[300px]"
           initial={{ scale: 0, opacity: 0, rotate: -180 }}
           animate={{ scale: 1, opacity: 1, rotate: 0 }}
           transition={{ duration: 1.2, ease: "easeOut", delay: 0.5 }}
@@ -106,6 +106,7 @@ function HeroSection() {
           />
         </motion.div>
         <motion.div
+          className="relative z-10"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
@@ -115,7 +116,7 @@ function HeroSection() {
             alt="Professional headshot"
             width={500}
             height={600}
-            className="grayscale-hover rounded-lg h-auto lg:h-full xl:h-auto w-auto relative z-20 transition-all duration-500 hover:scale-105"
+            className="grayscale-hover rounded-lg h-auto lg:h-full xl:h-auto w-auto transition-all duration-500 hover:scale-105"
           />
         </motion.div>
         <motion.div
