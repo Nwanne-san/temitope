@@ -13,9 +13,9 @@ export default function BooksPage() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       {/* Hero — full-bleed video under transparent nav ───────────────── */}
-      <section className="relative min-h-[100svh] flex flex-col overflow-hidden bg-black">
+      <section className="relative min-h-[100svh] flex flex-col overflow-hidden bg-gray-200">
         <video
-          className="absolute inset-0 h-full w-full object-cover origin-center max-sm:scale-[0.88] sm:scale-100"
+          className="absolute inset-0 h-full w-full object-contain object-center sm:object-cover"
           autoPlay
           muted
           loop
@@ -35,18 +35,12 @@ export default function BooksPage() {
 
         <div className="relative z-10 flex flex-1 flex-col justify-end container mx-auto px-4 sm:px-10 pb-16 pt-28 sm:pb-20 xl:pb-24">
           <div className="max-w-2xl space-y-6">
-            <p className="text-xs font-medium tracking-[0.2em] uppercase text-primary font-sans">
-              A new book · {evolve.launchDateLabel}
-            </p>
             <h1 className="font-serif text-4xl sm:text-6xl xl:text-7xl text-white font-semibold leading-tight break-words">
               {evolve.title}
               <span className="text-primary">.</span>
             </h1>
             <p className="font-serif text-lg sm:text-2xl text-white/90 leading-snug max-w-xl break-words">
               {evolve.subtitle}
-            </p>
-            <p className="text-base sm:text-lg text-white/75 font-sans max-w-xl leading-relaxed">
-              {evolve.launchContext}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 w-full sm:w-auto">
@@ -57,16 +51,6 @@ export default function BooksPage() {
                 Get the e-book · {evolve.purchase.ebook.price}
               </BuyButton>
             </div>
-
-            <p className="text-sm text-white/60 font-sans pt-2">
-              Paperback ships from launch week · E-book emailed after payment ·{" "}
-              <Link
-                href="#purchase"
-                className="text-white underline underline-offset-4 hover:text-primary"
-              >
-                See all pre-order options
-              </Link>
-            </p>
           </div>
         </div>
       </section>

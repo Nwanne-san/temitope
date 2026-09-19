@@ -43,8 +43,8 @@ export default function PurchaseSection({
             Get your copy of <span className="text-primary">Evolve</span>.
           </h2>
           <p className="text-base sm:text-lg text-secondary/75 font-sans leading-relaxed">
-            Reserve the paperback or the e-book now. Paperback ships from launch
-            week; the e-book is emailed after payment.
+            Paperback ships from launch week · E-book emailed after payment.
+            Reserve your copy now.
           </p>
         </div>
 
