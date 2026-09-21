@@ -90,7 +90,7 @@ export default function Navbar({ variant = "default" }: NavbarProps) {
     { label: "About", href: "/about" },
     { label: "Books", href: "/books" },
     {
-      label: "BrandX",
+      label: "BrandX Community",
       href: "https://www.brandxperience.org",
       external: true,
     },

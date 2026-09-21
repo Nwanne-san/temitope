@@ -56,9 +56,12 @@ const Footer = () => {
             Have a project? Get in touch.
           </p>
           <div className="flex flex-col xl:flex-row justify-between items-center xl:items-start text-center xl:text-left gap-4">
-            <h2 className="font-serif text-lg sm:text-2xl md:text-3xl xl:text-4xl font-semibold text-white break-all sm:break-normal">
+            <a
+              href="mailto:hi@temitoperuthjacob.com"
+              className="font-serif text-lg sm:text-2xl md:text-3xl xl:text-4xl font-semibold text-white break-all sm:break-normal hover:text-primary transition-colors"
+            >
               hi@temitoperuthjacob.com
-            </h2>
+            </a>
             <Link href="/contact" className="w-full sm:w-auto">
               <Button
                 variant="primary"
@@ -97,10 +100,61 @@ const Footer = () => {
             viewport={{ once: true }}
           >
             <h3 className="font-serif text-lg mb-4 text-white">Contact Details</h3>
-            <div className="space-y-2 text-white/60 font-sans">
+            <div className="space-y-3 text-white/60 font-sans text-sm">
               <p>Abuja, Nigeria</p>
-              <p>hi@temitoperuthjacob.com</p>
-              <p>+(234) 9044044138</p>
+              <div>
+                <p className="text-white/40 text-xs uppercase tracking-wider mb-0.5">
+                  General enquiries
+                </p>
+                <a
+                  href="mailto:hi@temitoperuthjacob.com"
+                  className="hover:text-white transition-colors break-all"
+                >
+                  hi@temitoperuthjacob.com
+                </a>
+              </div>
+              <div>
+                <p className="text-white/40 text-xs uppercase tracking-wider mb-0.5">
+                  Book enquiries
+                </p>
+                <a
+                  href="mailto:books@temitoperuthjacob.com"
+                  className="hover:text-white transition-colors break-all"
+                >
+                  books@temitoperuthjacob.com
+                </a>
+              </div>
+              <div>
+                <p className="text-white/40 text-xs uppercase tracking-wider mb-0.5">
+                  Speaking engagements
+                </p>
+                <a
+                  href="mailto:events@temitoperuthjacob.com"
+                  className="hover:text-white transition-colors break-all"
+                >
+                  events@temitoperuthjacob.com
+                </a>
+              </div>
+              <div>
+                <p className="text-white/40 text-xs uppercase tracking-wider mb-0.5">
+                  Phone
+                </p>
+                <p>
+                  <a
+                    href="tel:+2349076787419"
+                    className="hover:text-white transition-colors"
+                  >
+                    0907 678 7419
+                  </a>
+                  <span className="text-white/30 px-1.5">·</span>
+                  <a
+                    href="tel:+2348183135120"
+                    className="hover:text-white transition-colors"
+                  >
+                    0818 313 5120
+                  </a>
+                </p>
+              </div>
             </div>
           </motion.div>
 

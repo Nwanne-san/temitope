@@ -13,9 +13,9 @@ export default function BooksPage() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       {/* Hero — full-bleed video under transparent nav ───────────────── */}
-      <section className="relative min-h-[100svh] flex flex-col overflow-hidden bg-gray-200">
+      <section className="relative min-h-[100svh] flex flex-col overflow-hidden bg-white">
         <video
-          className="absolute inset-0 h-full w-full object-contain object-center sm:object-cover"
+          className="absolute inset-0 h-full w-full object-cover origin-center max-sm:scale-[0.88] sm:scale-100"
           autoPlay
           muted
           loop
@@ -128,14 +128,14 @@ export default function BooksPage() {
         <div className="container mx-auto px-4 sm:px-10 py-16 xl:py-24 grid lg:grid-cols-5 gap-12">
           <div className="lg:col-span-2 space-y-3">
             <p className="text-xs font-medium tracking-[0.2em] uppercase text-primary font-sans">
-              Leave a review
+              Endorsement
             </p>
             <h2 className="font-serif text-2xl sm:text-4xl xl:text-5xl text-secondary leading-tight break-words">
-              Read the book?
+              Leave an endorsement
             </h2>
             <p className="text-secondary/70 font-sans max-w-md leading-relaxed pt-2">
-              Share your thoughts on Evolve. Selected reviews may be featured
-              on this page after moderation.
+              Kindly share your thoughts which will be featured on this page
+              and in the preliminary pages of the book.
             </p>
           </div>
           <div className="lg:col-span-3">

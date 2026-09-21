@@ -25,7 +25,10 @@ export default function SpeakingPage() {
           </>
         }
         ctas={[
-          { href: "/contact", label: "Enquire about speaking" },
+          {
+            href: "mailto:events@temitoperuthjacob.com",
+            label: "Enquire about speaking",
+          },
           { href: "/about", label: "About Temitope", variant: "outline" },
         ]}
       />

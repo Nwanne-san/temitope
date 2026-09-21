@@ -34,15 +34,56 @@ export default function ContactPage() {
         <dl className="border-t border-secondary/10 pt-8 grid gap-6 sm:grid-cols-2 text-sm font-sans">
           <div>
             <dt className="text-secondary/50 uppercase tracking-widest text-xs mb-2">
-              Email
+              General enquiries
             </dt>
-            <dd className="text-secondary break-all sm:break-normal">hi@temitoperuthjacob.com</dd>
+            <dd className="text-secondary break-all sm:break-normal">
+              <a
+                href="mailto:hi@temitoperuthjacob.com"
+                className="text-primary hover:underline"
+              >
+                hi@temitoperuthjacob.com
+              </a>
+            </dd>
+          </div>
+          <div>
+            <dt className="text-secondary/50 uppercase tracking-widest text-xs mb-2">
+              Book enquiries
+            </dt>
+            <dd className="text-secondary break-all sm:break-normal">
+              <a
+                href="mailto:books@temitoperuthjacob.com"
+                className="text-primary hover:underline"
+              >
+                books@temitoperuthjacob.com
+              </a>
+            </dd>
+          </div>
+          <div>
+            <dt className="text-secondary/50 uppercase tracking-widest text-xs mb-2">
+              Speaking engagements
+            </dt>
+            <dd className="text-secondary break-all sm:break-normal">
+              <a
+                href="mailto:events@temitoperuthjacob.com"
+                className="text-primary hover:underline"
+              >
+                events@temitoperuthjacob.com
+              </a>
+            </dd>
           </div>
           <div>
             <dt className="text-secondary/50 uppercase tracking-widest text-xs mb-2">
               Phone
             </dt>
-            <dd className="text-secondary">+(234) 904 404 4138</dd>
+            <dd className="text-secondary">
+              <a href="tel:+2349076787419" className="hover:text-primary">
+                0907 678 7419
+              </a>
+              <span className="text-secondary/30 px-1.5">·</span>
+              <a href="tel:+2348183135120" className="hover:text-primary">
+                0818 313 5120
+              </a>
+            </dd>
           </div>
           <div>
             <dt className="text-secondary/50 uppercase tracking-widest text-xs mb-2">

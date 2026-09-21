@@ -434,11 +434,38 @@ export default function BrandingInitiative() {
             <div className="grid md:grid-cols-3 gap-8 mb-8">
               <div className="flex flex-col items-center">
                 <Mail className="h-8 w-8 text-[#9a33cc] mb-4" />
-                <p className="text-gray-700 break-all sm:break-normal">hi@temitoperuthjacob.com</p>
+                <div className="text-gray-700 text-sm space-y-1">
+                  <p className="break-all sm:break-normal">
+                    <a href="mailto:hi@temitoperuthjacob.com" className="hover:underline">
+                      hi@temitoperuthjacob.com
+                    </a>
+                  </p>
+                  <p className="break-all sm:break-normal">
+                    <a href="mailto:books@temitoperuthjacob.com" className="hover:underline">
+                      books@temitoperuthjacob.com
+                    </a>
+                  </p>
+                  <p className="break-all sm:break-normal">
+                    <a href="mailto:events@temitoperuthjacob.com" className="hover:underline">
+                      events@temitoperuthjacob.com
+                    </a>
+                  </p>
+                </div>
               </div>
               <div className="flex flex-col items-center">
                 <Phone className="h-8 w-8 text-[#ff0066] mb-4" />
-                <p className="text-gray-700">+234 904 404 4138</p>
+                <div className="text-gray-700 text-sm space-y-1">
+                  <p>
+                    <a href="tel:+2349076787419" className="hover:underline">
+                      0907 678 7419
+                    </a>
+                  </p>
+                  <p>
+                    <a href="tel:+2348183135120" className="hover:underline">
+                      0818 313 5120
+                    </a>
+                  </p>
+                </div>
               </div>
               <div className="flex flex-col items-center">
                 <div className="flex space-x-4 mb-4">

@@ -151,7 +151,7 @@ export default function BookLaunchModal() {
                   onClick={close}
                   className="underline underline-offset-2 hover:text-primary"
                 >
-                  Leave a review
+                  Leave an endorsement
                 </Link>
                 .
               </p>
