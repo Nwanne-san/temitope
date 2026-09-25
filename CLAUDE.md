@@ -149,7 +149,7 @@ If any are missing, `/api/subscribe` returns `{"error":"Newsletter is not config
 
 Required for the reader-review form on `/books` to succeed:
 
-- `REVIEWS_FORMSPREE_ENDPOINT` — a Formspree JSON endpoint URL (e.g. `https://formspree.io/f/xxxxxxxx`).
+- `REVIEWS_FORMSPREE_ENDPOINT` — a Formspree JSON endpoint URL (e.g. `https://formspree.io/f/xxxxxxxx`). The form's destination address in Formspree must be **`books@temitoperuthjacob.com`** (not the general `hi@` inbox) so endorsements land where the book team reads them.
 
 If missing, `/api/reviews` returns `{"error":"Reviews are not configured yet..."}` with status 500 and the form displays an inline message. Approved reviews are pasted by hand into a data file after moderation — there is no live public feed.
 

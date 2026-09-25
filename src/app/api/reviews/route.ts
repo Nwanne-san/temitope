@@ -1,11 +1,13 @@
 import { NextResponse } from "next/server";
 
-// Reviews are forwarded to Formspree, which sends them to Temitope's inbox for
-// moderation. Approved reviews are added to a data file and displayed on
-// /books. Configure by setting REVIEWS_FORMSPREE_ENDPOINT to the Formspree
-// JSON endpoint (e.g. https://formspree.io/f/xxxxxxxx). This mirrors the
-// /api/subscribe pattern — the route stays functional even if unconfigured,
-// returning a friendly error instead of crashing.
+// Book endorsements are forwarded to Formspree, which sends them to
+// books@temitoperuthjacob.com for moderation. Approved endorsements are added
+// to a data file and displayed on /books. Configure by setting
+// REVIEWS_FORMSPREE_ENDPOINT to the Formspree JSON endpoint
+// (e.g. https://formspree.io/f/xxxxxxxx) whose destination is books@ — the
+// destination address lives in the Formspree form's settings, not here.
+// This mirrors the /api/subscribe pattern — the route stays functional even
+// if unconfigured, returning a friendly error instead of crashing.
 
 const MAX_FIELD = 2000;
 
@@ -59,7 +61,7 @@ export async function POST(req: Request) {
         role,
         organization,
         review,
-        _subject: `New review from ${name}${role || organization ? " (" + [role, organization].filter(Boolean).join(", ") + ")" : ""}`,
+        _subject: `Book endorsement from ${name}${role || organization ? " (" + [role, organization].filter(Boolean).join(", ") + ")" : ""}`,
       }),
     });
 
