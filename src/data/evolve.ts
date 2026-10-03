@@ -3,12 +3,13 @@
 export const evolve = {
   title: "Evolve",
   subtitle: "The person you become is the brand you build.",
-  // Launch date TBD — pre-orders stay open.
-  launchDate: null as string | null,
-  launchDateLabel: "Coming soon",
+  // Official release: 10th October 2026 (Sprout Day)
+  launchDate: "2026-10-10" as string | null,
+  launchDateLabel: "10th October 2026",
+  releaseDayLabel: "Sprout Day · 10th October 2026",
   price: {
     paperback: "₦15,000",
-    note: "Waitlist members get a launch-week discount.",
+    note: "Official release on Sprout Day — 10th October 2026.",
   },
   // Flutterwave checkout links. Paperback ships from launch week; the e-book
   // is emailed after payment (not an instant download).
@@ -17,7 +18,7 @@ export const evolve = {
       url: "https://flutterwave.com/pay/trj",
       price: "₦15,000",
       format: "Paperback",
-      fulfilment: "Ships from launch week",
+      fulfilment: "Ships from 10th October 2026",
     },
     ebook: {
       url: "https://flutterwave.com/pay/evolvesoft",
@@ -27,7 +28,7 @@ export const evolve = {
     },
   },
   launchContext:
-    "A new book by Temitope Ruth Jacob. Pre-order now — launch date coming soon.",
+    "A new book by Temitope Ruth Jacob. Releasing 10th October 2026 (Sprout Day) — pre-order your copy now.",
   // Short verbatim excerpt used in the homepage modal (first three sentences of
   // the PDF).
   modalPitch:
@@ -113,14 +114,13 @@ export const evolve = {
       role: "Chairman/CEO, Pumpkin Holdings Limited",
     },
   ],
-  // Google Form used behind the scenes for waitlist submissions.
-  // The UI does not surface this — the CTA reads "Join the waitlist".
-  waitlistFormUrl: "https://forms.gle/WKn2tc2ShMt9tcLa8",
-  waitlistFields: ["name", "email", "phone number", "location (optional)"] as const,
-  // Hero image — book standing upright on top of a stack.
+  // Flyer image — used for the mobile hero and books page modal.
+  flyerImage: "/evolve-flyer.png",
+  // Hero / homepage modal cover image — standing paperback.
   coverImage: "/evolve-standing.jpg" as string | null,
-  // Secondary image — two paperbacks stacked flat, used in the waitlist card.
+  // Secondary image — two paperbacks stacked flat, used in the purchase card.
   waitlistImage: "/evolve-stack.jpg",
 };
 
 export type EvolveContent = typeof evolve;
+

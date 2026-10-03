@@ -7,15 +7,19 @@ import ReviewForm from "@/components/books/review-form";
 import PurchaseSection from "@/components/books/purchase-section";
 import { BuyButton } from "@/components/books/buy-buttons";
 import AboutBook from "@/components/books/about-book";
+import EvolveFlyerModal from "@/components/books/evolve-flyer-modal";
 import { evolve } from "@/data/evolve";
 
 export default function BooksPage() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
+      {/* Desktop Modal with Evolve Flyer (replica for books page only) */}
+      <EvolveFlyerModal />
+
       {/* Hero — full-bleed video under transparent nav ───────────────── */}
       <section className="relative min-h-[100svh] flex flex-col overflow-hidden bg-white">
         <video
-          className="absolute inset-0 h-full w-full object-cover origin-center max-sm:scale-[0.88] sm:scale-100"
+          className="absolute inset-0 h-full w-full object-cover origin-center"
           autoPlay
           muted
           loop
@@ -27,7 +31,7 @@ export default function BooksPage() {
           <source src="/evolve-hero.mp4" type="video/mp4" />
         </video>
         <div
-          className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/40 to-black/70"
+          className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/40 to-black/75"
           aria-hidden
         />
 
@@ -35,6 +39,18 @@ export default function BooksPage() {
 
         <div className="relative z-10 flex flex-1 flex-col justify-end container mx-auto px-4 sm:px-10 pb-16 pt-28 sm:pb-20 xl:pb-24">
           <div className="max-w-2xl space-y-6">
+            {/* Evolve Flyer — Mobile only, prominent hero showcase */}
+            <div className="sm:hidden w-full max-w-[340px] aspect-[4/5] relative rounded-2xl overflow-hidden shadow-2xl border-2 border-white/25 mx-auto mb-6 bg-black/40">
+              <Image
+                src="/evolve-flyer.png"
+                alt="Evolve — Official Book Launch Flyer"
+                fill
+                sizes="(max-width: 640px) 90vw, 340px"
+                className="object-contain object-center"
+                priority
+              />
+            </div>
+
             <h1 className="font-serif text-4xl sm:text-6xl xl:text-7xl text-white font-semibold leading-tight break-words">
               {evolve.title}
               <span className="text-primary">.</span>
@@ -55,75 +71,64 @@ export default function BooksPage() {
         </div>
       </section>
 
-      {/* About the book ──────────────────────────────────────────────── */}
+      {/* 1. About the book ───────────────────────────────────────────── */}
       <AboutBook preview={evolve.aboutPreview} rest={evolve.aboutRest} />
 
-      {/* What you'll take away — hidden until the outcomes list is finalised.
-      <section className="bg-lightGray">
+      {/* 2. Pre-order / Purchase ─────────────────────────────────────── */}
+      <section id="purchase" className="bg-lightGray scroll-mt-20">
         <div className="container mx-auto px-4 sm:px-10 py-16 xl:py-24">
-          <div className="max-w-4xl">
-            <p className="text-xs font-medium tracking-[0.2em] uppercase text-primary font-sans mb-4">
-              What you will leave with
-            </p>
-            <h2 className="font-serif text-2xl sm:text-4xl xl:text-5xl text-secondary leading-tight mb-10 break-words">
-              By the last page, you will be able to:
-            </h2>
-          </div>
-          <ol className="grid md:grid-cols-2 gap-x-10 gap-y-8">
-            {evolve.outcomes.map((outcome, index) => (
-              <li key={index} className="flex gap-5">
-                <span className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-serif text-lg">
-                  {index + 1}
-                </span>
-                <p className="pt-1 font-sans text-secondary text-base sm:text-lg leading-relaxed">
-                  {outcome}
-                </p>
-              </li>
-            ))}
-          </ol>
+          <PurchaseSection
+            paperback={evolve.purchase.paperback}
+            ebook={evolve.purchase.ebook}
+            image={evolve.waitlistImage}
+            launchDateLabel={evolve.launchDateLabel}
+          />
         </div>
       </section>
-      */}
 
-      {/* Table of contents — hidden until real chapter titles are provided.
-      <section className="relative bg-white border-b border-secondary/10">
-        <div className="container mx-auto px-4 sm:px-10 py-16 xl:py-24 grid lg:grid-cols-5 gap-12 items-start">
-          <div className="lg:col-span-2 lg:sticky lg:top-24 lg:self-start space-y-3">
-            <p className="text-xs font-medium tracking-[0.2em] uppercase text-primary font-sans">
-              Inside the book
-            </p>
-            <h2 className="font-serif text-2xl sm:text-4xl xl:text-5xl text-secondary leading-tight break-words">
-              Table of contents.
+      {/* 3. Animation Video Trailer ──────────────────────────────────── */}
+      <section className="bg-white border-b border-secondary/10 py-16 xl:py-24">
+        <div className="container mx-auto px-4 sm:px-10">
+          <div className="max-w-3xl mx-auto text-center space-y-3 mb-10">
+            <h2 className="font-serif text-3xl sm:text-4xl xl:text-5xl text-secondary font-semibold leading-tight break-words">
+              A glimpse into <span className="text-primary">Evolve</span>.
             </h2>
-            <p className="font-serif text-lg text-secondary/70 leading-snug max-w-xs">
-              Eight chapters, three movements.
+            <p className="text-base sm:text-lg text-secondary/75 font-sans leading-relaxed max-w-xl mx-auto">
+              Releasing on Sprout Day — 10th October 2026.
             </p>
           </div>
-          <div className="lg:col-span-3 space-y-10">
-            {evolve.tableOfContents.map((part) => (
-              <div key={part.part}>
-                <p className="font-serif text-lg text-primary mb-4">{part.part}</p>
-                <ul className="divide-y divide-secondary/10">
-                  {part.chapters.map((chapter, i) => (
-                    <li
-                      key={chapter}
-                      className="flex items-baseline gap-4 py-3 text-secondary font-sans"
-                    >
-                      <span className="text-secondary/40 font-serif text-sm w-6">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <span className="text-base sm:text-lg">{chapter}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+
+          <div className="max-w-4xl mx-auto">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-black border border-secondary/10 aspect-video">
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                controls
+                preload="auto"
+                poster="/evolve-standing.jpg"
+                className="w-full h-full object-contain bg-black"
+              >
+                <source src="/evolve-animation.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+
+            {/* CTA directly under the video */}
+            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+              <BuyButton url={evolve.purchase.paperback.url} variant="primary">
+                Pre-order paperback · {evolve.purchase.paperback.price}
+              </BuyButton>
+              <BuyButton url={evolve.purchase.ebook.url} variant="secondary">
+                Get the e-book · {evolve.purchase.ebook.price}
+              </BuyButton>
+            </div>
           </div>
         </div>
       </section>
-      */}
 
-      {/* Review submission ───────────────────────────────────────────── */}
+      {/* 4. Endorsement submission ───────────────────────────────────── */}
       <section id="review" className="border-b border-secondary/10 scroll-mt-20">
         <div className="container mx-auto px-4 sm:px-10 py-16 xl:py-24 grid lg:grid-cols-5 gap-12">
           <div className="lg:col-span-2 space-y-3">
@@ -145,7 +150,7 @@ export default function BooksPage() {
         </div>
       </section>
 
-      {/* Endorsements ────────────────────────────────────────────────── */}
+      {/* 5. Praise / Credible Reviews ────────────────────────────────── */}
       <section id="praise" className="border-b border-secondary/10 scroll-mt-20">
         <div className="container mx-auto px-4 sm:px-10 py-16 xl:py-24 grid lg:grid-cols-5 gap-12 items-start">
           <div className="lg:col-span-2 lg:sticky lg:top-24 lg:self-start space-y-4">
@@ -160,17 +165,13 @@ export default function BooksPage() {
               EVOLVE reframes personal branding into character and intentional
               leadership.
             </p>
-            <div className="pt-1 flex items-center gap-2 text-xs font-sans text-secondary/50">
-              <span className="inline-block w-2 h-2 rounded-full bg-primary" />
-              <span>Scroll to read all {evolve.endorsements.length} endorsements</span>
-            </div>
           </div>
 
           <div className="lg:col-span-3">
             <div
               tabIndex={0}
               aria-label="Early endorsements for EVOLVE"
-              className="max-h-[580px] overflow-y-auto pr-3 sm:pr-5 space-y-5 overscroll-contain focus:outline-none focus-visible:ring-1 focus-visible:ring-primary/40 rounded-sm [scrollbar-width:thin] [scrollbar-color:theme(colors.primary/35)_transparent] [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-primary/25 hover:[&::-webkit-scrollbar-thumb]:bg-primary/50 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-secondary/5"
+              className="space-y-5 lg:max-h-[600px] lg:overflow-y-auto lg:pr-4 focus:outline-none focus-visible:ring-1 focus-visible:ring-primary/40 rounded-sm [scrollbar-width:thin] [scrollbar-color:theme(colors.primary/35)_transparent] [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-primary/25 hover:[&::-webkit-scrollbar-thumb]:bg-primary/50 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-secondary/5"
             >
               {evolve.endorsements.map((endorsement, i) => (
                 <blockquote
@@ -195,20 +196,7 @@ export default function BooksPage() {
         </div>
       </section>
 
-      {/* Purchase ────────────────────────────────────────────────────── */}
-      <section id="purchase" className="bg-lightGray scroll-mt-20">
-        <div className="container mx-auto px-4 sm:px-10 py-16 xl:py-24">
-          <PurchaseSection
-            paperback={evolve.purchase.paperback}
-            ebook={evolve.purchase.ebook}
-            waitlistFormUrl={evolve.waitlistFormUrl}
-            image={evolve.waitlistImage}
-            launchDateLabel={evolve.launchDateLabel}
-          />
-        </div>
-      </section>
-
-      {/* Also by Temitope ─────────────────────────────────────────────── */}
+      {/* 6. Also by Temitope ─────────────────────────────────────────── */}
       <section className="bg-primary text-white">
         <div className="container mx-auto px-4 sm:px-10 py-14 xl:py-20 flex flex-col lg:flex-row items-center gap-10">
           <div className="relative w-36 sm:w-44 aspect-[1808/2560] flex-shrink-0 drop-shadow-2xl">
@@ -246,7 +234,7 @@ export default function BooksPage() {
         </div>
       </section>
 
-      {/* Work with Temitope CTA ─────────────────────────────────────── */}
+      {/* 7. Work with Temitope CTA ──────────────────────────────────── */}
       <section className="bg-gray-100 border-b border-secondary/10">
         <div className="container mx-auto px-4 sm:px-10 py-14 xl:py-20 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
           <div>

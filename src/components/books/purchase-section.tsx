@@ -17,7 +17,6 @@ interface PurchaseOption {
 interface PurchaseSectionProps {
   paperback: PurchaseOption;
   ebook: PurchaseOption;
-  waitlistFormUrl: string;
   image: string;
   launchDateLabel: string;
 }
@@ -25,7 +24,6 @@ interface PurchaseSectionProps {
 export default function PurchaseSection({
   paperback,
   ebook,
-  waitlistFormUrl,
   image,
   launchDateLabel,
 }: PurchaseSectionProps) {
@@ -36,14 +34,20 @@ export default function PurchaseSection({
 
       <div className="relative space-y-10">
         <div className="max-w-3xl space-y-4">
-          <p className="text-xs font-medium tracking-[0.2em] uppercase text-primary font-sans">
-            Pre-order · {launchDateLabel}
-          </p>
+          <div className="flex flex-wrap items-center gap-2 text-xs font-semibold tracking-wider uppercase text-primary font-sans">
+            <span className="bg-primary/10 text-primary px-2.5 py-1 rounded-full text-[11px] tracking-[0.15em]">
+              Pre-order
+            </span>
+            <span className="text-secondary/40 font-normal">·</span>
+            <span className="text-secondary/80">Sprout Day</span>
+            <span className="text-secondary/40 font-normal">·</span>
+            <span className="text-secondary/80">{launchDateLabel}</span>
+          </div>
           <h2 className="font-serif text-3xl sm:text-4xl xl:text-5xl text-secondary font-semibold leading-tight break-words">
             Get your copy of <span className="text-primary">Evolve</span>.
           </h2>
           <p className="text-base sm:text-lg text-secondary/75 font-sans leading-relaxed">
-            Paperback ships from launch week · E-book emailed after payment.
+            Paperback ships from 10th October 2026 · E-book emailed after payment.
             Reserve your copy now.
           </p>
         </div>
@@ -82,19 +86,6 @@ export default function PurchaseSection({
               ctaLabel="Pre-order e-book"
             />
           </div>
-        </div>
-
-        <div className="pt-2 border-t border-secondary/10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-sm font-sans text-secondary/70">
-          <span>Not ready to pre-order yet?</span>
-          <a
-            href={waitlistFormUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-primary hover:text-primary/80 font-medium underline underline-offset-4 decoration-primary/30 hover:decoration-primary transition-colors"
-          >
-            Join the waitlist instead
-            <ArrowUpRight className="h-4 w-4" />
-          </a>
         </div>
       </div>
     </div>

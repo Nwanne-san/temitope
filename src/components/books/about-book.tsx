@@ -31,42 +31,71 @@ export default function AboutBook({ preview, rest }: AboutBookProps) {
           </p>
         </div>
 
-        {/* Scrolling copy ──────────────────────────────────────────── */}
-        <div className="lg:col-span-3 space-y-6 text-base sm:text-lg text-secondary/75 font-sans leading-relaxed">
-          {preview.map((paragraph, i) => (
-            <p key={`p-${i}`}>{paragraph}</p>
-          ))}
-
-          <AnimatePresence initial={false}>
-            {expanded && (
-              <motion.div
-                key="rest"
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: "auto", opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.35, ease: "easeInOut" }}
-                className="overflow-hidden"
-              >
-                <div className="space-y-6 pt-6">
-                  {rest.map((paragraph, i) => (
-                    <p key={`r-${i}`}>{paragraph}</p>
-                  ))}
-                </div>
-              </motion.div>
+        {/* Copy with fade blur & Read more toggle ───────────────────── */}
+        <div className="lg:col-span-3 text-base sm:text-lg text-secondary/75 font-sans leading-relaxed">
+          <div className="relative">
+            {/* Mobile collapsed preview */}
+            {!expanded && (
+              <div className="space-y-5 sm:hidden">
+                <p>{preview[0]}</p>
+                <p>
+                  This book is also, quietly, an argument against two of the more
+                  common mistakes people make while trying to build a name for
+                  themselves. The first is treating branding as a set of tactics
+                  that can be layered onto a person regardless of who that person
+                  actually is...
+                </p>
+              </div>
             )}
-          </AnimatePresence>
 
-          <button
-            type="button"
-            onClick={() => setExpanded((v) => !v)}
-            aria-expanded={expanded}
-            className="mt-2 inline-flex items-center gap-1.5 uppercase tracking-widest text-xs font-sans font-medium text-primary hover:text-primary/80 transition-colors"
-          >
-            {expanded ? "Show less" : "Read more"}
-            <ChevronDown
-              className={`h-4 w-4 transition-transform ${expanded ? "rotate-180" : ""}`}
-            />
-          </button>
+            {/* Desktop preview / Expanded full view */}
+            <div className={!expanded ? "hidden sm:block space-y-6" : "space-y-6"}>
+              {preview.map((paragraph, i) => (
+                <p key={`p-${i}`}>{paragraph}</p>
+              ))}
+
+              <AnimatePresence initial={false}>
+                {expanded && (
+                  <motion.div
+                    key="rest"
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.35, ease: "easeInOut" }}
+                    className="overflow-hidden"
+                  >
+                    <div className="space-y-6 pt-6">
+                      {rest.map((paragraph, i) => (
+                        <p key={`r-${i}`}>{paragraph}</p>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* White gradient blur overlay when collapsed */}
+            {!expanded && (
+              <div
+                className="absolute inset-x-0 bottom-0 h-28 sm:h-36 bg-gradient-to-t from-white via-white/85 to-transparent pointer-events-none"
+                aria-hidden
+              />
+            )}
+          </div>
+
+          <div className="pt-4">
+            <button
+              type="button"
+              onClick={() => setExpanded((v) => !v)}
+              aria-expanded={expanded}
+              className="inline-flex items-center gap-1.5 uppercase tracking-widest text-xs font-sans font-medium text-primary hover:text-primary/80 transition-colors py-1"
+            >
+              {expanded ? "Show less" : "Read more"}
+              <ChevronDown
+                className={`h-4 w-4 transition-transform ${expanded ? "rotate-180" : ""}`}
+              />
+            </button>
+          </div>
         </div>
       </div>
     </section>

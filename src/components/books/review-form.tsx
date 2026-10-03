@@ -224,9 +224,6 @@ export default function ReviewForm() {
         >
           {status === "loading" ? "Submitting..." : "Submit endorsement"}
         </button>
-        <p className="text-xs text-secondary/60 font-sans max-w-xs">
-          Endorsements are moderated before they appear on the site.
-        </p>
       </div>
     </form>
   );
