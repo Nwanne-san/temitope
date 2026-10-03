@@ -78,7 +78,7 @@ export default function EvolveFlyerModal() {
             exit={{ y: 16, opacity: 0, scale: 0.98 }}
             transition={{ type: "spring", damping: 26, stiffness: 260 }}
             onClick={(e) => e.stopPropagation()}
-            className="relative w-full max-w-3xl bg-white rounded-2xl shadow-2xl overflow-hidden max-h-[90vh] grid grid-cols-5 items-stretch border border-white/20"
+            className="relative w-full max-w-4xl bg-white rounded-2xl shadow-2xl overflow-hidden max-h-[90vh] grid grid-cols-5 items-stretch border border-white/20"
           >
             <button
               type="button"
@@ -96,7 +96,7 @@ export default function EvolveFlyerModal() {
                   src="/evolve-flyer.png"
                   alt="Evolve — Official Book Launch Flyer"
                   fill
-                  sizes="340px"
+                  sizes="360px"
                   className="object-contain object-center"
                   priority
                 />
@@ -129,11 +129,11 @@ export default function EvolveFlyerModal() {
               </div>
 
               <div className="pt-6 space-y-4">
-                <div className="flex items-center gap-3">
+                <div className="flex flex-nowrap items-center gap-3">
                   <Link
                     href="/books#purchase"
                     onClick={close}
-                    className="inline-flex items-center justify-center gap-2 uppercase tracking-widest text-xs bg-primary text-white font-sans font-medium px-5 py-3 rounded-tl-2xl hover:bg-primary/90 transition-colors shadow-sm"
+                    className="whitespace-nowrap inline-flex items-center justify-center gap-2 uppercase tracking-wider text-xs bg-primary text-white font-sans font-medium px-5 py-3 rounded-tl-2xl hover:bg-primary/90 transition-colors shadow-sm shrink-0"
                   >
                     Pre-order your copy
                     <ArrowUpRight className="h-4 w-4" />
@@ -141,7 +141,7 @@ export default function EvolveFlyerModal() {
                   <Link
                     href="/books#about"
                     onClick={close}
-                    className="inline-flex items-center justify-center uppercase tracking-widest text-xs bg-lightGray text-secondary font-sans font-medium px-5 py-3 rounded-br-2xl hover:bg-primary hover:text-white transition-colors"
+                    className="whitespace-nowrap inline-flex items-center justify-center uppercase tracking-wider text-xs bg-lightGray text-secondary font-sans font-medium px-5 py-3 rounded-br-2xl hover:bg-primary hover:text-white transition-colors shrink-0"
                   >
                     Read excerpt
                   </Link>
