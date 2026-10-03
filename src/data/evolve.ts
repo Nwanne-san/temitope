@@ -86,26 +86,31 @@ export const evolve = {
       ],
     },
   ],
-  // Endorser names provided by the client. Quotes remain placeholders until
-  // the endorsers approve final copy.
+  // Verified endorsements from leaders, executives, and founders.
   endorsements: [
     {
       quote:
-        "A rare handbook that treats personal branding as identity work, not marketing work.",
-      name: "Hannah Famodimu",
-      role: "Business Development Officer, Pole Global Marketing",
+        "EVOLVE is more than a book on personal branding; it is an invitation to become intentional about who you are and what you represent.",
+      name: "Akin Akinpelu, Ph.D., Amb., FLPi",
+      role: "CEO AALD & African Union Ambassador of Political Affairs",
     },
     {
       quote:
-        "Reads like a mentor who has done the work, and is now offering you the map.",
-      name: "Cynthia Omisore",
-      role: "Developer, Brand Xperience",
+        "With practical insights, inspiring stories and actionable strategies, it helps readers to align their goals, vision and aspirations with a clear sense of purpose.",
+      name: "Larai Sylvia Ishaku",
+      role: "Executive Chairman, Jaba LGA Kaduna State",
     },
     {
       quote:
-        "The clearest thinking I have seen on how to grow a brand without abandoning yourself.",
-      name: "Stephanie Momoh",
-      role: "Product Manager, Spice Metropolis Limited",
+        "She spoke to real issues as it relates to personal branding and therefore I highly recommend this book as a must read to anyone who wants to take their personal brand to the next level.",
+      name: "Enyinnaya Iroadumba",
+      role: "CEO/Founder, Beacon Global Ventures LLC",
+    },
+    {
+      quote:
+        "Evolve is a clear, thoughtful guide to closing the gap between the person we perform and the person we are. Anyone serious about building a name that lasts should read it, and then read it again.",
+      name: "Prince Oladeji Bamidele",
+      role: "Chairman/CEO, Pumpkin Holdings Limited",
     },
   ],
   // Google Form used behind the scenes for waitlist submissions.

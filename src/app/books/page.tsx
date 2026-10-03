@@ -134,8 +134,9 @@ export default function BooksPage() {
               Leave an endorsement
             </h2>
             <p className="text-secondary/70 font-sans max-w-md leading-relaxed pt-2">
-              Kindly share your thoughts which will be featured on this page
-              and in the preliminary pages of the book.
+              Have you read an early draft of EVOLVE? Share your reflections
+              below. Selected endorsements will be featured on this page and in
+              the preliminary pages of the upcoming print edition.
             </p>
           </div>
           <div className="lg:col-span-3">
@@ -145,31 +146,51 @@ export default function BooksPage() {
       </section>
 
       {/* Endorsements ────────────────────────────────────────────────── */}
-      <section className="border-b border-secondary/10">
-        <div className="container mx-auto px-4 sm:px-10 py-16 xl:py-24">
-          <p className="text-xs font-medium tracking-[0.2em] uppercase text-primary font-sans mb-4">
-            Praise
-          </p>
-          <h2 className="font-serif text-2xl sm:text-4xl xl:text-5xl text-secondary leading-tight mb-12 max-w-3xl break-words">
-            What early readers said.
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {evolve.endorsements.map((endorsement, i) => (
-              <blockquote
-                key={i}
-                className="border-l-2 border-primary pl-5 flex flex-col justify-between h-full"
-              >
-                <p className="font-serif text-lg text-secondary leading-snug mb-6">
-                  &ldquo;{endorsement.quote}&rdquo;
-                </p>
-                <footer className="font-sans">
-                  <p className="text-sm font-medium text-secondary">
-                    {endorsement.name}
+      <section id="praise" className="border-b border-secondary/10 scroll-mt-20">
+        <div className="container mx-auto px-4 sm:px-10 py-16 xl:py-24 grid lg:grid-cols-5 gap-12 items-start">
+          <div className="lg:col-span-2 lg:sticky lg:top-24 lg:self-start space-y-4">
+            <p className="text-xs font-medium tracking-[0.2em] uppercase text-primary font-sans">
+              Praise
+            </p>
+            <h2 className="font-serif text-2xl sm:text-4xl xl:text-5xl text-secondary leading-tight break-words">
+              What leaders and early readers say.
+            </h2>
+            <p className="text-secondary/70 font-sans text-base sm:text-lg leading-relaxed max-w-sm">
+              Reflections from executives, founders, and public leaders on how
+              EVOLVE reframes personal branding into character and intentional
+              leadership.
+            </p>
+            <div className="pt-1 flex items-center gap-2 text-xs font-sans text-secondary/50">
+              <span className="inline-block w-2 h-2 rounded-full bg-primary" />
+              <span>Scroll to read all {evolve.endorsements.length} endorsements</span>
+            </div>
+          </div>
+
+          <div className="lg:col-span-3">
+            <div
+              tabIndex={0}
+              aria-label="Early endorsements for EVOLVE"
+              className="max-h-[580px] overflow-y-auto pr-3 sm:pr-5 space-y-5 overscroll-contain focus:outline-none focus-visible:ring-1 focus-visible:ring-primary/40 rounded-sm [scrollbar-width:thin] [scrollbar-color:theme(colors.primary/35)_transparent] [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-primary/25 hover:[&::-webkit-scrollbar-thumb]:bg-primary/50 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-secondary/5"
+            >
+              {evolve.endorsements.map((endorsement, i) => (
+                <blockquote
+                  key={i}
+                  className="border-l-2 border-primary bg-secondary/[0.02] hover:bg-secondary/[0.04] p-6 sm:p-7 rounded-r-lg transition-colors flex flex-col justify-between"
+                >
+                  <p className="font-serif text-base sm:text-lg text-secondary leading-relaxed mb-5">
+                    &ldquo;{endorsement.quote}&rdquo;
                   </p>
-                  <p className="text-xs text-secondary/60">{endorsement.role}</p>
-                </footer>
-              </blockquote>
-            ))}
+                  <footer className="font-sans pt-3 border-t border-secondary/10">
+                    <p className="text-sm font-semibold text-secondary">
+                      {endorsement.name}
+                    </p>
+                    <p className="text-xs text-secondary/65 mt-0.5 leading-snug">
+                      {endorsement.role}
+                    </p>
+                  </footer>
+                </blockquote>
+              ))}
+            </div>
           </div>
         </div>
       </section>

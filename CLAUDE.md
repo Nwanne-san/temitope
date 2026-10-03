@@ -147,11 +147,13 @@ Required in production for the newsletter to succeed:
 
 If any are missing, `/api/subscribe` returns `{"error":"Newsletter is not configured"}` with status 500, and the footer form shows an inline error.
 
-Required for the reader-review form on `/books` to succeed:
+Required for the reader-endorsement form on `/books` to succeed:
 
-- `REVIEWS_FORMSPREE_ENDPOINT` — a Formspree JSON endpoint URL (e.g. `https://formspree.io/f/xxxxxxxx`). The form's destination address in Formspree must be **`books@temitoperuthjacob.com`** (not the general `hi@` inbox) so endorsements land where the book team reads them.
+- `REVIEWS_FORMSPREE_ENDPOINT` — a Formspree JSON endpoint URL (e.g. `https://formspree.io/f/xxxxxxxx`). The form forwards the submitter's email, name, role, organization, and endorsement. Destination inbox should be **`books@temitoperuthjacob.com`**. Turn on Autoresponder in Formspree settings so submitters receive an automatic receipt, or configure Resend below.
+- `RESEND_API_KEY` (optional) — if provided, `/api/reviews` directly delivers a branded email receipt with a summary transcript of their submission directly to the endorser.
+- `RESEND_FROM_EMAIL` (optional) — sender email address for Resend confirmations (defaults to `Temitope Ruth Jacob <books@temitoperuthjacob.com>`).
 
-If missing, `/api/reviews` returns `{"error":"Reviews are not configured yet..."}` with status 500 and the form displays an inline message. Approved reviews are pasted by hand into a data file after moderation — there is no live public feed.
+If neither is configured in production, `/api/reviews` returns `{"error":"Endorsement service is not configured yet..."}` with status 500 and the form displays an inline message. Approved endorsements are curated in `src/data/evolve.ts` after moderation — there is no unmoderated live public feed.
 
 ---
 
