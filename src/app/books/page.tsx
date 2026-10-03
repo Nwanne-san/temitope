@@ -16,10 +16,10 @@ export default function BooksPage() {
       {/* Desktop Modal with Evolve Flyer (replica for books page only) */}
       <EvolveFlyerModal />
 
-      {/* Hero — full-bleed video under transparent nav ───────────────── */}
-      <section className="relative min-h-[100svh] flex flex-col overflow-hidden bg-white">
+      {/* Hero — video on desktop, clean flyer on mobile under transparent nav ── */}
+      <section className="relative min-h-[100svh] flex flex-col overflow-hidden bg-[#180A1A] sm:bg-white">
         <video
-          className="absolute inset-0 h-full w-full object-cover origin-center"
+          className="hidden sm:block absolute inset-0 h-full w-full object-cover origin-center"
           autoPlay
           muted
           loop
@@ -31,21 +31,21 @@ export default function BooksPage() {
           <source src="/evolve-hero.mp4" type="video/mp4" />
         </video>
         <div
-          className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/40 to-black/75"
+          className="hidden sm:block absolute inset-0 bg-gradient-to-b from-black/55 via-black/40 to-black/75"
           aria-hidden
         />
 
         <Navbar variant="overMedia" />
 
-        <div className="relative z-10 flex flex-1 flex-col justify-end container mx-auto px-4 sm:px-10 pb-16 pt-28 sm:pb-20 xl:pb-24">
+        <div className="relative z-10 flex flex-1 flex-col justify-end container mx-auto px-4 sm:px-10 pb-16 pt-24 sm:pt-28 sm:pb-20 xl:pb-24">
           <div className="max-w-2xl space-y-6">
             {/* Evolve Flyer — Mobile only, prominent hero showcase */}
-            <div className="sm:hidden w-full max-w-[340px] aspect-[4/5] relative rounded-2xl overflow-hidden shadow-2xl border-2 border-white/25 mx-auto mb-6 bg-black/40">
+            <div className="sm:hidden w-full max-w-[420px] aspect-[4/5] relative rounded-2xl overflow-hidden shadow-2xl border border-white/20 mx-auto mb-6 bg-[#250D27]">
               <Image
                 src="/evolve-flyer.png"
                 alt="Evolve — Official Book Launch Flyer"
                 fill
-                sizes="(max-width: 640px) 90vw, 340px"
+                sizes="(max-width: 640px) 95vw, 420px"
                 className="object-contain object-center"
                 priority
               />
