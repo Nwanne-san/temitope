@@ -94,10 +94,10 @@ export default function ReviewForm() {
 
         <div className="space-y-2">
           <h3 className="font-serif text-2xl sm:text-3xl text-secondary font-medium">
-            Thank you for your endorsement.
+            Thank you for sharing your reflection.
           </h3>
           <p className="text-secondary/80 font-sans text-sm sm:text-base leading-relaxed max-w-xl">
-            Temitope and the publishing team review every endorsement personally before it is featured on the site and in the print edition.
+            We are truly grateful for your time and thoughtful words. Temitope and the publishing team read every submission with care, and selected endorsements will be featured on this page and in upcoming print editions.
           </p>
         </div>
 

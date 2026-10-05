@@ -49,7 +49,7 @@ Here is a copy of the endorsement information you submitted:
 - Endorsement:
 "${review}"
 
-Each endorsement is reviewed personally by Temitope and the editorial team. Selected endorsements will be featured on the official EVOLVE page (https://www.temitoperuthjacob.com/books) and in the preliminary pages of the upcoming print edition.
+Each endorsement is reviewed with care by Temitope and the publishing team. Selected endorsements will be featured on the official EVOLVE page (https://www.temitoperuthjacob.com/books) and in the preliminary pages of the upcoming print edition.
 
 Warm regards,
 Temitope Ruth Jacob & The EVOLVE Publishing Team
@@ -81,7 +81,7 @@ https://www.temitoperuthjacob.com`;
       <p style="margin: 0; font-size: 15px; font-style: italic; color: #222222; line-height: 1.6;">&ldquo;${review}&rdquo;</p>
     </div>
     <p style="font-size: 14px; margin: 0 0 16px 0; color: #555555;">
-      Each submission is reviewed personally by Temitope and the editorial team. Selected endorsements will be featured on the official book page and in the preliminary pages of the upcoming print edition.
+      Each submission is reviewed with care by Temitope and the publishing team. Selected endorsements will be featured on the official book page and in the preliminary pages of the upcoming print edition.
     </p>
     <div style="margin-top: 28px; pt: 16px; border-top: 1px solid #eeeeee;">
       <p style="font-size: 14px; margin: 16px 0 0 0; color: #333333;">
