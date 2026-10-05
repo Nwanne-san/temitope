@@ -104,9 +104,9 @@ export default function ReviewForm() {
           </h3>
           <p className="text-secondary/80 font-sans text-sm sm:text-base leading-relaxed max-w-xl">
             We are truly grateful for your time and thoughtful words. Temitope
-            and the publishing team read every submission with care, your
+            and the publishing team reads every submission with care, your
             endorsements will be featured on this page and in upcoming print
-            editions
+            editions.
           </p>
         </div>
 
