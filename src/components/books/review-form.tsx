@@ -19,7 +19,9 @@ export default function ReviewForm() {
   const [review, setReview] = useState("");
   const [status, setStatus] = useState<Status>("idle");
   const [message, setMessage] = useState("");
-  const [submittedData, setSubmittedData] = useState<SubmittedPayload | null>(null);
+  const [submittedData, setSubmittedData] = useState<SubmittedPayload | null>(
+    null
+  );
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -68,11 +70,15 @@ export default function ReviewForm() {
         setReview("");
       } else {
         setStatus("error");
-        setMessage(data?.error || "Unable to submit your endorsement. Please try again.");
+        setMessage(
+          data?.error || "Unable to submit your endorsement. Please try again."
+        );
       }
     } catch {
       setStatus("error");
-      setMessage("A network error occurred. Please check your connection and try again.");
+      setMessage(
+        "A network error occurred. Please check your connection and try again."
+      );
     }
   };
 
@@ -97,7 +103,10 @@ export default function ReviewForm() {
             Thank you for sharing your reflection.
           </h3>
           <p className="text-secondary/80 font-sans text-sm sm:text-base leading-relaxed max-w-xl">
-            We are truly grateful for your time and thoughtful words. Temitope and the publishing team read every submission with care, and selected endorsements will be featured on this page and in upcoming print editions.
+            We are truly grateful for your time and thoughtful words. Temitope
+            and the publishing team read every submission with care, your
+            endorsements will be featured on this page and in upcoming print
+            editions
           </p>
         </div>
 
@@ -112,14 +121,18 @@ export default function ReviewForm() {
               <span className="font-medium">{submittedData.name}</span>
             </div>
             <div>
-              <span className="text-xs text-secondary/60 block">Role &amp; Organization</span>
+              <span className="text-xs text-secondary/60 block">
+                Role &amp; Organization
+              </span>
               <span className="font-medium">
                 {submittedData.role}, {submittedData.organization}
               </span>
             </div>
           </div>
           <div className="pt-2 border-t border-secondary/10">
-            <span className="text-xs text-secondary/60 block mb-1">Endorsement</span>
+            <span className="text-xs text-secondary/60 block mb-1">
+              Endorsement
+            </span>
             <p className="font-serif italic text-secondary text-sm sm:text-base leading-relaxed">
               &ldquo;{submittedData.review}&rdquo;
             </p>
@@ -228,4 +241,3 @@ export default function ReviewForm() {
     </form>
   );
 }
-
