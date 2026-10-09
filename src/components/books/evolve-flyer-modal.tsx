@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import { X, ArrowUpRight, CalendarDays } from "lucide-react";
+import { X, ArrowUpRight, BookOpen, Download } from "lucide-react";
 import { evolve } from "@/data/evolve";
 
 const STORAGE_KEY = "evolveBooksDesktopModalLastSeen";
@@ -106,9 +106,8 @@ export default function EvolveFlyerModal() {
             {/* Content Column */}
             <div className="col-span-3 p-8 lg:p-10 flex flex-col justify-between overflow-y-auto">
               <div>
-                <p className="text-xs font-semibold tracking-[0.18em] uppercase text-primary font-sans inline-flex items-center gap-2">
-                  <CalendarDays className="w-3.5 h-3.5" />
-                  <span>Sprout Day · {evolve.launchDateLabel}</span>
+                <p className="text-xs font-semibold tracking-[0.18em] uppercase text-primary font-sans">
+                  Out Now
                 </p>
 
                 <h2
@@ -135,29 +134,20 @@ export default function EvolveFlyerModal() {
                     onClick={close}
                     className="whitespace-nowrap inline-flex items-center justify-center gap-2 uppercase tracking-wider text-xs bg-primary text-white font-sans font-medium px-5 py-3 rounded-tl-2xl hover:bg-primary/90 transition-colors shadow-sm shrink-0"
                   >
-                    Pre-order your copy
+                    <BookOpen className="h-4 w-4" />
+                    Buy hard copy
                     <ArrowUpRight className="h-4 w-4" />
                   </Link>
                   <Link
-                    href="/books#about"
+                    href="/books#purchase"
                     onClick={close}
-                    className="whitespace-nowrap inline-flex items-center justify-center uppercase tracking-wider text-xs bg-lightGray text-secondary font-sans font-medium px-5 py-3 rounded-br-2xl hover:bg-primary hover:text-white transition-colors shrink-0"
+                    className="whitespace-nowrap inline-flex items-center justify-center gap-2 uppercase tracking-wider text-xs bg-lightGray text-secondary font-sans font-medium px-5 py-3 rounded-br-2xl hover:bg-primary hover:text-white transition-colors shrink-0"
                   >
-                    Read excerpt
+                    <Download className="h-4 w-4" />
+                    Buy e-book
+                    <ArrowUpRight className="h-4 w-4" />
                   </Link>
                 </div>
-
-                <p className="text-xs text-secondary/50 font-sans">
-                  Already read an early copy?{" "}
-                  <Link
-                    href="/books#review"
-                    onClick={close}
-                    className="underline underline-offset-2 hover:text-primary font-medium"
-                  >
-                    Leave an endorsement
-                  </Link>
-                  .
-                </p>
               </div>
             </div>
           </motion.div>
