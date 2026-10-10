@@ -36,7 +36,7 @@ export default function PurchaseSection({
         <div className="max-w-3xl space-y-4">
           <div className="flex flex-wrap items-center gap-2 text-xs font-semibold tracking-wider uppercase text-primary font-sans">
             <span className="bg-primary/10 text-primary px-2.5 py-1 rounded-full text-[11px] tracking-[0.15em]">
-              Pre-order
+              Out now
             </span>
             <span className="text-secondary/40 font-normal">·</span>
             <span className="text-secondary/80">Sprout Day</span>
@@ -73,7 +73,7 @@ export default function PurchaseSection({
               detailIcon={<CalendarDays className="w-4 h-4 text-primary shrink-0" />}
               detail={paperback.fulfilment}
               url={paperback.url}
-              ctaLabel="Pre-order paperback"
+              ctaLabel="Get the paperback"
               highlight
             />
             <PurchaseCard
@@ -83,7 +83,7 @@ export default function PurchaseSection({
               detailIcon={<Mail className="w-4 h-4 text-primary shrink-0" />}
               detail={ebook.fulfilment}
               url={ebook.url}
-              ctaLabel="Pre-order e-book"
+              ctaLabel="Get the e-book"
             />
           </div>
         </div>

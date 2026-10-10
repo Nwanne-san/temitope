@@ -128,11 +128,11 @@ export default function BookLaunchModal() {
 
               <div className="mt-6 flex flex-col sm:flex-row gap-3">
                 <Link
-                  href="/books#waitlist"
+                  href="/books#purchase"
                   onClick={close}
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 uppercase tracking-widest text-xs bg-primary text-white font-sans font-medium px-5 py-3 rounded-tl-3xl hover:bg-primary/90 transition-colors text-center"
                 >
-                  Join the waitlist
+                  Get the book
                   <ArrowUpRight className="h-4 w-4" />
                 </Link>
                 <Link

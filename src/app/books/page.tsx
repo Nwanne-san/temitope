@@ -61,7 +61,7 @@ export default function BooksPage() {
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 w-full sm:w-auto">
               <BuyButton url={evolve.purchase.paperback.url} variant="primary">
-                Pre-order paperback · {evolve.purchase.paperback.price}
+                Get the paperback · {evolve.purchase.paperback.price}
               </BuyButton>
               <BuyButton url={evolve.purchase.ebook.url} variant="onDark">
                 Get the e-book · {evolve.purchase.ebook.price}
@@ -74,7 +74,7 @@ export default function BooksPage() {
       {/* 1. About the book ───────────────────────────────────────────── */}
       <AboutBook preview={evolve.aboutPreview} rest={evolve.aboutRest} />
 
-      {/* 2. Pre-order / Purchase ─────────────────────────────────────── */}
+      {/* 2. Purchase ─────────────────────────────────────── */}
       <section id="purchase" className="bg-lightGray scroll-mt-20">
         <div className="container mx-auto px-4 sm:px-10 py-16 xl:py-24">
           <PurchaseSection
@@ -118,7 +118,7 @@ export default function BooksPage() {
             {/* CTA directly under the video */}
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
               <BuyButton url={evolve.purchase.paperback.url} variant="primary">
-                Pre-order paperback · {evolve.purchase.paperback.price}
+                Get the paperback · {evolve.purchase.paperback.price}
               </BuyButton>
               <BuyButton url={evolve.purchase.ebook.url} variant="secondary">
                 Get the e-book · {evolve.purchase.ebook.price}

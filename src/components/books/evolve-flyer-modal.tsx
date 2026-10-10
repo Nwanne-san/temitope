@@ -135,7 +135,7 @@ export default function EvolveFlyerModal() {
                     className="whitespace-nowrap inline-flex items-center justify-center gap-2 uppercase tracking-wider text-xs bg-primary text-white font-sans font-medium px-5 py-3 rounded-tl-2xl hover:bg-primary/90 transition-colors shadow-sm shrink-0"
                   >
                     <BookOpen className="h-4 w-4" />
-                    Buy hard copy
+                    Get the paperback
                     <ArrowUpRight className="h-4 w-4" />
                   </Link>
                   <Link
@@ -144,7 +144,7 @@ export default function EvolveFlyerModal() {
                     className="whitespace-nowrap inline-flex items-center justify-center gap-2 uppercase tracking-wider text-xs bg-lightGray text-secondary font-sans font-medium px-5 py-3 rounded-br-2xl hover:bg-primary hover:text-white transition-colors shrink-0"
                   >
                     <Download className="h-4 w-4" />
-                    Buy e-book
+                    Get the e-book
                     <ArrowUpRight className="h-4 w-4" />
                   </Link>
                 </div>

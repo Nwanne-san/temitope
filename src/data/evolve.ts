@@ -21,7 +21,7 @@ export const evolve = {
       fulfilment: "Ships from 10th October 2026",
     },
     ebook: {
-      url: "https://flutterwave.com/pay/evolvesoft",
+      url: "https://selar.com/n3m5f51x93",
       price: "₦10,000",
       format: "E-book",
       fulfilment: "Emailed after payment",
