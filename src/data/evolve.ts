@@ -3,22 +3,21 @@
 export const evolve = {
   title: "Evolve",
   subtitle: "The person you become is the brand you build.",
-  // Official release: 10th October 2026 (Sprout Day)
+  // Released 10th October 2026
   launchDate: "2026-10-10" as string | null,
   launchDateLabel: "10th October 2026",
-  releaseDayLabel: "Sprout Day · 10th October 2026",
   price: {
     paperback: "₦15,000",
-    note: "Official release on Sprout Day — 10th October 2026.",
+    note: "Now available in paperback and ebook.",
   },
-  // Flutterwave checkout links. Paperback ships from launch week; the e-book
-  // is emailed after payment (not an instant download).
+  // Flutterwave checkout links. Paperback ships within a few working days; the
+  // e-book is emailed after payment (not an instant download).
   purchase: {
     paperback: {
       url: "https://flutterwave.com/pay/trj",
       price: "₦15,000",
       format: "Paperback",
-      fulfilment: "Ships from 10th October 2026",
+      fulfilment: "Ships within a few working days",
     },
     ebook: {
       url: "https://selar.com/n3m5f51x93",
@@ -28,7 +27,7 @@ export const evolve = {
     },
   },
   launchContext:
-    "A new book by Temitope Ruth Jacob. Releasing 10th October 2026 (Sprout Day) — pre-order your copy now.",
+    "A new book by Temitope Ruth Jacob. Now available in paperback and ebook — order your copy today.",
   // Short verbatim excerpt used in the homepage modal (first three sentences of
   // the PDF).
   modalPitch:

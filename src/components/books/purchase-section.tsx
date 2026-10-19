@@ -18,14 +18,12 @@ interface PurchaseSectionProps {
   paperback: PurchaseOption;
   ebook: PurchaseOption;
   image: string;
-  launchDateLabel: string;
 }
 
 export default function PurchaseSection({
   paperback,
   ebook,
   image,
-  launchDateLabel,
 }: PurchaseSectionProps) {
   return (
     <div className="relative rounded-2xl bg-gradient-to-br from-white via-white to-gray-50 border border-secondary/10 shadow-sm p-6 sm:p-10 xl:p-14 overflow-hidden">
@@ -39,16 +37,14 @@ export default function PurchaseSection({
               Out now
             </span>
             <span className="text-secondary/40 font-normal">·</span>
-            <span className="text-secondary/80">Sprout Day</span>
-            <span className="text-secondary/40 font-normal">·</span>
-            <span className="text-secondary/80">{launchDateLabel}</span>
+            <span className="text-secondary/80">Paperback & ebook</span>
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl xl:text-5xl text-secondary font-semibold leading-tight break-words">
             Get your copy of <span className="text-primary">Evolve</span>.
           </h2>
           <p className="text-base sm:text-lg text-secondary/75 font-sans leading-relaxed">
-            Paperback ships from 10th October 2026 · E-book emailed after payment.
-            Reserve your copy now.
+            Paperback ships within a few working days · E-book emailed after
+            payment. Order your copy today.
           </p>
         </div>
 

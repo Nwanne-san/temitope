@@ -81,7 +81,6 @@ export default function BooksPage() {
             paperback={evolve.purchase.paperback}
             ebook={evolve.purchase.ebook}
             image={evolve.waitlistImage}
-            launchDateLabel={evolve.launchDateLabel}
           />
         </div>
       </section>
@@ -94,7 +93,7 @@ export default function BooksPage() {
               A glimpse into <span className="text-primary">Evolve</span>.
             </h2>
             <p className="text-base sm:text-lg text-secondary/75 font-sans leading-relaxed max-w-xl mx-auto">
-              Releasing on Sprout Day — 10th October 2026.
+              Now available in paperback and ebook.
             </p>
           </div>
 
